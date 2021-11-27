@@ -4,23 +4,38 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Clothing_Store.Models;
+using Clothing_Store.Utils;
+using Microsoft.EntityFrameworkCore;
 
 namespace Clothing_Store.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDBContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDBContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var products = _context.Products
+                .Where(p => p.IsDelete == false)
+                .Where(p => p.Visible == true)
+                .Include(p => p.ratings)
+                .Include(p => p.images)
+                .Select(p => new ProductViewModel()
+                 {
+                     ID = p.ID,
+                     Name = p.Name,
+                     Price = p.Price,
+                     ratings = (int)Math.Round(p.ratings.Average(r => r.Star)),
+                     image = p.images.FirstOrDefault()
+                 });
+
+            return View(products);
         }
 
         public IActionResult Privacy()
