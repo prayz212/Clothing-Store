@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Giỏ hàng";
+}
+<!-- Cart Items -->
+<div class="__container __cart">
+    <table>
+        <tr>
+
+            <th class="col-md-1"></th>
+            <th class="col-md-4 col-7 py-4">Sản phẩm</th>
+            <th class="col-md-1 text-center"><div class="d-none d-md-block"> Phân loại </div></th>
+            <th class="col-md-2 text-center"><div class="d-none d-md-block"> Chi tiết </div></th>
+            <th class="col-md-1 col-2 text-center">Số lượng</th>
+            <th class="col-md-2 col-2 text-center">Số tiền</th>
+            <th class="col-md-1 col-1 text-center">Thao tác</th>
+        </tr>
+        <tr class="border">
+            <td class="col-md-1">
+                <div class="d-flex justify-content-center">
+                    <input class="form-check-input w-25" type="checkbox" value="" id="">
+                </div>
+            </td>
+            <td class="col-md-4 col-7">
+                <div class="__cart-info">
+                    <img src="./images/pic1.jpg" alt="">
+                    <div class="d-flex align-items-center">
+                        <a href="#" class="fs-2">Boy’s T-Shirt</a>
+                    </div>
+                </div>
+            </td>
+            <td class="col-md-1 text-center"><div class="d-none d-md-block"> Áo trẻ con </div></td>
+            <td class="col-md-2 text-center"><div class="d-none d-md-block"> Đỏ | Size 10 </div></td>
+            <td class="col-md-1 col-2">
+                <div class="d-flex justify-content-center">
+                    <input type="number" value="1" min="1" class="_form-input text-center">
+                </div>
+            </td>
+            <td class="col-md-2 col-2 text-center">$50.00</td>
+            <td class="col-md-1 col-1">
+                <div class="d-flex justify-content-center">
+                    <a href="#" class="text-decoration-none text-center">Xóa</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td class="col-md-1 py-4">
+                <div class="d-none d-sm-block">
+                    <div class="d-flex justify-content-center">
+                        <input class="form-check-input w-25" type="checkbox" value="" id="check_all">
+                    </div>
+                </div>
+            </td>
+            <td class="col-md-2 text-start"><div class="d-none d-sm-block"> Chọn tất cả (3) </div></td>
+            <td class="col-md-7 text-end">Tổng thành tiền (3): <b class="fs-1 text-primary">$100</b></td>
+            <td class="col-md-5 text-center"><a asp-action="Payment" class="checkout _btn text-light w-75">Mua hàng</a></td>
+        </tr>
+    </table>
+
+</div>
+
+
+

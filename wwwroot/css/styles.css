@@ -84,6 +84,9 @@ li {
 
 .__nav {
     padding: 1.2rem 0;
+    min-height: 10vh;
+    background: #243a6f;
+    color: #fff;
 }
 
 .__nav-shadow {
@@ -699,6 +702,7 @@ li {
     background-color: var(--black);
     padding: 1.2rem 1rem;
     line-height: 2.5rem;
+    min-height: 7vh;
 }
 
 .__footer-center {
@@ -869,7 +873,7 @@ form {
     }
 
     .__product-detail .__form .__addCart {
-        background: #ff7c9c;
+        background: #243a6f;
         padding: 0.8rem 4rem;
         color: #fff;
         border-radius: 3rem;
@@ -1087,8 +1091,9 @@ form {
 }
 
 /* Cart Items */
-.cart {
-    margin: 10rem auto;
+.__cart {
+    margin: 5vh auto;
+    min-height: 73vh;
 }
 
 table {
@@ -1096,7 +1101,7 @@ table {
     border-collapse: collapse;
 }
 
-.cart-info {
+.__cart-info {
     display: flex;
     flex-wrap: wrap;
 }
@@ -1105,7 +1110,7 @@ th {
     text-align: left;
     padding: 0.5rem;
     color: #fff;
-    background-color: #fc7c7c;
+    background-color: #243a6f;
     font-weight: normal;
 }
 
@@ -1153,7 +1158,160 @@ th:last-child {
 }
 
 @media only screen and (max-width: 567px) {
-    .cart-info p {
+    .__cart-info p {
         display: none;
     }
 }
+
+
+/* ------------------------ payment page ------------------------ */
+.total-price table {
+    border-top: 1px solid #999393;
+    width: 100%;
+    max-width: 35rem;
+}
+
+.__payment-page {
+    min-height: 83vh;
+    padding: 10px;
+}
+
+/* ------------------------ account page ------------------------ */
+._header {
+    position: relative;
+    width: 100%;
+    background-color: #243a6f;
+    color: white;
+    overflow: hidden;
+}
+
+._account-page {
+    padding: 100px 0;
+    min-height: 83vh;
+    /* background: radial-gradient(#fff, #03dbfc); */
+}
+
+._container {
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+._row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+._col-2 {
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+._form-container {
+    background: #fff;
+    width: 300px;
+    height: 320px;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    margin: auto;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+    ._form-container span {
+        font-weight: bold;
+        padding: 0 5px;
+        /* color: var(--text-color); */
+        cursor: pointer;
+        width: 100px;
+        display: inline-block;
+    }
+
+    ._form-container form {
+        max-width: 300px;
+        padding: 0 20px;
+        position: absolute;
+        top: 70px;
+        transition: transform 1s;
+    }
+
+#_LoginForm {
+    right: 0px;
+}
+
+#_RegForm {
+    right: -300px;
+}
+
+._form-btn {
+    display: inline-block;
+}
+
+#_Indicator {
+    width: 100px;
+    border: none;
+    background: #243a6f;
+    height: 3px;
+    margin-top: 8px;
+    transform: translateX(0px);
+    transition: transform 1s;
+}
+
+._form-input {
+    width: 100%;
+    height: 30px;
+    margin: 10px 0;
+    padding: 18px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+._btn {
+    display: inline-block;
+    background: #243a6f;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5;
+    border: none;
+}
+
+    ._btn:hover {
+        background: #3556a6;
+    }
+
+form ._btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+@media only screen and (max-width:600px) {
+    ._row {
+        align-items: center;
+    }
+
+    ._col-2 {
+        flex-basis: 100%;
+    }
+}
+
+.__payment_method_item {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px 5px;
+    margin: 5px 0;
+}
+
+    .__payment_method_item.active, .__payment_method_item:hover {
+        border: 1px solid #2f5acf;
+        cursor: pointer;
+    }
