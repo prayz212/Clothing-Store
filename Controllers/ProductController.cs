@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Clothing_Store.Models;
+using Clothing_Store.Utils;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,6 +13,13 @@ namespace Clothing_Store.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly ApplicationDBContext _context;
+
+        public ProductController(ApplicationDBContext context)
+        {
+            _context = context;
+        }
+
         // GET: Product
         public ActionResult Index()
         {
@@ -16,9 +27,38 @@ namespace Clothing_Store.Controllers
         }
 
         // GET: Product/Details/5
-        public ActionResult Details(int id)
+        public IActionResult Details(int id)
         {
-            return View();
+            try
+            {
+                ProductDetailViewModel vm = _context.Products
+                    .Where(p => p.ID == id)
+                    .Where(p => p.IsDelete == false)
+                    .Where(p => p.Visible == true)
+                    .Include(p => p.ratings)
+                    .Include(p => p.images)
+                    .Include(p => p.warehouses)
+                    .Include(p => p.promotion)
+                    .Select(p => new ProductDetailViewModel()
+                    {
+                        ID = p.ID,
+                        Name = p.Name,
+                        Price = p.Price,
+                        Description = p.Description,
+                        Ratings = (int)Math.Round(p.ratings.Average(r => r.Star)),
+                        Sold = p.warehouses.Sum(w => w.Sold),
+                        Discount = p.promotion.Discount,
+                        Colors = p.warehouses.Select(w => w.Color).ToList(),
+                        Sizes = p.warehouses.Select(w => w.Size).ToList(),
+                        Images = p.images.ToList()
+                    }).ToList().FirstOrDefault();
+                return View(vm);
+            }
+            catch
+            {
+                return Error();
+            }
+            
         }
 
         // GET: Product/Create
@@ -82,6 +122,12 @@ namespace Clothing_Store.Controllers
             {
                 return View();
             }
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

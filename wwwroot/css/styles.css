@@ -166,6 +166,7 @@ li {
 
         .__menu.__show {
             left: 0;
+            color: rgb(36, 58, 111);
         }
 
     .__top-nav {
@@ -1066,10 +1067,10 @@ form {
         padding: 2.2rem 1rem;
     }
 
-        .__rating-stars ul > li.__star > i {
-            font-size: 2rem;
-            color: #ccc;
-        }
+    .__rating-stars ul > li.__star > i {
+        font-size: 2rem;
+        color: #ccc;
+    }
 }
 
 /*      CATEROGY BLOCK      */

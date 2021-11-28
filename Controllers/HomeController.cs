@@ -21,21 +21,28 @@ namespace Clothing_Store.Controllers
 
         public IActionResult Index()
         {
-            var products = _context.Products
-                .Where(p => p.IsDelete == false)
-                .Where(p => p.Visible == true)
-                .Include(p => p.ratings)
-                .Include(p => p.images)
-                .Select(p => new ProductViewModel()
-                 {
-                     ID = p.ID,
-                     Name = p.Name,
-                     Price = p.Price,
-                     ratings = (int)Math.Round(p.ratings.Average(r => r.Star)),
-                     image = p.images.FirstOrDefault()
-                 });
+            try
+            {
+                var products = _context.Products
+                    .Where(p => p.IsDelete == false)
+                    .Where(p => p.Visible == true)
+                    .Include(p => p.ratings)
+                    .Include(p => p.images)
+                    .Select(p => new ProductViewModel()
+                    {
+                        ID = p.ID,
+                        Name = p.Name,
+                        Price = p.Price,
+                        ratings = (int)Math.Round(p.ratings.Average(r => r.Star)),
+                        image = p.images.FirstOrDefault()
+                    });
 
-            return View(products);
+                return View(products);
+            }
+            catch
+            {
+                return Error();
+            }
         }
 
         public IActionResult Privacy()
