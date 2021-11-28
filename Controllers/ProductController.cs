@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Clothing_Store.Controllers
 {
-    public class Product : Controller
+    public class ProductController : Controller
     {
         // GET: Product
         public ActionResult Index()

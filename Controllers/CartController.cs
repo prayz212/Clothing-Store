@@ -7,27 +7,32 @@ using System.Threading.Tasks;
 
 namespace Clothing_Store.Controllers
 {
-    public class Account : Controller
+    public class CartController : Controller
     {
-        // GET: Account
+        // GET: Cart
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Account/Details/5
+        // GET: Cart/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Account/Create
+        public ActionResult Payment()
+        {
+            return View();
+        }
+
+        // GET: Cart/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Account/Create
+        // POST: Cart/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -42,13 +47,13 @@ namespace Clothing_Store.Controllers
             }
         }
 
-        // GET: Account/Edit/5
+        // GET: Cart/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Account/Edit/5
+        // POST: Cart/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -63,13 +68,13 @@ namespace Clothing_Store.Controllers
             }
         }
 
-        // GET: Account/Delete/5
+        // GET: Cart/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Account/Delete/5
+        // POST: Cart/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
