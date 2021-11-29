@@ -10,6 +10,9 @@ namespace Clothing_Store.Utils
         public DbSet<Rating> ratings { get; set; }
         public DbSet<Image> images { get; set; }
         public DbSet<Warehouse> warehouses { get; set; }
+        public DbSet<Tag> tags { get; set; }
+        public DbSet<ProductTag> productTags{ get; set; }
+        public DbSet<Promotion> promotions { get; set; }
 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base (options)
         {
@@ -32,6 +35,9 @@ namespace Clothing_Store.Utils
                 .HasMany(p => p.warehouses)
                 .WithOne(w => w.product)
                 .IsRequired();
+
+            modelBuilder.Entity<ProductTag>()
+                .HasKey(pt => new { pt.ProductID, pt.TagID });
         }
     }
 }

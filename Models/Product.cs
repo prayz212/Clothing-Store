@@ -31,6 +31,8 @@ namespace Clothing_Store.Models
 
         public ICollection<Warehouse> warehouses { get; set; }
 
+        public Promotion promotion { get; set; }
+
         public bool Visible { get; set; } = true;
 
         public bool IsDelete { get; set; } = false;

@@ -82,7 +82,7 @@
                             <i class="bx bx-star"></i>
                         }
                     </div>
-                    <h4 class="__price">@item.Price</h4>
+                    <h4 class="__price">@string.Format("{0:#.000}", Convert.ToDecimal(@item.Price) / 1000)đ</h4>
                 </div>
             </div>
         }

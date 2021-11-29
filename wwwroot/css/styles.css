@@ -84,7 +84,6 @@ li {
 
 .__nav {
     padding: 1.2rem 0;
-    min-height: 10vh;
     background: #243a6f;
     color: #fff;
 }
@@ -166,6 +165,7 @@ li {
 
         .__menu.__show {
             left: 0;
+            color: rgb(36, 58, 111);
         }
 
     .__top-nav {
@@ -468,7 +468,7 @@ li {
 /* Product */
 .__product-center {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     gap: 5rem 1rem;
     justify-items: center;
 }
@@ -1066,10 +1066,10 @@ form {
         padding: 2.2rem 1rem;
     }
 
-        .__rating-stars ul > li.__star > i {
-            font-size: 2rem;
-            color: #ccc;
-        }
+    .__rating-stars ul > li.__star > i {
+        font-size: 2rem;
+        color: #ccc;
+    }
 }
 
 /*      CATEROGY BLOCK      */

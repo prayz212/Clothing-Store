@@ -2,275 +2,227 @@
     ViewData["Title"] = "Product Details";
 }
 
-<!-- Product Details -->
-<section class="__section __product-detail">
-    <div class="__details __container-md">
-        <div class="__left">
-            <div class="__main">
-                <img src="~/images/pic1.jpg" alt="">
-            </div>
-            <div class="__thumbnails">
-                <div class="__thumbnail">
-                    <img src="~/images/pic1.jpg" alt="">
-                </div>
-                <div class="__thumbnail">
-                    <img src="~/images/pic2.jpg" alt="">
-                </div>
-                <div class="__thumbnail">
-                    <img src="~/images/pic3.jpg" alt="">
-                </div>
-                <div class="__thumbnail">
-                    <img src="~/images/pic4.jpg" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="__right">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb bg-body">
-                    <li class="breadcrumb-item"><a asp-controller="Product" asp-action="">Products</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Boy's T-Shirt</li>
-                </ol>
-            </nav>
-            <h1>Boy’s T-Shirt By Handsome</h1>
-            <div class="__rating-sold">
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star-half"></i>
-                </div>
-                <div class="__divider">|</div>
-                <div class="__sold">
-                    Đã bán: 123
-                </div>
-            </div>
-            <div class="__price-detail">
-                <div class="__final-price">202.000đ</div>
-                <div class="__original-price">302.000đ</div>
-                <div class="__discount-percent">-20%</div>
-            </div>
-            <form method="post" asp-controller="Cart" asp-action="">
-                <div class="__select-block">
-                    <div class="__select-title">Màu sắc</div>
-                    <div class="__select-option">
-                        <select>
-                            <option value="Select Color" selected disabled>Chọn màu</option>
-                            <option value="1">Xanh</option>
-                            <option value="2">Đỏ</option>
-                            <option value="3">Trắng</option>
-                            <option value="4">Đen</option>
-                        </select>
-                    </div>
-                </div>
+@model Clothing_Store.Models.ProductDetailViewModel
 
-                <div class="__select-block">
-                    <div class="__select-title">Kích thước</div>
-                    <div class="__select-option">
-                        <select>
-                            <option value="Select Size" selected disabled>Chọn size</option>
-                            <option value="1">S</option>
-                            <option value="2">M</option>
-                            <option value="3">L</option>
-                            <option value="4">XL</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div class="__form">
-                    <div class="row">
-                        <div class="col-2 d-flex align-self-center">
-                            <input type="text" value="1">
+@if (Model != null)
+{
+    ProductDetailViewModel vm = Model;
+    Product detail = vm.detail;
+    ICollection<ProductViewModel> relative = vm.ralativeProducts;
+
+    ICollection<int> relativeIds = relative.Select(r => r.ID).Distinct().Take(4).ToList();
+
+    int totalRatings = (int)Math.Round(detail.ratings.Average(r => r.Star));
+    Image mainImg = detail.images.FirstOrDefault();
+
+    <section class="__section __product-detail">
+        <div class="__details __container-md">
+            <div class="__left">
+                <div class="__main">
+                    <img src="@mainImg.URL" alt="@mainImg.Name">
+                </div>
+                <div class="__thumbnails">
+                    @foreach (Image img in detail.images)
+                    {
+                        <div class="__thumbnail">
+                            <img src="@img.URL" alt="@img.Name">
                         </div>
-                        <div class="col-10 w-50 my-2">
-                            <button type="submit" class="_btn">Thêm vào giỏ hàng</button>
-                        </div>
+                    }
+                </div>
+            </div>
+            <div class="__right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-body">
+                        <li class="breadcrumb-item"><a asp-action="">Products</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@detail.Name</li>
+                    </ol>
+                </nav>
+                <h1>@detail.Name</h1>
+                <div class="__rating-sold">
+                    <div class="__rating">
+                        @for (int i = 0; i < totalRatings; i++)
+                        {
+                            <i class="bx bxs-star"></i>
+                        }
+
+                        @for (int i = 0; i < 5 - totalRatings; i++)
+                        {
+                            <i class="bx bx-star"></i>
+                        }
+                    </div>
+                    <div class="__divider">|</div>
+                    <div class="__sold">
+                        Đã bán: @detail.warehouses.Sum(w => w.Sold)
                     </div>
                 </div>
-            </form>
+                <div class="__price-detail">
+                    @if (detail.promotion != null && detail.promotion.Discount > 0)
+                    {
+                        var rawDiscountPrice = detail.Price - (detail.Price * ((double)detail.promotion.Discount / 100));
+                        var discountPrice = Math.Round(rawDiscountPrice / 1000) * 1000;
 
-            <div class="__highlight-services">
-                <hr>
-                <div class="__highlight-services-items">
-                    <div class="card">
-                        <img src="~/images/icon1.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Đổi trả cực dễ chỉ cần số điện thoại</p>
+                        <div class="__final-price">@string.Format("{0:#.000}", Convert.ToDecimal(discountPrice) / 1000)đ</div>
+                        <div class="__original-price">@string.Format("{0:#.000}", Convert.ToDecimal(@detail.Price) / 1000)đ</div>
+                        <div class="__discount-percent">-@detail.promotion.Discount%</div>
+                    }
+                    else if (detail.promotion == null || detail.promotion.Discount == 0)
+                    {
+                        <div class="__final-price">@string.Format("{0:#.000}", Convert.ToDecimal(@detail.Price) / 1000)đ</div>
+                    }
+                </div>
+                <form method="post" asp-controller="Cart" asp-action="">
+                    <div class="__select-block">
+                        <div class="__select-title">Màu sắc</div>
+                        <div class="__select-option">
+                            <select>
+                                <option value="Select Color" selected disabled>Chọn màu</option>
+                                @foreach (string c in detail.warehouses.Select(w => w.Color).Distinct().ToList())
+                                {
+                                    <option value="@c">@c</option>
+                                }
+                            </select>
                         </div>
                     </div>
 
-                    <div class="card">
-                        <img src="~/images/icon2.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">60 ngày đổi trả vì bất kỳ lý do gì</p>
+                    <div class="__select-block">
+                        <div class="__select-title">Kích thước</div>
+                        <div class="__select-option">
+                            <select>
+                                <option value="Select Size" selected disabled>Chọn size</option>
+                                @foreach (string s in detail.warehouses.Select(w => w.Size).Distinct().ToList())
+                                {
+                                    <option value="@s">@s</option>
+                                }
+                            </select>
                         </div>
                     </div>
 
-                    <div class="card">
-                        <img src="~/images/icon3.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Giao hàng 2-5 ngày (có thể lâu hơn do Covid19)</p>
+                    <div class="__form">
+                        <div class="d-flex align-items-center">
+                            <div class="">
+                                <input type="text" value="1">
+                            </div>
+                            <div class="">
+                                <button type="submit" class="_btn">Thêm vào giỏ hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="__highlight-services">
+                    <hr>
+                    <div class="__highlight-services-items">
+                        <div class="card">
+                            <img src="~/images/icon1.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Đổi trả cực dễ chỉ cần số điện thoại</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="~/images/icon2.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">60 ngày đổi trả vì bất kỳ lý do gì</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="~/images/icon3.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Giao hàng 2-5 ngày (có thể lâu hơn do Covid19)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+    </section>
 
-        </div>
-</section>
-
-<section class="__section-feature __container-md">
-    <ul class="nav nav-tabs __nav-tab" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="detail-tab" data-bs-toggle="tab" data-bs-target="#detail" type="button" role="tab" aria-controls="detail" aria-selected="true">Chi tiết sản phẩm</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="rating-tab" data-bs-toggle="tab" data-bs-target="#rating" type="button" role="tab" aria-controls="rating" aria-selected="false">Đánh giá</button>
-        </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active p-3 __product-detail-content" id="detail" role="tabpanel" aria-labelledby="detail-tab">
-            Dòng áo <b>Polo nam</b> là những sản phẩm Coolmate tập trung để cho ra những mẫu mới, từ những ngày đầu tiên với dòng áo Polo Pique phù hợp với các chàng đi làm công sở kiểu dáng regular fit đến dòng sản phẩm áo Polo Fitsoft kháng khuẩn, rồi Polo Coolmax với dòng vải 100% Coolmax chống nhăn. Và sau 1 thời gian dài nghiên cứu, Coolmate đã cho ra mắt dòng áo Polo Cotton Compact với kiểu may phần cổ sử dụng vải chính compact để tạo độ đồng nhất cho chiếc áo của bạn. Nếu bạn là fan trung thành của chiếc áo thun Cotton Compact thì ngại gì thử cho mình chiếc áo Polo này nhé!
-            Những chiếc áo polo dần trở thành món đồ không thể thiếu trong tủ đồ của nam giới. Nhìn cách các thương hiệu tạo ra những chiếc áo polo đẳng cấp là đã đủ hiểu sức hút cũng như độ ưu chuộng của mặt hàng thời trang này. Thật không quá khó hiểu bởi vì sức hút nam tính đầy mạnh mẽ của áo thun polo mang đến cho các chàng trai. Lại càng không quá khó để mặc đẹp cùng polo dù cho các cánh mày râu có đang theo đuổi phong cách lịch lãm, năng động hay cổ điển.
-        </div>
-        <div class="tab-pane fade d-flex align-items-center" id="rating" role="tabpanel" aria-labelledby="rating-tab">
-
-            <!-- Rating Stars Box -->
-            <div class='__rating-stars'>
-                <ul id='stars'>
-                    <li class='__star' title='Poor' data-value='1'>
-                        <i class='bx bx-star'></i>
-                    </li>
-                    <li class='__star' title='Fair' data-value='2'>
-                        <i class='bx bx-star'></i>
-                    </li>
-                    <li class='__star' title='Good' data-value='3'>
-                        <i class='bx bx-star'></i>
-                    </li>
-                    <li class='__star' title='Very Good' data-value='4'>
-                        <i class='bx bx-star'></i>
-                    </li>
-                    <li class='__star' title='Excellent' data-value='5'>
-                        <i class='bx bx-star'></i>
-                    </li>
-                </ul>
+    <section class="__section-feature __container-md">
+        <ul class="nav nav-tabs __nav-tab" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="detail-tab" data-bs-toggle="tab" data-bs-target="#detail" type="button" role="tab" aria-controls="detail" aria-selected="true">Chi tiết sản phẩm</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="rating-tab" data-bs-toggle="tab" data-bs-target="#rating" type="button" role="tab" aria-controls="rating" aria-selected="false">Đánh giá</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active p-3 __product-detail-content" id="detail" role="tabpanel" aria-labelledby="detail-tab">
+                @detail.Description
             </div>
-            <button class="_btn">Lưu đánh giá</button>
-        </div>
-    </div>
-</section>
+            <div class="tab-pane fade d-flex align-items-center" id="rating" role="tabpanel" aria-labelledby="rating-tab">
 
-<!-- Related -->
-<section class="__section __featured">
-    <div class="__top __container">
-        <h1>Related Products</h1>
-        <a asp-controller="Product" asp-action="" class="__view-more">Xem thêm</a>
-    </div>
-
-    <div class="__product-center __container">
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic3.jpg" alt="">
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <a asp-controller="Cart" asp-action="">
-                        <span><i class="bx bx-shopping-bag"></i></span>
-                    </a>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                @*<a asp-controller="Product" asp-action="Details" asp-route-id="@Model.id">*@
-                <a asp-controller="Product" asp-action="Details" asp-route-id="5">
-                    <h3>Boy’s T-Shirt</h3>
-                </a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
+                <!-- Rating Stars Box -->
+                <div class='__rating-stars'>
+                    <ul id='stars'>
+                        <li class='__star' title='Poor' data-value='1'>
+                            <i class='bx bx-star'></i>
+                        </li>
+                        <li class='__star' title='Fair' data-value='2'>
+                            <i class='bx bx-star'></i>
+                        </li>
+                        <li class='__star' title='Good' data-value='3'>
+                            <i class='bx bx-star'></i>
+                        </li>
+                        <li class='__star' title='Very Good' data-value='4'>
+                            <i class='bx bx-star'></i>
+                        </li>
+                        <li class='__star' title='Excellent' data-value='5'>
+                            <i class='bx bx-star'></i>
+                        </li>
+                    </ul>
                 </div>
-                <h4 class="__price">$50</h4>
+                <button class="_btn">Lưu đánh giá</button>
             </div>
         </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic4.jpg" alt="">
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <a asp-controller="Cart" asp-action="">
-                        <span><i class="bx bx-shopping-bag"></i></span>
-                    </a>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                @*<a asp-controller="Product" asp-action="Details" asp-route-id="@Model.id">*@
-                <a asp-controller="Product" asp-action="Details" asp-route-id="5">
-                    <h3>Boy’s T-Shirt</h3>
-                </a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic1.jpg" alt="">
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <a asp-controller="Cart" asp-action="">
-                        <span><i class="bx bx-shopping-bag"></i></span>
-                    </a>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                @*<a asp-controller="Product" asp-action="Details" asp-route-id="@Model.id">*@
-                <a asp-controller="Product" asp-action="Details" asp-route-id="5">
-                    <h3>Boy’s T-Shirt</h3>
-                </a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic2.jpg" alt="">
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <a asp-controller="Cart" asp-action="">
-                        <span><i class="bx bx-shopping-bag"></i></span>
-                    </a>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                @*<a asp-controller="Product" asp-action="Details" asp-route-id="@Model.id">*@
-                <a asp-controller="Product" asp-action="Details" asp-route-id="5">
-                    <h3>Boy’s T-Shirt</h3>
-                </a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
+    </section>
+
+    <!-- Related -->
+    <section class="__section __featured">
+        <div class="__top __container">
+            <h1>Related Products</h1>
+            <a asp-controller="Product" asp-action="" class="__view-more">Xem thêm</a>
         </div>
 
-    </div>
-</section>
+        <div class="__product-center __container">
+            @foreach (int id in relativeIds)
+            {
+                ProductViewModel product = relative.Where(r => r.ID == id).FirstOrDefault();
+                if (product != null)
+                {
+                    <div class="__product">
+                        <div class="__product-header">
+                            <img src="@product.image.URL" alt="@product.image.Name">
+                            <ul class="icons">
+                                <a asp-controller="Cart" asp-action="">
+                                    <span><i class="bx bx-shopping-bag"></i></span>
+                                </a>
+                                <span><i class="bx bx-search"></i></span>
+                            </ul>
+                        </div>
+                        <div class="__product-footer">
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ID">
+                                <h3>@product.Name</h3>
+                            </a>
+                            <div class="__rating">
+                                @for (int i = 0; i < product.ratings; i++)
+                                {
+                                    <i class="bx bxs-star"></i>
+                                }
+
+                                @for (int i = 0; i < 5 - product.ratings; i++)
+                                {
+                                    <i class="bx bx-star"></i>
+                                }
+                            </div>
+                            <h4 class="__price">@string.Format("{0:#.000}", Convert.ToDecimal(@product.Price) / 1000)đ</h4>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </section>
+}
+
+
