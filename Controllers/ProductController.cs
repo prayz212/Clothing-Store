@@ -31,7 +31,7 @@ namespace Clothing_Store.Controllers
         {
             try
             {
-                ProductDetailViewModel vm = _context.Products
+                Product detail = _context.Products
                     .Where(p => p.ID == id)
                     .Where(p => p.IsDelete == false)
                     .Where(p => p.Visible == true)
@@ -39,19 +39,47 @@ namespace Clothing_Store.Controllers
                     .Include(p => p.images)
                     .Include(p => p.warehouses)
                     .Include(p => p.promotion)
-                    .Select(p => new ProductDetailViewModel()
+                    .Select(p => new Product
                     {
                         ID = p.ID,
                         Name = p.Name,
                         Price = p.Price,
                         Description = p.Description,
-                        Ratings = (int)Math.Round(p.ratings.Average(r => r.Star)),
-                        Sold = p.warehouses.Sum(w => w.Sold),
-                        Discount = p.promotion.Discount,
-                        Colors = p.warehouses.Select(w => w.Color).ToList(),
-                        Sizes = p.warehouses.Select(w => w.Size).ToList(),
-                        Images = p.images.ToList()
+                        ratings = p.ratings.Where(r => r.IsDelete == false).ToList(),
+                        warehouses = p.warehouses,
+                        promotion = (p.promotion == null || p.promotion.IsDelete)
+                            ? null
+                            : p.promotion,
+                        images = p.images.Where(i => i.IsDelete == false).ToList()
                     }).ToList().FirstOrDefault();
+
+                var tags = _context.productTags
+                    .Where(pt => pt.ProductID == id)
+                    .Select(pt => pt.TagID)
+                    .ToList();
+
+                var relative = _context.productTags
+                    .Include(pt => pt.product)
+                    .ThenInclude(p => p.ratings)
+                    .Include(pt => pt.product)
+                    .ThenInclude(p => p.images)
+                    .Where(pt => tags.Contains(pt.TagID))
+                    .Where(pt => pt.ProductID != detail.ID)
+                    .Select(pt => new ProductViewModel()
+                    {
+                        ID = pt.product.ID,
+                        Name = pt.product.Name,
+                        Price = (pt.product.promotion != null || !pt.product.promotion.IsDelete)
+                            ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
+                            : pt.product.Price,
+                        ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
+                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault()
+                    }).ToList();
+
+                ProductDetailViewModel vm = new ProductDetailViewModel();
+                vm.detail = detail;
+                vm.ralativeProducts = relative;
+
                 return View(vm);
             }
             catch

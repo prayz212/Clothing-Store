@@ -84,7 +84,6 @@ li {
 
 .__nav {
     padding: 1.2rem 0;
-    min-height: 10vh;
     background: #243a6f;
     color: #fff;
 }
@@ -469,7 +468,7 @@ li {
 /* Product */
 .__product-center {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     gap: 5rem 1rem;
     justify-items: center;
 }

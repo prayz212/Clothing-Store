@@ -28,13 +28,16 @@ namespace Clothing_Store.Controllers
                     .Where(p => p.Visible == true)
                     .Include(p => p.ratings)
                     .Include(p => p.images)
+                    .Include(p => p.promotion)
                     .Select(p => new ProductViewModel()
                     {
                         ID = p.ID,
                         Name = p.Name,
-                        Price = p.Price,
-                        ratings = (int)Math.Round(p.ratings.Average(r => r.Star)),
-                        image = p.images.FirstOrDefault()
+                        Price = (p.promotion != null || !p.promotion.IsDelete)
+                            ? (int)Math.Round((p.Price - (p.Price * (double)p.promotion.Discount / 100)) / 1000) * 1000
+                            : p.Price,
+                        ratings = (int)Math.Round(p.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
+                        image = p.images.Where(i => i.IsDelete == false).FirstOrDefault()
                     });
 
                 return View(products);
