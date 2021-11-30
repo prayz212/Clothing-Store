@@ -3,27 +3,23 @@
 
 // Write your JavaScript code.
 // @ts-nocheck
-/*       RATING-STAR    */
+
 $(document).ready(function () {
     const menu = document.querySelector(".__menu");
     const navOpen = document.querySelector(".__hamburger");
     const navClose = document.querySelector(".__close");
 
-    const navLeft = menu.getBoundingClientRect().left;
     navOpen.addEventListener("click", () => {
-    if (navLeft < 0) {
         menu.classList.add("__show");
         document.body.classList.add("__show");
         navBar.classList.add("__show");
-    }
     });
 
+
     navClose.addEventListener("click", () => {
-    if (navLeft < 0) {
         menu.classList.remove("__show");
         document.body.classList.remove("__show");
         navBar.classList.remove("__show");
-    }
     });
 
     // Fixed Nav
@@ -61,7 +57,8 @@ $(document).ready(function () {
         document.body.classList.remove("__show");
     });
     });
-  
+
+    /*       RATING-STAR    */
     /* 1. Visualizing things on Hover - See next part for action on click */
     $('#stars li').on('mouseover', function(){
     var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
