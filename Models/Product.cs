@@ -25,6 +25,9 @@ namespace Clothing_Store.Models
         [Range(1, 10000000, ErrorMessage = "Giá sản phẩm phải nằm trong khoảng từ 1 đến 10000000")]
         public int Price { get; set; }
 
+        [StringLength(50)]
+        public string ProductType { get; set; }
+
         public ICollection<Rating> ratings { get; set; }
 
         public ICollection<Image> images { get; set; }

@@ -120,6 +120,29 @@ $(document).ready(function () {
         $('#_LoginForm').css('transform', "translateX(-300px)");
         $('#_Indicator').css('transform', "translateX(110px)");
     })
+
+    $('#sortBy').on('change', () => {
+        var url = window.location.href
+
+        if (url.indexOf("page") > -1) {
+            var index = url.indexOf("page") + 5
+            url = url.substr(0, index) + "1"
+        }
+
+        if (url.indexOf("sortBy") > -1) {
+            url = url.substr(0, url.lastIndexOf("=") + 1) + $('#sortBy').val()
+        }
+        else {
+            if (url.indexOf("?") < 0) {
+                url += "?"
+            } else {
+                url += "&"
+            }
+            url += "sortBy=" + $('#sortBy').val()
+        }
+
+        window.location.replace(url)
+    })
 });
 
 

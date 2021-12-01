@@ -4,14 +4,16 @@ using Clothing_Store.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clothing_Store.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211130124421_AddTypeToProduct")]
+    partial class AddTypeToProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,62 +85,6 @@ namespace Clothing_Store.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("Clothing_Store.Models.ProductTag", b =>
-                {
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductID", "TagID");
-
-                    b.HasIndex("TagID");
-
-                    b.ToTable("ProductTag");
-                });
-
-            modelBuilder.Entity("Clothing_Store.Models.Promotion", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("NVARCHAR(MAX)")
-                        .HasMaxLength(255);
-
-                    b.Property<int>("Discount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("From")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("NVARCHAR(MAX)")
-                        .HasMaxLength(100);
-
-                    b.Property<int>("ProductID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("To")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ProductID")
-                        .IsUnique();
-
-                    b.ToTable("Promotion");
-                });
-
             modelBuilder.Entity("Clothing_Store.Models.Rating", b =>
                 {
                     b.Property<int>("ID")
@@ -160,26 +106,6 @@ namespace Clothing_Store.Migrations
                     b.HasIndex("productID");
 
                     b.ToTable("Rating");
-                });
-
-            modelBuilder.Entity("Clothing_Store.Models.Tag", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Tag");
                 });
 
             modelBuilder.Entity("Clothing_Store.Models.Warehouse", b =>
@@ -223,30 +149,6 @@ namespace Clothing_Store.Migrations
                     b.HasOne("Clothing_Store.Models.Product", "product")
                         .WithMany("images")
                         .HasForeignKey("productID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Clothing_Store.Models.ProductTag", b =>
-                {
-                    b.HasOne("Clothing_Store.Models.Product", "product")
-                        .WithMany()
-                        .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Clothing_Store.Models.Tag", "tag")
-                        .WithMany()
-                        .HasForeignKey("TagID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Clothing_Store.Models.Promotion", b =>
-                {
-                    b.HasOne("Clothing_Store.Models.Product", "product")
-                        .WithOne("promotion")
-                        .HasForeignKey("Clothing_Store.Models.Promotion", "ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
