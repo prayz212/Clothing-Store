@@ -13,6 +13,8 @@ namespace Clothing_Store.Utils
         public DbSet<Tag> tags { get; set; }
         public DbSet<ProductTag> productTags{ get; set; }
         public DbSet<Promotion> promotions { get; set; }
+        public DbSet<Account> accounts { get; set; }
+        public DbSet<RequestForgotPassword> requests { get; set; }
 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base (options)
         {
@@ -38,6 +40,14 @@ namespace Clothing_Store.Utils
 
             modelBuilder.Entity<ProductTag>()
                 .HasKey(pt => new { pt.ProductID, pt.TagID });
+
+            modelBuilder.Entity<Account>()
+                .HasIndex(u => u.Username)
+                .IsUnique();
+
+            modelBuilder.Entity<Account>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
         }
     }
 }

@@ -16,6 +16,9 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Utils\" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="BCrypt.Net-Next" />
+    <None Remove="Microsoft.AspNetCore.Session" />
+    <None Remove="NETCore.MailKit" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\" />
@@ -36,6 +39,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Properties\launchSettings.json">
