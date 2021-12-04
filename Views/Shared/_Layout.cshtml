@@ -27,165 +27,169 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 </head>
 <body>
-    @using Microsoft.AspNetCore.Http;
-    @{
-        var isHome = ViewContext.RouteData.Values["controller"].ToString().Equals("Home");
-        var isLoggedIn = Context.Session.GetInt32("user_id") != null;
-    }
-    @if (@isHome)
-    {
-        <header id="home" class="__header">
-            <!-- Navigation -->
-            <nav class="__nav __nav-shadow">
-                <div class="__navigation __container">
-                    <div class="__logo">
-                        <h1>CoolMate</h1>
-                    </div>
-
-                    <div class="__menu">
-                        <div class="__top-nav">
+    <div class="__page">
+        <div class="__content-wrap">
+            @using Microsoft.AspNetCore.Http;
+            @{
+                var isHome = ViewContext.RouteData.Values["controller"].ToString().Equals("Home");
+                var isLoggedIn = Context.Session.GetInt32("user_id") != null;
+            }
+            @if (@isHome)
+            {
+                <header id="home" class="__header">
+                    <!-- Navigation -->
+                    <nav class="__nav __nav-shadow">
+                        <div class="__navigation __container">
                             <div class="__logo">
                                 <h1>CoolMate</h1>
                             </div>
-                            <div class="__close">
-                                <i class="bx bx-x"></i>
-                            </div>
-                        </div>
 
-                        <ul class="__nav-list">
-                            <li class="__nav-item">
-                                <a class="__nav-link" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
-                            </li>
-                            <li class="__nav-item">
-                                <a class="__nav-link" asp-controller="Product" asp-action="">Sản phẩm</a>
-                            </li>
-                            <li class="__nav-item">
-                                <a href="#news" class="__nav-link __scroll-link">Tin tức</a>
-                            </li>
-                            <li class="__nav-item">
-                                <a href="#jobs" class="__nav-link __scroll-link">Tuyển dụng</a>
-                            </li>
-                            <li class="__nav-item">
-                                <a class="__nav-link " asp-controller="Account" asp-action="Index">Tài khoản</a>
-                            </li>
-                            <li class="__nav-item">
-                                <a class="__nav-link icon" asp-controller="Cart" asp-action="Index"><i class="bx bx-shopping-bag"></i></a>
-                            </li>
+                            <div class="__menu">
+                                <div class="__top-nav">
+                                    <div class="__logo">
+                                        <h1>CoolMate</h1>
+                                    </div>
+                                    <div class="__close">
+                                        <i class="bx bx-x"></i>
+                                    </div>
+                                </div>
+
+                                <ul class="__nav-list">
+                                    <li class="__nav-item">
+                                        <a class="__nav-link" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                                    </li>
+                                    <li class="__nav-item">
+                                        <a class="__nav-link" asp-controller="Product" asp-action="">Sản phẩm</a>
+                                    </li>
+                                    <li class="__nav-item">
+                                        <a href="#news" class="__nav-link __scroll-link">Tin tức</a>
+                                    </li>
+                                    <li class="__nav-item">
+                                        <a href="#jobs" class="__nav-link __scroll-link">Tuyển dụng</a>
+                                    </li>
+                                    <li class="__nav-item">
+                                        <a class="__nav-link " asp-controller="Account" asp-action="Index">Tài khoản</a>
+                                    </li>
+                                    <li class="__nav-item">
+                                        <a class="__nav-link icon" asp-controller="Cart" asp-action="Index"><i class="bx bx-shopping-bag"></i></a>
+                                    </li>
+                                    @if (isLoggedIn)
+                                    {
+                                        <li class="__nav-item">
+                                            <a class="__nav-link icon" asp-controller="Account" asp-action="Logout"><i class="bx bx-log-out"></i></a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+
+                            <a class="__cart-icon" asp-controller="Cart" asp-action="Index">
+                                <i class="bx bx-shopping-bag"></i>
+                            </a>
+
                             @if (isLoggedIn)
                             {
-                                <li class="__nav-item">
-                                    <a class="__nav-link icon" asp-controller="Account" asp-action="Logout"><i class="bx bx-log-out"></i></a>
-                                </li>
+                                <a class="__cart-icon" asp-controller="Account" asp-action="Logout">
+                                    <i class='bx bx-log-out'></i>
+                                </a>
                             }
-                        </ul>
+
+                            <div class="__hamburger">
+                                <i class="bx bx-menu"></i>
+                            </div>
+                        </div>
+                    </nav>
+
+
+                    <!-- Hero -->
+                    <img src="~/images/banner.png" alt="" class="__hero-img" />
+
+                    <div class="__hero-content">
+                        <h2>Giảm giá <span class="__discount">70% </span></h2>
+                        <h1>
+                            <span>Mua sắm thoả thích</span>
+                            <span>không lo covid</span>
+                        </h1>
+                        <a class="__btn" asp-controller="Product" asp-action="">Mua ngay</a>
                     </div>
-
-                    <a class="__cart-icon" asp-controller="Cart" asp-action="Index">
-                        <i class="bx bx-shopping-bag"></i>
-                    </a>
-
-                    @if (isLoggedIn)
-                    {
-                        <a class="__cart-icon" asp-controller="Account" asp-action="Logout">
-                            <i class='bx bx-log-out'></i>
-                        </a>
-                    }
-
-                    <div class="__hamburger">
-                        <i class="bx bx-menu"></i>
-                    </div>
-                </div>
-            </nav>
-
-
-            <!-- Hero -->
-            <img src="~/images/banner.png" alt="" class="__hero-img" />
-
-            <div class="__hero-content">
-                <h2>Giảm giá <span class="__discount">70% </span></h2>
-                <h1>
-                    <span>Mua sắm thoả thích</span>
-                    <span>không lo covid</span>
-                </h1>
-                <a class="__btn" asp-controller="Product" asp-action="">Mua ngay</a>
-            </div>
-        </header>
-    }
-    else
-    {
-        <nav class="__nav __nav-shadow" )">
-            <div class="__navigation __container">
-                <div class="__logo">
-                    <h1>CoolMate</h1>
-                </div>
-
-                <div class="__menu">
-                    <div class="__top-nav">
+                </header>
+            }
+            else
+            {
+                <nav class="__nav __nav-shadow" )">
+                    <div class="__navigation __container">
                         <div class="__logo">
                             <h1>CoolMate</h1>
                         </div>
-                        <div class="__close">
-                            <i class="bx bx-x"></i>
-                        </div>
-                    </div>
 
-                    <ul class="__nav-list">
-                        <li class="__nav-item">
-                            <a class="__nav-link" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
-                        </li>
-                        <li class="__nav-item">
-                            <a class="__nav-link" asp-controller="Product" asp-action="">Sản phẩm</a>
-                        </li>
-                        <li class="__nav-item">
-                            <a href="#news" class="__nav-link __scroll-link">Tin tức</a>
-                        </li>
-                        <li class="__nav-item">
-                            <a href="#jobs" class="__nav-link __scroll-link">Tuyển dụng</a>
-                        </li>
-                        <li class="__nav-item">
-                            <a class="__nav-link " asp-controller="Account" asp-action="Index">Tài khoản</a>
-                        </li>
-                        <li class="__nav-item">
-                            <a class="__nav-link icon" asp-controller="Cart" asp-action="Index"><i class="bx bx-shopping-bag"></i></a>
-                        </li>
+                        <div class="__menu">
+                            <div class="__top-nav">
+                                <div class="__logo">
+                                    <h1>CoolMate</h1>
+                                </div>
+                                <div class="__close">
+                                    <i class="bx bx-x"></i>
+                                </div>
+                            </div>
+
+                            <ul class="__nav-list">
+                                <li class="__nav-item">
+                                    <a class="__nav-link" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                                </li>
+                                <li class="__nav-item">
+                                    <a class="__nav-link" asp-controller="Product" asp-action="">Sản phẩm</a>
+                                </li>
+                                <li class="__nav-item">
+                                    <a href="#news" class="__nav-link __scroll-link">Tin tức</a>
+                                </li>
+                                <li class="__nav-item">
+                                    <a href="#jobs" class="__nav-link __scroll-link">Tuyển dụng</a>
+                                </li>
+                                <li class="__nav-item">
+                                    <a class="__nav-link " asp-controller="Account" asp-action="Index">Tài khoản</a>
+                                </li>
+                                <li class="__nav-item">
+                                    <a class="__nav-link icon" asp-controller="Cart" asp-action="Index"><i class="bx bx-shopping-bag"></i></a>
+                                </li>
+                                @if (isLoggedIn)
+                                {
+                                    <li class="__nav-item">
+                                        <a class="__nav-link icon" asp-controller="Account" asp-action="Logout"><i class="bx bx-log-out"></i></a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+
+                        <a class="__cart-icon" asp-controller="Cart" asp-action="Index">
+                            <i class="bx bx-shopping-bag"></i>
+                        </a>
+
                         @if (isLoggedIn)
                         {
-                            <li class="__nav-item">
-                                <a class="__nav-link icon" asp-controller="Account" asp-action="Logout"><i class="bx bx-log-out"></i></a>
-                            </li>
+                            <a class="__cart-icon" asp-controller="Account" asp-action="Logout">
+                                <i class='bx bx-log-out'></i>
+                            </a>
                         }
-                        </ul>
-                </div>
 
-                <a class="__cart-icon" asp-controller="Cart" asp-action="Index">
-                    <i class="bx bx-shopping-bag"></i>
-                </a>
-
-                @if (isLoggedIn)
-                {
-                    <a class="__cart-icon" asp-controller="Account" asp-action="Logout">
-                        <i class='bx bx-log-out'></i>
-                    </a>
-                }
-
-                <div class="__hamburger">
-                    <i class="bx bx-menu"></i>
-                </div>
-            </div>
-        </nav>
-    }
-    <main role="main">
-        @RenderBody()
-    </main>
-
-    <!-- Footer -->
-    <footer id="footer" class="__section __footer">
-        <div class="__container">
-            <div class="__footer-center">
-                Copyright © CoolMate.edu.vn | Develop by Chi Vi & Cam Phu.
-            </div>
+                        <div class="__hamburger">
+                            <i class="bx bx-menu"></i>
+                        </div>
+                    </div>
+                </nav>
+            }
+            <main role="main">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
+
+        <!-- Footer -->
+        <footer id="footer" class="__section __footer">
+            <div class="__container">
+                <div class="__footer-center">
+                    Copyright © CoolMate.edu.vn | Develop by Chi Vi & Cam Phu.
+                </div>
+            </div>
+        </footer>
+    </div>
     <!-- End Footer -->
     @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
     <script src="~/js/site.js" asp-append-version="true"></script>

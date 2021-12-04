@@ -34,6 +34,12 @@ namespace Clothing_Store
                 options.IdleTimeout = TimeSpan.FromMinutes(15);
             });
 
+            var emailConfig = Configuration
+                .GetSection("EmailConfiguration")
+                .Get<EmailConfiguration>();
+
+            services.AddSingleton(emailConfig);
+
             services.AddControllersWithViews();
         }
 
