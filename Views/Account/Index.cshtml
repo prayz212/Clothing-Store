@@ -3,13 +3,23 @@
     ViewData["Title"] = "Tài khoản";
 }
 
+@model Clothing_Store.Controllers.AccountViewModel
+
+@{
+    var imageUrl = "./images/advert2.png";
+    if (Model != null)
+    {
+        imageUrl = Model.isError ? "../images/advert2.png" : "./images/advert2.png";
+    }
+}
+
 <!-- --------------------- account page -----------------  -->
-<div class="_account-page">
+<div class="_account-page __header">
     <div class="_container">
         <div class="_row">
             <div class="col-md-6 col-0">
                 <div class="d-none d-md-block">
-                    <img src="./images/advert2.png" width="100%">
+                    <img src="@imageUrl" width="100%">
                 </div>
             </div>
             <div class="col-md-6 col-12 p-3">
@@ -20,23 +30,36 @@
                         <hr id="_Indicator">
                     </div>
 
-                    <form id="_LoginForm">
-                        <input class="_form-input" type="text" placeholder="Tên tài khoản">
-                        <input class="_form-input" type="passowrd" placeholder="Mật khẩu">
+                    <form id="_LoginForm" method="post" asp-action="Login">
+                        <input asp-for="login.Username" class="_form-input" type="text" placeholder="Tên tài khoản">
+                        <input asp-for="login.Password" class="_form-input" type="password" placeholder="Mật khẩu">
                         <button type="submit" class="_btn">Đăng nhập</button>
+
                         <a href="">Quên mật khẩu</a>
+                        <div id="error-msg-log" class="__error-msg">@ViewBag.LoginErrorMsg</div>
+                        <div asp-validation-summary="All" class="text-dannger"></div>
                     </form>
 
-                    <form id="_RegForm">
-                        <input class="_form-input" type="text" placeholder="Tên tài khoản">
-                        <input class="_form-input" type="email" placeholder="Email">
-                        <input class="_form-input" type="passowrd" placeholder="Mật khẩu">
+                    <form id="_RegForm" method="post" asp-action="Register">
+
+                        <input asp-for="register.Username" class="_form-input" type="text" placeholder="Tên tài khoản">
+
+                        <input asp-for="register.Email" class="_form-input" type="email" placeholder="Email">
+
+                        <input asp-for="register.Password" class="_form-input" type="password" placeholder="Mật khẩu">
+
                         <button type="submit" class="_btn">Đăng ký</button>
-                    </form>
 
+                        <div id="error-msg-reg" class="__error-msg">@ViewBag.RegisterErrorMsg</div>
+                        <div asp-validation-summary="All" class="text-dannger"></div>
+                    </form>
                 </div>
             </div>
 
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @{ <partial name="_ValidationScriptsPartial" /> }
+}
