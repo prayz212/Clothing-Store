@@ -106,6 +106,11 @@ $(document).ready(function () {
     $('input:checkbox').not(this).prop('checked', this.checked);
     });
 
+    const registerErrMsg = $("#error-msg-reg").html();
+    if (registerErrMsg != "") {
+        $('#signup_span').click();
+    }
+
     $('#signin_span').click(() => {
         $('#_RegForm').css('transform', "translateX(0px)");
         $('#_LoginForm').css('transform', "translateX(0px)");

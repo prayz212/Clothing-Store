@@ -27,9 +27,10 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 </head>
 <body>
+    @using Microsoft.AspNetCore.Http;
     @{
         var isHome = ViewContext.RouteData.Values["controller"].ToString().Equals("Home");
-        var isAccount = ViewContext.RouteData.Values["controller"].ToString().Equals("Account");
+        var isLoggedIn = Context.Session.GetInt32("user_id") != null;
     }
     @if (@isHome)
     {
@@ -70,12 +71,25 @@
                             <li class="__nav-item">
                                 <a class="__nav-link icon" asp-controller="Cart" asp-action="Index"><i class="bx bx-shopping-bag"></i></a>
                             </li>
+                            @if (isLoggedIn)
+                            {
+                                <li class="__nav-item">
+                                    <a class="__nav-link icon" asp-controller="Account" asp-action="Logout"><i class="bx bx-log-out"></i></a>
+                                </li>
+                            }
                         </ul>
                     </div>
 
                     <a class="__cart-icon" asp-controller="Cart" asp-action="Index">
                         <i class="bx bx-shopping-bag"></i>
                     </a>
+
+                    @if (isLoggedIn)
+                    {
+                        <a class="__cart-icon" asp-controller="Account" asp-action="Logout">
+                            <i class='bx bx-log-out'></i>
+                        </a>
+                    }
 
                     <div class="__hamburger">
                         <i class="bx bx-menu"></i>
@@ -134,12 +148,25 @@
                         <li class="__nav-item">
                             <a class="__nav-link icon" asp-controller="Cart" asp-action="Index"><i class="bx bx-shopping-bag"></i></a>
                         </li>
-                    </ul>
+                        @if (isLoggedIn)
+                        {
+                            <li class="__nav-item">
+                                <a class="__nav-link icon" asp-controller="Account" asp-action="Logout"><i class="bx bx-log-out"></i></a>
+                            </li>
+                        }
+                        </ul>
                 </div>
 
                 <a class="__cart-icon" asp-controller="Cart" asp-action="Index">
                     <i class="bx bx-shopping-bag"></i>
                 </a>
+
+                @if (isLoggedIn)
+                {
+                    <a class="__cart-icon" asp-controller="Account" asp-action="Logout">
+                        <i class='bx bx-log-out'></i>
+                    </a>
+                }
 
                 <div class="__hamburger">
                     <i class="bx bx-menu"></i>
