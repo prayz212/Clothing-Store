@@ -14,6 +14,7 @@ namespace Clothing_Store.Utils
         public DbSet<ProductTag> productTags{ get; set; }
         public DbSet<Promotion> promotions { get; set; }
         public DbSet<Account> accounts { get; set; }
+        public DbSet<RequestForgotPassword> requests { get; set; }
 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base (options)
         {

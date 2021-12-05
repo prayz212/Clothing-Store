@@ -3,15 +3,7 @@
     ViewData["Title"] = "Tài khoản";
 }
 
-@model Clothing_Store.Controllers.AccountViewModel
-
-@{
-    var imageUrl = "./images/advert2.png";
-    if (Model != null)
-    {
-        imageUrl = Model.isError ? "../images/advert2.png" : "./images/advert2.png";
-    }
-}
+@model Clothing_Store.Models.AccountViewModel
 
 <!-- --------------------- account page -----------------  -->
 <div class="_account-page __header">
@@ -19,7 +11,7 @@
         <div class="_row">
             <div class="col-md-6 col-0">
                 <div class="d-none d-md-block">
-                    <img src="@imageUrl" width="100%">
+                    <img src="~/images/advert2.png" width="100%">
                 </div>
             </div>
             <div class="col-md-6 col-12 p-3">
@@ -27,15 +19,11 @@
                     <div class="_form-btn">
                         <span id="signin_span">Đăng nhập</span>
                         <span id="signup_span">Đăng ký</span>
-                        <hr id="_Indicator">
-                    </div>
-
                     <form id="_LoginForm" method="post" asp-action="Login">
-                        <input asp-for="login.Username" class="_form-input" type="text" placeholder="Tên tài khoản">
                         <input asp-for="login.Password" class="_form-input" type="password" placeholder="Mật khẩu">
                         <button type="submit" class="_btn">Đăng nhập</button>
 
-                        <a href="">Quên mật khẩu</a>
+                        <a asp-action="ForgotPassword">Quên mật khẩu</a>
                         <div id="error-msg-log" class="__error-msg">@ViewBag.LoginErrorMsg</div>
                         <div asp-validation-summary="All" class="text-dannger"></div>
                     </form>
