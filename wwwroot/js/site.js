@@ -143,47 +143,63 @@ $(document).ready(function () {
         window.location.replace(url)
     })
 
+    let x;
+    let toast = document.getElementById("toast");
+    function showToast() {
+        clearTimeout(x);
+        $("#toast").css("transform", "translateX(0px)");
+        x = setTimeout(() => {
+            $("#toast").css("transform", "translateX(400px)");
+        }, 4000);
+    }
+
+    $("#close").on('click', () => {
+        $("#toast").css("transform", "translateX(400px)");
+    })
+
     // cart index: quantity change -> total price of each product change
 
     // add product to cart
     $('#addToCartForm').submit(function(e) {
         e.preventDefault();
 
-        if ($('#product_color').find(":selected").text() == "Select Color") {
+        showToast()
 
-        } else if ($('#product_size').find(":selected").text() == "Select Suze") {
+        //if ($('#product_color').find(":selected").text() == "Select Color") {
 
-        } else {
-            var form = $(this);
-            var url = window.location.protocol + "//" + window.location.host + form.attr('action');
-            var data = $(this).find(':input').serialize()
+        //} else if ($('#product_size').find(":selected").text() == "Select Suze") {
 
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: data,
-                success: function (data) {
-                    if (data == 'success') {
-                        alert("thanh cong")
-                        //$('#addToCartToast').html(
-                        //    `<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                        //    <div class="toast-header">
-                        //        <img src="..." class="rounded me-2" alt="...">
-                        //        <strong class="me-auto">Thông báo</strong>
-                        //        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                        //    </div>
-                        //    <div class="toast-body">
-                        //        Thêm giỏ hàng thành công.
-                        //    </div>
-                        //</div>`
-                        //)
-                    } else {
-                        console.log("loi roi")
-                    }
+        //} else {
+        //    var form = $(this);
+        //    var url = window.location.protocol + "//" + window.location.host + form.attr('action');
+        //    var data = $(this).find(':input').serialize()
 
-                }
-            });
-        }
+        //    $.ajax({
+        //        type: "POST",
+        //        url: url,
+        //        data: data,
+        //        success: function (data) {
+        //            if (data == 'success') {
+        //                alert("thanh cong")
+        //                //$('#addToCartToast').html(
+        //                //    `<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        //                //    <div class="toast-header">
+        //                //        <img src="..." class="rounded me-2" alt="...">
+        //                //        <strong class="me-auto">Thông báo</strong>
+        //                //        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        //                //    </div>
+        //                //    <div class="toast-body">
+        //                //        Thêm giỏ hàng thành công.
+        //                //    </div>
+        //                //</div>`
+        //                //)
+        //            } else {
+        //                console.log("loi roi")
+        //            }
+
+        //        }
+        //    });
+        //}
     })
 });
 
