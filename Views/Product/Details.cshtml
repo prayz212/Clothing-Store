@@ -5,7 +5,7 @@
 @model Clothing_Store.Models.ProductDetailViewModel
 
 
-@if (Model != null)
+@if (true)
 {
     ProductDetailViewModel vm = Model;
     Product detail = vm.detail;
@@ -71,11 +71,12 @@
                         <div class="__final-price">@string.Format("{0:#.000}", Convert.ToDecimal(@detail.Price) / 1000)đ</div>
                     }
                 </div>
-                <form method="post" asp-controller="Cart" asp-action="">
+                <form method="post" asp-controller="Cart" asp-action="Add" id="addToCartForm">
+                    <input hidden value="@detail.ID" name="productID" />
                     <div class="__select-block">
                         <div class="__select-title">Màu sắc</div>
                         <div class="__select-option">
-                            <select>
+                            <select name="color" id="product_color">
                                 <option value="Select Color" selected disabled>Chọn màu</option>
                                 @foreach (string c in detail.warehouses.Select(w => w.Color).Distinct().ToList())
                                 {
@@ -88,7 +89,7 @@
                     <div class="__select-block">
                         <div class="__select-title">Kích thước</div>
                         <div class="__select-option">
-                            <select>
+                            <select name="size" id="product_size">
                                 <option value="Select Size" selected disabled>Chọn size</option>
                                 @foreach (string s in detail.warehouses.Select(w => w.Size).Distinct().ToList())
                                 {
@@ -98,10 +99,12 @@
                         </div>
                     </div>
 
+                    <div id="errorMess"></div>
+
                     <div class="__form">
                         <div class="d-flex align-items-center">
                             <div class="">
-                                <input type="text" value="1">
+                                <input type="number" value="1" name="quantity" min="1">
                             </div>
                             <div class="">
                                 <button type="submit" class="_btn">Thêm vào giỏ hàng</button>
@@ -136,6 +139,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <section class="__section-feature __container-md">
@@ -223,6 +227,42 @@
             }
         </div>
     </section>
-}
 
+
+
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <!-- Position it: -->
+        <!-- - `.toast-container` for spacing between toasts -->
+        <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
+        <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+        <div class="toast-container position-absolute top-0 end-0 p-3">
+
+            <!-- Then put toasts within -->
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="..." class="rounded me-2" alt="...">
+                    <strong class="me-auto">Bootstrap</strong>
+                    <small class="text-muted">just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    See? Just like this.
+                </div>
+            </div>
+
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="..." class="rounded me-2" alt="...">
+                    <strong class="me-auto">Bootstrap</strong>
+                    <small class="text-muted">2 seconds ago</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Heads up, toasts will stack automatically
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
 

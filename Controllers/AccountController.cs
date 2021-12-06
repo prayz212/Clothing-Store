@@ -124,6 +124,12 @@ namespace Clothing_Store.Controllers
         {
             return View();
         }
+        
+        // GET: Account/OrderHistory
+        public ActionResult OrderHistory()
+        {
+            return View();
+        }
 
         //  POST: Account/ForgotPassword
         [HttpPost]
@@ -203,6 +209,13 @@ namespace Clothing_Store.Controllers
         }
 
         // POST: Account/ResetPassword
+        // GET: Account/Order/5
+        public ActionResult Order(string id)
+        {
+            return View();
+        }
+
+        // POST: Account/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ResetPassword(ResetPasswordModel resetPassword)
@@ -261,39 +274,5 @@ namespace Clothing_Store.Controllers
             }
             return RedirectToAction("Info");
         }
-    }
-
-    public class AccountViewModel
-    {
-        public RegisterModel register { get; set; }
-        public LoginModel login { get; set; }
-
-        public bool isError { get; set; }
-    }
-
-    public class RegisterModel
-    {
-        [Required(ErrorMessage = "Yêu cầu nhập tên tài khoản")]
-        [StringLength(100, MinimumLength = 4, ErrorMessage = "Tên tài khoản phải có tối thiểu 4 ký tự")]
-        public string Username { get; set; }
-
-        [Required(ErrorMessage = "Yêu cầu nhập mật khẩu")]
-        [StringLength(255, MinimumLength = 8, ErrorMessage = "Mật khẩu phải có tối thiểu 8 ký tự")]
-        public string Password { get; set; }
-
-        [Required(ErrorMessage = "Yêu cầu nhập email")]
-        [StringLength(255)]
-        public string Email { get; set; }
-    }
-
-    public class LoginModel
-    {
-        [Required(ErrorMessage = "Yêu cầu nhập tên tài khoản")]
-        [StringLength(100, MinimumLength = 4, ErrorMessage = "Tên tài khoản phải có tối thiểu 4 ký tự")]
-        public string Username { get; set; }
-
-        [Required(ErrorMessage = "Yêu cầu nhập mật khẩu")]
-        [StringLength(255, MinimumLength = 8, ErrorMessage = "Mật khẩu phải có tối thiểu 8 ký tự")]
-        public string Password { get; set; }
     }
 }
