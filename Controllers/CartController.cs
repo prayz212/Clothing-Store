@@ -23,41 +23,45 @@ namespace Clothing_Store.Controllers
         // GET: Cart
         public ActionResult Index()
         {
-            var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
-            if (!isLoggedIn)
-            {
-                return RedirectToAction("Index", "Account");
-            }
+            //var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
+            //if (!isLoggedIn)
+            //{
+            //    return RedirectToAction("Index", "Account");
+            //}
 
-            int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
+            //int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
 
-            var cartDetails = _context.cartDetails
-                .Include(cd => cd.warehouse)
-                .ThenInclude(w => w.product)
-                .ThenInclude(p => p.promotion)
-                .Include(cd => cd.warehouse)
-                .ThenInclude(w => w.product)
-                .ThenInclude(p => p.images)
-                .Where(cd => cd.accountID == userID)
-                .Where(cd => cd.Visible == true)
-                .Select(cd => new CartProducts()
-                {
-                    ID = cd.warehouse.product.ID,
-                    Name = cd.warehouse.product.Name,
-                    Quantity = cd.Quantity,
-                    Type = cd.warehouse.product.ProductType,
-                    Price = cd.warehouse.product.Price,
-                    image = cd.warehouse.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
-                    Promotion = (cd.warehouse.product.promotion == null || cd.warehouse.product.promotion.IsDelete)
-                            ? 0
-                            : cd.warehouse.product.promotion.Discount,
-                    Size = cd.warehouse.Size,
-                    Color = cd.warehouse.Color,
-                    WarehoustID = cd.warehouseID,
-                    IsSelected = cd.IsSelected
-                }).ToList();
+            //var cartDetails = _context.cartDetails
+            //    .Include(cd => cd.warehouse)
+            //    .ThenInclude(w => w.product)
+            //    .ThenInclude(p => p.promotion)
+            //    .Include(cd => cd.warehouse)
+            //    .ThenInclude(w => w.product)
+            //    .ThenInclude(p => p.images)
+            //    .Where(cd => cd.accountID == userID)
+            //    .Where(cd => cd.Visible == true)
+            //    .Select(cd => new CartProducts()
+            //    {
+            //        ID = cd.warehouse.product.ID,
+            //        Name = cd.warehouse.product.Name,
+            //        Quantity = cd.Quantity,
+            //        Type = cd.warehouse.product.ProductType,
+            //        Price = cd.warehouse.product.Price,
+            //        image = cd.warehouse.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
+            //        Promotion = (cd.warehouse.product.promotion == null || cd.warehouse.product.promotion.IsDelete)
+            //                ? 0
+            //                : cd.warehouse.product.promotion.Discount,
+            //        Size = cd.warehouse.Size,
+            //        Color = cd.warehouse.Color,
+            //        WarehoustID = cd.warehouseID,
+            //        IsSelected = cd.IsSelected
+            //    }).ToList();
 
-            return View(cartDetails);
+            //return View(cartDetails);
+
+
+
+            return Ok(); //JUST FOR TEMP
         }
 
         // GET: Cart/Remove/5
@@ -71,19 +75,21 @@ namespace Clothing_Store.Controllers
 
             int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
 
-            var cartD = _context.cartDetails
-                .Where(cd => cd.warehouseID == warehouseID)
-                .Where(cd => cd.accountID == userID)
-                .FirstOrDefault();
+            //var cartD = _context.cartDetails
+            //    .Where(cd => cd.warehouseID == warehouseID)
+            //    .Where(cd => cd.accountID == userID)
+            //    .FirstOrDefault();
 
-            if (cartD != null)
-            {
-                cartD.Visible = false;
-                cartD.Quantity = 0;
-                cartD.IsSelected = false;
-                _context.SaveChanges();
-            }
-            return RedirectToAction("Index", "Cart");
+            //if (cartD != null)
+            //{
+            //    cartD.Visible = false;
+            //    cartD.Quantity = 0;
+            //    cartD.IsSelected = false;
+            //    _context.SaveChanges();
+            //}
+            //return RedirectToAction("Index", "Cart");
+
+            return Ok(); //JUST FOR TEMP
         }
 
         // GET: Cart/Payment
@@ -139,24 +145,24 @@ namespace Clothing_Store.Controllers
 
             }
             
-            for (int i = 0; i < data.Count; i++)
-            {
-                warehousID_quantity = data[i].Split('-');
-                Int32.TryParse(warehousID_quantity[0], out warehouseID);
-                Int32.TryParse(warehousID_quantity[1], out quantity);
+            //for (int i = 0; i < data.Count; i++)
+            //{
+            //    warehousID_quantity = data[i].Split('-');
+            //    Int32.TryParse(warehousID_quantity[0], out warehouseID);
+            //    Int32.TryParse(warehousID_quantity[1], out quantity);
 
-                var cartD = _context.cartDetails
-                    .Where(cd => cd.warehouseID == warehouseID)
-                    .Where(cd => cd.accountID == userID)
-                    .FirstOrDefault();
+            //    var cartD = _context.cartDetails
+            //        .Where(cd => cd.warehouseID == warehouseID)
+            //        .Where(cd => cd.accountID == userID)
+            //        .FirstOrDefault();
 
-                if (cartD != null)
-                {
-                    cartD.Quantity = quantity;
-                    cartD.IsSelected = true;
-                }
-            }
-            _context.SaveChanges(); //
+            //    if (cartD != null)
+            //    {
+            //        cartD.Quantity = quantity;
+            //        cartD.IsSelected = true;
+            //    }
+            //}
+            //_context.SaveChanges(); //
 
             return Json(new { status = "success", url = "/Cart/Payment" });
         }
@@ -191,31 +197,31 @@ namespace Clothing_Store.Controllers
                 .Where(wh => wh.Color == color)
                 .FirstOrDefault();
 
-            var cd = _context.cartDetails
-                    .Where(cd => cd.accountID == userID)
-                    .Where(cd => cd.warehouseID == wh.ID)
-                    .FirstOrDefault();
+            //var cd = _context.cartDetails
+            //        .Where(cd => cd.accountID == userID)
+            //        .Where(cd => cd.warehouseID == wh.ID)
+            //        .FirstOrDefault();
             try
             {
-                if (cd != null)
-                {
-                    cd.Visible = true;
-                    cd.Quantity = cd.Quantity + quantity;
-                    _context.SaveChanges();
-                }
-                else
-                {
+                //if (cd != null)
+                //{
+                //    cd.Visible = true;
+                //    cd.Quantity = cd.Quantity + quantity;
+                //    _context.SaveChanges();
+                //}
+                //else
+                //{
 
-                    CartDetails new_cd = new CartDetails()
-                    {
-                        accountID = userID,
-                        warehouseID = wh.ID,
-                        Quantity = quantity
-                    };
+                //    CartDetails new_cd = new CartDetails()
+                //    {
+                //        accountID = userID,
+                //        warehouseID = wh.ID,
+                //        Quantity = quantity
+                //    };
 
-                    _context.cartDetails.Add(new_cd);
-                    _context.SaveChanges();
-                }
+                //    _context.cartDetails.Add(new_cd);
+                //    _context.SaveChanges();
+                //}
 
                 return Json(new { status = "success" });
             }
