@@ -16,5 +16,6 @@ namespace Clothing_Store.Models
         public Warehouse warehouse { get; set; }
         public bool Visible { get; set; } = true;
         public bool IsDelete { get; set; } = false;
+        public bool IsSelected { get; set; } = false;
     }
 }

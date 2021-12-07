@@ -17,5 +17,6 @@ namespace Clothing_Store.Models
        public int Price { get; set; }
        public int Promotion { get; set; }
        public int WarehoustID { get; set; }
+       public bool IsSelected { get; set; }
     }
 }

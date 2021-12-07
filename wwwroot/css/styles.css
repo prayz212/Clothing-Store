@@ -1472,6 +1472,7 @@ form ._btn {
     right: 10px;
     overflow: hidden;
     border-radius: 7px;
+    z-index: 5;
 }
 
 #show-toast {
@@ -1488,7 +1489,7 @@ form ._btn {
 
 #toast {
     width: 320px;
-    height: 60px;
+    height: auto;
     padding-left: 10px;
     background-color: #ffffff;
     border-radius: 7px;

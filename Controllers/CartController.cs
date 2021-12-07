@@ -23,14 +23,13 @@ namespace Clothing_Store.Controllers
         // GET: Cart
         public ActionResult Index()
         {
-            //var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
-            //if (!isLoggedIn)
-            //{
-            //    return RedirectToAction("Index", "Account");
-            //}
+            var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
+            if (!isLoggedIn)
+            {
+                return RedirectToAction("Index", "Account");
+            }
 
-            //int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
-            int userID = 5;
+            int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
 
             var cartDetails = _context.cartDetails
                 .Include(cd => cd.warehouse)
@@ -54,7 +53,8 @@ namespace Clothing_Store.Controllers
                             : cd.warehouse.product.promotion.Discount,
                     Size = cd.warehouse.Size,
                     Color = cd.warehouse.Color,
-                    WarehoustID = cd.warehouseID
+                    WarehoustID = cd.warehouseID,
+                    IsSelected = cd.IsSelected
                 }).ToList();
 
             return View(cartDetails);
@@ -80,20 +80,100 @@ namespace Clothing_Store.Controllers
             {
                 cartD.Visible = false;
                 cartD.Quantity = 0;
+                cartD.IsSelected = false;
                 _context.SaveChanges();
             }
             return RedirectToAction("Index", "Cart");
         }
 
-        // GET: Cart/Details/5
-        public ActionResult Details(int id)
+        // GET: Cart/Payment
+        public ActionResult Payment()
         {
             return View();
         }
 
-        public ActionResult Payment()
+        // POST: Cart/Payment
+        [HttpPost]
+        public JsonResult Payment(IFormCollection form)
         {
-            return View();
+            var data = form["items_select[]"];
+
+            if (data.Count == 0)
+            {
+                return Json(new { status = "fail", mess = "need to select at least 1 product" });
+            }
+
+            var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
+            if (!isLoggedIn)
+            {
+                return Json(new { status = "fail", mess = "need to login", url = "/Account/Index" });
+            }
+
+            //int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
+
+            int warehouseID = 0;
+            int quantity = 0;
+
+            string[] warehousID_quantity;
+            for (int i = 0; i < data.Count; i++)
+            {
+                warehousID_quantity = data[i].Split('-');
+                Int32.TryParse(warehousID_quantity[0], out warehouseID);
+                Int32.TryParse(warehousID_quantity[1], out quantity);
+
+                var wh = _context.warehouses
+                    .Where(w => w.ID == warehouseID)
+                    .Select(w => new
+                    {
+                        Name = w.product.Name,
+                        Color = w.Color,
+                        Size = w.Size,
+                        Quantity = w.Quantity
+                    })
+                    .FirstOrDefault();
+
+                if (wh.Quantity < quantity)
+                {
+                    return Json(new { status = "fail", name = wh.Name, quantity = wh.Quantity, color = wh.Color, size = wh.Size });
+                }
+
+            }
+
+            //  remove product 
+
+            //for (int i = 0; i < data.Count; i++)
+            //{
+            //    warehousID_quantity = data[i].Split('-');
+            //    Int32.TryParse(warehousID_quantity[0], out warehouseID);
+            //    Int32.TryParse(warehousID_quantity[1], out quantity);
+
+            //    var wh = _context.warehouses
+            //        .Where(w => w.ID == warehouseID)
+            //        .FirstOrDefault();
+
+            //    if (wh != null)
+            //    {
+            //        wh.Quantity = wh.Quantity - quantity;
+            //        wh.Sold = wh.Sold + quantity;
+            //        wh.LastUpdate = DateTime.Now;
+            //        _context.SaveChanges();
+            //    }
+
+            //    var cartD = _context.cartDetails
+            //        .Where(cd => cd.warehouseID == warehouseID)
+            //        .Where(cd => cd.accountID == userID)
+            //        .FirstOrDefault();
+
+            //    if (cartD != null)
+            //    {
+            //        cartD.Visible = false;
+            //        cartD.Quantity = 0;
+            //        cartD.IsSelected = true;
+            //    }
+            //}
+            //_context.SaveChanges();
+
+            return Json(new { status = "success", url = "/Cart/Payment" });
         }
 
         // POST: Cart/Add/7
@@ -101,6 +181,15 @@ namespace Clothing_Store.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult Add()
         {
+            var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
+
+            if (!isLoggedIn)
+            {
+                return Json(new { status = "fail", mess = "need to login", url = "/Account/Index" });
+            }
+
+            int userID = (int) HttpContext.Session.GetInt32(SESSION_USER_ID);
+
             string color = Request.Form["color"];
             string size = Request.Form["size"];
             string Quantity = Request.Form["quantity"];
@@ -110,7 +199,6 @@ namespace Clothing_Store.Controllers
             int productID = 0;
             Int32.TryParse(ProductID, out productID);
 
-            int userID = 5;
 
             var wh = _context.warehouses
                 .Where(wh => wh.product.ID == productID)
@@ -143,64 +231,7 @@ namespace Clothing_Store.Controllers
                 _context.SaveChanges();
             }
 
-            return Json("success");
-        }
-
-        // POST: Cart/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Cart/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Cart/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Cart/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Cart/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return Json(new { status = "success" });
         }
     }
 }

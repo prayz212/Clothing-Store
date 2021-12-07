@@ -77,7 +77,7 @@
                         <div class="__select-title">Màu sắc</div>
                         <div class="__select-option">
                             <select name="color" id="product_color">
-                                <option value="Select Color" selected disabled>Chọn màu</option>
+                                <option value="selectColor" selected disabled>Chọn màu</option>
                                 @foreach (string c in detail.warehouses.Select(w => w.Color).Distinct().ToList())
                                 {
                                     <option value="@c">@c</option>
@@ -90,7 +90,7 @@
                         <div class="__select-title">Kích thước</div>
                         <div class="__select-option">
                             <select name="size" id="product_size">
-                                <option value="Select Size" selected disabled>Chọn size</option>
+                                <option value="selectSize" selected disabled>Chọn size</option>
                                 @foreach (string s in detail.warehouses.Select(w => w.Size).Distinct().ToList())
                                 {
                                     <option value="@s">@s</option>
@@ -99,7 +99,7 @@
                         </div>
                     </div>
 
-                    <div id="errorMess"></div>
+                    <div id="errorMess" class="text-danger"></div>
 
                     <div class="__form">
                         <div class="d-flex align-items-center">
@@ -229,14 +229,14 @@
     </section>
 }
 
-<div class="__wrapper">
-    <div id="toast" class="success">
+<div class="__wrapper" id="toast_success">
+    <div id="toast">
         <div class="container-1">
             <i class='bx bx-cart'></i>
         </div>
-        <div class="container-2">
-            <p class="toast-sta">Success</p>
-            <p  class="toast-msg">Your changes are saved successfully.</p>
+        <div class="container-2 my-2">
+            <p class="toast-sta"></p>
+            <p class="toast-msg"></p>
         </div>
         <button id="close">
             <i class='bx bx-x'></i>
@@ -244,18 +244,4 @@
     </div>
 </div>
 
-@*<div class="__wrapper">
-    <div id="toast" class="fail">
-        <div class="container-1">
-            <i class='bx bx-cart'></i>
-        </div>
-        <div class="container-2">
-            <p class="toast-sta">Fail</p>
-            <p class="toast-msg">Your changes are not saved.</p>
-        </div>
-        <button id="close">
-            <i class='bx bx-x'></i>
-        </button>
-    </div>
-</div>*@
 

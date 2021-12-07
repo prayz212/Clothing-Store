@@ -4,83 +4,111 @@
 }
 @model ICollection<Clothing_Store.Models.CartProducts> 
 
+@{ 
+    var selectedItemsPrice = 0;
+    var numSelectedItem = 0;
+}
 <div class="__container __cart">
-    <table>
-        <tr>
-            <th class="col-md-1"></th>
-            <th class="col-md-4 col-7 py-4 text-center">Sản phẩm</th>
-            <th class="col-md-1 text-center"><div class="d-none d-md-block"> Phân loại </div></th>
-            <th class="col-md-2 text-center"><div class="d-none d-md-block"> Chi tiết </div></th>
-            <th class="col-md-1 col-2 text-center">Số lượng</th>
-            <th class="col-md-2 col-2 text-center">Số tiền</th>
-            <th class="col-md-1 col-1 text-center">Thao tác</th>
-        </tr>
-
-        @foreach (CartProducts p in Model)
-        {
-            <tr class="border items_tr">
-                <td class="col-md-1">
-                    <div class="d-flex justify-content-center">
-                        <input class="form-check-input w-25 items_select" type="checkbox" name="items_select" onchange="changeOrderPrice(this)" value="" id="">
-                    </div>
-                </td>
-                <td class="col-md-4 col-7">
-                    <div class="__cart-info row">
-                        <div class="col-3">
-                            <img src="@p.image.URL" alt="@p.image.Name">
-                        </div>
-                        <div class="d-flex align-items-center col-9">
-                            <a href="#" class="fs-2"><p class="text-break"></p>@p.Name</a>
-                        </div>
-                    </div>
-                </td>
-                <td class="col-md-1 text-center"><div class="d-none d-md-block"> @p.Type </div></td>
-                <td class="col-md-2 text-center"><div class="d-none d-md-block"> @p.Color | Size @p.Size </div></td>
-                <td class="col-md-1 col-2">
-                    <div class="d-flex justify-content-center">
-                        <input type="number" value="@(p.Quantity)" min="1" class="_form-input text-center" onchange="changeItemPrice(this)">
-                    </div>
-                </td>
-                @{
-                    var totalPrice = 0;
-                    totalPrice = p.Promotion != 0 ? (p.Price - (p.Price * p.Promotion / 100)) * p.Quantity : p.Price * p.Quantity;
-                }
-
-                <td class="col-md-2 col-2 text-center">
-                    <div class="items_price d-none">@totalPrice</div>
-                    <div >@(totalPrice.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</div>
-                </td>
-                <td class="col-md-1 col-1">
-                    <div class="d-flex justify-content-center">
-                        <a asp-action="Remove" asp-route-warehouseID="@p.WarehoustID" class="text-decoration-none text-center">Xóa</a>
-                    </div>
-                </td>
+    <form asp-controller="Cart" asp-action="Payment" id="paymentForm">
+        <table>
+            <tr>
+                <th class="col-md-1"></th>
+                <th class="col-md-4 col-7 py-4 text-center">Sản phẩm</th>
+                <th class="col-md-1 text-center"><div class="d-none d-md-block"> Phân loại </div></th>
+                <th class="col-md-2 text-center"><div class="d-none d-md-block"> Chi tiết </div></th>
+                <th class="col-md-1 col-2 text-center">Số lượng</th>
+                <th class="col-md-2 col-2 text-center">Số tiền</th>
+                <th class="col-md-1 col-1 text-center">Thao tác</th>
             </tr>
-        }
+            @foreach (CartProducts p in Model)
+            {
+                <tr class="border items_tr">
+                    <td class="col-md-1">
+                        <div class="d-flex justify-content-center">
+                            <input @(p.IsSelected ? "checked" : "") class="form-check-input w-25 items_select" type="checkbox" name="items_select[]" onchange="changeOrderPrice(this)" value="@(p.WarehoustID + "-" + p.Quantity)" id="">
+                        </div>
+                    </td>
+                    <td class="col-md-4 col-7">
+                        <div class="__cart-info row">
+                            <div class="col-3">
+                                <img src="@p.image.URL" alt="@p.image.Name">
+                            </div>
+                            <div class="d-flex align-items-center col-9">
+                                <a href="#" class="fs-2"><p class="text-break"></p>@p.Name</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="col-md-1 text-center"><div class="d-none d-md-block"> @p.Type </div></td>
+                    <td class="col-md-2 text-center"><div class="d-none d-md-block"> @p.Color | Size @p.Size </div></td>
+                    <td class="col-md-1 col-2">
+                        <div class="d-flex justify-content-center">
+                            <input type="number" name="items_quantity[]" value="@(p.Quantity)" min="1" class="_form-input text-center" onchange="changeItemPrice(this)">
+                        </div>
+                    </td>
+                    @{
 
-    </table>
+                        var totalPrice = 0;
+                        totalPrice = p.Promotion != 0 ? (p.Price - (p.Price * p.Promotion / 100)) * p.Quantity : p.Price * p.Quantity;
+
+                        if (p.IsSelected)
+                        {
+                            selectedItemsPrice = selectedItemsPrice + totalPrice;
+                            numSelectedItem++;
+                        }
+                    }
+
+                    <td class="col-md-2 col-2 text-center">
+                        <div class="items_price d-none">@totalPrice</div>
+                        <div>@(totalPrice.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</div>
+                    </td>
+                    <td class="col-md-1 col-1">
+                        <div class="d-flex justify-content-center">
+                            <a asp-action="Remove" asp-route-warehouseID="@p.WarehoustID" class="text-decoration-none text-center">Xóa</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </form>
 
     <table>
         <tr>
             <td class="col-md-1 py-4">
                 <div class="d-none d-sm-block">
                     <div class="d-flex justify-content-center">
-                        <input class="form-check-input w-25" type="checkbox" value="" id="check_all" onchange="changeOrderPrice_All(this)">
+                        <input @(Model.Count == numSelectedItem ? "checked" : "") class="form-check-input w-25" type="checkbox" value="" id="check_all" onchange="changeOrderPrice_All(this)">
                     </div>
                 </div>
             </td>
             <td class="col-md-2 text-start"><div class="d-none d-sm-block"> Chọn tất cả (@Model.Count) </div></td>
-            <td class="col-md-7 text-end">Tổng thành tiền (<span id="num_selected_product">0</span>): 
-                <div class="d-none" id="total_price">0</div>
-                <b class="fs-1 text-primary" id="disp_total_price">0đ</b>
+            <td class="col-md-7 text-end">Tổng thành tiền (<span id="num_selected_product">@numSelectedItem</span>): 
+                <div class="d-none" id="total_price">@selectedItemsPrice</div>
+                <b class="fs-1 text-primary" id="disp_total_price">@(selectedItemsPrice != 0 ? selectedItemsPrice.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")) : "0")đ</b>
             </td>
-            <td class="col-md-5 text-center"><a asp-action="Payment" class="checkout _btn text-light w-75">Mua hàng</a></td>
+            <td class="col-md-5 text-center"><button id="payment_btn" class="checkout _btn text-light w-75">Mua hàng</button></td>
         </tr>
     </table>
 
 </div>
 
+<div class="__wrapper" id="toast_success">
+    <div id="toast">
+        <div class="container-1">
+            <i class='bx bx-cart'></i>
+        </div>
+        <div class="container-2 my-2">
+            <p class="toast-sta"></p>
+            <p class="toast-msg"></p>
+        </div>
+        <button id="close">
+            <i class='bx bx-x'></i>
+        </button>
+    </div>
+</div>
+
 <script>
+    // cart index: quantity change -> total price of each product change
     function changeItemPrice(_this) {
         var quantity = parseInt(_this.getAttribute("value"))
         var total_price_item = $(_this).closest('.items_tr').find("td:nth-child(6)").children(":first")
@@ -101,6 +129,13 @@
             $('#total_price').text(order_total_price)
             $('#total_price').next().text(order_total_price.toLocaleString('it-IT', { currency: 'VND' }) + "đ")
         }
+
+        // add quantity to input checkbox value
+        var quantity_checkbox = $(_this).closest('.items_tr').find("td:nth-child(1)").find("input")[0]
+        quantity_checkbox.setAttribute('value', quantity_checkbox.value.substring(0, quantity_checkbox.value.indexOf("-") + 1) + $(_this).val())
+        console.log(quantity_checkbox.value)
+
+        // disabled payment button if selected product = 0
     }
 
     function changeOrderPrice(_this) {
@@ -122,12 +157,13 @@
 
     function changeOrderPrice_All(_this) {
         if ($(_this).prop('checked')) {
-            console.log($('input[name=items_select]:checked'))
-            $('input[name=items_select]:checked').prop('checked', false).trigger('change');
+            //console.log($('input.items_select[type=checkbox]:checked'))
+            $('input.items_select[type=checkbox]:checked').prop('checked', false).trigger('change');
         }
 
-        $('input[name=items_select]').prop('checked', $(_this).prop('checked')).trigger('change');
+        $('input.items_select[type=checkbox]').prop('checked', $(_this).prop('checked')).trigger('change');
     }
+
 
 </script>
 

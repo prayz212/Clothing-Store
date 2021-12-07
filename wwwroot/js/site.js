@@ -4,6 +4,7 @@
 // Write your JavaScript code.
 // @ts-nocheck
 
+
 $(document).ready(function () {
     const menu = document.querySelector(".__menu");
     const navOpen = document.querySelector(".__hamburger");
@@ -144,63 +145,111 @@ $(document).ready(function () {
     })
 
     let x;
-    let toast = document.getElementById("toast");
-    function showToast() {
+    function showToast(mess, toastMess) {
         clearTimeout(x);
+        $("#toast").addClass(mess)
         $("#toast").css("transform", "translateX(0px)");
         x = setTimeout(() => {
             $("#toast").css("transform", "translateX(400px)");
-        }, 4000);
+        }, 7000);
+
+        if (mess == "success") {
+            console.log("thành công")
+            $('.toast-sta').text("Thành công")
+            $('.toast-msg').text(toastMess)
+        } else {
+            console.log("thất bại")
+            $('.toast-sta').text("Thất bại")
+            $('.toast-msg').text(toastMess)
+        }
     }
 
     $("#close").on('click', () => {
-        $("#toast").css("transform", "translateX(400px)");
+        $("#toast_success").css("transform", "translateX(400px)");
     })
 
-    // cart index: quantity change -> total price of each product change
 
     // add product to cart
     $('#addToCartForm').submit(function(e) {
         e.preventDefault();
 
-        showToast()
+        if ($('#product_color').find(":selected").val() == "selectColor") {
+            $('#errorMess').text("Quý khách cần chọn màu sắc cho sản phẩm")
+        } else if ($('#product_size').find(":selected").val() == "selectSize") {
+            $('#errorMess').text("Quý khách cần chọn kích cỡ cho sản phẩm")
+        } else {
+            var form = $(this);
+            var url = window.location.protocol + "//" + window.location.host + form.attr('action');
+            var data = $(this).find(':input').serialize()
 
-        //if ($('#product_color').find(":selected").text() == "Select Color") {
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                success: function (data) {
+                    console.log(data)
+                    if (data.status == 'success') {
+                        showToast("success", "Sản phẩm đã được thêm vào giỏ hàng")
+                    } else {
+                        if (data.url != "" && mess == "need to login") {
+                            var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
 
-        //} else if ($('#product_size').find(":selected").text() == "Select Suze") {
-
-        //} else {
-        //    var form = $(this);
-        //    var url = window.location.protocol + "//" + window.location.host + form.attr('action');
-        //    var data = $(this).find(':input').serialize()
-
-        //    $.ajax({
-        //        type: "POST",
-        //        url: url,
-        //        data: data,
-        //        success: function (data) {
-        //            if (data == 'success') {
-        //                alert("thanh cong")
-        //                //$('#addToCartToast').html(
-        //                //    `<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        //                //    <div class="toast-header">
-        //                //        <img src="..." class="rounded me-2" alt="...">
-        //                //        <strong class="me-auto">Thông báo</strong>
-        //                //        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        //                //    </div>
-        //                //    <div class="toast-body">
-        //                //        Thêm giỏ hàng thành công.
-        //                //    </div>
-        //                //</div>`
-        //                //)
-        //            } else {
-        //                console.log("loi roi")
-        //            }
-
-        //        }
-        //    });
-        //}
+                            window.location.replace(loginUrl)
+                        } else {
+                            showToast("fail", "Rất tiếc đã xảy ra lỗi. Xin vui lòng thử lại sau.")
+                        }
+                    }
+                }
+            });
+        }
     })
+
+    // clear error messs page Product/Details/id
+    $('#product_color').on('change', () => {
+        $('#errorMess').text("")
+    })
+
+    $('#product_size').on('change', () => {
+        $('#errorMess').text("")
+    })
+
+    // page Cart -> Cart/Payment
+    $('#payment_btn').on('click', () => {
+        var form = $('#paymentForm');
+        var url = window.location.protocol + "//" + window.location.host + form.attr('action');
+        var data = form.find(':input[type=checkbox]:checked').serialize()
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function (data) {
+                console.log(data)
+                if (data.status == 'success') {
+                    if (data.url != "" && data.mess == null) {
+                        var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
+
+                        window.location.replace(loginUrl)
+                    } 
+                } else {
+                    if (data.url != "" && data.mess == "need to login") {
+                        var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
+
+                        window.location.replace(loginUrl)
+                    } else {
+                        if (data.mess == "need to select at least 1 product") {
+                            showToast("fail", "Cần chọn ít nhất 1 sản phẩm để thanh toán")
+                        } else {
+                            showToast("fail", "Sản phẩm: " + data.name + ", màu: " + data.color
+                                + ", size: " + data.size + ", chỉ còn số lượng: " + data.quantity)
+                        }
+                    }
+                }
+            }
+        });
+
+    })
+
 });
 
 
