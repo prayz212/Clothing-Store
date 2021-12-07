@@ -109,7 +109,7 @@ namespace Clothing_Store.Controllers
                 return Json(new { status = "fail", mess = "need to login", url = "/Account/Index" });
             }
 
-            //int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
+            int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
 
             int warehouseID = 0;
             int quantity = 0;
@@ -138,40 +138,25 @@ namespace Clothing_Store.Controllers
                 }
 
             }
+            
+            for (int i = 0; i < data.Count; i++)
+            {
+                warehousID_quantity = data[i].Split('-');
+                Int32.TryParse(warehousID_quantity[0], out warehouseID);
+                Int32.TryParse(warehousID_quantity[1], out quantity);
 
-            //  remove product 
+                var cartD = _context.cartDetails
+                    .Where(cd => cd.warehouseID == warehouseID)
+                    .Where(cd => cd.accountID == userID)
+                    .FirstOrDefault();
 
-            //for (int i = 0; i < data.Count; i++)
-            //{
-            //    warehousID_quantity = data[i].Split('-');
-            //    Int32.TryParse(warehousID_quantity[0], out warehouseID);
-            //    Int32.TryParse(warehousID_quantity[1], out quantity);
-
-            //    var wh = _context.warehouses
-            //        .Where(w => w.ID == warehouseID)
-            //        .FirstOrDefault();
-
-            //    if (wh != null)
-            //    {
-            //        wh.Quantity = wh.Quantity - quantity;
-            //        wh.Sold = wh.Sold + quantity;
-            //        wh.LastUpdate = DateTime.Now;
-            //        _context.SaveChanges();
-            //    }
-
-            //    var cartD = _context.cartDetails
-            //        .Where(cd => cd.warehouseID == warehouseID)
-            //        .Where(cd => cd.accountID == userID)
-            //        .FirstOrDefault();
-
-            //    if (cartD != null)
-            //    {
-            //        cartD.Visible = false;
-            //        cartD.Quantity = 0;
-            //        cartD.IsSelected = true;
-            //    }
-            //}
-            //_context.SaveChanges();
+                if (cartD != null)
+                {
+                    cartD.Quantity = quantity;
+                    cartD.IsSelected = true;
+                }
+            }
+            _context.SaveChanges();
 
             return Json(new { status = "success", url = "/Cart/Payment" });
         }
