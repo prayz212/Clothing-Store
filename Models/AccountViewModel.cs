@@ -61,4 +61,35 @@ namespace Clothing_Store.Models
         [Compare(nameof(Password), ErrorMessage = "Mật khẩu xác nhận không khớp")]
         public string ConfirmPassword { get; set; }
     }
+
+
+    public class AccountInfoModel
+    {
+        public string Username { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập họ và tên")]
+        public string Fullname { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập email")]
+        [StringLength(255)]
+        [EmailAddress(ErrorMessage = "Địa chỉ email không hợp lệ")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập số điện thoại")]
+        [StringLength(10, MinimumLength = 10, ErrorMessage = "Số điện thoại không hợp lệ")]
+        public string Phone { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập địa chỉ")]
+        public string Address { get; set; }
+
+        [StringLength(12, MinimumLength = 12, ErrorMessage = "Số thẻ phải bao gồm 12 số")]
+        [MaxLength(12, ErrorMessage = "Số thẻ phải có tối đa 12 số")]
+        public string? CardNumber { get; set; }
+
+        public DateTime? ValidDate { get; set; }
+
+        [StringLength(12, MinimumLength = 7, ErrorMessage = "Mã số bí mật phải bao gồm 7 số")]
+        [MaxLength(7, ErrorMessage = "Mã số bí mật có tối đa 7 số")]
+        public string? SecretNumber { get; set; }
+    }
 }
