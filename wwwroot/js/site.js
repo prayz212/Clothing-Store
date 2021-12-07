@@ -4,6 +4,7 @@
 // Write your JavaScript code.
 // @ts-nocheck
 
+
 $(document).ready(function () {
     const menu = document.querySelector(".__menu");
     const navOpen = document.querySelector(".__hamburger");
@@ -102,9 +103,6 @@ $(document).ready(function () {
     $('.__main img').attr('src', selectedImage)
     });
   
-    $("#check_all").click(function(){
-    $('input:checkbox').not(this).prop('checked', this.checked);
-    });
 
     const registerErrMsg = $("#error-msg-reg").html();
     if (registerErrMsg != "") {
@@ -145,7 +143,113 @@ $(document).ready(function () {
 
         window.location.replace(url)
     })
+  
+    let x;
+    function showToast(mess, toastMess) {
+        clearTimeout(x);
+        $("#toast").addClass(mess)
+        $("#toast").css("transform", "translateX(0px)");
+        x = setTimeout(() => {
+            $("#toast").css("transform", "translateX(400px)");
+        }, 7000);
 
+        if (mess == "success") {
+            console.log("thành công")
+            $('.toast-sta').text("Thành công")
+            $('.toast-msg').text(toastMess)
+        } else {
+            console.log("thất bại")
+            $('.toast-sta').text("Thất bại")
+            $('.toast-msg').text(toastMess)
+        }
+    }
+
+    $("#close").on('click', () => {
+        $("#toast_success").css("transform", "translateX(400px)");
+    })
+
+
+    // add product to cart
+    $('#addToCartForm').submit(function(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        if ($('#product_color').find(":selected").val() == "selectColor") {
+            $('#errorMess').text("Quý khách cần chọn màu sắc cho sản phẩm")
+        } else if ($('#product_size').find(":selected").val() == "selectSize") {
+            $('#errorMess').text("Quý khách cần chọn kích cỡ cho sản phẩm")
+        } else {
+            var form = $(this);
+            var url = window.location.protocol + "//" + window.location.host + form.attr('action');
+            var data = $(this).find(':input').serialize()
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                success: function (data) {
+                    console.log(data)
+                    if (data.status == 'success') {
+                        showToast("success", "Sản phẩm đã được thêm vào giỏ hàng")
+                    } else {
+                        if (data.url != "" && data.mess == "need to login") {
+                            var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
+
+                            window.location.replace(loginUrl)
+                        } else {
+                            showToast("fail", "Rất tiếc đã xảy ra lỗi. Xin vui lòng thử lại sau.")
+                        }
+                    }
+                }
+            });
+        }
+    })
+
+    // clear error messs page Product/Details/id
+    $('#product_color').on('change', () => {
+        $('#errorMess').text("")
+    })
+
+    $('#product_size').on('change', () => {
+        $('#errorMess').text("")
+    })
+
+    // page Cart -> Cart/Payment
+    $('#payment_btn').on('click', () => {
+        var form = $('#paymentForm');
+        var url = window.location.protocol + "//" + window.location.host + form.attr('action');
+        var data = form.find(':input[type=checkbox]:checked').serialize()
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function (data) {
+                console.log(data)
+                if (data.status == 'success') {
+                    if (data.url != "" && data.mess == null) {
+                        var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
+
+                        window.location.replace(loginUrl)
+                    } 
+                } else {
+                    if (data.url != "" && data.mess == "need to login") {
+                        var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
+
+                        window.location.replace(loginUrl)
+                    } else {
+                        if (data.mess == "need to select at least 1 product") {
+                            showToast("fail", "Cần chọn ít nhất 1 sản phẩm để thanh toán")
+                        } else {
+                            showToast("fail", "Sản phẩm: " + data.name + ", màu: " + data.color
+                                + ", size: " + data.size + ", chỉ còn số lượng: " + data.quantity)
+                        }
+                    }
+                }
+            }
+        });
+
+    })
 
     /*          ACCOUNT INFO            */
     if ($('#ValidDate').val() == '0001-01-01') {

@@ -13,6 +13,7 @@ namespace Clothing_Store.Utils
         public DbSet<Tag> tags { get; set; }
         public DbSet<ProductTag> productTags{ get; set; }
         public DbSet<Promotion> promotions { get; set; }
+        public DbSet<CartDetails> cartDetails { get; set; }
         public DbSet<Account> accounts { get; set; }
         public DbSet<RequestForgotPassword> requests { get; set; }
         public DbSet<Customer> customers { get; set; }
@@ -41,6 +42,9 @@ namespace Clothing_Store.Utils
 
             modelBuilder.Entity<ProductTag>()
                 .HasKey(pt => new { pt.ProductID, pt.TagID });
+
+            modelBuilder.Entity<CartDetails>()
+                .HasKey(cd => new { cd.accountID, cd.warehouseID });
 
             modelBuilder.Entity<Account>()
                 .HasIndex(u => u.Username)

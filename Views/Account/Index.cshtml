@@ -20,32 +20,30 @@
                         <span id="signin_span">Đăng nhập</span>
                         <span id="signup_span">Đăng ký</span>
                         <hr id="_Indicator">
+                        <form id="_LoginForm" method="post" asp-action="Login">
+                            <input asp-for="login.Username" class="_form-input" type="text" placeholder="Tên tài khoản">
+                            <input asp-for="login.Password" class="_form-input" type="password" placeholder="Mật khẩu">
+                            <button type="submit" class="_btn">Đăng nhập</button>
+
+                            <a asp-action="ForgotPassword">Quên mật khẩu</a>
+                            <div id="error-msg-log" class="__error-msg">@ViewBag.LoginErrorMsg</div>
+                            <div asp-validation-summary="All" class="text-dannger"></div>
+                        </form>
+
+                        <form id="_RegForm" method="post" asp-action="Register">
+
+                            <input asp-for="register.Username" class="_form-input" type="text" placeholder="Tên tài khoản">
+
+                            <input asp-for="register.Email" class="_form-input" type="email" placeholder="Email">
+
+                            <input asp-for="register.Password" class="_form-input" type="password" placeholder="Mật khẩu">
+
+                            <button type="submit" class="_btn">Đăng ký</button>
+
+                            <div id="error-msg-reg" class="__error-msg">@ViewBag.RegisterErrorMsg</div>
+                            <div asp-validation-summary="All" class="text-dannger"></div>
+                        </form>
                     </div>
-
-                    <form id="_LoginForm" method="post" asp-action="Login">
-                        <input asp-for="login.Username" class="_form-input" type="text" placeholder="Tên tài khoản">
-                        <input asp-for="login.Password" class="_form-input" type="password" placeholder="Mật khẩu">
-                        <button type="submit" class="_btn">Đăng nhập</button>
-
-                        <a asp-action="ForgotPassword">Quên mật khẩu</a>
-                        <div id="error-msg-log" class="__error-msg">@ViewBag.LoginErrorMsg</div>
-                        <div asp-validation-summary="All" class="text-dannger"></div>
-                    </form>
-
-                    <form id="_RegForm" method="post" asp-action="Register">
-
-                        <input asp-for="register.Username" class="_form-input" type="text" placeholder="Tên tài khoản">
-
-                        <input asp-for="register.Email" class="_form-input" type="email" placeholder="Email">
-
-                        <input asp-for="register.Password" class="_form-input" type="password" placeholder="Mật khẩu">
-
-                        <button type="submit" class="_btn">Đăng ký</button>
-
-                        <div id="error-msg-reg" class="__error-msg">@ViewBag.RegisterErrorMsg</div>
-                        <div asp-validation-summary="All" class="text-dannger"></div>
-                    </form>
-                </div>
             </div>
 
         </div>

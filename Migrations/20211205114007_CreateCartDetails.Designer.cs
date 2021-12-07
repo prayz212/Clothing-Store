@@ -4,14 +4,16 @@ using Clothing_Store.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clothing_Store.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211205114007_CreateCartDetails")]
+    partial class CreateCartDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,65 +65,22 @@ namespace Clothing_Store.Migrations
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsSelected")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<bool>("Visible")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("productID")
+                        .HasColumnType("int");
+
                     b.HasKey("accountID", "warehouseID");
+
+                    b.HasIndex("productID");
 
                     b.HasIndex("warehouseID");
 
                     b.ToTable("CartDetails");
-                });
-                
-            modelBuilder.Entity("Clothing_Store.Models.Customer", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AccountID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR(MAX)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("CardNumber")
-                        .HasColumnType("nvarchar(12)")
-                        .HasMaxLength(12);
-
-                    b.Property<string>("Fullname")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR(MAX)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
-
-                    b.Property<string>("SecretNumber")
-                        .HasColumnType("nvarchar(7)")
-                        .HasMaxLength(7);
-
-                    b.Property<DateTime>("ValidDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("AccountID")
-                        .IsUnique();
-
-                    b.ToTable("Customer");
-
                 });
 
             modelBuilder.Entity("Clothing_Store.Models.Image", b =>
@@ -342,7 +301,6 @@ namespace Clothing_Store.Migrations
                     b.ToTable("Warehouse");
                 });
 
-
             modelBuilder.Entity("Clothing_Store.Models.CartDetails", b =>
                 {
                     b.HasOne("Clothing_Store.Models.Account", "account")
@@ -351,18 +309,13 @@ namespace Clothing_Store.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Clothing_Store.Models.Product", "product")
+                        .WithMany()
+                        .HasForeignKey("productID");
+
                     b.HasOne("Clothing_Store.Models.Warehouse", "warehouse")
                         .WithMany()
-                        .HasForeignKey("warehouseID")     
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Clothing_Store.Models.Customer", b =>
-                {
-                    b.HasOne("Clothing_Store.Models.Account", "account")
-                        .WithOne("customer")
-                        .HasForeignKey("Clothing_Store.Models.Customer", "AccountID")
+                        .HasForeignKey("warehouseID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

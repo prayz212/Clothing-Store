@@ -14,6 +14,7 @@ namespace Clothing_Store.Controllers
     public class ProductController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly int PAGE_SIZE = 12;
 
         public ProductController(ApplicationDBContext context)
         {
@@ -80,9 +81,8 @@ namespace Clothing_Store.Controllers
                     break;
             }
 
-            int pageSize = 12;
 
-            return View(await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), page ?? 1, pageSize));
+            return View(await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), page ?? 1, PAGE_SIZE));
         }
 
         // GET: Product/Details/5
