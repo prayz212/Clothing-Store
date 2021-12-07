@@ -21,5 +21,7 @@ namespace Clothing_Store.Models
         [Required(ErrorMessage = "Yêu cầu nhập email")]
         [StringLength(255)]
         public string Email { get; set; }
+
+        public Customer customer { get; set; }
     }
 }

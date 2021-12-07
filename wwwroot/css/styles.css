@@ -728,6 +728,16 @@ li {
     grid-template-columns: 1fr;
     row-gap: 2rem;
   }
+
+    .__footer-center {
+        font-size: small;
+    }
+
+    .__footer {
+        padding: 0.6rem 0.5rem;
+        line-height: 1.8rem;
+        height: 7vh;
+    }
 }
 
 /* All Products */
@@ -1286,7 +1296,7 @@ th:last-child {
   font-size: 15px;
 }
 
-._btn {
+._btn, ._update-btn {
   display: inline-block;
   background: #243a6f;
   color: #fff;
@@ -1298,8 +1308,8 @@ th:last-child {
   border: none;
 }
 
-._btn:hover {
-  background: #3556a6;
+._btn:hover, ._update-btn:hover {
+    background: #3556a6;
 }
 
 form ._btn {
@@ -1311,11 +1321,11 @@ form ._btn {
 
 ._form-container li,
 .__error-msg {
-  font-size: small;
-  font-weight: 200;
-  color: red;
-  text-align: start;
-  list-style: inside !important;
+    font-size: small;
+    font-weight: 200;
+    color: red;
+    text-align: start;
+    list-style: inside !important;
 }
 
 .__notify-msg {
@@ -1461,3 +1471,19 @@ form ._btn {
     border-radius: 20px;
     font-size: 15px;
 }
+
+.__form-validation li {
+    font-size: medium;
+    font-weight: 300;
+    color: red;
+    text-align: start;
+    list-style: inside !important;
+}
+
+.__break-word-dots
+{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+

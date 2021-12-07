@@ -145,6 +145,10 @@ $(document).ready(function () {
 
         window.location.replace(url)
     })
+
+    if ($('#ValidDate').val() == '0001-01-01') {
+        $('#ValidDate').val("");
+    }
 });
 
 
