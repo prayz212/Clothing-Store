@@ -16,6 +16,7 @@ namespace Clothing_Store.Utils
         public DbSet<CartDetails> cartDetails { get; set; }
         public DbSet<Account> accounts { get; set; }
         public DbSet<RequestForgotPassword> requests { get; set; }
+        public DbSet<Customer> customers { get; set; }
 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base (options)
         {

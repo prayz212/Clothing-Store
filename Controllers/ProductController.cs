@@ -106,7 +106,7 @@ namespace Clothing_Store.Controllers
                         Description = p.Description,
                         ratings = p.ratings.Where(r => r.IsDelete == false).ToList(),
                         warehouses = p.warehouses,
-                        promotion = (p.promotion == null || p.promotion.IsDelete)
+                        promotion = (p.promotion == null || p.promotion.IsDelete || p.promotion.To < DateTime.Now)
                             ? null
                             : p.promotion,
                         images = p.images.Where(i => i.IsDelete == false).ToList()

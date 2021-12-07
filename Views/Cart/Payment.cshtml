@@ -6,89 +6,84 @@
 <div class="container __payment-page pt-5">
     <div class="row">
         <div class="col-sm-8 col-12 border-end">
-            <div class="fs-1 fw-bold">Thông tin thanh toán</div>
-            <form>
-                <div class="row">
-                    <div class="col-6">
-                        <input class="_form-input" type="text" placeholder="Họ tên">
+            <div class="mx-4 mx-sm-5">
+                <div class="fs-1 fw-bold mb-3">Thông tin thanh toán</div>
+                <form>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-12">
+                            <input class="_form-input" type="text" placeholder="Họ tên">
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <input class="_form-input" type="text" placeholder="Số điện thoại">
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <input class="_form-input" type="text" placeholder="Số điện thoại">
-                    </div>
-                </div>
 
-                <input class="_form-input" type="text" placeholder="Email">
-                <input class="_form-input" type="text" placeholder="Số điện thoại">
-                <input class="_form-input" type="text" placeholder="Địa chỉ">
+                    <input class="_form-input" type="text" placeholder="Email">
+                    <input class="_form-input" type="text" placeholder="Địa chỉ">
 
-                <div class="row">
-                    <div class="col-4">
-                        <input class="_form-input" type="text" placeholder="Tỉnh thành">
-                    </div>
-                    <div class="col-4">
-                        <input class="_form-input" type="text" placeholder="Quận/huyện">
-                    </div>
-                    <div class="col-4">
-                        <input class="_form-input" type="text" placeholder="Phường/xã">
-                    </div>
-                </div>
+                    <input class="_form-input" type="text" placeholder="Ghi chú (Ví dụ: Giao giờ hành chính)">
 
-                <input class="_form-input" type="text" placeholder="Ghi chú (Ví dụ: Giao giờ hành chính)">
-
-                <div class="fs-1 fw-bold">Hình thức thanh toán</div>
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active fs-3" id="cod-tab" data-bs-toggle="tab" data-bs-target="#cod" type="button" role="tab" aria-controls="cod" aria-selected="true">COD</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link fs-3" id="visa-tab" data-bs-toggle="tab" data-bs-target="#visa" type="button" role="tab" aria-controls="visa" aria-selected="false">Visa</button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="cod" role="tabpanel" aria-labelledby="cod-tab">
-                        <div class="fs-3 mt-3">Khách hàng sẽ thanh toán khi nhận được hàng từ đơn vị vận chuyển</div>
+                    <div class="fs-1 fw-bold mt-4 mb-3">Hình thức thanh toán</div>
+                    <div class="px-3">
+                        <div class="form-check form-check-inline col-6">
+                            <input class="form-check-input" type="radio" name="paymentType" id="COD" checked value="COD">
+                            <label class="form-check-label" for="COD">
+                                COD
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="paymentType" id="CreditCard" value="Credit">
+                            <label class="form-check-label" for="CreditCard">
+                                Thẻ tín dụng
+                            </label>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="visa" role="tabpanel" aria-labelledby="visa-tab">
-                        <input class="_form-input" type="text" placeholder="Số thẻ">
-                        <div class="row">
-                            <div class="col-6">
-                                <input class="_form-input" type="date" placeholder="Ngày hết hạn">
-                            </div>
-                            <div class="col-6">
-                                <input class="_form-input" type="text" placeholder="CVV/CVV2">
+                    <div class="__payment-info">
+                        <div id="COD-info" class="fs-3 mt-3 mb-4">
+                            Khách hàng sẽ thanh toán khi nhận được hàng từ đơn vị vận chuyển
+                        </div>
+                        <div id="Credit-info" class="mt-3 mb-4">
+                            <input class="_form-input" type="text" placeholder="Số thẻ">
+                            <div class="row">
+                                <div class="col-6">
+                                    <input class="_form-input" type="date" placeholder="Ngày hết hạn">
+                                </div>
+                                <div class="col-6">
+                                    <input class="_form-input" type="text" placeholder="CVV/CVV2">
+                                </div>
                             </div>
                         </div>
-                        <input class="_form-input" type="number" placeholder="Số tiền">
-                    </div>
-                </div>
 
-                <div class="d-none d-sm-block">
-                    <button type="submit" class="_btn fs-3 ">Thanh toán</button>
-                </div>
-            </form>
+                        <div class="d-none d-sm-block">
+                            <button type="submit" class="_btn fs-3 ">Thanh toán</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="col-sm-4 col-12">
+            <div class="mx-4 mx-sm-3">
+                <div class="fs-1 fw-bold">Giỏ hàng</div>
 
-            <div class="fs-1 fw-bold">Giỏ hàng</div>
-
-            <table>
-                <tr>
-                    <td class="fs-3">Tạm tính</td>
-                    <td class="fs-3">$200</td>
-                </tr>
-                <tr>
-                    <td class="fs-3">Mã giảm giá</td>
-                    <td class="fs-3">$50</td>
-                </tr>
-                <tr>
-                    <td class="fs-3">Phí giao hàng</td>
-                    <td class="fs-3">$250</td>
-                </tr>
-                <tr class="border-top">
-                    <td class="fs-3">Tổng</td>
-                    <td class="fs-2 fw-bold">$250</td>
-                </tr>
-            </table>
+                <table>
+                    <tr>
+                        <td class="fs-3">Tạm tính</td>
+                        <td class="fs-3">$200</td>
+                    </tr>
+                    <tr>
+                        <td class="fs-3">Mã giảm giá</td>
+                        <td class="fs-3">$50</td>
+                    </tr>
+                    <tr>
+                        <td class="fs-3">Phí giao hàng</td>
+                        <td class="fs-3">$250</td>
+                    </tr>
+                    <tr class="border-top">
+                        <td class="fs-3">Tổng</td>
+                        <td class="fs-2 fw-bold">$250</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <div class="d-block d-sm-none">

@@ -143,7 +143,7 @@ $(document).ready(function () {
 
         window.location.replace(url)
     })
-
+  
     let x;
     function showToast(mess, toastMess) {
         clearTimeout(x);
@@ -250,6 +250,21 @@ $(document).ready(function () {
 
     })
 
+    /*          ACCOUNT INFO            */
+    if ($('#ValidDate').val() == '0001-01-01') {
+        $('#ValidDate').val("");
+    }
+
+
+    /*          PAYMENT            */
+    $('#Credit-info').hide();
+    $("input[name$='paymentType']").click(function () {
+        var value = $(this).val();
+
+        $('#COD-info').hide();
+        $('#Credit-info').hide();
+        $("#" + value + "-info").show();
+    });
 });
 
 

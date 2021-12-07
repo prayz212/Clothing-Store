@@ -4,14 +4,16 @@ using Clothing_Store.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clothing_Store.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211207054352_CreateCustomer")]
+    partial class CreateCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,33 +54,6 @@ namespace Clothing_Store.Migrations
                     b.ToTable("Account");
                 });
 
-            modelBuilder.Entity("Clothing_Store.Models.CartDetails", b =>
-                {
-                    b.Property<int>("accountID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("warehouseID")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsSelected")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
-                    b.HasKey("accountID", "warehouseID");
-
-                    b.HasIndex("warehouseID");
-
-                    b.ToTable("CartDetails");
-                });
-                
             modelBuilder.Entity("Clothing_Store.Models.Customer", b =>
                 {
                     b.Property<int>("ID")
@@ -121,7 +96,6 @@ namespace Clothing_Store.Migrations
                         .IsUnique();
 
                     b.ToTable("Customer");
-
                 });
 
             modelBuilder.Entity("Clothing_Store.Models.Image", b =>
@@ -340,22 +314,6 @@ namespace Clothing_Store.Migrations
                     b.HasIndex("productID");
 
                     b.ToTable("Warehouse");
-                });
-
-
-            modelBuilder.Entity("Clothing_Store.Models.CartDetails", b =>
-                {
-                    b.HasOne("Clothing_Store.Models.Account", "account")
-                        .WithMany()
-                        .HasForeignKey("accountID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Clothing_Store.Models.Warehouse", "warehouse")
-                        .WithMany()
-                        .HasForeignKey("warehouseID")     
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Clothing_Store.Models.Customer", b =>

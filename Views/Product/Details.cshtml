@@ -13,7 +13,11 @@
 
     ICollection<int> relativeIds = relative.Select(r => r.ID).Distinct().Take(4).ToList();
 
-    int totalRatings = (int)Math.Round(detail.ratings.Average(r => r.Star));
+    int totalRatings = 0;
+    if (detail.ratings.Count > 0) {
+        totalRatings = (int)Math.Round(detail.ratings.Average(r => r.Star));
+    }
+
     Image mainImg = detail.images.FirstOrDefault();
 
     <section class="__section __product-detail">
@@ -57,7 +61,7 @@
                     </div>
                 </div>
                 <div class="__price-detail">
-                    @if (detail.promotion != null && detail.promotion.Discount > 0)
+                    @if (detail.promotion != null && detail.promotion.Discount > 0 && detail.promotion.From <= DateTime.Now)
                     {
                         var rawDiscountPrice = detail.Price - (detail.Price * ((double)detail.promotion.Discount / 100));
                         var discountPrice = Math.Round(rawDiscountPrice / 1000) * 1000;
@@ -228,7 +232,6 @@
         </div>
     </section>
 }
-
 <div class="__wrapper" id="toast_success">
     <div id="toast">
         <div class="container-1">
@@ -243,5 +246,3 @@
         </button>
     </div>
 </div>
-
-

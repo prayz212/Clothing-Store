@@ -2,6 +2,7 @@
 using Clothing_Store.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -251,18 +252,173 @@ namespace Clothing_Store.Controllers
         {
             if (isLoggedIn())
             {
-                return View();
+                int accId = (int) HttpContext.Session.GetInt32(SESSION_USER_ID);
+
+                Customer customer = _context.customers
+                    .Where(c => c.AccountID == accId)
+                    .FirstOrDefault();
+
+                AccountInfoModel info;
+                if (customer != null)
+                {
+                    info = _context.accounts
+                        .Where(a => a.ID == accId)
+                        .Include(a => a.customer)
+                        .Select(a => new AccountInfoModel()
+                        {
+                            Username = a.Username,
+                            Fullname = a.customer.Fullname,
+                            Email = a.Email,
+                            Phone = a.customer.Phone,
+                            Address = a.customer.Address,
+                            CardNumber = a.customer.CardNumber,
+                            ValidDate = a.customer.ValidDate,
+                            SecretNumber = a.customer.SecretNumber
+                        })
+                        .FirstOrDefault();
+                }
+                else
+                {
+                    Account account = _context.accounts
+                        .Where(a => a.ID == accId)
+                        .FirstOrDefault();
+
+                    info = new AccountInfoModel()
+                    {
+                        Username = account.Username,
+                        Fullname = "",
+                        Email = account.Email,
+                        Phone = "",
+                        Address = ""
+                    };
+                }
+
+                return View(info);
             }
             else
             {
                 return RedirectToAction("Index");
             }
-            
+        }
+
+        //  POST: Account/UpdateInfo
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateInfo(AccountInfoModel account)
+        {
+            Customer customer;
+            bool isInputCard = false;
+
+            if (!isLoggedIn())
+            {
+                return RedirectToAction("Info");
+            }
+
+            if (account.CardNumber == null && account.ValidDate == null && account.SecretNumber == null)
+            {
+                customer = new Customer()
+                {
+                    Fullname = account.Fullname,
+                    Phone = account.Phone,
+                    Address = account.Address
+                };
+            }
+            else if (account.CardNumber == null || account.ValidDate == null || account.SecretNumber == null)
+            {
+                AccountInfoModel accountInfo = new AccountInfoModel()
+                {
+                    Fullname = account.Fullname,
+                    Phone = account.Phone,
+                    Address = account.Address,
+                    Email = account.Email
+                };
+                ViewBag.UpdateInfoErrorMsg = "Vui lòng nhập đầy đủ thông tin về thẻ tín dụng";
+                return View(nameof(Info), accountInfo);
+            }
+            else
+            {
+                int x = -1;
+                if (!Int32.TryParse(account.CardNumber, out x) || !Int32.TryParse(account.SecretNumber, out x))
+                {
+                    AccountInfoModel accountInfo = new AccountInfoModel()
+                    {
+                        Fullname = account.Fullname,
+                        Phone = account.Phone,
+                        Address = account.Address,
+                        Email = account.Email
+                    };
+                    ViewBag.UpdateInfoErrorMsg = "Thông tin về thẻ tín dụng không hợp lệ";
+                    return View(nameof(Info), accountInfo);
+                }
+
+                isInputCard = true;
+                customer = new Customer()
+                {
+                    Fullname = account.Fullname,
+                    Phone = account.Phone,
+                    Address = account.Address,
+                    CardNumber = account.CardNumber,
+                    ValidDate = (DateTime)account.ValidDate,
+                    SecretNumber = account.SecretNumber
+                };
+
+                if (customer.ValidDate < DateTime.Now)
+                {
+                    ViewBag.UpdateInfoErrorMsg = "Thời gian hết hạn phải lớn hơn thời gian hiện tại";
+                    return View(nameof(Info), account);
+                }
+            }
+
+
+            try
+            {
+                int id = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
+                customer.AccountID = id;
+
+                //Check customer is already exist or not
+                var isExist = _context.customers
+                    .Where(c => c.AccountID == id)
+                    .FirstOrDefault();
+
+                if (isExist != null) //If exist just update it
+                {
+                    if (!isInputCard)
+                    {
+                        isExist.Fullname = customer.Fullname;
+                        isExist.Phone = customer.Phone;
+                        isExist.Address = customer.Address;
+                    }
+                    else
+                    {
+                        isExist.Fullname = customer.Fullname;
+                        isExist.Phone = customer.Phone;
+                        isExist.Address = customer.Address;
+                        isExist.CardNumber = customer.CardNumber;
+                        isExist.ValidDate = (DateTime)customer.ValidDate;
+                        isExist.SecretNumber = customer.SecretNumber;
+                    }
+
+                    _context.customers.Update(isExist);
+                }
+                else //Else if not exist add new it
+                {
+                    _context.customers.Add(customer);
+                }
+
+                _context.SaveChanges();
+                ViewBag.UpdateInfoMsg = "Cập nhật thành công";
+                return View(nameof(Info), account);
+            }
+            catch (Exception e)
+            {
+                ViewBag.UpdateInfoErrorMsg = e.Message;
+                return View(nameof(Info), account);
+            }
         }
 
         private bool isLoggedIn()
         {
-            return HttpContext.Session.GetString(SESSION_USER_ID) != null;
+            return HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
         }
 
         private ActionResult redirectAfterLogin(Account account = null)
