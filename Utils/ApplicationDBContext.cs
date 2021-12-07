@@ -17,6 +17,8 @@ namespace Clothing_Store.Utils
         public DbSet<Account> accounts { get; set; }
         public DbSet<RequestForgotPassword> requests { get; set; }
         public DbSet<Customer> customers { get; set; }
+        public DbSet<Receipt> receipts { get; set; }
+        public DbSet<ReceiptDetail> receiptDetails { get; set; }
 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base (options)
         {
@@ -44,7 +46,7 @@ namespace Clothing_Store.Utils
                 .HasKey(pt => new { pt.ProductID, pt.TagID });
 
             modelBuilder.Entity<CartDetails>()
-                .HasKey(cd => new { cd.accountID, cd.warehouseID });
+                .HasKey(cd => new { cd.accountID, cd.productID });
 
             modelBuilder.Entity<Account>()
                 .HasIndex(u => u.Username)
@@ -53,6 +55,9 @@ namespace Clothing_Store.Utils
             modelBuilder.Entity<Account>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            modelBuilder.Entity<ReceiptDetail>()
+                .HasKey(rd => new { rd.ReceiptID, rd.ProductID });
         }
     }
 }
