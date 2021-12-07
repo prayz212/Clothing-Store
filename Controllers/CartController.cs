@@ -156,7 +156,7 @@ namespace Clothing_Store.Controllers
                     cartD.IsSelected = true;
                 }
             }
-            _context.SaveChanges();
+            _context.SaveChanges(); //
 
             return Json(new { status = "success", url = "/Cart/Payment" });
         }
@@ -195,28 +195,35 @@ namespace Clothing_Store.Controllers
                     .Where(cd => cd.accountID == userID)
                     .Where(cd => cd.warehouseID == wh.ID)
                     .FirstOrDefault();
-
-            if (cd != null)
+            try
             {
-                cd.Visible = true;
-                cd.Quantity = cd.Quantity + quantity;
-                _context.SaveChanges();
-            }
-            else
-            {
-
-                CartDetails new_cd = new CartDetails()
+                if (cd != null)
                 {
-                    accountID = userID,
-                    warehouseID = wh.ID,
-                    Quantity = quantity
-                };
+                    cd.Visible = true;
+                    cd.Quantity = cd.Quantity + quantity;
+                    _context.SaveChanges();
+                }
+                else
+                {
 
-                _context.cartDetails.Add(new_cd);
-                _context.SaveChanges();
+                    CartDetails new_cd = new CartDetails()
+                    {
+                        accountID = userID,
+                        warehouseID = wh.ID,
+                        Quantity = quantity
+                    };
+
+                    _context.cartDetails.Add(new_cd);
+                    _context.SaveChanges();
+                }
+
+                return Json(new { status = "success" });
+            }
+            catch (Exception e)
+            {
+                return Json(new { status = "fail" });
             }
 
-            return Json(new { status = "success" });
         }
     }
 }

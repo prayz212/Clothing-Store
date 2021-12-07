@@ -172,6 +172,7 @@ $(document).ready(function () {
     // add product to cart
     $('#addToCartForm').submit(function(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
 
         if ($('#product_color').find(":selected").val() == "selectColor") {
             $('#errorMess').text("Quý khách cần chọn màu sắc cho sản phẩm")
