@@ -191,7 +191,7 @@ $(document).ready(function () {
                     if (data.status == 'success') {
                         showToast("success", "Sản phẩm đã được thêm vào giỏ hàng")
                     } else {
-                        if (data.url != "" && mess == "need to login") {
+                        if (data.url != "" && data.mess == "need to login") {
                             var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
 
                             window.location.replace(loginUrl)
