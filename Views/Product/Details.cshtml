@@ -5,7 +5,7 @@
 @model Clothing_Store.Models.ProductDetailViewModel
 
 
-@if (Model != null)
+@if (true)
 {
     ProductDetailViewModel vm = Model;
     Product detail = vm.detail;
@@ -75,12 +75,13 @@
                         <div class="__final-price">@string.Format("{0:#.000}", Convert.ToDecimal(@detail.Price) / 1000)đ</div>
                     }
                 </div>
-                <form method="post" asp-controller="Cart" asp-action="">
+                <form method="post" asp-controller="Cart" asp-action="Add" id="addToCartForm">
+                    <input hidden value="@detail.ID" name="productID" />
                     <div class="__select-block">
                         <div class="__select-title">Màu sắc</div>
                         <div class="__select-option">
-                            <select>
-                                <option value="Select Color" selected disabled>Chọn màu</option>
+                            <select name="color" id="product_color">
+                                <option value="selectColor" selected disabled>Chọn màu</option>
                                 @foreach (string c in detail.warehouses.Select(w => w.Color).Distinct().ToList())
                                 {
                                     <option value="@c">@c</option>
@@ -92,8 +93,8 @@
                     <div class="__select-block">
                         <div class="__select-title">Kích thước</div>
                         <div class="__select-option">
-                            <select>
-                                <option value="Select Size" selected disabled>Chọn size</option>
+                            <select name="size" id="product_size">
+                                <option value="selectSize" selected disabled>Chọn size</option>
                                 @foreach (string s in detail.warehouses.Select(w => w.Size).Distinct().ToList())
                                 {
                                     <option value="@s">@s</option>
@@ -102,10 +103,12 @@
                         </div>
                     </div>
 
+                    <div id="errorMess" class="text-danger"></div>
+
                     <div class="__form">
                         <div class="d-flex align-items-center">
                             <div class="">
-                                <input type="text" value="1">
+                                <input type="number" value="1" name="quantity" min="1">
                             </div>
                             <div class="">
                                 <button type="submit" class="_btn">Thêm vào giỏ hàng</button>
@@ -229,3 +232,17 @@
         </div>
     </section>
 }
+<div class="__wrapper" id="toast_success">
+    <div id="toast">
+        <div class="container-1">
+            <i class='bx bx-cart'></i>
+        </div>
+        <div class="container-2 my-2">
+            <p class="toast-sta"></p>
+            <p class="toast-msg"></p>
+        </div>
+        <button id="close">
+            <i class='bx bx-x'></i>
+        </button>
+    </div>
+</div>
