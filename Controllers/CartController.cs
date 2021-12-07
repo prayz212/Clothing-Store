@@ -138,7 +138,7 @@ namespace Clothing_Store.Controllers
                 }
 
             }
-
+            
             for (int i = 0; i < data.Count; i++)
             {
                 warehousID_quantity = data[i].Split('-');
