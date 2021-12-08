@@ -346,7 +346,6 @@ namespace Clothing_Store.Controllers
 
                 int totalPrice = cartDetails.Sum(c => c.product.Price * c.Quantity);
                 int totalDiscount = 0;
-                //NEED TO CHECK PROMOTION DATE
                 if (cartDetails.Where(p => p.product.promotion != null).Count() > 0)
                 {
                     var promotionProduct = cartDetails
@@ -374,7 +373,8 @@ namespace Clothing_Store.Controllers
                     TotalPay = totalPay,
                     Method = info.Method,
                     Status = "Đang xử lý",
-                    OrderAt = DateTime.Now
+                    OrderAt = DateTime.Now,
+                    accountID = accId
                 };
 
                 if (info.Method == "CreditCard")

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -201,18 +202,6 @@ namespace Clothing_Store.Controllers
                 ViewBag.ForgotPasswordErrorMsg = e.Message;
                 return View(nameof(ForgotPassword));
             }
-        }
-
-        // GET: Account/OrderHistory
-        public ActionResult OrderHistory()
-        {
-            return View();
-        }
-
-        // GET: Account/OrderDetail/5
-        public ActionResult OrderDetail(string id)
-        {
-            return View();
         }
 
         // POST: Account/Delete/5
@@ -413,6 +402,46 @@ namespace Clothing_Store.Controllers
                 ViewBag.UpdateInfoErrorMsg = e.Message;
                 return View(nameof(Info), account);
             }
+        }
+
+
+        // GET: Account/OrderHistory
+        public ActionResult OrderHistory()
+        {
+            if (!isLoggedIn())
+            {
+                return RedirectToAction("Info");
+            }
+
+            try
+            {
+                int id = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
+                List<ReceiptHistoryModel> receipts = _context.receipts
+                    .Where(r => r.account.ID == id)
+                    .Select(r => new ReceiptHistoryModel
+                    {
+                        ID = r.ID,
+                        OrderAt = r.OrderAt,
+                        Method = r.Method,
+                        TotalPay = r.TotalPay,
+                        Status = r.Status
+                    }).ToList();
+
+                ReceiptHistoryViewModel history = new ReceiptHistoryViewModel();
+                history.receipts = receipts;
+
+                return View(history);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Opps!!! Something went wrongss ^^");
+            }
+        }
+
+        // GET: Account/OrderDetail/5
+        public ActionResult OrderDetail(string id)
+        {
+            return View();
         }
 
         private bool isLoggedIn()
