@@ -4,14 +4,16 @@ using Clothing_Store.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clothing_Store.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211207145355_AdjustCartDetail")]
+    partial class AdjustCartDetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,11 +62,6 @@ namespace Clothing_Store.Migrations
                     b.Property<int>("productID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR(MAX)")
-                        .HasMaxLength(50);
-
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
@@ -73,11 +70,6 @@ namespace Clothing_Store.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
-
-                    b.Property<string>("Size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
 
                     b.Property<bool>("Visible")
                         .HasColumnType("bit");

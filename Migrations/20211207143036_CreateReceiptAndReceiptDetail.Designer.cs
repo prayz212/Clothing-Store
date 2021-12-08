@@ -4,14 +4,16 @@ using Clothing_Store.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clothing_Store.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211207143036_CreateReceiptAndReceiptDetail")]
+    partial class CreateReceiptAndReceiptDetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,13 +59,8 @@ namespace Clothing_Store.Migrations
                     b.Property<int>("accountID")
                         .HasColumnType("int");
 
-                    b.Property<int>("productID")
+                    b.Property<int>("warehouseID")
                         .HasColumnType("int");
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR(MAX)")
-                        .HasMaxLength(50);
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -74,17 +71,12 @@ namespace Clothing_Store.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("Size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
-
                     b.Property<bool>("Visible")
                         .HasColumnType("bit");
 
-                    b.HasKey("accountID", "productID");
+                    b.HasKey("accountID", "warehouseID");
 
-                    b.HasIndex("productID");
+                    b.HasIndex("warehouseID");
 
                     b.ToTable("CartDetails");
                 });
@@ -460,9 +452,9 @@ namespace Clothing_Store.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Clothing_Store.Models.Product", "product")
+                    b.HasOne("Clothing_Store.Models.Warehouse", "warehouse")
                         .WithMany()
-                        .HasForeignKey("productID")
+                        .HasForeignKey("warehouseID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

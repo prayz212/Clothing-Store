@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Clothing_Store.Models
 {
-    [Table("CartDetails")]
-    public class CartDetails
+    [Table("ReceipDetail")]
+    public class ReceiptDetail
     {
         [Required]
         [StringLength(10)]
@@ -19,13 +19,10 @@ namespace Clothing_Store.Models
         [Required]
         public int Quantity { get; set; }
 
-        public bool Visible { get; set; } = true;
-        public bool IsDelete { get; set; } = false;
-        public bool IsSelected { get; set; } = false;
+        public int ProductID { get; set; }
+        public int ReceiptID { get; set; }
 
-        public int accountID { get; set; }
-        public int productID { get; set; }
-        public Account account { get; set; }
         public Product product { get; set; }
+        public Receipt receipt { get; set; }
     }
 }

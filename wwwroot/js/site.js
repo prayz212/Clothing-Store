@@ -258,12 +258,20 @@ $(document).ready(function () {
 
 
     /*          PAYMENT            */
-    $('#Credit-info').hide();
+    const currentChecked = $("#info_Method").val();
+    if (currentChecked == "COD") {
+        $('#CreditCard-info').hide();
+    }
+    else if (currentChecked == "CreditCard") {
+        $('#COD-info').hide();
+    }
+    
     $("input[name$='paymentType']").click(function () {
         var value = $(this).val();
+        $("#info_Method").val(value);
 
         $('#COD-info').hide();
-        $('#Credit-info').hide();
+        $('#CreditCard-info').hide();
         $("#" + value + "-info").show();
     });
 });
