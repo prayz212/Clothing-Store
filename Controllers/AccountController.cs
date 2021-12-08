@@ -125,12 +125,6 @@ namespace Clothing_Store.Controllers
         {
             return View();
         }
-        
-        // GET: Account/OrderHistory
-        public ActionResult OrderHistory()
-        {
-            return View();
-        }
 
         //  POST: Account/ForgotPassword
         [HttpPost]
@@ -209,9 +203,14 @@ namespace Clothing_Store.Controllers
             }
         }
 
-        // POST: Account/ResetPassword
-        // GET: Account/Order/5
-        public ActionResult Order(string id)
+        // GET: Account/OrderHistory
+        public ActionResult OrderHistory()
+        {
+            return View();
+        }
+
+        // GET: Account/OrderDetail/5
+        public ActionResult OrderDetail(string id)
         {
             return View();
         }
