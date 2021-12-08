@@ -3,6 +3,8 @@
     ViewData["Title"] = "Lịch sử đơn hàng";
 }
 
+@model Clothing_Store.Models.ReceiptHistoryViewModel;
+
 <div class="__container __cart">
     <div class="fs-1 fw-bold mt-5">Tất cả đơn hàng:</div>
     <table class="mt-4">
@@ -13,13 +15,23 @@
             <th class="col-md-2 text-center"><div class="d-none d-md-block"> Tổng tiền thanh toán </div></th>
             <th class="col-md-2 col-7 text-center">Trạng thái</th>
         </tr>
-        <tr class="border">
-            <td class="col-md-2 col-5 text-center fw-bold"><a asp-action="Order" asp-route-id="AH213421">AH213421</a></td>
-            <td class="col-md-2 text-center">12/12/2021</td>
-            <td class="col-md-2 text-center"><div class="d-none d-md-block"> Visa </div></td>
-            <td class="col-md-2 text-center"><div class="d-none d-md-block"> 2.000.000đ </div></td>
-            <td class="col-md-2 col-7 text-center">Đang vận chuyển</td>
-        </tr>
+        @if (Model.receipts.Count == 0)
+        {
+            <tr class="border">
+                <td colspan="5" class="text-center">Không tồn tại hoá đơn</td>
+            </tr>
+        }
+        @foreach (var r in Model.receipts)
+        {
+            var date = r.OrderAt.ToString("dd/MM/yyyy");
+            <tr class="border">
+                <td class="col-md-2 col-5 text-center fw-bold"><a asp-action="OrderDetail" asp-route-id="@r.ID">@r.ID</a></td>
+                <td class="col-md-2 text-center">@date</td>
+                <td class="col-md-2 text-center"><div class="d-none d-md-block">@r.Method</div></td>
+                <td class="col-md-2 text-center"><div class="d-none d-md-block">@r.TotalPay.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))đ</div></td>
+                <td class="col-md-2 col-7 text-center">@r.Status</td>
+            </tr>
+        }
     </table>
 
 </div>

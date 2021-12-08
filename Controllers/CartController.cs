@@ -346,7 +346,6 @@ namespace Clothing_Store.Controllers
 
                 int totalPrice = cartDetails.Sum(c => c.product.Price * c.Quantity);
                 int totalDiscount = 0;
-                //NEED TO CHECK PROMOTION DATE
                 if (cartDetails.Where(p => p.product.promotion != null).Count() > 0)
                 {
                     var promotionProduct = cartDetails
@@ -374,7 +373,8 @@ namespace Clothing_Store.Controllers
                     TotalPay = totalPay,
                     Method = info.Method,
                     Status = "Đang xử lý",
-                    OrderAt = DateTime.Now
+                    OrderAt = DateTime.Now,
+                    accountID = accId
                 };
 
                 if (info.Method == "CreditCard")
@@ -399,7 +399,10 @@ namespace Clothing_Store.Controllers
                         ReceiptID = id,
                         Color = c.Color,
                         Size = c.Size,
-                        Quantity = c.Quantity
+                        Quantity = c.Quantity,
+                        TotalPrice = c.product.promotion == null
+                            ? c.product.Price * c.Quantity
+                            : (int)Math.Round(c.product.Price - c.product.Price * (c.product.promotion.Discount/(float)100)) * c.Quantity
                     })
                     .ToList();
 
@@ -412,7 +415,7 @@ namespace Clothing_Store.Controllers
                 _context.SaveChanges();
 
                 //Redirect to order history
-                return RedirectToAction("OrderDetail", "Account", id);
+                return RedirectToAction("OrderDetail", "Account", new { id });
             }
             catch (Exception e)
             {
