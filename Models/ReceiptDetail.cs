@@ -19,6 +19,9 @@ namespace Clothing_Store.Models
         [Required]
         public int Quantity { get; set; }
 
+        [Required]
+        public int TotalPrice { get; set; }
+
         public int ProductID { get; set; }
         public int ReceiptID { get; set; }
 

@@ -103,7 +103,18 @@ namespace Clothing_Store.Models
         public int ID { get; set; }
         public DateTime OrderAt { get; set; }
         public string Method { get; set; }
+        public string CardNumber { get; set; }
         public int TotalPay { get; set; }
         public string Status { get; set; }
+        public string Notes { get; set; }
+        public int TotalPrice { get; set; }
+        public int TotalDiscount { get; set; }
+        public int ShippingCost { get; set; }
+        public DateTime DeliveryAt { get; set; }
+    }
+
+    public class ReceiptDetailViewModel {
+        public ReceiptHistoryModel receipt { get; set; }
+        public ICollection<ReceiptDetail> details { get; set; }
     }
 }

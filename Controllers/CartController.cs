@@ -399,7 +399,10 @@ namespace Clothing_Store.Controllers
                         ReceiptID = id,
                         Color = c.Color,
                         Size = c.Size,
-                        Quantity = c.Quantity
+                        Quantity = c.Quantity,
+                        TotalPrice = c.product.promotion == null
+                            ? c.product.Price * c.Quantity
+                            : (int)Math.Round(c.product.Price - c.product.Price * (c.product.promotion.Discount/(float)100)) * c.Quantity
                     })
                     .ToList();
 
@@ -412,7 +415,7 @@ namespace Clothing_Store.Controllers
                 _context.SaveChanges();
 
                 //Redirect to order history
-                return RedirectToAction("OrderDetail", "Account", id);
+                return RedirectToAction("OrderDetail", "Account", new { id });
             }
             catch (Exception e)
             {

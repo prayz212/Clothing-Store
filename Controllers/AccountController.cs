@@ -439,9 +439,57 @@ namespace Clothing_Store.Controllers
         }
 
         // GET: Account/OrderDetail/5
-        public ActionResult OrderDetail(string id)
+        public ActionResult OrderDetail(int id)
         {
-            return View();
+            if (!isLoggedIn())
+            {
+                return RedirectToAction("Info");
+            }
+
+            try
+            {
+                ReceiptHistoryModel receipt = _context.receipts
+                    .Where(r => r.ID == id)
+                    .Select(r => new ReceiptHistoryModel
+                    {
+                        ID = r.ID,
+                        Method = r.Method,
+                        CardNumber = r.CardNumber != null ? r.CardNumber : "",
+                        Status = r.Status,
+                        OrderAt = r.OrderAt,
+                        DeliveryAt = r.DeliveryAt,
+                        Notes = r.Notes,
+                        TotalPrice = r.TotalPrice,
+                        TotalDiscount = r.TotalDiscount,
+                        ShippingCost = r.ShippingCost,
+                        TotalPay = r.TotalPay
+                    }).FirstOrDefault();
+
+                List<ReceiptDetail> details = _context.receiptDetails
+                    .Where(rd => rd.ReceiptID == receipt.ID)
+                    .Include(rd => rd.product)
+                    .ThenInclude(p => p.images)
+                    .Select(rd => new ReceiptDetail
+                    {
+                        product = rd.product,
+                        Color = rd.Color,
+                        Size = rd.Size,
+                        Quantity = rd.Quantity,
+                        TotalPrice = rd.TotalPrice
+                    }).ToList();
+
+                ReceiptDetailViewModel vm = new ReceiptDetailViewModel()
+                {
+                    details = details,
+                    receipt = receipt
+                };
+
+                return View(vm);
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Opps!!! Something went wrongss ^^");
+            }
         }
 
         private bool isLoggedIn()
