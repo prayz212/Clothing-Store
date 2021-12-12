@@ -29,7 +29,7 @@ html {
 }
 
 .__content-wrap {
-    padding-bottom: 12rem;
+    min-height: 94px;
 }
 
 body {
@@ -499,6 +499,7 @@ li {
 .__product-header {
   position: relative;
   height: 28rem;
+  border-radius: 1rem;
   background-color: #f6f2f1;
   transition: all 300ms ease-in-out;
   z-index: 0;
@@ -540,7 +541,7 @@ li {
 
 .__product-header .icons {
   position: absolute;
-  right: 5%;
+  right: 32%;
   top: 50%;
   transform: translate(0, -50%) scale(0);
   z-index: 2;
@@ -549,10 +550,8 @@ li {
 }
 
 .__product-header .icons span {
-  background-color: #fff;
   font-size: 2.5rem;
   display: block;
-  border-radius: 50%;
   padding: 1.5rem 1.6rem;
   line-height: 2rem;
   cursor: pointer;
@@ -568,13 +567,17 @@ li {
 }
 
 .__product-header .icons span:hover {
-  background-color: #ff7c9c;
   color: #fff;
 }
 
+.show-icons {
+    font-size: 55px;
+    color: gainsboro;
+}
+
 .__product:hover .icons {
-  opacity: 1;
-  transform: translate(0, -50%) scale(1);
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
 }
 
 .__product-header .icons a {
@@ -1211,7 +1214,7 @@ th:last-child {
   position: relative;
   width: 100%;
   padding: 100px 0;
-  min-height: 78vh;
+  min-height: 86vh;
   background: var(--grey-alt);
   overflow: hidden;
 }
@@ -1568,3 +1571,15 @@ form ._btn {
 .toast-sta , .toast-msg {
     margin: 0rem!important;
 }
+
+/*hidden input type number arrow*/
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+

@@ -66,13 +66,13 @@
                         var rawDiscountPrice = detail.Price - (detail.Price * ((double)detail.promotion.Discount / 100));
                         var discountPrice = Math.Round(rawDiscountPrice / 1000) * 1000;
 
-                        <div class="__final-price">@string.Format("{0:#.000}", Convert.ToDecimal(discountPrice) / 1000)đ</div>
-                        <div class="__original-price">@string.Format("{0:#.000}", Convert.ToDecimal(@detail.Price) / 1000)đ</div>
+                        <div class="__final-price">@(discountPrice.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</div>
+                        <div class="__original-price">@(detail.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</div>
                         <div class="__discount-percent">-@detail.promotion.Discount%</div>
                     }
                     else if (detail.promotion == null || detail.promotion.Discount == 0)
                     {
-                        <div class="__final-price">@string.Format("{0:#.000}", Convert.ToDecimal(@detail.Price) / 1000)đ</div>
+                        <div class="__final-price">@(detail.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</div>
                     }
                 </div>
                 <form method="post" asp-controller="Cart" asp-action="Add" id="addToCartForm">
@@ -187,10 +187,9 @@
     </section>
 
     <!-- Related -->
-    <section class="__section __featured">
+    <section class="__section __featured mb-5">
         <div class="__top __container">
             <h1>Related Products</h1>
-            <a asp-controller="Product" asp-action="" class="__view-more">Xem thêm</a>
         </div>
 
         <div class="__product-center __container">
@@ -202,12 +201,11 @@
                     <div class="__product">
                         <div class="__product-header">
                             <img src="@product.image.URL" alt="@product.image.Name">
-                            <ul class="icons">
-                                <a asp-controller="Cart" asp-action="">
-                                    <span><i class="bx bx-shopping-bag"></i></span>
-                                </a>
-                                <span><i class="bx bx-search"></i></span>
-                            </ul>
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ID">
+                                <ul class="icons">
+                                    <span><i class='bx bxs-show show-icons'></i></span>
+                                </ul>
+                            </a>
                         </div>
                         <div class="__product-footer">
                             <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ID">
@@ -224,7 +222,7 @@
                                     <i class="bx bx-star"></i>
                                 }
                             </div>
-                            <h4 class="__price">@string.Format("{0:#.000}", Convert.ToDecimal(@product.Price) / 1000)đ</h4>
+                            <h4 class="__price">@(product.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</h4>
                         </div>
                     </div>
                 }

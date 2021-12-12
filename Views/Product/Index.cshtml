@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Product";
+    ViewData["Title"] = "Sản phẩm";
 }
 
 @model PaginatedList<Clothing_Store.Models.ProductViewModel>
@@ -12,11 +12,12 @@
             <div class="card bg-light mb-3">
                 <div class="card-header text-uppercase py-3 text-center __category-block-title">DANH MỤC SẢN PHẨM</div>
                 <ul class="list-group category_block">
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo thun nam" asp-route-sortBy="@ViewBag.sortBy" >Áo thun nam</a></li>
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo khoác nam" asp-route-sortBy="@ViewBag.sortBy" >Áo khoác nam</a></li>
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo thun nam" asp-route-sortBy="@ViewBag.sortBy" >Áo thun nữ</a></li>
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo khoác nữ" asp-route-sortBy="@ViewBag.sortBy" >Áo khoác nữ</a></li>
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo sơ mi"asp-route-sortBy="@ViewBag.sortBy" >Áo sơ mi</a></li>
+                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo thun nam" asp-route-sortBy="@ViewBag.sortBy">Áo thun nam</a></li>
+                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo khoác nam" asp-route-sortBy="@ViewBag.sortBy">Áo khoác nam</a></li>
+                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo thun nữ" asp-route-sortBy="@ViewBag.sortBy">Áo thun nữ</a></li>
+                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo khoác nữ" asp-route-sortBy="@ViewBag.sortBy">Áo khoác nữ</a></li>
+                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo sơ mi nam" asp-route-sortBy="@ViewBag.sortBy">Áo sơ mi nam</a></li>
+                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo sơ mi nữ" asp-route-sortBy="@ViewBag.sortBy">Áo sơ mi nữ</a></li>
                 </ul>
             </div>
 
@@ -69,10 +70,11 @@
                             <div class="__product">
                                 <div class="__product-header">
                                     <img src="@item.image.URL" alt="@item.image.Name">
-                                    <ul class="icons">
-                                        <span><i class="bx bx-shopping-bag"></i></span>
-                                        <span><i class="bx bx-search"></i></span>
-                                    </ul>
+                                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
+                                        <ul class="icons">
+                                            <span><i class='bx bxs-show show-icons'></i></span>
+                                        </ul>
+                                    </a>
                                 </div>
                                 <div class="__product-footer">
                                     <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
@@ -89,7 +91,7 @@
                                             <i class="bx bx-star"></i>
                                         }
                                     </div>
-                                    <h4 class="__price">@item.Price</h4>
+                                    <h4 class="__price">@(item.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</h4>
                                 </div>
                             </div>
                         }
@@ -131,7 +133,7 @@
                                     </a>
                                 }
                             }
-                            @if (Model.PageIndex != Model.TotalPages)
+                            @if (Model.PageIndex != Model.TotalPages && Model.TotalPages > 0)
                             {
                                 <a asp-action="Index"
                                    asp-route-currentSearch="@ViewBag.currentSearch"

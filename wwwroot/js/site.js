@@ -147,6 +147,13 @@ $(document).ready(function () {
     let x;
     function showToast(mess, toastMess) {
         clearTimeout(x);
+
+        if (mess == "success") {
+            $("#toast").removeClass("fail")
+        } else {
+            $("#toast").removeClass("success")
+        }
+
         $("#toast").addClass(mess)
         $("#toast").css("transform", "translateX(0px)");
         x = setTimeout(() => {
@@ -154,11 +161,9 @@ $(document).ready(function () {
         }, 7000);
 
         if (mess == "success") {
-            console.log("thành công")
             $('.toast-sta').text("Thành công")
             $('.toast-msg').text(toastMess)
         } else {
-            console.log("thất bại")
             $('.toast-sta').text("Thất bại")
             $('.toast-msg').text(toastMess)
         }
@@ -167,7 +172,6 @@ $(document).ready(function () {
     $("#close").on('click', () => {
         $("#toast_success").css("transform", "translateX(400px)");
     })
-
 
     // add product to cart
     $('#addToCartForm').submit(function(e) {
@@ -182,13 +186,13 @@ $(document).ready(function () {
             var form = $(this);
             var url = window.location.protocol + "//" + window.location.host + form.attr('action');
             var data = $(this).find(':input').serialize()
-
+            
             $.ajax({
                 type: "POST",
                 url: url,
                 data: data,
                 success: function (data) {
-                    console.log(data)
+
                     if (data.status == 'success') {
                         showToast("success", "Sản phẩm đã được thêm vào giỏ hàng")
                     } else {
@@ -215,17 +219,17 @@ $(document).ready(function () {
     })
 
     // page Cart -> Cart/Payment
-    $('#payment_btn').on('click', () => {
+    $('#payment_btn').on('click', (e) => {
         var form = $('#paymentForm');
         var url = window.location.protocol + "//" + window.location.host + form.attr('action');
         var data = form.find(':input[type=checkbox]:checked').serialize()
-
+ 
         $.ajax({
             type: "POST",
             url: url,
             data: data,
             success: function (data) {
-                console.log(data)
+
                 if (data.status == 'success') {
                     if (data.url != "" && data.mess == null) {
                         var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
@@ -238,11 +242,11 @@ $(document).ready(function () {
 
                         window.location.replace(loginUrl)
                     } else {
-                        if (data.mess == "need to select at least 1 product") {
-                            showToast("fail", "Cần chọn ít nhất 1 sản phẩm để thanh toán")
+                        if (data.mess != null) {
+                            showToast("fail", data.mess)
                         } else {
-                            showToast("fail", "Sản phẩm: " + data.name + ", màu: " + data.color
-                                + ", size: " + data.size + ", chỉ còn số lượng: " + data.quantity)
+                            console.log(data)
+                            showToast("fail", "Đã xảy ra lỗi xin quý khách vui lòng tử lại sau")
                         }
                     }
                 }

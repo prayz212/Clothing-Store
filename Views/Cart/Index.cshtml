@@ -1,4 +1,4 @@
-﻿
+﻿ 
 @{
     ViewData["Title"] = "Giỏ hàng";
 }
@@ -9,7 +9,7 @@
     var numSelectedItem = 0;
 }
 <div class="__container __cart">
-    <form asp-controller="Cart" asp-action="Payment" id="paymentForm">
+    <form asp-controller="Cart" asp-action="" id="paymentForm">
         <table>
             <tr>
                 <th class="col-md-1"></th>
@@ -23,18 +23,20 @@
             @foreach (CartProducts p in Model)
             {
                 <tr class="border items_tr">
-                    <td class="col-md-1">
+                    <td class="col-md-1 col-1">
                         <div class="d-flex justify-content-center">
-                            <input @(p.IsSelected ? "checked" : "") class="form-check-input w-25 items_select" type="checkbox" name="items_select[]" onchange="changeOrderPrice(this)" value="@(p.WarehoustID + "-" + p.Quantity)" id="">
+                            <input @(p.IsSelected ? "checked" : "") class="form-check-input w-25 items_select" type="checkbox" name="items_select[]" onchange="changeOrderPrice(this)" value="@(p.ID + "-" + p.Quantity)" id="">
                         </div>
                     </td>
-                    <td class="col-md-4 col-7">
+                    <td class="col-md-4 col-7" onclick="location.href = '@(Url.Action("Details", "Product", new { id = p.ProductID }))'">
                         <div class="__cart-info row">
-                            <div class="col-3">
+                            <div class="col-12 col-sm-3 px-4 px-sm-0">
                                 <img src="@p.image.URL" alt="@p.image.Name">
                             </div>
-                            <div class="d-flex align-items-center col-9">
-                                <a href="#" class="fs-2"><p class="text-break"></p>@p.Name</a>
+                            <div class="d-sm-flex d-none align-items-center col-0 col-sm-9">
+                                <div class="d-flex align-items-center">
+                                    <a asp-controller="Product" asp-action="Details" asp-route-id="@p.ProductID" class="fs-2"><p class="text-break"></p>@p.Name</a>
+                                </div>
                             </div>
                         </div>
                     </td>
@@ -42,7 +44,7 @@
                     <td class="col-md-2 text-center"><div class="d-none d-md-block"> @p.Color | Size @p.Size </div></td>
                     <td class="col-md-1 col-2">
                         <div class="d-flex justify-content-center">
-                            <input type="number" name="items_quantity[]" value="@(p.Quantity)" min="1" class="_form-input text-center" onchange="changeItemPrice(this)">
+                            <input type="number" name="items_quantity[]" value="@(p.Quantity)" min="1" class="_form-input text-center px-0" onchange="changeItemPrice(this)">
                         </div>
                     </td>
                     @{
@@ -63,7 +65,7 @@
                     </td>
                     <td class="col-md-1 col-1">
                         <div class="d-flex justify-content-center">
-                            <a asp-action="Remove" asp-route-warehouseID="@p.WarehoustID" class="text-decoration-none text-center">Xóa</a>
+                            <a asp-action="Remove" asp-route-cartDetailsID="@p.ID" class="text-decoration-none text-center">Xóa</a>
                         </div>
                     </td>
                 </tr>
@@ -86,7 +88,7 @@
                 <div class="d-none" id="total_price">@selectedItemsPrice</div>
                 <b class="fs-1 text-primary" id="disp_total_price">@(selectedItemsPrice != 0 ? selectedItemsPrice.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")) : "0")đ</b>
             </td>
-            <td class="col-md-5 text-center"><button id="payment_btn" class="checkout _btn text-light w-75">Mua hàng</button></td>
+            <td class="col-md-5 text-center"><button id="payment_btn" class="checkout _btn text-light w-75 d-flex justify-content-center">Mua hàng</button></td>
         </tr>
     </table>
 
@@ -133,13 +135,11 @@
         // add quantity to input checkbox value
         var quantity_checkbox = $(_this).closest('.items_tr').find("td:nth-child(1)").find("input")[0]
         quantity_checkbox.setAttribute('value', quantity_checkbox.value.substring(0, quantity_checkbox.value.indexOf("-") + 1) + $(_this).val())
-        console.log(quantity_checkbox.value)
 
-        // disabled payment button if selected product = 0
     }
 
     function changeOrderPrice(_this) {
-        $('#num_selected_product').text(document.querySelectorAll("input[name=items_select]:checked").length)
+        $('#num_selected_product').text(document.querySelectorAll("input.items_select[type=checkbox]:checked").length)
         var total_price = $('#total_price').text() * 1
         var total_price_item = $(_this).closest('.items_tr').find("td:nth-child(6)").children(":first")[0].innerHTML * 1
 
