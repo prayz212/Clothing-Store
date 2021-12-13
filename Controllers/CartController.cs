@@ -88,7 +88,6 @@ namespace Clothing_Store.Controllers
                 if (cartD != null)
                 {
                     cartD.IsDelete = true;
-                    cartD.Quantity = 0;
                     cartD.IsSelected = false;
                     _context.SaveChanges();
                 }
@@ -194,7 +193,7 @@ namespace Clothing_Store.Controllers
 
                 int cartDetailsID = 0;
                 int quantity = 0;
-
+                
                 string[] cartDetailsID_quantity;
                 for (int i = 0; i < data.Count; i++)
                 {
@@ -242,7 +241,7 @@ namespace Clothing_Store.Controllers
                     }
 
                 }
-
+                
                 for (int i = 0; i < data.Count; i++)
                 {
                     cartDetailsID_quantity = data[i].Split('-');
@@ -293,35 +292,19 @@ namespace Clothing_Store.Controllers
                 Int32.TryParse(Quantity, out quantity);
                 int productID = 0;
                 Int32.TryParse(ProductID, out productID);
-
-                var cd = _context.cartDetails
-                        .Where(cd => cd.accountID == userID)
-                        .Where(cd => cd.productID == productID)
-                        .Where(cd => cd.Size == size)
-                        .Where(cd => cd.Color == color)
-                        .FirstOrDefault();
             
-                if (cd != null)
+                
+                CartDetails new_cd = new CartDetails()
                 {
-                    cd.IsDelete = false;
-                    cd.Quantity = cd.Quantity + quantity;
-                    _context.SaveChanges();
-                }
-                else
-                {
-                    CartDetails new_cd = new CartDetails()
-                    {
-                        accountID = userID,
-                        productID = productID,
-                        Color = color,
-                        Size = size,
-                        Quantity = quantity
-                    };
+                    accountID = userID,
+                    productID = productID,
+                    Color = color,
+                    Size = size,
+                    Quantity = quantity
+                };
 
-                    _context.cartDetails.Add(new_cd);
-                    _context.SaveChanges();
-                }
-
+                _context.cartDetails.Add(new_cd);
+                _context.SaveChanges();
 
                 return Json(new { status = "success" });
             }
@@ -377,6 +360,7 @@ namespace Clothing_Store.Controllers
                     .ThenInclude(p => p.promotion)
                     .Select(cd => new CartDetails
                     {
+                        ID = cd.ID,
                         productID = cd.product.ID,
                         accountID = accId,
                         Size = cd.Size,
@@ -415,7 +399,7 @@ namespace Clothing_Store.Controllers
                     ShippingCost = shippingCost,
                     TotalPay = totalPay,
                     Method = info.Method,
-                    Status = "Đang xử lý",
+                    Status = OrderStatus.IN_PROCESS,
                     OrderAt = DateTime.Now,
                     accountID = accId
                 };
@@ -433,8 +417,6 @@ namespace Clothing_Store.Controllers
                 int id = receipt.ID;
 
                 //Create new receipt detail rows data
-
-
                 List<ReceiptDetail> receiptDetails = cartDetails
                     .Select(c => new ReceiptDetail()
                     {
@@ -452,6 +434,28 @@ namespace Clothing_Store.Controllers
                 _context.receiptDetails.AddRange(receiptDetails);
                 _context.SaveChanges();
 
+                //Update quantity in warehouse
+                var productIDs = cartDetails.Select(cd => cd.productID).ToList();
+
+                var warehouses = _context.warehouses
+                    .Where(w => productIDs.Contains(w.product.ID))
+                    .ToList();
+
+                foreach(CartDetails c in cartDetails)
+                {
+                    var w = warehouses
+                        .Where(w => w.product.ID == c.productID)
+                        .Where(w => w.Size == c.Size)
+                        .Where(w => w.Color == c.Color)
+                        .FirstOrDefault();
+
+                    w.Quantity = w.Quantity - c.Quantity;
+                    w.Sold = w.Sold + c.Quantity;
+                }
+                _context.warehouses.UpdateRange(warehouses);
+                _context.SaveChanges();
+
+
                 //Delete payment product from cart
                 cartDetails.ForEach(cd => cd.IsDelete = true);
                 _context.cartDetails.UpdateRange(cartDetails);
@@ -466,7 +470,7 @@ namespace Clothing_Store.Controllers
             }
         }
 
-            private bool isLoggedIn()
+        private bool isLoggedIn()
         {
             return HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
         }

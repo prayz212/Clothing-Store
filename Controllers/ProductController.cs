@@ -358,7 +358,6 @@ namespace Clothing_Store.Controllers
 
                 var receipt = _context.receipts
                     .Where(r => r.ID == receiptId)
-                    .Include(r => r.account)
                     .FirstOrDefault();
 
                 var product = _context.Products
@@ -366,7 +365,7 @@ namespace Clothing_Store.Controllers
                     .FirstOrDefault();
 
                 Rating isExist = _context.ratings
-                    .Where(r => r.account.ID == receipt.account.ID)
+                    .Where(r => r.receipt.ID == receipt.ID)
                     .Where(r => r.product.ID == product.ID)
                     .FirstOrDefault();
 
@@ -378,7 +377,7 @@ namespace Clothing_Store.Controllers
                 {
                     _context.ratings.Add(new Models.Rating
                     {
-                        account = receipt.account,
+                        receipt = receipt,
                         product = product,
                         Star = rating
                     });

@@ -15,7 +15,7 @@ namespace Clothing_Store.Models
 
         public Product product { get; set; }
 
-        public Account account { get; set; }
+        public Receipt receipt { get; set; }
 
         public bool IsDelete { get; set; } = false;
     }
