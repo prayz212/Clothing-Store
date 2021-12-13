@@ -4,9 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Clothing_Store.Models
 {
-    [Table("ReceipDetail")]
+    [Table("ReceiptDetail")]
     public class ReceiptDetail
     {
+        [Key]
+        public int ID { get; set; }
+
         [Required]
         [StringLength(10)]
         public string Size { get; set; }

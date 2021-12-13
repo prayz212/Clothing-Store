@@ -52,9 +52,6 @@ namespace Clothing_Store.Utils
             modelBuilder.Entity<Account>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
-
-            modelBuilder.Entity<ReceiptDetail>()
-                .HasKey(rd => new { rd.ReceiptID, rd.ProductID });
         }
     }
 }

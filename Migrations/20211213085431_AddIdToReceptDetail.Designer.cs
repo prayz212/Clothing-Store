@@ -4,14 +4,16 @@ using Clothing_Store.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clothing_Store.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211213085431_AddIdToReceptDetail")]
+    partial class AddIdToReceptDetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -270,17 +272,17 @@ namespace Clothing_Store.Migrations
                     b.Property<int>("Star")
                         .HasColumnType("int");
 
-                    b.Property<int?>("productID")
+                    b.Property<int?>("accountID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("receiptID")
+                    b.Property<int?>("productID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("productID");
+                    b.HasIndex("accountID");
 
-                    b.HasIndex("receiptID");
+                    b.HasIndex("productID");
 
                     b.ToTable("Rating");
                 });
@@ -535,13 +537,13 @@ namespace Clothing_Store.Migrations
 
             modelBuilder.Entity("Clothing_Store.Models.Rating", b =>
                 {
+                    b.HasOne("Clothing_Store.Models.Account", "account")
+                        .WithMany()
+                        .HasForeignKey("accountID");
+
                     b.HasOne("Clothing_Store.Models.Product", "product")
                         .WithMany("ratings")
                         .HasForeignKey("productID");
-
-                    b.HasOne("Clothing_Store.Models.Receipt", "receipt")
-                        .WithMany()
-                        .HasForeignKey("receiptID");
                 });
 
             modelBuilder.Entity("Clothing_Store.Models.Receipt", b =>

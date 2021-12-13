@@ -283,9 +283,13 @@ $(document).ready(function () {
     //Show rating modal
     var productId = -1, receiptId = -1;
     $('#product-table tbody tr').on('click', function () {
-        $('.__popup-rating').show();
-        productId = $(this).attr('data-product')
-        receiptId = $(this).attr('data-receipt')
+
+        const isEnable = $(this).attr('data-enable');
+        if (isEnable) {
+            $('.__popup-rating').show();
+            productId = $(this).attr('data-product')
+            receiptId = $(this).attr('data-receipt')
+        }
     });
 
     $('._submit-rating').click(function (e) {
