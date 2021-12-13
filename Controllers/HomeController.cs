@@ -35,7 +35,7 @@ namespace Clothing_Store.Controllers
                     {
                         ID = pt.product.ID,
                         Name = pt.product.Name,
-                        Price = (pt.product.promotion != null || !pt.product.promotion.IsDelete || pt.product.promotion.To > DateTime.Now)
+                        Price = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
                             ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
                             : pt.product.Price,
                         ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
@@ -54,7 +54,7 @@ namespace Clothing_Store.Controllers
                     {
                         ID = pt.product.ID,
                         Name = pt.product.Name,
-                        Price = (pt.product.promotion != null || !pt.product.promotion.IsDelete || pt.product.promotion.To > DateTime.Now)
+                        Price = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
                             ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
                             : pt.product.Price,
                         ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),

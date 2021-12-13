@@ -27,8 +27,8 @@
     @*<script src="~/js/site.js" asp-append-version="true"></script>*@
 </head>
 <body>
-    <div class="__page">
-        <div class="__content-wrap pb-5">
+    <div class="__page pt-5">
+        <div class="__content-wrap py-5">
             @using Microsoft.AspNetCore.Http;
             @{
                 var isHome = ViewContext.RouteData.Values["controller"].ToString().Equals("Home");

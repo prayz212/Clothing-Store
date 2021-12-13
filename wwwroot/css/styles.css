@@ -98,7 +98,13 @@ li {
 }
 
 .__nav-shadow {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #243a6f;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
 }
 
 .__nav.__fix-nav {
@@ -1011,6 +1017,7 @@ form span {
 
 .__rating-stars ul > li.__star {
   display: inline-block;
+  cursor: pointer;
 }
 
 .__rating-stars ul > li.__star > i {
@@ -1115,8 +1122,7 @@ form span {
 
 /* Cart Items */
 .__cart {
-  margin: 5vh auto;
-  min-height: 73vh;
+  margin: 10vh auto;
 }
 
 table {
@@ -1582,7 +1588,6 @@ input::-webkit-inner-spin-button {
 /*Rating star*/
 .__popup-rating {
     background: #0000008c;
-    cursor: pointer;
     display: none;
     height: 100%;
     position: fixed;

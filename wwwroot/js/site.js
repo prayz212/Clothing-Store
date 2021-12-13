@@ -24,16 +24,16 @@ $(document).ready(function () {
     });
 
     // Fixed Nav
-    const navBar = document.querySelector(".__nav");
-    const navHeight = navBar.getBoundingClientRect().height;
-    window.addEventListener("scroll", () => {
-    const scrollHeight = window.pageYOffset;
-    if (scrollHeight > navHeight) {
-        navBar.classList.add("__fix-nav");
-    } else {
-        navBar.classList.remove("__fix-nav");
-    }
-    });
+    //const navBar = document.querySelector(".__nav");
+    //const navHeight = navBar.getBoundingClientRect().height;
+    //window.addEventListener("scroll", () => {
+    //const scrollHeight = window.pageYOffset;
+    //if (scrollHeight > navHeight) {
+    //    navBar.classList.add("__fix-nav");
+    //} else {
+    //    navBar.classList.remove("__fix-nav");
+    //}
+    //});
 
     // Scroll To
     const links = [...document.querySelectorAll(".__scroll-link")];
@@ -132,7 +132,7 @@ $(document).ready(function () {
     }
 
     $("#close").on('click', () => {
-        $("#toast_success").css("transform", "translateX(400px)");
+        $("#toast").css("transform", "translateX(400px)");
     })
 
     // add product to cart

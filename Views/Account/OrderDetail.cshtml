@@ -61,7 +61,7 @@
         @foreach (ReceiptDetail rd in Model.details)
         {
             var image = rd.product.images.FirstOrDefault().URL;
-            <tr class="border" data-product="@rd.product.ID" data-receipt="@Model.receipt.ID">
+            <tr style="cursor: pointer" class="border" data-product="@rd.product.ID" data-receipt="@Model.receipt.ID">
                 <td class="col-md-1 col-1 text-center">@i</td>
                 <td class="col-md-4 col-3">
                     <div class="row">
@@ -69,7 +69,7 @@
                             <img src="@image" alt="">
                         </div>
                         <div class="d-sm-flex d-none align-items-center col-0 col-sm-9">
-                            <a asp-action="Details" asp-controller="Product" asp-route-id="@rd.product.ID"><p class="text-break fs-2">@rd.product.Name</p></a>
+                            <p class="text-break fs-2">@rd.product.Name</p>
                         </div>
                     </div>
                 </td>
