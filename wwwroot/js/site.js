@@ -59,45 +59,7 @@ $(document).ready(function () {
     });
     });
 
-    /*       RATING-STAR    */
-    /* 1. Visualizing things on Hover - See next part for action on click */
-    $('#stars li').on('mouseover', function(){
-    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
-   
-    // Now highlight all the stars that's not after the current hovered star
-    $(this).parent().children('li.__star').each(function(e){
-        if (e < onStar) {
-        $(this).addClass('__hover');
-        }
-        else {
-        $(this).removeClass('__hover');
-        }
-    });
-    
-    }).on('mouseout', function(){
-    $(this).parent().children('li.__star').each(function(e){
-        $(this).removeClass('__hover');
-    });
-    });
-  
-  
-    /* 2. Action to perform on click */
-    $('#stars li').on('click', function(){
-    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
-    var stars = $(this).parent().children('li.__star');
-    
-    for (i = 0; i < stars.length; i++) {
-        $(stars[i]).removeClass('__selected');
-    }
-    
-    for (i = 0; i < onStar; i++) {
-        $(stars[i]).addClass('__selected');
-    }
-    
-    // JUST RESPONSE (Not needed)
-    var ratingValue = parseInt($('#stars li.__selected').last().data('value'), 10);
-    });
-
+    /*      image click     */
     $('.__thumbnails .__thumbnail img').on('click', function() {
     const selectedImage = $(this).attr('src');
     $('.__main img').attr('src', selectedImage)
@@ -262,13 +224,110 @@ $(document).ready(function () {
 
 
     /*          PAYMENT            */
-    $('#Credit-info').hide();
+    const currentChecked = $("#info_Method").val();
+    if (currentChecked == "COD") {
+        $('#CreditCard-info').hide();
+    }
+    else if (currentChecked == "CreditCard") {
+        $('#COD-info').hide();
+    }
+    
     $("input[name$='paymentType']").click(function () {
         var value = $(this).val();
+        $("#info_Method").val(value);
 
         $('#COD-info').hide();
-        $('#Credit-info').hide();
+        $('#CreditCard-info').hide();
         $("#" + value + "-info").show();
+    });
+
+    /*       RATING-STAR    */
+    /* 1. Visualizing things on Hover - See next part for action on click */
+    $('#stars li').on('mouseover', function () {
+        var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+        // Now highlight all the stars that's not after the current hovered star
+        $(this).parent().children('li.__star').each(function (e) {
+            if (e < onStar) {
+                $(this).addClass('__hover');
+            }
+            else {
+                $(this).removeClass('__hover');
+            }
+        });
+
+    }).on('mouseout', function () {
+        $(this).parent().children('li.__star').each(function (e) {
+            $(this).removeClass('__hover');
+        });
+    });
+
+    var ratingValue = 0;
+    /* 2. Action to perform on click */
+    $('#stars li').on('click', function () {
+        var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+        var stars = $(this).parent().children('li.__star');
+
+        for (i = 0; i < stars.length; i++) {
+            $(stars[i]).removeClass('__selected');
+        }
+
+        for (i = 0; i < onStar; i++) {
+            $(stars[i]).addClass('__selected');
+        }
+
+        // JUST RESPONSE (Not needed)
+        ratingValue = parseInt($('#stars li.__selected').last().data('value'), 10);
+    });
+
+    //Show rating modal
+    var productId = -1, receiptId = -1;
+    $('#product-table tbody tr').on('click', function () {
+        $('.__popup-rating').show();
+        productId = $(this).attr('data-product')
+        receiptId = $(this).attr('data-receipt')
+    });
+
+    $('._submit-rating').click(function (e) {
+        e.stopImmediatePropagation();
+        $('.__popup-rating').hide();
+
+        if (ratingValue == 0) {
+            showToast("fail", "Cần chọn số sao đánh giá.")
+            return;
+        }
+
+        var formData = {
+            ProductId: productId,
+            ReceiptId: receiptId,
+            rating: ratingValue
+        };;
+
+        var url = window.location.protocol + "//" + window.location.host + '/Product/Rating';
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            success: function (data) {
+                console.log(data)
+                if (data.status == 'success') {
+                    showToast("success", "Đã lưu đánh đánh giá.")
+
+                    var stars = $("#stars").children('li.__star');
+                    for (i = 0; i < stars.length; i++) {
+                        $(stars[i]).removeClass('__selected');
+                        $(stars[i]).removeClass('__hover');
+                    }
+                } else {    
+                    showToast("fail", "Rất tiếc đã xảy ra lỗi. Xin vui lòng thử lại sau.")
+                }
+            }
+        });
+    });
+
+    $('.popupCloseButton').click(function () {
+        $('.__popup-rating').hide();
     });
 });
 

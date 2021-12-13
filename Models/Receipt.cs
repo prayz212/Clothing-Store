@@ -70,5 +70,9 @@ namespace Clothing_Store.Models
 
         [StringLength(7)]
         public string SecretNumber { get; set; }
+
+        [Required]
+        public int accountID { get; set; }
+        public Account account { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Clothing_Store.Models
@@ -91,5 +92,29 @@ namespace Clothing_Store.Models
         [StringLength(12, MinimumLength = 7, ErrorMessage = "Mã số bí mật phải bao gồm 7 số")]
         [MaxLength(7, ErrorMessage = "Mã số bí mật có tối đa 7 số")]
         public string? SecretNumber { get; set; }
+    }
+
+    public class ReceiptHistoryViewModel
+    {
+        public List<ReceiptHistoryModel> receipts { get; set; }
+    }
+
+    public class ReceiptHistoryModel {
+        public int ID { get; set; }
+        public DateTime OrderAt { get; set; }
+        public string Method { get; set; }
+        public string CardNumber { get; set; }
+        public int TotalPay { get; set; }
+        public string Status { get; set; }
+        public string Notes { get; set; }
+        public int TotalPrice { get; set; }
+        public int TotalDiscount { get; set; }
+        public int ShippingCost { get; set; }
+        public DateTime DeliveryAt { get; set; }
+    }
+
+    public class ReceiptDetailViewModel {
+        public ReceiptHistoryModel receipt { get; set; }
+        public ICollection<ReceiptDetail> details { get; set; }
     }
 }

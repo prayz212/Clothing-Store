@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -23,5 +24,6 @@ namespace Clothing_Store.Models
         public string Email { get; set; }
 
         public Customer customer { get; set; }
+        public ICollection<Receipt> receipts { get; set; }
     }
 }

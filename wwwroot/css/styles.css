@@ -1005,7 +1005,8 @@ form span {
 }
 
 .__rating-stars ul {
-  list-style-type: none;
+    list-style-type: none;
+    padding-left: 0rem;
 }
 
 .__rating-stars ul > li.__star {
@@ -1086,10 +1087,6 @@ form span {
 
   .__highlight-services {
     margin-top: 3.5rem;
-  }
-
-  .__rating-stars {
-    padding: 2.2rem 1rem;
   }
 
   .__rating-stars ul > li.__star > i {
@@ -1582,4 +1579,72 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+/*Rating star*/
+.__popup-rating {
+    background: #0000008c;
+    cursor: pointer;
+    display: none;
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
 
+.__popup-rating .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.__popup-rating > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+
+.popupCloseButton {
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+
+._submit-rating {
+    margin: 0px;
+}
+
+
+@media only screen and (max-width: 420px) {
+    ._submit-rating {
+        padding: 6px 18px;
+    }
+
+    .__popup-rating > div {
+        width: 80%;
+    }
+}

@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng";
+}
+
+@model Clothing_Store.Models.ReceiptDetailViewModel;
+
+<div class="__container __cart">
+    <div class="fs-1 fw-bold mt-5">Thông tin đơn hàng:</div>
+    <div class="row border p-3 mx-1 my-4">
+        <div class="col-md-4 col-12">
+            <div class="px-4 py-3 py-sm-4 row fs-3">
+                <div class="col-6"> Mã đơn hàng: </div>
+                <div class="col-6"> @Model.receipt.ID </div>
+            </div>
+            <div class="px-4 pb-3 py-sm-4 row fs-3">
+                <div class="col-6"> Loại thanh toán: </div>
+                <div class="col-6"> @Model.receipt.Method </div>
+            </div>
+            <div class="px-4 pb-3 py-sm-4 row fs-3">
+                <div class="col-6"> Số thẻ Visa: </div>
+                <div class="col-6"> @Model.receipt.CardNumber </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-12">
+            <div class="px-4 pb-3 py-sm-4 row fs-3">
+                <div class="col-6"> Tình trạng: </div>
+                <div class="col-6"> @Model.receipt.Status </div>
+            </div>
+            <div class="px-4 pb-3 py-sm-4 row fs-3">
+                <div class="col-6"> Ngày đặt hàng: </div>
+                <div class="col-6"> @Model.receipt.OrderAt.ToString("dd/MM/yyyy") </div>
+            </div>
+
+            <div class="px-4 pb-3 py-sm-4 row fs-3">
+                <div class="col-6"> Ngày giao hàng: </div>
+                <div class="col-6"> @(Model.receipt.DeliveryAt.Year == 1 ? "" : Model.receipt.DeliveryAt.ToString("dd/MM/yyyy"))</div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-12">
+            <div class="px-4 pb-3 py-sm-4">Ghi chú: @Model.receipt.Notes</div>
+        </div>
+    </div>
+
+
+    <div class="fs-1 fw-bold mt-5">Danh sách sản phẩm:</div>
+    <table class="my-4" id="product-table">
+        <tr>
+            <th class="col-md-1 col-1 py-4 text-center">STT</th>
+            <th class="col-md-4 col-3 py-4 text-center">Sản phẩm</th>
+            <th class="col-md-2 col-0 text-center"><div class="d-none d-md-block"> Phân loại </div></th>
+            <th class="col-md-2 col-3 text-center">Chi tiết</th>
+            <th class="col-md-1 col-3 text-center">Số lượng</th>
+            <th class="col-md-2 col-2 text-center">Số tiền</th>
+        </tr>
+        @{
+            var i = 1;
+        }
+        @foreach (ReceiptDetail rd in Model.details)
+        {
+            var image = rd.product.images.FirstOrDefault().URL;
+            <tr class="border" data-product="@rd.product.ID" data-receipt="@Model.receipt.ID">
+                <td class="col-md-1 col-1 text-center">@i</td>
+                <td class="col-md-4 col-3">
+                    <div class="row">
+                        <div class="col-12 col-sm-3">
+                            <img src="@image" alt="">
+                        </div>
+                        <div class="d-sm-flex d-none align-items-center col-0 col-sm-9">
+                            <a asp-action="Details" asp-controller="Product" asp-route-id="@rd.product.ID"><p class="text-break fs-2">@rd.product.Name</p></a>
+                        </div>
+                    </div>
+                </td>
+                <td class="col-md-1 text-center"><div class="d-none d-md-block">@rd.product.ProductType</div></td>
+                <td class="col-md-2 col-3 text-center">@rd.Color | @rd.Size</td>
+                <td class="col-md-1 col-3 text-center text-break">@rd.Quantity</td>
+                <td class="col-md-2 col-2 text-center">@rd.TotalPrice.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))đ</td>
+            </tr>
+            i++;
+        }
+    </table>
+
+    <div class="d-flex justify-content-end my-4">
+        <div class="col-sm-8 col-12">
+        </div>
+
+        <div class="col-sm-4 col-12">
+            <table class="fs-3">
+                <tr class="border-top border-dark">
+                    <td>Tổng tiền hàng:</td>
+                    <td>@Model.receipt.TotalPrice.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))đ</td>
+                </tr>
+                <tr>
+                    <td>Giảm giá hóa đơn:</td>
+                    <td>@Model.receipt.TotalDiscount.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))đ</td>
+                </tr>
+                <tr>
+                    <td>Chi phí vận chuyển:</td>
+                    <td>@Model.receipt.ShippingCost.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))đ</td>
+                </tr>
+                <tr>
+                    <td>Thành tiền:</td>
+                    <td class="fs-2 fw-bold">@Model.receipt.TotalPay.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))đ</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="__popup-rating">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">&times;</div>
+
+        <div class="fs-2">Đánh giá sản phẩm</div>
+        <!-- Rating Stars Box -->
+        <div class='__rating-stars'>
+            <ul id='stars'>
+                <li class='__star' title='Poor' data-value='1'>
+                    <i class='bx bx-star'></i>
+                </li>
+                <li class='__star' title='Fair' data-value='2'>
+                    <i class='bx bx-star'></i>
+                </li>
+                <li class='__star' title='Good' data-value='3'>
+                    <i class='bx bx-star'></i>
+                </li>
+                <li class='__star' title='Very Good' data-value='4'>
+                    <i class='bx bx-star'></i>
+                </li>
+                <li class='__star' title='Excellent' data-value='5'>
+                    <i class='bx bx-star'></i>
+                </li>
+            </ul>
+        </div>
+        <button class="_btn _submit-rating">Lưu đánh giá</button>
+    </div>
+</div>
+
+<div class="__wrapper" id="toast_success">
+    <div id="toast">
+        <div class="container-1">
+            <i class='bx bxs-bookmark-star'></i>
+        </div>
+        <div class="container-2 my-2">
+            <p class="toast-sta"></p>
+            <p class="toast-msg"></p>
+        </div>
+        <button id="close">
+            <i class='bx bx-x'></i>
+        </button>
+    </div>
+</div>

@@ -28,6 +28,10 @@
     <None Remove="BCrypt.Net-Next" />
     <None Remove="Microsoft.AspNetCore.Session" />
     <None Remove="NETCore.MailKit" />
+    <None Remove="Areas\Admin\Assets\" />
+    <None Remove="Areas\Admin\Assets\css\" />
+    <None Remove="Areas\Admin\Assets\js\" />
+    <None Remove="Areas\Admin\Assets\image\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\" />
@@ -37,6 +41,10 @@
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="wwwroot\images\" />
+    <Folder Include="Areas\Admin\Assets\" />
+    <Folder Include="Areas\Admin\Assets\css\" />
+    <Folder Include="Areas\Admin\Assets\js\" />
+    <Folder Include="Areas\Admin\Assets\image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />

@@ -341,6 +341,59 @@ namespace Clothing_Store.Controllers
             }
         }
 
+        // POST: Product/Rating
+        [HttpPost]
+        public JsonResult Rating(IFormCollection form)
+        {
+            try
+            {
+                if (form.Count == 0)
+                {
+                    return Json(new { status = "fail" });
+                }
+
+                int productId = Int32.Parse(form["ProductId"][0]);
+                int receiptId = Int32.Parse(form["ReceiptId"][0]);
+                int rating = Int32.Parse(form["rating"][0]);
+
+                var receipt = _context.receipts
+                    .Where(r => r.ID == receiptId)
+                    .Include(r => r.account)
+                    .FirstOrDefault();
+
+                var product = _context.Products
+                    .Where(p => p.ID == productId)
+                    .FirstOrDefault();
+
+                Rating isExist = _context.ratings
+                    .Where(r => r.account.ID == receipt.account.ID)
+                    .Where(r => r.product.ID == product.ID)
+                    .FirstOrDefault();
+
+                if (isExist != null)
+                {
+                    isExist.Star = rating;
+                }
+                else
+                {
+                    _context.ratings.Add(new Models.Rating
+                    {
+                        account = receipt.account,
+                        product = product,
+                        Star = rating
+                    });
+                }
+
+                _context.SaveChanges();
+
+                return Json(new { status = "success" });
+            }
+            catch (Exception e)
+            {
+                return Json(new { status = "fail" });
+            }
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
