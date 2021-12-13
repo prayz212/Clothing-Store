@@ -2,103 +2,197 @@
     ViewData["Title"] = "Trang chủ";
 }
 
-@model IEnumerable<Clothing_Store.Models.ProductViewModel>
+@model Clothing_Store.Models.HomeViewModel
 
-<section class="__advert __section">
-    <div class="__advert-center __container">
-        <div class="__advert-box">
-            <div class="__dotted">
-                <div class="__content">
-                    <h2>
-                        Girls <br />
-                        Clothing
-                    </h2>
-                    <h4>Worlds Best Brands</h4>
-                </div>
-            </div>
-            <img src="~/images/advert1.png" alt="">
-        </div>
+@{ 
+   ICollection<ProductViewModel> newProducts = Model.NewProducts; 
+   ICollection<ProductViewModel> topSales = Model.TopSaleProducts; 
+}
 
-        <div class="__advert-box">
-            <div class="__dotted">
-                <div class="__content">
-                    <h2>
-                        Summer <br />
-                        Clothing
-                    </h2>
-                    <h4>Worlds Best Brands</h4>
-                </div>
-            </div>
-            <img src="~/images/advert2.png" alt="">
-        </div>
-
-        <div class="__advert-box">
-            <div class="__dotted">
-                <div class="__content">
-                    <h2>
-                        Boys <br />
-                        Clothing
-                    </h2>
-                    <h4>Worlds Best Brands</h4>
-                </div>
-            </div>
-            <img src="~/images/advert3.png" alt="">
-        </div>
-    </div>
-</section>
-
-<!-- Featured -->
-<section class="__feature-section __featured">
-    <div class="__title">
-        <h1>Sản phẩm bán chạy</h1>
-        <div>
-            <a asp-controller="Product" asp-action="" class="__view-more">Xem thêm</a>
-        </div>
-    </div>
-
-    <div class="__product-center __container">
-        @foreach (ProductViewModel item in Model)
-        {
-            <div class="__product">
-                <div class="__product-header">
-                    <img src="@item.image.URL" alt="@item.image.Name">
-                    <ul class="icons">
-                        <span><i class="bx bx-shopping-bag"></i></span>
-                        <span><i class="bx bx-search"></i></span>
-                    </ul>
-                </div>
-                <div class="__product-footer">
-                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
-                        <h3>@item.Name</h3>
-                    </a>
-                    <div class="__rating">
-                        @for (int i = 0; i < item.ratings; i++)
-                        {
-                            <i class="bx bxs-star"></i>
-                        }
-
-                        @for (int i = 0; i < 5 - item.ratings; i++)
-                        {
-                            <i class="bx bx-star"></i>
-                        }
+<div class="mb-5 pb-5">
+    <section class="__advert __section">
+        <div class="__advert-center __container">
+            <div class="__advert-box">
+                <a asp-controller="Product" asp-action="Index" asp-route-filter="Áo thun">
+                    <div class="__dotted">
+                        <div class="__content">
+                            <h2>
+                                Áo thun
+                            </h2>
+                            <h4>Worlds Best Brands</h4>
+                        </div>
                     </div>
-                    <h4 class="__price">@string.Format("{0:#.000}", Convert.ToDecimal(@item.Price) / 1000)đ</h4>
+                    <img src="~/images/advert1.png" alt="">
+                </a>
+            </div>
+
+            <div class="__advert-box">
+                <a asp-controller="Product" asp-action="Index" asp-route-filter="Áo khoác">
+                    <div class="__dotted">
+                        <div class="__content">
+                            <h2>
+                                Áo khoác
+                            </h2>
+                            <h4>Worlds Best Brands</h4>
+                        </div>
+                    </div>
+                    <img src="~/images/advert2.png" alt="">
+                </a>
+            </div>
+
+            <div class="__advert-box">
+                <a asp-controller="Product" asp-action="Index" asp-route-filter="Áo sơ mi">
+                    <div class="__dotted">
+                        <div class="__content">
+                            <h2>
+                                Sơ mi
+                            </h2>
+                            <h4>Worlds Best Brands</h4>
+                        </div>
+                    </div>
+                    <img src="~/images/advert3.png" alt="">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="__feature-section __featured">
+        <div class="__title">
+            <h1>Sản phẩm bán chạy</h1>
+            <div>
+                <a asp-controller="Product" asp-action="TopSales" class="__view-more">Xem thêm</a>
+            </div>
+        </div>
+
+        <div class="__product-center __container">
+            @foreach (ProductViewModel item in topSales)
+            {
+                <div class="__product">
+                    <div class="__product-header">
+                        <img src="@item.image.URL" alt="@item.image.Name">
+                        <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
+                            <ul class="icons">
+                                <span><i class='bx bxs-show show-icons'></i></span>
+                            </ul>
+                        </a>
+                    </div>
+                    <div class="__product-footer">
+                        <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
+                            <h3>@item.Name</h3>
+                        </a>
+                        <div class="__rating">
+                            @for (int i = 0; i < item.ratings; i++)
+                            {
+                                <i class="bx bxs-star"></i>
+                            }
+
+                            @for (int i = 0; i < 5 - item.ratings; i++)
+                            {
+                                <i class="bx bx-star"></i>
+                            }
+                        </div>
+                        <h4 class="__price">@(item.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</h4>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </section>
+
+    <!--Latest -->
+    @if (newProducts.Count > 0)
+    {
+        <section class="__feature-section __featured">
+            <div class="__title">
+                <h1>Sản phẩm mới</h1>
+                <div>
+                    <a asp-controller="Product" asp-action="NewProducts" class="__view-more">Xem thêm</a>
                 </div>
             </div>
-        }
 
+            <div class="__product-center __container">
+                @foreach (ProductViewModel item in newProducts)
+                {
+                    <div class="__product">
+                        <div class="__product-header">
+                            <img src="@item.image.URL" alt="@item.image.Name">
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
+                                <ul class="icons">
+                                    <span><i class='bx bxs-show show-icons'></i></span>
+                                </ul>
+                            </a>
+                        </div>
+                        <div class="__product-footer">
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
+                                <h3>@item.Name</h3>
+                            </a>
+                            <div class="__rating">
+                                @for (int i = 0; i < item.ratings; i++)
+                                {
+                                    <i class="bx bxs-star"></i>
+                                }
 
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic1.jpg" alt="">
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
+                                @for (int i = 0; i < 5 - item.ratings; i++)
+                                {
+                                    <i class="bx bx-star"></i>
+                                }
+                            </div>
+                            <h4 class="__price">@(item.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</h4>
+                        </div>
+                    </div>
+                }
             </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
+        </section>
+    }
+
+    <!-- Product Banner -->
+    <section class="__section">
+        <div class="__product-banner">
+            <div class="__left">
+                <img src="~/images/test.jpg" alt="" />
+            </div>
+            <div class="__right">
+                <div class="__content">
+                    <h2>GIẢM GIÁ TỚI <span class="__discount">30% </span></h2>
+                    <h1>
+                        <span>Thỏa thích</span>
+                        <span>mua sắm</span>
+                    </h1>
+                    <a asp-controller="Product" asp-action="FlashSale" class="__btn">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="__section">
+        <div class="__testimonial-center __container">
+            <div class="__testimonial">
+                <span>&ldquo;</span>
+                <p>
+                    Sản phẩm có giá cả hợp lý.
+                    Dịch vụ chăm sóc khách hàng tốt.
+                    Sẽ tiếp tục ủng hộ CoolMate.
+                </p>
+                <div class="__rating">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                </div>
+                <div class="__img-cover">
+                    <img src="~/images/profile1.jpg" alt="" />
+                </div>
+                <h4>Nhã Anh</h4>
+            </div>
+            <div class="__testimonial">
+                <span>&ldquo;</span>
+                <p>
+                    Giao hàng nhanh và sản phẩm chất lượng.
+                    CoolMate luôn là lựa chọn đầu tiên của tôi.
+                </p>
                 <div class="__rating">
                     <i class="bx bxs-star"></i>
                     <i class="bx bxs-star"></i>
@@ -106,20 +200,17 @@
                     <i class="bx bxs-star"></i>
                     <i class="bx bx-star"></i>
                 </div>
-                <h4 class="__price">$50</h4>
+                <div class="__img-cover">
+                    <img src="~/images/profile2.jpg" alt="" />
+                </div>
+                <h4>Anh Tùng</h4>
             </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic3.jpg" alt="">
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
+            <div class="__testimonial">
+                <span>&ldquo;</span>
+                <p>
+                    Một trong những trải nghiệm mua hàng tốt nhất.
+                    Sẽ tiếp tục tin tưởng ở CoolMate.
+                </p>
                 <div class="__rating">
                     <i class="bx bxs-star"></i>
                     <i class="bx bxs-star"></i>
@@ -127,298 +218,11 @@
                     <i class="bx bxs-star"></i>
                     <i class="bx bx-star"></i>
                 </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic4.jpg" alt="">
-
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
+                <div class="__img-cover">
+                    <img src="~/images/profile3.jpg" alt="" />
                 </div>
-                <h4 class="__price">$50</h4>
+                <h4>Nhã Thanh</h4>
             </div>
         </div>
-    </div>
-</section>
-
-<!--Latest -->
-<section class="__feature-section __featured">
-    <div class="__title">
-        <h1>Sản phẩm mới</h1>
-        <div>
-            <a asp-controller="Product" asp-action="" class="__view-more">Xem thêm</a>
-        </div>
-    </div>
-
-    <div class="__product-center __container">
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic5.jpg" alt="">
-
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic2.jpg" alt="">
-
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic1.jpg" alt="">
-
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic4.jpg" alt="">
-
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic1.jpg" alt="">
-
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic3.jpg" alt="">
-
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic2.jpg" alt="">
-
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-        <div class="__product">
-            <div class="__product-header">
-                <img src="~/images/pic5.jpg" alt="">
-
-                <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><i class="bx bx-search"></i></span>
-                </ul>
-            </div>
-            <div class="__product-footer">
-                <a href="#"><h3>Boy’s T-Shirt</h3></a>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <h4 class="__price">$50</h4>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Product Banner -->
-<section class="__section">
-    <div class="__product-banner">
-        <div class="__left">
-            <img src="~/images/test.jpg" alt="" />
-        </div>
-        <div class="__right">
-            <div class="__content">
-                <h2><span class="__discount">70% </span> SALE OFF</h2>
-                <h1>
-                    <span>Collect Your</span>
-                    <span>Kids Collection</span>
-                </h1>
-                <a class="__btn" href="#">shop now</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials -->
-<section class="__section">
-    <div class="__testimonial-center __container">
-        <div class="__testimonial">
-            <span>&ldquo;</span>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
-                fugiat labore. Veritatis et omnis consequatur.
-            </p>
-            <div class="__rating">
-                <i class="bx bxs-star"></i>
-                <i class="bx bxs-star"></i>
-                <i class="bx bxs-star"></i>
-                <i class="bx bxs-star"></i>
-                <i class="bx bx-star"></i>
-            </div>
-            <div class="__img-cover">
-                <img src="~/images/profile1.jpg" alt="" />
-            </div>
-            <h4>Will Smith</h4>
-        </div>
-        <div class="__testimonial">
-            <span>&ldquo;</span>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
-                fugiat labore. Veritatis et omnis consequatur.
-            </p>
-            <div class="__rating">
-                <i class="bx bxs-star"></i>
-                <i class="bx bxs-star"></i>
-                <i class="bx bxs-star"></i>
-                <i class="bx bxs-star"></i>
-                <i class="bx bx-star"></i>
-            </div>
-            <div class="__img-cover">
-                <img src="~/images/profile2.jpg" alt="" />
-            </div>
-            <h4>Will Smith</h4>
-        </div>
-        <div class="__testimonial">
-            <span>&ldquo;</span>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
-                fugiat labore. Veritatis et omnis consequatur.
-            </p>
-            <div class="__rating">
-                <i class="bx bxs-star"></i>
-                <i class="bx bxs-star"></i>
-                <i class="bx bxs-star"></i>
-                <i class="bx bxs-star"></i>
-                <i class="bx bx-star"></i>
-            </div>
-            <div class="__img-cover">
-                <img src="~/images/profile3.jpg" alt="" />
-            </div>
-            <h4>Will Smith</h4>
-        </div>
-    </div>
-</section>
+    </section>
+</div>

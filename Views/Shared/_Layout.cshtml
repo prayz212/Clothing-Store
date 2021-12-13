@@ -24,11 +24,11 @@
 
     <!-- Custom JavaScript -->
     @*<script src="~/js/index.js"></script>*@
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
 </head>
 <body>
-    <div class="__page">
-        <div class="__content-wrap">
+    <div class="__page pt-5">
+        <div class="__content-wrap py-5">
             @using Microsoft.AspNetCore.Http;
             @{
                 var isHome = ViewContext.RouteData.Values["controller"].ToString().Equals("Home");
@@ -158,6 +158,17 @@
                                 }
                             </ul>
                         </div>
+
+                        <a class="__cart-icon" asp-controller="Cart" asp-action="Index">
+                            <i class="bx bx-shopping-bag"></i>
+                        </a>
+
+                        @if (isLoggedIn)
+                        {
+                            <a class="__cart-icon" asp-controller="Account" asp-action="Logout">
+                                <i class='bx bx-log-out'></i>
+                            </a>
+                        }
 
                         <div class="__hamburger">
                             <i class="bx bx-menu"></i>

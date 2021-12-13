@@ -7,6 +7,9 @@ namespace Clothing_Store.Models
     [Table("CartDetails")]
     public class CartDetails
     {
+        [Key]
+        public int ID { get; set; }
+
         [Required]
         [StringLength(10)]
         public string Size { get; set; }
@@ -19,7 +22,6 @@ namespace Clothing_Store.Models
         [Required]
         public int Quantity { get; set; }
 
-        public bool Visible { get; set; } = true;
         public bool IsDelete { get; set; } = false;
         public bool IsSelected { get; set; } = false;
 

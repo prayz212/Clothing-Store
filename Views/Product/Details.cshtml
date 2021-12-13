@@ -66,13 +66,13 @@
                         var rawDiscountPrice = detail.Price - (detail.Price * ((double)detail.promotion.Discount / 100));
                         var discountPrice = Math.Round(rawDiscountPrice / 1000) * 1000;
 
-                        <div class="__final-price">@string.Format("{0:#.000}", Convert.ToDecimal(discountPrice) / 1000)đ</div>
-                        <div class="__original-price">@string.Format("{0:#.000}", Convert.ToDecimal(@detail.Price) / 1000)đ</div>
+                        <div class="__final-price">@(discountPrice.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</div>
+                        <div class="__original-price">@(detail.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</div>
                         <div class="__discount-percent">-@detail.promotion.Discount%</div>
                     }
                     else if (detail.promotion == null || detail.promotion.Discount == 0)
                     {
-                        <div class="__final-price">@string.Format("{0:#.000}", Convert.ToDecimal(@detail.Price) / 1000)đ</div>
+                        <div class="__final-price">@(detail.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</div>
                     }
                 </div>
                 <form method="post" asp-controller="Cart" asp-action="Add" id="addToCartForm">
@@ -151,46 +151,18 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="detail-tab" data-bs-toggle="tab" data-bs-target="#detail" type="button" role="tab" aria-controls="detail" aria-selected="true">Chi tiết sản phẩm</button>
             </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="rating-tab" data-bs-toggle="tab" data-bs-target="#rating" type="button" role="tab" aria-controls="rating" aria-selected="false">Đánh giá</button>
-            </li>
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active p-3 __product-detail-content" id="detail" role="tabpanel" aria-labelledby="detail-tab">
                 @detail.Description
             </div>
-            <div class="tab-pane fade d-flex align-items-center" id="rating" role="tabpanel" aria-labelledby="rating-tab">
-
-                <!-- Rating Stars Box -->
-                <div class='__rating-stars'>
-                    <ul id='stars'>
-                        <li class='__star' title='Poor' data-value='1'>
-                            <i class='bx bx-star'></i>
-                        </li>
-                        <li class='__star' title='Fair' data-value='2'>
-                            <i class='bx bx-star'></i>
-                        </li>
-                        <li class='__star' title='Good' data-value='3'>
-                            <i class='bx bx-star'></i>
-                        </li>
-                        <li class='__star' title='Very Good' data-value='4'>
-                            <i class='bx bx-star'></i>
-                        </li>
-                        <li class='__star' title='Excellent' data-value='5'>
-                            <i class='bx bx-star'></i>
-                        </li>
-                    </ul>
-                </div>
-                <button class="_btn">Lưu đánh giá</button>
-            </div>
         </div>
     </section>
 
     <!-- Related -->
-    <section class="__section __featured">
+    <section class="__section __featured mb-5">
         <div class="__top __container">
             <h1>Related Products</h1>
-            <a asp-controller="Product" asp-action="" class="__view-more">Xem thêm</a>
         </div>
 
         <div class="__product-center __container">
@@ -202,12 +174,11 @@
                     <div class="__product">
                         <div class="__product-header">
                             <img src="@product.image.URL" alt="@product.image.Name">
-                            <ul class="icons">
-                                <a asp-controller="Cart" asp-action="">
-                                    <span><i class="bx bx-shopping-bag"></i></span>
-                                </a>
-                                <span><i class="bx bx-search"></i></span>
-                            </ul>
+                            <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ID">
+                                <ul class="icons">
+                                    <span><i class='bx bxs-show show-icons'></i></span>
+                                </ul>
+                            </a>
                         </div>
                         <div class="__product-footer">
                             <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ID">
@@ -224,7 +195,7 @@
                                     <i class="bx bx-star"></i>
                                 }
                             </div>
-                            <h4 class="__price">@string.Format("{0:#.000}", Convert.ToDecimal(@product.Price) / 1000)đ</h4>
+                            <h4 class="__price">@(product.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</h4>
                         </div>
                     </div>
                 }

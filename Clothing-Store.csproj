@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211207163423_AddIDToCartDetails.cs" />
+    <Compile Remove="Migrations\20211207163423_AddIDToCartDetails.Designer.cs" />
+    <Compile Remove="Migrations\20211207163803_AddIDToCartDetails.cs" />
+    <Compile Remove="Migrations\20211207163803_AddIDToCartDetails.Designer.cs" />
+    <Compile Remove="Migrations\20211207165554_AddIDToCartDetails.cs" />
+    <Compile Remove="Migrations\20211207165554_AddIDToCartDetails.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Areas\" />
     <None Remove="Areas\Admin\" />
     <None Remove="Areas\Admin\Controllers\" />

@@ -45,9 +45,6 @@ namespace Clothing_Store.Utils
             modelBuilder.Entity<ProductTag>()
                 .HasKey(pt => new { pt.ProductID, pt.TagID });
 
-            modelBuilder.Entity<CartDetails>()
-                .HasKey(cd => new { cd.accountID, cd.productID });
-
             modelBuilder.Entity<Account>()
                 .HasIndex(u => u.Username)
                 .IsUnique();

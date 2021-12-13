@@ -24,73 +24,80 @@ namespace Clothing_Store.Controllers
         // GET: Cart
         public ActionResult Index()
         {
-            //var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
-            //if (!isLoggedIn)
-            //{
-            //    return RedirectToAction("Index", "Account");
-            //}
+            try
+            {
+                var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
+                if (!isLoggedIn)
+                {
+                    return RedirectToAction("Index", "Account");
+                }
 
-            //int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
+                int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
 
-            //var cartDetails = _context.cartDetails
-            //    .Include(cd => cd.warehouse)
-            //    .ThenInclude(w => w.product)
-            //    .ThenInclude(p => p.promotion)
-            //    .Include(cd => cd.warehouse)
-            //    .ThenInclude(w => w.product)
-            //    .ThenInclude(p => p.images)
-            //    .Where(cd => cd.accountID == userID)
-            //    .Where(cd => cd.Visible == true)
-            //    .Select(cd => new CartProducts()
-            //    {
-            //        ID = cd.warehouse.product.ID,
-            //        Name = cd.warehouse.product.Name,
-            //        Quantity = cd.Quantity,
-            //        Type = cd.warehouse.product.ProductType,
-            //        Price = cd.warehouse.product.Price,
-            //        image = cd.warehouse.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
-            //        Promotion = (cd.warehouse.product.promotion == null || cd.warehouse.product.promotion.IsDelete)
-            //                ? 0
-            //                : cd.warehouse.product.promotion.Discount,
-            //        Size = cd.warehouse.Size,
-            //        Color = cd.warehouse.Color,
-            //        WarehoustID = cd.warehouseID,
-            //        IsSelected = cd.IsSelected
-            //    }).ToList();
+                var cartDetails = _context.cartDetails
+                    .Include(w => w.product)
+                    .ThenInclude(p => p.promotion)
+                    .Include(w => w.product)
+                    .ThenInclude(p => p.images)
+                    .Where(cd => cd.accountID == userID)
+                    .Where(cd => cd.IsDelete == false)
+                    .Where(cd => cd.Quantity > 0)
+                    .Select(cd => new CartProducts()
+                    {
+                        ID = cd.ID,
+                        Name = cd.product.Name,
+                        Quantity = cd.Quantity,
+                        Type = cd.product.ProductType,
+                        Price = cd.product.Price,
+                        image = cd.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
+                        Promotion = (cd.product.promotion == null || cd.product.promotion.IsDelete || cd.product.promotion.To < DateTime.Now)
+                                ? 0
+                                : cd.product.promotion.Discount,
+                        Size = cd.Size,
+                        Color = cd.Color,
+                        ProductID = cd.productID,
+                        IsSelected = cd.IsSelected
+                    }).ToList();
 
-            //return View(cartDetails);
+                return View(cartDetails);
 
-
-
-            return Ok(); //JUST FOR TEMP
+            } catch (Exception e)
+            {
+                return Ok(e);
+            }
         }
 
         // GET: Cart/Remove/5
-        public ActionResult Remove(int warehouseID)
+        public ActionResult Remove(int cartDetailsID)
         {
-            var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
-            if (!isLoggedIn)
+            try
             {
-                return RedirectToAction("Index", "Account");
+                var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
+                if (!isLoggedIn)
+                {
+                    return RedirectToAction("Index", "Account");
+                }
+
+                int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
+
+                var cartD = _context.cartDetails
+                    .Where(cd => cd.ID == cartDetailsID)
+                    .Where(cd => cd.accountID == userID)
+                    .FirstOrDefault();
+
+                if (cartD != null)
+                {
+                    cartD.IsDelete = true;
+                    cartD.Quantity = 0;
+                    cartD.IsSelected = false;
+                    _context.SaveChanges();
+                }
+                return RedirectToAction("Index", "Cart");
+
+            } catch (Exception e)
+            {
+                return Ok(e);
             }
-
-            int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
-
-            //var cartD = _context.cartDetails
-            //    .Where(cd => cd.warehouseID == warehouseID)
-            //    .Where(cd => cd.accountID == userID)
-            //    .FirstOrDefault();
-
-            //if (cartD != null)
-            //{
-            //    cartD.Visible = false;
-            //    cartD.Quantity = 0;
-            //    cartD.IsSelected = false;
-            //    _context.SaveChanges();
-            //}
-            //return RedirectToAction("Index", "Cart");
-
-            return Ok(); //JUST FOR TEMP
         }
 
         // GET: Cart/Payment
@@ -155,73 +162,111 @@ namespace Clothing_Store.Controllers
             }
         }
 
-        // POST: Cart/Payment
+        // POST: Cart
         [HttpPost]
-        public JsonResult Payment(IFormCollection form)
+        public JsonResult Index(IFormCollection form)
         {
-            var data = form["items_select[]"];
-
-            if (data.Count == 0)
+            try
             {
-                return Json(new { status = "fail", mess = "need to select at least 1 product" });
-            }
+                var data = form["items_select[]"];
 
-            var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
-            if (!isLoggedIn)
-            {
-                return Json(new { status = "fail", mess = "need to login", url = "/Account/Index" });
-            }
-
-            int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
-
-            int warehouseID = 0;
-            int quantity = 0;
-
-            string[] warehousID_quantity;
-            for (int i = 0; i < data.Count; i++)
-            {
-                warehousID_quantity = data[i].Split('-');
-                Int32.TryParse(warehousID_quantity[0], out warehouseID);
-                Int32.TryParse(warehousID_quantity[1], out quantity);
-
-                var wh = _context.warehouses
-                    .Where(w => w.ID == warehouseID)
-                    .Select(w => new
-                    {
-                        Name = w.product.Name,
-                        Color = w.Color,
-                        Size = w.Size,
-                        Quantity = w.Quantity
-                    })
-                    .FirstOrDefault();
-
-                if (wh.Quantity < quantity)
+                if (data.Count == 0)
                 {
-                    return Json(new { status = "fail", name = wh.Name, quantity = wh.Quantity, color = wh.Color, size = wh.Size });
+                    return Json(new { status = "fail", mess = "Cần chọn ít nhất 1 sản phẩm để thanh toán" });
                 }
 
+                var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
+                if (!isLoggedIn)
+                {
+                    return Json(new { status = "fail", mess = "need to login", url = "/Account/Index" });
+                }
+
+                int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
+
+                var cartDetail = _context.cartDetails
+                    .Where(cd => cd.accountID == userID);
+
+                foreach (var c in cartDetail)
+                {
+                    c.IsSelected = false;
+                }
+                _context.SaveChanges();
+
+                int cartDetailsID = 0;
+                int quantity = 0;
+
+                string[] cartDetailsID_quantity;
+                for (int i = 0; i < data.Count; i++)
+                {
+                    cartDetailsID_quantity = data[i].Split('-');
+                    Int32.TryParse(cartDetailsID_quantity[0], out cartDetailsID);
+                    Int32.TryParse(cartDetailsID_quantity[1], out quantity);
+
+                    var cartD = _context.cartDetails
+                        .Where(c => c.accountID == userID)
+                        .Where(c => c.ID == cartDetailsID)
+                        .Include(c => c.product)
+                        .FirstOrDefault();
+
+                    var wh = _context.warehouses
+                        .Where(w => w.product.ID == cartD.productID)
+                        .Where(w => w.Size == cartD.Size)
+                        .Where(w => w.Color == cartD.Color)
+                        .Select(w => new
+                        {
+                            Name = w.product.Name,
+                            Color = w.Color,
+                            Size = w.Size,
+                            Quantity = w.Quantity
+                        })
+                        .FirstOrDefault();
+
+                    if (wh == null)
+                    {
+                        return Json(new
+                        {
+                            status = "fail",
+                            mess = "Sản phẩm: " + cartD.product.Name + ", màu: " + cartD.Color
+                                    + ", size: " + cartD.Size + ", hiện đang không còn hàng"
+                        });
+                    }
+
+                    if (wh.Quantity < quantity)
+                    {
+                        return Json(new
+                        {
+                            status = "fail",
+                            mess = "Sản phẩm: " + wh.Name + ", màu: " + wh.Color
+                                    + ", size: " + wh.Size + ", chỉ còn số lượng: " + wh.Quantity
+                        });
+                    }
+
+                }
+
+                for (int i = 0; i < data.Count; i++)
+                {
+                    cartDetailsID_quantity = data[i].Split('-');
+                    Int32.TryParse(cartDetailsID_quantity[0], out cartDetailsID);
+                    Int32.TryParse(cartDetailsID_quantity[1], out quantity);
+
+                    var cd = _context.cartDetails
+                        .Where(c => c.ID == cartDetailsID)
+                        .FirstOrDefault();
+
+                    if (cd != null)
+                    {
+                        cd.Quantity = quantity;
+                        cd.IsSelected = true;
+                    }
+                }
+                _context.SaveChanges();
+
+                return Json(new { status = "success", url = "/Cart/Payment" });
+
+            } catch (Exception e)
+            {
+                return Json(new { status = "fail", mess = "Đã xuất hiện lỗi, vui lòng thử lại sau" });
             }
-            
-            //for (int i = 0; i < data.Count; i++)
-            //{
-            //    warehousID_quantity = data[i].Split('-');
-            //    Int32.TryParse(warehousID_quantity[0], out warehouseID);
-            //    Int32.TryParse(warehousID_quantity[1], out quantity);
-
-            //    var cartD = _context.cartDetails
-            //        .Where(cd => cd.warehouseID == warehouseID)
-            //        .Where(cd => cd.accountID == userID)
-            //        .FirstOrDefault();
-
-            //    if (cartD != null)
-            //    {
-            //        cartD.Quantity = quantity;
-            //        cartD.IsSelected = true;
-            //    }
-            //}
-            //_context.SaveChanges(); //
-
-            return Json(new { status = "success", url = "/Cart/Payment" });
         }
 
         // POST: Cart/Add/7
@@ -229,56 +274,54 @@ namespace Clothing_Store.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult Add()
         {
-            var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
-
-            if (!isLoggedIn)
-            {
-                return Json(new { status = "fail", mess = "need to login", url = "/Account/Index" });
-            }
-
-            int userID = (int) HttpContext.Session.GetInt32(SESSION_USER_ID);
-
-            string color = Request.Form["color"];
-            string size = Request.Form["size"];
-            string Quantity = Request.Form["quantity"];
-            string ProductID = Request.Form["productID"];
-            int quantity = 1;
-            Int32.TryParse(Quantity, out quantity);
-            int productID = 0;
-            Int32.TryParse(ProductID, out productID);
-
-
-            var wh = _context.warehouses
-                .Where(wh => wh.product.ID == productID)
-                .Where(wh => wh.Size == size)
-                .Where(wh => wh.Color == color)
-                .FirstOrDefault();
-
-            //var cd = _context.cartDetails
-            //        .Where(cd => cd.accountID == userID)
-            //        .Where(cd => cd.warehouseID == wh.ID)
-            //        .FirstOrDefault();
             try
             {
-                //if (cd != null)
-                //{
-                //    cd.Visible = true;
-                //    cd.Quantity = cd.Quantity + quantity;
-                //    _context.SaveChanges();
-                //}
-                //else
-                //{
+                var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
 
-                //    CartDetails new_cd = new CartDetails()
-                //    {
-                //        accountID = userID,
-                //        warehouseID = wh.ID,
-                //        Quantity = quantity
-                //    };
+                if (!isLoggedIn)
+                {
+                    return Json(new { status = "fail", mess = "need to login", url = "/Account/Index" });
+                }
 
-                //    _context.cartDetails.Add(new_cd);
-                //    _context.SaveChanges();
-                //}
+                int userID = (int) HttpContext.Session.GetInt32(SESSION_USER_ID);
+
+                string color = Request.Form["color"];
+                string size = Request.Form["size"];
+                string Quantity = Request.Form["quantity"];
+                string ProductID = Request.Form["productID"];
+                int quantity = 1;
+                Int32.TryParse(Quantity, out quantity);
+                int productID = 0;
+                Int32.TryParse(ProductID, out productID);
+
+                var cd = _context.cartDetails
+                        .Where(cd => cd.accountID == userID)
+                        .Where(cd => cd.productID == productID)
+                        .Where(cd => cd.Size == size)
+                        .Where(cd => cd.Color == color)
+                        .FirstOrDefault();
+            
+                if (cd != null)
+                {
+                    cd.IsDelete = false;
+                    cd.Quantity = cd.Quantity + quantity;
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    CartDetails new_cd = new CartDetails()
+                    {
+                        accountID = userID,
+                        productID = productID,
+                        Color = color,
+                        Size = size,
+                        Quantity = quantity
+                    };
+
+                    _context.cartDetails.Add(new_cd);
+                    _context.SaveChanges();
+                }
+
 
                 return Json(new { status = "success" });
             }

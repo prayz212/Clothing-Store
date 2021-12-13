@@ -4,14 +4,16 @@ using Clothing_Store.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Clothing_Store.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211208135644_RemoveVisibleColumnInCartDetails")]
+    partial class RemoveVisibleColumnInCartDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,9 +60,6 @@ namespace Clothing_Store.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("productID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Color")
                         .IsRequired()
@@ -273,15 +272,10 @@ namespace Clothing_Store.Migrations
                     b.Property<int>("Star")
                         .HasColumnType("int");
 
-                    b.Property<int?>("accountID")
-                        .HasColumnType("int");
-
                     b.Property<int?>("productID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("accountID");
 
                     b.HasIndex("productID");
 
@@ -356,12 +350,7 @@ namespace Clothing_Store.Migrations
                     b.Property<DateTime>("ValidDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("accountID")
-                        .HasColumnType("int");
-
                     b.HasKey("ID");
-
-                    b.HasIndex("accountID");
 
                     b.ToTable("Receipt");
                 });
@@ -386,9 +375,6 @@ namespace Clothing_Store.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
-
-                    b.Property<int>("TotalPrice")
-                        .HasColumnType("int");
 
                     b.HasKey("ReceiptID", "ProductID");
 
@@ -531,22 +517,9 @@ namespace Clothing_Store.Migrations
 
             modelBuilder.Entity("Clothing_Store.Models.Rating", b =>
                 {
-                    b.HasOne("Clothing_Store.Models.Account", "account")
-                        .WithMany()
-                        .HasForeignKey("accountID");
-
                     b.HasOne("Clothing_Store.Models.Product", "product")
                         .WithMany("ratings")
                         .HasForeignKey("productID");
-                });
-
-            modelBuilder.Entity("Clothing_Store.Models.Receipt", b =>
-                {
-                    b.HasOne("Clothing_Store.Models.Account", "account")
-                        .WithMany("receipts")
-                        .HasForeignKey("accountID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Clothing_Store.Models.ReceiptDetail", b =>
