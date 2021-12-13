@@ -193,7 +193,7 @@ namespace Clothing_Store.Controllers
 
                 int cartDetailsID = 0;
                 int quantity = 0;
-
+                
                 string[] cartDetailsID_quantity;
                 for (int i = 0; i < data.Count; i++)
                 {
@@ -241,7 +241,7 @@ namespace Clothing_Store.Controllers
                     }
 
                 }
-
+                
                 for (int i = 0; i < data.Count; i++)
                 {
                     cartDetailsID_quantity = data[i].Split('-');
@@ -305,7 +305,6 @@ namespace Clothing_Store.Controllers
 
                 _context.cartDetails.Add(new_cd);
                 _context.SaveChanges();
-
 
                 return Json(new { status = "success" });
             }
