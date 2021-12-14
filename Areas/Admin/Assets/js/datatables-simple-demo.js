@@ -6,4 +6,14 @@ window.addEventListener('DOMContentLoaded', event => {
     if (datatablesSimple) {
         new simpleDatatables.DataTable(datatablesSimple);
     }
+
+    const productTables = document.getElementById('productTables');
+    if (productTables) {
+        new simpleDatatables.DataTable(productTables);
+    }
+
+    const warehouseTables = document.getElementById("warehouseDatatables");
+    if (warehouseTables) {
+        new simpleDatatables.DataTable(warehouseTables);
+    }
 });

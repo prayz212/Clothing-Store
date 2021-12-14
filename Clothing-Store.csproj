@@ -32,6 +32,7 @@
     <None Remove="Areas\Admin\Assets\css\" />
     <None Remove="Areas\Admin\Assets\js\" />
     <None Remove="Areas\Admin\Assets\image\" />
+    <None Remove="Areas\Admin\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Shared\" />
@@ -39,6 +40,7 @@
     <Folder Include="Areas\Admin\Assets\css\" />
     <Folder Include="Areas\Admin\Assets\js\" />
     <Folder Include="Areas\Admin\Assets\image\" />
+    <Folder Include="Areas\Admin\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
