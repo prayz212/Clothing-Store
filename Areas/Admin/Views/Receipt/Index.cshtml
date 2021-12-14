@@ -1,0 +1,47 @@
+﻿@{ 
+    ViewData["Title"] = "Quản lý hóa đơn";
+}
+@model List<Clothing_Store.Areas.Admin.Models.AdminReceiptHistoryViewModel>
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="my-4">Quản lý hóa đơn</h1>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Danh sách hóa đơn
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Họ tên người nhận</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày đặt hàng</th>
+                            <th>Ngày giao hàng</th>
+                            <th>Hình thức thanh toán</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (AdminReceiptHistoryViewModel receipt in Model)
+                        {
+                        <tr style="cursor: pointer" onclick="location.href = '@(Url.Action("Details", "Receipt", new { id = receipt.ID }))'">
+                            <td>@receipt.ID</td>
+                            <td>@receipt.Fullname</td>
+                            <td>@receipt.Phone</td>
+                            <td>@(receipt.OrderAt.ToString("dd/MM/yyyy"))</td>
+                            <td>@(receipt.DeliveryAt.ToString("dd/MM/yyyy") != "01/01/0001" ? receipt.DeliveryAt.ToString("dd/MM/yyyy") : receipt.Status + "...")</td>
+                            <td>@receipt.Method</td>
+                            <td>@receipt.TotalPay</td>
+                            <td>@receipt.Status</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
