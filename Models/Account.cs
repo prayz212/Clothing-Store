@@ -22,6 +22,7 @@ namespace Clothing_Store.Models
         [Required(ErrorMessage = "Yêu cầu nhập email")]
         [StringLength(255)]
         public string Email { get; set; }
+        public bool IsDelete { get; set; } = false;
 
         public Customer customer { get; set; }
         public ICollection<Receipt> receipts { get; set; }

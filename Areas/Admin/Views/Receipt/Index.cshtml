@@ -33,7 +33,7 @@
                             <td>@receipt.Fullname</td>
                             <td>@receipt.Phone</td>
                             <td>@(receipt.OrderAt.ToString("dd/MM/yyyy"))</td>
-                            <td>@(receipt.DeliveryAt.ToString("dd/MM/yyyy") != "01/01/0001" ? receipt.DeliveryAt.ToString("dd/MM/yyyy") : receipt.Status + "...")</td>
+                            <td>@(receipt.DeliveryAt.ToString("dd/MM/yyyy") != "01/01/0001" ? receipt.DeliveryAt.ToString("dd/MM/yyyy") : receipt.Status)</td>
                             <td>@receipt.Method</td>
                             <td>@receipt.TotalPay</td>
                             <td>@receipt.Status</td>

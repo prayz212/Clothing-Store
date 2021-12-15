@@ -47,5 +47,13 @@ $(document).ready(function () {
             window.location.replace(window.location.protocol + "//" + window.location.host + redirectUrl);
         }
     });
+
+    $(':input.AcUpdateInput').on('click', () => {
+        $('.AcUpdateMess').text("");
+    })
+
+    $(':input.AcCreateInput').on('click', () => {
+        $('.AcCreateMess').text("");
+    })
 });
 

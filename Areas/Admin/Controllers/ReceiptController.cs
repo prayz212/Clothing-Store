@@ -14,7 +14,6 @@ namespace Clothing_Store.Areas.Admin.Controllers
     public class ReceiptController : Controller
     {
         private readonly ApplicationDBContext _context;
-        private readonly string SESSION_USER_ID = "user_id";
 
         public ReceiptController(ApplicationDBContext context)
         {

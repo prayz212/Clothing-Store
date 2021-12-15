@@ -6,7 +6,7 @@
 @{
     AdminReceiptHistoryModel receipt = Model.receipt;
     ICollection<ReceiptDetail> details = Model.details;
-    var deliveryDate = receipt.DeliveryAt.ToString("dd/MM/yyyy") != "01/01/0001" ? receipt.DeliveryAt.ToString("dd/MM/yyyy") : receipt.Status + "...";
+    var deliveryDate = receipt.DeliveryAt.ToString("dd/MM/yyyy") != "01/01/0001" ? receipt.DeliveryAt.ToString("dd/MM/yyyy") : receipt.Status;
 }
 <div class="container border-0">
     <div class="row gutters">
