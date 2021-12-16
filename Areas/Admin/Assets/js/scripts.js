@@ -55,5 +55,15 @@ $(document).ready(function () {
     $(':input.AcCreateInput').on('click', () => {
         $('.AcCreateMess').text("");
     })
+
+    /*          StockIn            */
+    $('#ExistProduct-form').hide();
+    $("input[name$='stockInMethod']").click(function () {
+        var value = $(this).val();
+
+        $('#NewProduct-form').hide();
+        $('#ExistProduct-form').hide();
+        $("#" + value + "-form").show();
+    });
 });
 

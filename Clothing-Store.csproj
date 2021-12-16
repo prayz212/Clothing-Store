@@ -40,7 +40,6 @@
     <Folder Include="Areas\Admin\Assets\css\" />
     <Folder Include="Areas\Admin\Assets\js\" />
     <Folder Include="Areas\Admin\Assets\image\" />
-    <Folder Include="Areas\Admin\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />

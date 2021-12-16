@@ -12657,3 +12657,8 @@ body {
 .__ac-page-me-2 {
     margin-right: .5rem !important;
 }
+
+/*Stock input page*/
+.__stock-in-page {
+    background-color: #f5f5f5;
+}
