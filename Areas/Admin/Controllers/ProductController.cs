@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Clothing_Store.Areas.Admin.Models;
 using Clothing_Store.Models;
 using Clothing_Store.Utils;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,10 +18,12 @@ namespace Clothing_Store.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly IWebHostEnvironment _environment;
 
-        public ProductController(ApplicationDBContext context)
+        public ProductController(ApplicationDBContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         // GET: /<controller>/
@@ -86,6 +90,11 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     })
                     .FirstOrDefault();
 
+                if (vm == null)
+                {
+                    return RedirectToAction("Index");
+                }
+
                 return View(vm);
             }
             catch (Exception e)
@@ -94,10 +103,81 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
-        //GET: /Admin/Product/Add
-        public IActionResult Add()
+        //GET: /Admin/Product/Create
+        public IActionResult Create()
         {
-            return Ok("add new");
+            try
+            {
+                var productTypes = _context.Products.Select(p => p.ProductType).Distinct().ToList();
+                AdminCreateProductViewModel vm = new AdminCreateProductViewModel();
+                vm.types = productTypes;
+
+                return View(vm);
+            }
+            catch (Exception e)
+            {
+                return Ok(e);
+            }
+        }
+
+        //POST: /Admin/Product/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(AdminCreateProductViewModel vm)
+        {
+            try
+            {
+                Product product = new Product()
+                {
+                    Name = vm.model.Name,
+                    ProductType = vm.model.ProductType,
+                    Price = vm.model.Price,
+                    Visible = bool.Parse(vm.model.Visible),
+                    Description = vm.model.Description
+                };
+
+                _context.Products.Add(product);
+                _context.SaveChanges();
+
+                string baseName = product.Name;
+                List<Image> images = new List<Image>();
+
+                var files = HttpContext.Request.Form.Files;
+                var count = 0;
+                foreach (var image in files)
+                {
+                    if (image != null && image.Length > 0)
+                    {
+                        var file = image;
+                        var uploads = Path.Combine(_environment.WebRootPath, "uploads/product");
+                        if (file.Length > 0)
+                        {
+                            var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                            using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                            {
+                                await file.CopyToAsync(fileStream);
+                                Image img = new Image()
+                                {
+                                    Name = baseName + " " + count,
+                                    URL = fileName,
+                                    product = product
+                                };
+                                images.Add(img);
+                                count++;
+                            }
+
+                        }
+                    }
+                }
+
+                await _context.images.AddRangeAsync(images);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Details", new { id = product.ID });
+            }
+            catch (Exception e)
+            {
+                return Ok(e);
+            }
         }
 
         //GET: /Admin/Product/Add

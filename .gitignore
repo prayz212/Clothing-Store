@@ -406,3 +406,4 @@ ASALocalRun/
 
 wwwroot/images/*
 appsettings.json
+wwwroot/uploads/*

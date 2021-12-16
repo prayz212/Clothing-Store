@@ -1,0 +1,229 @@
+@{
+    ViewData["Title"] = "Thêm sản phẩm";
+}
+
+@model Clothing_Store.Areas.Admin.Models.AdminCreateProductViewModel;
+
+<main class="__product-main">
+    <div class="container-fluid px-4">
+        <form asp-action="Create" enctype="multipart/form-data" method="post" onsubmit="return checkImage()">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="__imgae-section">
+                        <div class="__thumbnails">
+                            <div class="__thumbnail-input-pic rounded"
+                                 style="margin-top: 0; position: relative ">
+                                <div class="__remove-image" style="display: none; cursor: pointer">&times;</div>
+                                <button type="button"
+                                        class="btn"
+                                        onclick="document.getElementById('input1').click();">
+                                    Thêm ảnh
+                                </button>
+                                <input id="input1"
+                                       type="file"
+                                       asp-for="@Model.model.image1"
+                                       style="display: none"
+                                       onchange="readURL(this);"
+                                       accept="image/*" />
+                                <img alt="project-image"
+                                     style="display: none" />
+                            </div>
+                            <div class="__thumbnail-input-pic rounded"
+                                 style="margin-top: 0; position: relative ">
+                                <div class="__remove-image" style="display: none; cursor: pointer">&times;</div>
+                                <button type="button"
+                                        class="btn"
+                                        onclick="document.getElementById('input2').click();">
+                                    Thêm ảnh
+                                </button>
+                                <input id="input2"
+                                       type="file"
+                                       asp-for="@Model.model.image2"
+                                       style="display: none"
+                                       onchange="readURL(this);"
+                                       accept="image/*" />
+                                <img alt="project-image"
+                                     style="display: none" />
+                            </div>
+                            <div class="__thumbnail-input-pic rounded"
+                                 style="margin-top: 0; position: relative ">
+                                <div class="__remove-image" style="display: none; cursor: pointer">&times;</div>
+                                <button type="button"
+                                        class="btn"
+                                        onclick="document.getElementById('input3').click();">
+                                    Thêm ảnh
+                                </button>
+                                <input id="input3"
+                                       type="file"
+                                       asp-for="@Model.model.image3"
+                                       style="display: none"
+                                       onchange="readURL(this);"
+                                       accept="image/*" />
+                                <img alt="project-image"
+                                     style="display: none" />
+                            </div>
+                            <div class="__thumbnail-input-pic rounded"
+                                 style="margin-top: 0; position: relative ">
+                                <div class="__remove-image" style="display: none; cursor: pointer">&times;</div>
+                                <button type="button"
+                                        class="btn"
+                                        onclick="document.getElementById('input4').click();">
+                                    Thêm ảnh
+                                </button>
+                                <input id="input4"
+                                       type="file"
+                                       asp-for="@Model.model.image4"
+                                       style="display: none"
+                                       onchange="readURL(this);"
+                                       accept="image/*" />
+                                <img alt="project-image"
+                                     style="display: none" />
+                            </div>
+                        </div>
+                        <div class="
+                __product-image-box
+                __main-pic-section
+                __nonselection
+                w-100
+              ">
+                            <div class="__main-pic">
+                                <p class="d-flex justify-content-center align-items-center">Chưa chọn ảnh nào</p>
+                                <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
+                                     alt="project-image"
+                                     style="display: none" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 mt-3 mt-sm-3 mt-md-0">
+                    <div class="__product-input-box mt-2 mt-sm-0">
+                        <div class="row m-3">
+                            <div class="col-sm-3 align-self-center">
+                                <div class="__input-label">Tên sản phẩm</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input asp-for="@Model.model.Name"
+                                       placeholder="Tên sản phẩm"
+                                       type="text"
+                                       class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3 align-self-center">
+                                <div class="__input-label">Loại sản phẩm</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <select class="form-control" asp-for="@Model.model.ProductType">
+                                    <option value="null" selected disabled hidden>Chọn loại sản phẩm</option>
+                                    @foreach (string op in Model.types)
+                                    {
+                                        <option value="@op">@op</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3 align-self-center">
+                                <div class="__input-label">Giá sản phẩm</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input asp-for="@Model.model.Price"
+                                       placeholder="Giá sản phẩm"
+                                       type="number"
+                                       class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3 align-self-center">
+                                <div class="__input-label">Hiển thị</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <select class="form-control" asp-for="@Model.model.Visible">
+                                    <option value="null" selected disabled hidden>Chọn tình trạng hiển thị</option>
+                                    <option value="true">Hiện</option>
+                                    <option value="false">Ẩn</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row m-3 mt-sm-4">
+                            <div class="col-12 align-self-center">
+                                <div class="__input-label">Mô tả sản phẩm</div>
+                            </div>
+                            <div class="col-12 text-secondary mt-sm-2">
+                                <textarea class="form-control"
+                                          asp-for="@Model.model.Description"
+                                          rows="8"
+                                          cols="50"
+                                          placeholder="Mô tả chi tiết về sản phẩm"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mx-3 my-2">
+                            <div class="d-flex flex-row-reverse">
+                                <button type="submit" class="btn btn-primary">
+                                    Lưu
+                                </button>
+                                <a class="btn btn-danger mx-3"
+                                   asp-action="Index"
+                                   role="button">
+                                    Huỷ
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row m-3">
+                            <div id="errorMsg" class="AcCreateMess text-danger">@ViewBag.acCreateError</div>
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            $(input).closest('.__thumbnail-input-pic').find('button').css('display', 'none')
+
+            const img = $(input).closest('.__thumbnail-input-pic').find('img')
+            @*console.log($(input).closest('.__thumbnail-input-pic').find('button'))*@
+            reader.onload = function (e) {
+                img.attr('src', e.target.result);
+                img.css('display', 'block');
+                $(input).closest('.__thumbnail-input-pic').find('.__remove-image').css('display', 'block')
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function checkImage() {
+        let srcs = [];
+        srcs.push($('.__thumbnails .__thumbnail-input-pic img').eq(0).attr('src'))
+        srcs.push($('.__thumbnails .__thumbnail-input-pic img').eq(1).attr('src'))
+        srcs.push($('.__thumbnails .__thumbnail-input-pic img').eq(2).attr('src'))
+        srcs.push($('.__thumbnails .__thumbnail-input-pic img').eq(3).attr('src'))
+
+        let count = srcs.filter(function (element) {
+            return element !== undefined;
+        }).length;
+
+        if (count == 0) {
+            $('#errorMsg').html('<ul style="margin-bottom: 0rem"><li>Sản phẩm phải có ít nhất 1 hình</li></ul>')
+        }
+        else {
+            $('#errorMsg').html('')
+        }
+
+        return count >= 1;
+    }
+</script>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

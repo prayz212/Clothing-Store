@@ -14,21 +14,21 @@
                     }
                     <div class="__thumbnails">
                         <div class="__thumbnail-pic rounded" style="margin-top: 0">
-                            <img src="@mainPic.URL"
+                            <img src="~/uploads/product/@mainPic.URL"
                                  alt="@mainPic.Name" />
                         </div>
                         @for (int i = 1; i < Model.images.Count(); i++)
                         {
                             var image = Model.images[i];
                             <div class="__thumbnail-pic rounded">
-                                <img src="@image.URL"
+                                <img src="~/uploads/product/@image.URL"
                                      alt="@image.Name" />
                             </div>
                         }
                     </div>
                     <div class="__product-image-box __main-pic-section">
                         <div class="__main-pic">
-                            <img src="@mainPic.URL"
+                            <img src="~/uploads/product/@mainPic.URL"
                                  alt="@mainPic.Name" />
                         </div>
                     </div>

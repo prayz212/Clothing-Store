@@ -24,13 +24,13 @@
         <div class="__details __container-md">
             <div class="__left">
                 <div class="__main">
-                    <img src="@mainImg.URL" alt="@mainImg.Name">
+                    <img src="~/uploads/product/@mainImg.URL" alt="@mainImg.Name">
                 </div>
                 <div class="__thumbnails">
                     @foreach (Image img in detail.images)
                     {
                         <div class="__thumbnail">
-                            <img src="@img.URL" alt="@img.Name">
+                            <img src="~/uploads/product/@img.URL" alt="@img.Name">
                         </div>
                     }
                 </div>

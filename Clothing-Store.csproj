@@ -41,9 +41,13 @@
     <Folder Include="Areas\Admin\Assets\js\" />
     <Folder Include="Areas\Admin\Assets\image\" />
     <Folder Include="Areas\Admin\Views\Product\" />
+    <Folder Include="wwwroot\uploads\" />
+    <Folder Include="wwwroot\uploads\product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
+    <Content Remove="wwwroot\uploads\" />
+    <Content Remove="wwwroot\uploads\product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-grid.css" />
