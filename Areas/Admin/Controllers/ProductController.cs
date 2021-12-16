@@ -221,5 +221,80 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             
         }
+
+        public IActionResult StockIn(int id)
+        {
+            try
+            {
+                List<Warehouse> wareHouses = _context.warehouses
+                    .Where(wh => wh.product.ID == id).ToList();
+
+                AdminStockInViewModel stockInView = new AdminStockInViewModel
+                {
+                    productID = id,
+                    warehouses = wareHouses
+                };
+
+                ViewBag.stockInError = TempData["stockInError"];
+                return View(stockInView);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult StockIn(AdminStockInViewModel productInfo, int id)
+        {
+            try
+            {
+                var stockIn = productInfo.validate;
+
+                if (stockIn.Quantity <= 0)
+                {
+                    TempData["stockInError"] = "Số lượng sản phẩm phải lớn hơn 0";
+                    return RedirectToAction("StockIn", "Product");
+
+                }
+
+                var warehouse = _context.warehouses
+                    .Where(wh => wh.product.ID == id)
+                    .Where(wh => wh.Color == stockIn.Color)
+                    .Where(wh => wh.Size == stockIn.Size)
+                    .FirstOrDefault();
+
+                if (warehouse == null)
+                {
+                    Product _product = _context.Products
+                        .Where(p => p.ID == id)
+                        .FirstOrDefault();
+
+                    Warehouse newWarehouse = new Warehouse
+                    {
+                        Size = stockIn.Size,
+                        Color = stockIn.Color,
+                        Quantity = stockIn.Quantity,
+                        Sold = 0,
+                        LastUpdate = DateTime.Now,
+                        product = _product
+                    };
+
+                    _context.warehouses.Add(newWarehouse);
+                } else
+                {
+                    warehouse.Quantity = warehouse.Quantity + stockIn.Quantity;
+                }
+                _context.SaveChanges();
+
+                TempData["stockInError"] = "";
+                return RedirectToAction("Details", "Product", new { id = id });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
     }
 }

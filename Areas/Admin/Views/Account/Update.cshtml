@@ -20,10 +20,10 @@
                                     <p class="text-secondary">@account.Email</p>
                                 </div>
                                 <div class="my-2">
-                                    <div class="text-dark fs-5">Họ và tên: @account.Fullname</div>
+                                    <div class="text-dark fs-5">Họ và tên: @(account.Fullname != null ? account.Fullname : "Chưa cập nhật")</div>
                                 </div>
                                 <div class="my-2">
-                                    <div class="text-dark fs-5">Số điện thoại: @account.Phone</div>
+                                    <div class="text-dark fs-5">Số điện thoại: @(account.Phone != null ? account.Phone : "Chưa cập nhật")</div>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                                     <h6>Họ và tên</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input asp-for="updateModel.Fullname" type="text" class="form-control AcUpdateInput" value="@account.Fullname">
+                                    <input asp-for="updateModel.Fullname" placeholder="Họ và tên" type="text" class="form-control AcUpdateInput" value="@account.Fullname">
                                 </div>
                             </div>
                             <div class="row m-3">
@@ -73,7 +73,7 @@
                                     <h6>Email</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input asp-for="updateModel.Email" type="text" class="form-control AcUpdateInput" value="@account.Email">
+                                    <input asp-for="updateModel.Email" placeholder="Email" type="text" class="form-control AcUpdateInput" value="@account.Email">
                                 </div>
                             </div>
                             <div class="row m-3">
@@ -81,7 +81,7 @@
                                     <h6>Số điện thoại</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input asp-for="updateModel.Phone" type="text" class="form-control AcUpdateInput" value="@account.Phone">
+                                    <input asp-for="updateModel.Phone" placeholder="Số điện thoại" type="text" class="form-control AcUpdateInput" value="@account.Phone">
                                 </div>
                             </div>
                             <div class="row m-3">
@@ -89,7 +89,7 @@
                                     <h6>Địa chỉ</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input asp-for="updateModel.Address" type="text" class="form-control AcUpdateInput" value="@account.Address">
+                                    <input asp-for="updateModel.Address" placeholder="Địa chỉ" type="text" class="form-control AcUpdateInput" value="@account.Address">
                                 </div>
                             </div>
                             <div class="row m-3">
@@ -97,7 +97,7 @@
                                     <h6>Số thẻ</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input asp-for="updateModel.CardNumber" type="text" class="form-control AcUpdateInput" value="@account.CardNumber">
+                                    <input asp-for="updateModel.CardNumber" placeholder="Số thẻ" type="text" class="form-control AcUpdateInput" value="@account.CardNumber">
                                 </div>
                             </div>
                             <div class="row m-3">
@@ -105,7 +105,7 @@
                                     <h6>CVV/CVV2</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input asp-for="updateModel.SecretNumber" type="text" class="form-control AcUpdateInput" value="@account.SecretNumber">
+                                    <input asp-for="updateModel.SecretNumber" placeholder="CVV/CVV2" type="text" class="form-control AcUpdateInput" value="@account.SecretNumber">
                                 </div>
                             </div>
                             <div class="row m-3">
@@ -113,7 +113,7 @@
                                     <h6>Hạn sử dụng</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input asp-for="updateModel.ValidDate" type="date" class="form-control AcUpdateInput" value="@(account.ValiDate.ToString("yyyy-MM-dd") != "0001-01-01" ? account.ValiDate.ToString("yyyy-MM-dd") : "")">
+                                    <input asp-for="updateModel.ValidDate" placeholder="Hạn sử dụng" type="date" class="form-control AcUpdateInput" value="@(account.ValiDate.ToString("yyyy-MM-dd") != "0001-01-01" ? account.ValiDate.ToString("yyyy-MM-dd") : "")">
                                 </div>
                             </div>
                             <div class="row m-3">

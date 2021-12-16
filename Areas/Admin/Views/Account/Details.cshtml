@@ -20,10 +20,10 @@
                                     <p class="text-secondary">@account.Email</p>
                                 </div>
                                 <div class="my-2">
-                                    <div class="text-dark fs-5"><span class="d-none d-md-block">Họ và tên:</span> @account.Fullname</div>
+                                    <div class="text-dark fs-5">Họ và tên: @(account.Fullname != null ? account.Fullname : "Chưa cập nhật")</div>
                                 </div>
                                 <div class="my-2">
-                                    <div class="text-dark fs-5"><span class="d-none d-md-block">Số điện thoại:</span> @account.Phone</div>
+                                    <div class="text-dark fs-5">Số điện thoại: @(account.Phone != null ? account.Phone : "Chưa cập nhật")</div>
                                 </div>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                     </thead>
                     <tbody>
                         @foreach (AdminReceiptHistoryViewModel receipt in receipts)
-                        {
+    {
                             <tr style="cursor: pointer" onclick="location.href = '@(Url.Action("Details", "Receipt", new { id = receipt.ID }))'">
                                 <td>@receipt.ID</td>
                                 <td>@receipt.Fullname</td>

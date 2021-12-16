@@ -68,4 +68,24 @@ namespace Clothing_Store.Areas.Admin.Models
         public List<string> types { get; set; }
         public List<Tag> tags { get; set; }
     }
+    
+    public class AdminStockInViewModel
+    {
+        public int productID { get; set; }
+        public List<Warehouse> warehouses { get; set; }
+        public ValidateStockInForm validate { get; set; }
+    }
+
+    public class ValidateStockInForm
+    {
+        [Required(ErrorMessage = "Yêu cầu nhập size cho sản phẩm")]
+        public string Size { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập màu sắc cho sản phẩm")]
+        public string Color { get; set; }
+
+
+        [Required(ErrorMessage = "Yêu cầu nhập số lượng cho sản phẩm")]
+        public int Quantity { get; set; }
+    }
 }
