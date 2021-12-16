@@ -22,6 +22,31 @@ window.addEventListener('DOMContentLoaded', event => {
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
         });
     }
+});
+
+$(document).ready(function () {
+    /*      image click     */
+    $('.__thumbnails .__thumbnail-pic img').on('click', function () {
+        const selectedImage = $(this).attr('src');
+        $('.__main-pic img').attr('src', selectedImage)
+    });
+
+    /*      delete popup        */
+    var redirectUrl = null;
+    $('#deleteButton').on('click', function () {
+        $('.__popup-confirm').show();
+        redirectUrl = $(this).attr('data-href')
+    });
+
+    $('#closePopupButton').click(function () {
+        $('.__popup-confirm').hide();
+    });
+
+    $('#confirmPopupButton').click(function () {
+        if (redirectUrl) {
+            window.location.replace(window.location.protocol + "//" + window.location.host + redirectUrl);
+        }
+    });
 
     $(':input.AcUpdateInput').on('click', () => {
         $('.AcUpdateMess').text("");
@@ -56,3 +81,4 @@ window.addEventListener('DOMContentLoaded', event => {
         $('#errorMessAdmin').text("");
     })
 });
+

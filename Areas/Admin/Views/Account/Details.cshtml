@@ -1,0 +1,184 @@
+﻿@{
+    ViewData["Title"] = "Quản lý tài khooản khách hàng";
+}
+@model Clothing_Store.Areas.Admin.Models.AdminAccountDetailsViewModel
+@{ AdminAccountDetailsViewModel account = Model;
+    List<AdminReceiptHistoryViewModel> receipts = account.Recepits;
+}
+
+<div class="container pt-5 px-5">
+    <div class="main-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="__ac-page-card">
+                    <div class="card-body px-4">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="~/images/profile1.jpg" alt="Admin" class="rounded-circle p-1" width="110">
+                            <div class="my-3">
+                                <h4>@account.UserName</h4>
+                                <div>
+                                    <p class="text-secondary">@account.Email</p>
+                                </div>
+                                <div class="my-2">
+                                    <div class="text-dark fs-5">Họ và tên: @(account.Fullname != null ? account.Fullname : "Chưa cập nhật")</div>
+                                </div>
+                                <div class="my-2">
+                                    <div class="text-dark fs-5">Số điện thoại: @(account.Phone != null ? account.Phone : "Chưa cập nhật")</div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush border-top">
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <span> Tổng số hóa đơn:</span>
+                                <span class="text-secondary">@account.TotalOrder hóa đơn</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <span> Tổng tiền:</span>
+                                <span class="text-secondary">@(account.TotalPayment != 0 ? account.TotalPayment.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")) : "0")đ</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="__ac-page-card">
+                    <div class="card-body">
+                        <div class="row m-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Mã khách hàng</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @account.ID
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Tên tài khoản</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @account.UserName
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Họ và tên</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @(account.Fullname != null ? account.Fullname : "Chưa cập nhật")
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @(account.Email != null ? account.Email : "Chưa cập nhật")
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Số điện thoại</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @(account.Phone != null ? account.Phone : "Chưa cập nhật")
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Địa chỉ</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @(account.Address != null ? account.Address : "Chưa cập nhật")
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Số thẻ</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @(account.CardNumber != null ? account.CardNumber: "Chưa cập nhật")
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">CVV/CVV2</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @(account.SecretNumber != null ? account.SecretNumber : "Chưa cập nhật")
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Hạn sử dụng</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @(account.ValiDate.ToString("dd/MM/yyyy") != "01/01/0001" ? account.ValiDate.ToString("dd/MM/yyyy") : "Chưa cập nhật")
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9 text-secondary">
+                                <a asp-action="Update" asp-route-id="@account.ID" class="btn btn-primary px-4 me-3 mt-3">Cập nhật</a>
+                                <a class="btn btn-danger px-4 me-3 mt-3" id="deleteButton" data-href="@(Url.Action("Delete", "Account", new { id = account.ID }))" role="button">Xoá</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Danh sách hóa đơn
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Họ tên người nhận</th>
+                            <th>Số điện thoại</th>
+                            <th>Ngày đặt hàng</th>
+                            <th>Ngày giao hàng</th>
+                            <th>Hình thức thanh toán</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (AdminReceiptHistoryViewModel receipt in receipts)
+    {
+                            <tr style="cursor: pointer" onclick="location.href = '@(Url.Action("Details", "Receipt", new { id = receipt.ID }))'">
+                                <td>@receipt.ID</td>
+                                <td>@receipt.Fullname</td>
+                                <td>@receipt.Phone</td>
+                                <td>@(receipt.OrderAt.ToString("dd/MM/yyyy"))</td>
+                                <td>@(receipt.DeliveryAt.ToString("dd/MM/yyyy") != "01/01/0001" ? receipt.DeliveryAt.ToString("dd/MM/yyyy") : receipt.Status + "...")</td>
+                                <td>@receipt.Method</td>
+                                <td>@receipt.TotalPay</td>
+                                <td>@receipt.Status</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Popup -->
+<div class="__popup-confirm">
+    <span class="helper"></span>
+    <div>
+        @*<div class="popupCloseButton">&times;</div>*@
+        <div class="h4">Xác nhận xoá</div>
+        <div>Bạn có chắc chắn xoá tài khoản này?</div>
+        <div class="d-flex justify-content-center mt-4">
+            <button id="closePopupButton" class="btn btn-light mx-2">Huỷ</button>
+            <button id="confirmPopupButton" class="btn btn-danger mx-2">Xác nhận</button>
+        </div>
+    </div>
+</div>

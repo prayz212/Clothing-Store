@@ -72,8 +72,6 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(LoginModel account)
