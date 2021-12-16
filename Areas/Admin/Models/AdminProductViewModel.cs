@@ -66,5 +66,6 @@ namespace Clothing_Store.Areas.Admin.Models
     {
         public AdminCreateProductModel model { get; set; }
         public List<string> types { get; set; }
+        public List<Tag> tags { get; set; }
     }
 }

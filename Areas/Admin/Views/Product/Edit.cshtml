@@ -1,4 +1,4 @@
-@{
+﻿@{
     ViewData["Title"] = "Thêm sản phẩm";
 }
 
@@ -153,28 +153,9 @@
                             <div class="col-12 text-secondary mt-sm-2">
                                 <textarea class="form-control"
                                           asp-for="@Model.model.Description"
-                                          rows="5"
+                                          rows="8"
                                           cols="50"
-                                          placeholder="Mô tả chi tiết về sản phẩm">
-                                </textarea>
-                            </div>
-                        </div>
-
-                        <div class="row m-3 mt-sm-4">
-                            <div class="col-12 align-self-center">
-                                <div class="__input-label">Tags</div>
-                            </div>
-                            <div class="col-12 text-secondary mt-sm-2">
-                                <select asp-for="@Model.tags"
-                                        class="js-example-basic-multiple"
-                                        name="tags[]"
-                                        style="width: 100%"
-                                        multiple="multiple">
-                                    @foreach (Tag t in Model.tags)
-                                    {
-                                        <option value="@t.ID">@t.Name</option>
-                                    }
-                                </select>
+                                          placeholder="Mô tả chi tiết về sản phẩm"></textarea>
                             </div>
                         </div>
                         <div class="row mx-3 my-2">
@@ -208,6 +189,7 @@
             $(input).closest('.__thumbnail-input-pic').find('button').css('display', 'none')
 
             const img = $(input).closest('.__thumbnail-input-pic').find('img')
+            @*console.log($(input).closest('.__thumbnail-input-pic').find('button'))*@
             reader.onload = function (e) {
                 img.attr('src', e.target.result);
                 img.css('display', 'block');

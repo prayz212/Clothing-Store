@@ -88,5 +88,8 @@ $(document).ready(function () {
         mainImg.attr('src', imgSrc)
         mainImg.show()
     })
+
+    /*      SELECT2     */
+    $(".js-example-basic-multiple").select2();
 });
 

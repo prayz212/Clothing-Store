@@ -110,7 +110,11 @@ namespace Clothing_Store.Areas.Admin.Controllers
             {
                 var productTypes = _context.Products.Select(p => p.ProductType).Distinct().ToList();
                 AdminCreateProductViewModel vm = new AdminCreateProductViewModel();
+
+                var productTags = _context.tags.ToList();
+
                 vm.types = productTypes;
+                vm.tags = productTags;
 
                 return View(vm);
             }
