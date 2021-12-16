@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Quản lý tài khooản khách hàng";
+}
+@model Clothing_Store.Areas.Admin.Models.CreateModel;
+
+<div class="container pt-5 px-5">
+    <div class="main-body">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="__ac-page-card">
+                    <form asp-action="Create">
+                        <div class="card-body">
+                            <div class="row m-3">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6>Tên tài khoản</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input asp-for="Username" placeholder="Tên tài khoản" type="text" class="form-control AcCreateInput">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6>Mật khẩu</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input asp-for="Password" placeholder="Mật khẩu" type="text" class="form-control AcCreateInput">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6>Họ và tên</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input asp-for="Fullname" placeholder="Họ và tên" type="text" class="form-control AcCreateInput">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6>Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input asp-for="Email" placeholder="Email" type="text" class="form-control AcCreateInput">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6>Số điện thoại</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input asp-for="Phone" placeholder="Số điện thoại" type="text" class="form-control AcCreateInput">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6>Địa chỉ</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input asp-for="Address" placeholder="Địa chỉ" type="text" class="form-control AcCreateInput">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6>Số thẻ</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input asp-for="CardNumber" placeholder="Số thẻ" type="text" class="form-control AcCreateInput">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6>CVV/CVV2</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input asp-for="SecretNumber" placeholder="CVV/CVV2" type="text" class="form-control AcCreateInput">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col-sm-3 align-self-center">
+                                    <h6>Hạn sử dụng</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input asp-for="ValidDate" placeholder="Hạn sử dụng" type="date" class="form-control AcCreateInput">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="submit" class="btn btn-primary px-4 me-3 mt-3" value="Thêm tài khoản mới">
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="AcCreateMess text-danger">@ViewBag.acCreateError</div>
+                                <div class="AcCreateMess text-success">@ViewBag.acCreateSuccess</div>
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

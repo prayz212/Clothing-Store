@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+}
+@model Clothing_Store.Areas.Admin.Models.AdminProductViewModel
+
+<main>
+    <div class="container-fluid px-4">
+        <div class="row mt-4 mb-sm-0 mb-3">
+            <div class="col-sm-10 col-12">
+                <div class="h1">Quản lý sản phẩm</div>
+            </div>
+            <div class="col-sm-2 col-12 align-items-center">
+                <a class="btn btn-primary w-100" asp-action="Add" role="button">Thêm mới</a>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Danh sách sản phẩm
+            </div>
+            <div class="card-body">
+                <table id="productTables">
+                    <thead>
+                        <tr>
+                            <th>Mã</th>
+                            <th>Tên</th>
+                            <th>Loại</th>
+                            <th>Giá</th>
+                            <th>Chiết khẩu (%)</th>
+                            <th>Đánh giá</th>
+                            <th>Đang hiển thị</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Mã</th>
+                            <th>Tên</th>
+                            <th>Loại</th>
+                            <th>Giá</th>
+                            <th>Chiết khẩu (%)</th>
+                            <th>Đánh giá</th>
+                            <th>Đang hiển thị</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var p in Model.products)
+                        {
+                            <tr style="cursor:pointer" onclick="location.href = '@(Url.Action("Details", "Product", new { id = p.ID }))'">
+                                <td>@p.ID</td>
+                                <td>@p.Name</td>
+                                <td>@p.ProductType</td>
+                                <td>@(@p.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</td>
+                                <td>@p.Discount</td>
+                                <td>@p.Ratings</td>
+                                <td>@p.Visible</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

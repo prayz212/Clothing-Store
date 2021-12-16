@@ -27,7 +27,7 @@
 
                             <a asp-action="ForgotPassword">Quên mật khẩu</a>
                             <div id="error-msg-log" class="__error-msg">@ViewBag.LoginErrorMsg</div>
-                            <div asp-validation-summary="All" class="text-dannger"></div>
+                            <div asp-validation-summary="All" class="text-danger"></div>
                         </form>
 
                         <form id="_RegForm" method="post" asp-action="Register">
@@ -41,7 +41,7 @@
                             <button type="submit" class="_btn">Đăng ký</button>
 
                             <div id="error-msg-reg" class="__error-msg">@ViewBag.RegisterErrorMsg</div>
-                            <div asp-validation-summary="All" class="text-dannger"></div>
+                            <div asp-validation-summary="All" class="text-danger"></div>
                         </form>
                     </div>
             </div>

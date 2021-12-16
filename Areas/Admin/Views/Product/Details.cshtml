@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+@model Clothing_Store.Areas.Admin.Models.AdminProductDetailViewModel;
+
+<main class="__product-main">
+    <div class="container-fluid px-4">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="__imgae-section justify-content-center">
+                    @{
+                        var mainPic = Model.images.FirstOrDefault();
+                    }
+                    <div class="__thumbnails">
+                        <div class="__thumbnail-pic rounded" style="margin-top: 0">
+                            <img src="@mainPic.URL"
+                                 alt="@mainPic.Name" />
+                        </div>
+                        @for (int i = 1; i < Model.images.Count(); i++)
+                        {
+                            var image = Model.images[i];
+                            <div class="__thumbnail-pic rounded">
+                                <img src="@image.URL"
+                                     alt="@image.Name" />
+                            </div>
+                        }
+                    </div>
+                    <div class="__product-image-box __main-pic-section">
+                        <div class="__main-pic">
+                            <img src="@mainPic.URL"
+                                 alt="@mainPic.Name" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <div class="__product-info-box mt-2 mt-sm-0">
+                    <p><b>Mã sản phẩm:</b> #@Model.ID</p>
+                    <p><b>Tên sản phẩm:</b> @Model.Name</p>
+                    <p><b>Loại sản phẩm:</b> @Model.ProductType</p>
+                    <p><b>Giá:</b> @(Model.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</p>
+                    <p><b>Đang hiển thị:</b> @Model.Visible</p>
+                    <p><b>Đã bán:</b> @Model.TotalSold</p>
+                    <p><b>Trung bình đánh giá:</b> @Model.Ratings sao</p>
+                </div>
+
+                <div class="__product-info-box">
+                    <p><b>Đang khuyến mãi:</b> @Model.InPromotion</p>
+                    <p><b>Chiết khấu:</b> @Model.Discount%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="__product-info-box mt-0 mt-sm-4">
+                    <h5>Mô tả sản phẩm</h5>
+                    <p class="mb-0">
+                        @Model.Description
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card mb-4 mt-2">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Danh sách sản phẩm trong kho
+                    </div>
+                    <div class="card-body">
+                        <table id="warehouseDatatables">
+                            <thead>
+                                <tr>
+                                    <th>Mã</th>
+                                    <th>Màu sắc</th>
+                                    <th>Size</th>
+                                    <th>Còn lại</th>
+                                    <th>Đã bán</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Mã</th>
+                                    <th>Màu sắc</th>
+                                    <th>Size</th>
+                                    <th>Còn lại</th>
+                                    <th>Đã bán</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach (Warehouse w in Model.warehouses)
+                                {
+                                    <tr>
+                                        <td>@w.ID</td>
+                                        <td>@w.Color</td>
+                                        <td>@w.Size</td>
+                                        <td>@w.Quantity</td>
+                                        <td>@w.Sold</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="d-flex flex-row-reverse">
+                <a class="btn btn-danger" id="deleteButton" data-href="@(Url.Action("Delete", "Product", new { id = Model.ID }))" role="button">Xoá</a>
+                <a class="btn btn-success mx-3" asp-action="StockIn" asp-route-id="@Model.ID" role="button">Nhập kho</a>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.ID" role="button">Chỉnh sửa</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Popup -->
+<div class="__popup-confirm">
+    <span class="helper"></span>
+    <div>
+        @*<div class="popupCloseButton">&times;</div>*@
+        <div class="h4">Xác nhận xoá</div>
+        <div>Bạn có chắc chắn xoá sản phẩm này?</div>
+        <div class="d-flex justify-content-center mt-4">
+            <button id="closePopupButton" class="btn btn-light mx-2">Huỷ</button>
+            <button id="confirmPopupButton" class="btn btn-danger mx-2">Xác nhận</button>
+        </div>
+    </div>
+</div>
+
