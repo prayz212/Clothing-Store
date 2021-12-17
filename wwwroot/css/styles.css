@@ -602,6 +602,7 @@ li {
 .__product-banner .__left img {
   object-fit: cover;
   height: 100%;
+  max-height: 50rem;
 }
 
 .__product-banner .__right {

@@ -71,6 +71,11 @@ $(document).ready(function () {
             $('.__main-pic p').show()
         }
 
+        // add remove img to input
+        var imgVal = $('#removeImg').val();
+        var t = img.attr('src').split('/')
+        $('#removeImg').val(imgVal + "|" + t[t.length - 1])
+
         /* remove src value and hide */
         img.removeAttr("src")
         img.hide()

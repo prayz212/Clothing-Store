@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Clothing_Store.Models;
 
@@ -68,7 +69,24 @@ namespace Clothing_Store.Areas.Admin.Models
         public List<string> types { get; set; }
         public List<Tag> tags { get; set; }
     }
-    
+
+    public class AdminEditProductViewModel
+    {
+        public AdminCreateProductModel model { get; set; }
+        public Product product { get; set; }
+        public List<string> types { get; set; }
+        public List<Tag> tags { get; set; }
+        public List<Tag> productTags { get; set; }
+        public PromotionViewModel promotion { get; set; }
+    }
+
+    public class PromotionViewModel
+    {
+        public int Discount { get; set; }
+        public DateTime From { get; set; }
+        public DateTime To{ get; set; }
+    }
+
     public class AdminStockInViewModel
     {
         public int productID { get; set; }

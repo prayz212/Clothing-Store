@@ -7,6 +7,7 @@ using Clothing_Store.Areas.Admin.Models;
 using Clothing_Store.Models;
 using Clothing_Store.Utils;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -127,20 +128,38 @@ namespace Clothing_Store.Areas.Admin.Controllers
         //POST: /Admin/Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(AdminCreateProductViewModel vm)
+        public async Task<IActionResult> Create(IFormCollection vm)
         {
             try
             {
+                int price = 0;
+                Int32.TryParse(vm["model.Price"], out price);
+
                 Product product = new Product()
                 {
-                    Name = vm.model.Name,
-                    ProductType = vm.model.ProductType,
-                    Price = vm.model.Price,
-                    Visible = bool.Parse(vm.model.Visible),
-                    Description = vm.model.Description
+                    Name = vm["model.Name"],
+                    ProductType = vm["model.ProductType"],
+                    Price = price,
+                    Visible = bool.Parse(vm["model.Visible"]),
+                    Description = vm["model.Description"]
                 };
 
                 _context.Products.Add(product);
+                _context.SaveChanges();
+
+                int _id = product.ID;
+                ProductTag productTag = new ProductTag();
+                int intTagID = 1;
+                foreach (string tagID in vm["tags[]"])
+                {
+                    Int32.TryParse(tagID, out intTagID);
+                    productTag = new ProductTag
+                    {
+                        TagID = intTagID,
+                        ProductID = _id
+                    };
+                    _context.productTags.Add(productTag);
+                };
                 _context.SaveChanges();
 
                 string baseName = product.Name;
@@ -176,7 +195,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
 
                 await _context.images.AddRangeAsync(images);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details", new { id = product.ID });
+                return RedirectToAction("Details", new { id = _id });
             }
             catch (Exception e)
             {
@@ -185,11 +204,239 @@ namespace Clothing_Store.Areas.Admin.Controllers
         }
 
         //GET: /Admin/Product/Add
-        public IActionResult Edit(int id)
+        public IActionResult Update(int id)
         {
             try
             {
-                return Ok("edit page");
+                var productTypes = _context.Products.Select(p => p.ProductType).Distinct().ToList();
+                AdminEditProductViewModel vm = new AdminEditProductViewModel();
+
+                Product product = _context.Products
+                    .Where(p => p.ID == id)
+                    .FirstOrDefault();
+
+                PromotionViewModel promotion = _context.promotions
+                    .Where(p => p.ProductID == id)
+                    .Where(p => p.Visible == true && p.IsDelete == false)
+                    .Select(p => new PromotionViewModel
+                    {
+                        Discount = p.Discount,
+                        From = p.From,
+                        To = p.To
+                    })
+                    .FirstOrDefault();
+
+                vm.promotion = promotion;
+                vm.product = product; 
+                vm.types = productTypes;
+                vm.model = new AdminCreateProductModel();
+                vm.model.Name = product.Name;
+                vm.model.Price = product.Price;
+                vm.model.ProductType = product.ProductType;
+                vm.model.Description = product.Description;
+                vm.model.Visible = product.Visible.ToString();
+
+                List<Image> image = _context.images
+                    .Where(i => i.product.ID == id)
+                    .Where(i => i.IsDelete == false)
+                    .ToList();
+
+                vm.model.image1 = image.ElementAtOrDefault(0) != null ? image[0].URL : vm.model.image1;
+                vm.model.image2 = image.ElementAtOrDefault(1) != null ? image[1].URL : vm.model.image2;
+                vm.model.image3 = image.ElementAtOrDefault(2) != null ? image[2].URL : vm.model.image3;
+                vm.model.image4 = image.ElementAtOrDefault(3) != null ? image[3].URL : vm.model.image4;
+
+                var tagsTemp = _context.productTags
+                    .Where(pt => pt.ProductID == id)
+                    .Where(pt => pt.tag.IsDelete == false)
+                    .Select(pt => new Tag
+                    {
+                        ID = pt.tag.ID,
+                        Name = pt.tag.Name
+                    });
+
+                var Tags = _context.tags
+                    .Select(t => new Tag
+                    {
+                        ID = t.ID,
+                        Name = t.Name,
+                    }).Except(tagsTemp)
+                    .ToList();
+
+                var tags = tagsTemp.ToList();
+
+                vm.productTags = tags;
+                vm.tags = Tags;
+                ViewBag.productEditError = TempData["productEditError"];
+
+                return View(vm);
+            }
+            catch (Exception e)
+            {
+                return Ok(e);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(IFormCollection vm, int id)
+        {
+            try
+            {
+                var _vm = vm;
+                if (vm["discountFrom"] != "" || vm["discount"] != "" || vm["discountTo"] != "")
+                {
+                    if (vm["discount"] == "")
+                    {
+                        TempData["productEditError"] = "Cần nhập đầy đủ thông tin cho chiết khấu";
+                        return RedirectToAction("Update");
+                    }
+                    if (vm["discountTo"] == "")
+                    {
+                        TempData["productEditError"] = "Cần nhập đầy đủ thông tin cho chiết khấu";
+                        return RedirectToAction("Update");
+                    }
+                    if (vm["discount"] == "")
+                    {
+                        TempData["productEditError"] = "Cần nhập đầy đủ thông tin cho chiết khấu";
+                        return RedirectToAction("Update");
+                    }
+                }
+
+                if (vm["discountFrom"] != "" && vm["discountTo"] != "" && vm["discount"] != "")
+                {
+                    DateTime from = DateTime.Parse(vm["discountFrom"]);
+                    DateTime to = DateTime.Parse(vm["discountTo"]);
+                    int discount = -1;
+                    Int32.TryParse(vm["discount"], out discount);
+
+                    if (discount < 0 || discount > 100)
+                    {
+                        TempData["productEditError"] = "Chiết khấu phải là số lớn hơn 0";
+                        return RedirectToAction("Update");
+                    }
+
+                    if (to < from)
+                    {
+                        TempData["productEditError"] = "Thời gian chiết khấu không hợp lệ";
+                        return RedirectToAction("Update");
+                    }
+
+                    Promotion promotion = _context.promotions
+                        .Where(p => p.ProductID == id)
+                        .FirstOrDefault();
+
+                    if (promotion != null)
+                    {
+                        promotion.Discount = discount;
+                        promotion.To = to;
+                        promotion.From = from;
+                    } else
+                    {
+                        Promotion newPromotion = new Promotion
+                        {
+                            Discount = discount,
+                            From = from,
+                            To = to,
+                            ProductID = id
+                        };
+                        _context.promotions.Add(newPromotion);
+                    }
+                    _context.SaveChanges();
+                }
+
+                int price = 0;
+                Int32.TryParse(vm["model.Price"], out price);
+
+                string imgRemove = vm["removeImg"];
+                string[] imgs = imgRemove.Split("|");
+                Image deleteIMG = null;
+
+                foreach (string imgURL in imgs)
+                {
+                    if (imgURL != "")
+                    {
+                        deleteIMG = _context.images
+                            .Where(img => img.URL == imgURL)
+                            .FirstOrDefault();
+
+                        if (deleteIMG != null)
+                        {
+                            deleteIMG.IsDelete = true;
+
+                            _context.SaveChanges();
+                        }
+                    }
+                }
+
+                var oldProductTag = _context.productTags
+                                    .Where(pt => pt.ProductID == id)
+                                    .ToList();
+
+                _context.productTags.RemoveRange(oldProductTag);
+                _context.SaveChanges();
+
+                Product product = _context.Products
+                    .Where(p => p.ID == id)
+                    .FirstOrDefault();
+
+                product.Name = vm["model.Name"];
+                product.ProductType = vm["model.ProductType"];
+                product.Price = price;
+                product.Visible = bool.Parse(vm["model.Visible"]);
+                product.Description = vm["model.Description"];
+
+                _context.SaveChanges();
+
+                ProductTag productTag = new ProductTag();
+                int intTagID = 1;
+                foreach (string tagID in vm["tags[]"])
+                {
+                    Int32.TryParse(tagID, out intTagID);
+                    productTag = new ProductTag
+                    {
+                        TagID = intTagID,
+                        ProductID = id
+                    };
+                    _context.productTags.Add(productTag);
+                };
+                _context.SaveChanges();
+
+                string baseName = product.Name;
+                List<Image> images = new List<Image>();
+
+                var files = HttpContext.Request.Form.Files;
+                var count = 0;
+                foreach (var image in files)
+                {
+                    if (image != null && image.Length > 0)
+                    {
+                        var file = image;
+                        var uploads = Path.Combine(_environment.WebRootPath, "uploads/product");
+                        if (file.Length > 0)
+                        {
+                            var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                            using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                            {
+                                await file.CopyToAsync(fileStream);
+                                Image img = new Image()
+                                {
+                                    Name = baseName + " " + count,
+                                    URL = fileName,
+                                    product = product
+                                };
+                                images.Add(img);
+                                count++;
+                            }
+
+                        }
+                    }
+                }
+
+                TempData["productEditError"] = "";
+                await _context.images.AddRangeAsync(images);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Details", new { id = id});
             }
             catch (Exception e)
             {

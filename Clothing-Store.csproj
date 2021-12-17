@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Assets\bootstrap\**" />
+    <Content Remove="Areas\Admin\Assets\bootstrap\**" />
+    <EmbeddedResource Remove="Areas\Admin\Assets\bootstrap\**" />
+    <None Remove="Areas\Admin\Assets\bootstrap\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20211207163423_AddIDToCartDetails.cs" />
     <Compile Remove="Migrations\20211207163423_AddIDToCartDetails.Designer.cs" />
     <Compile Remove="Migrations\20211207163803_AddIDToCartDetails.cs" />
@@ -40,7 +47,6 @@
     <Folder Include="Areas\Admin\Assets\css\" />
     <Folder Include="Areas\Admin\Assets\js\" />
     <Folder Include="Areas\Admin\Assets\image\" />
-    <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="wwwroot\uploads\" />
     <Folder Include="wwwroot\uploads\product\" />
   </ItemGroup>
@@ -48,29 +54,6 @@
     <Content Remove="wwwroot\images\" />
     <Content Remove="wwwroot\uploads\" />
     <Content Remove="wwwroot\uploads\product\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-grid.css" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-grid.css.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-grid.min.css" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-grid.min.css.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-reboot.css" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-reboot.css.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-reboot.min.css" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap.css" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap.css.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap.min.css" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap.min.css.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\js\bootstrap.bundle.js" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\js\bootstrap.bundle.js.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\js\bootstrap.bundle.min.js" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\js\bootstrap.js" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\js\bootstrap.js.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\js\bootstrap.min.js" />
-    <Content Include="Areas\Admin\Assets\bootstrap\dist\js\bootstrap.min.js.map" />
-    <Content Include="Areas\Admin\Assets\bootstrap\LICENSE" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.21" />
