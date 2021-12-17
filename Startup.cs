@@ -61,7 +61,7 @@ namespace Clothing_Store
                 await next();
                 if (context.Response.StatusCode == 404)
                 {
-                    context.Response.Redirect("/Notfound");
+                    context.Response.Redirect("/Exception/Notfound");
                     return;
                 }
             });

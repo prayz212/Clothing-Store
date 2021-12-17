@@ -63,7 +63,7 @@ namespace Clothing_Store.Controllers
 
             } catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -95,7 +95,7 @@ namespace Clothing_Store.Controllers
 
             } catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -157,7 +157,7 @@ namespace Clothing_Store.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest("Somethings went wrong ^^");
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -466,7 +466,7 @@ namespace Clothing_Store.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest("Opps!!! Somethings went wrongss ^^");
+                return RedirectToAction("Error", "Exception");
             }
         }
 

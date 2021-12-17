@@ -41,7 +41,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -79,6 +79,11 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         TotalPrice = rd.TotalPrice
                     }).ToList();
 
+                if (receipt == null)
+                {
+                    return RedirectToAction("Index");
+                }
+
                 AdminReceiptDetailViewModel vm = new AdminReceiptDetailViewModel()
                 {
                     details = details,
@@ -90,7 +95,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -120,7 +125,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
     }

@@ -74,7 +74,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -109,7 +109,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -139,6 +139,11 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         ValiDate = ac.customer.ValidDate,
                         SecretNumber = ac.customer.SecretNumber
                     }).FirstOrDefault();
+
+                if (account == null)
+                {
+                    return RedirectToAction("Index");
+                }
 
                     var rc = _context.receipts
                         .Where(rc => rc.accountID == id)
@@ -181,7 +186,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -194,7 +199,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -270,7 +275,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -328,7 +333,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -415,7 +420,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -434,7 +439,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             } 
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
     }
