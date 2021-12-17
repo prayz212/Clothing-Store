@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Clothing_Store.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -64,10 +61,11 @@ namespace Clothing_Store
                 await next();
                 if (context.Response.StatusCode == 404)
                 {
-                    context.Request.Path = "/Home/NotFound";
-                    await next();
+                    context.Response.Redirect("/Exception/Notfound");
+                    return;
                 }
             });
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -78,11 +76,27 @@ namespace Clothing_Store
                 RequestPath = "/assets"
             });
 
-            app.UseSession();
-
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path.Value.ToLower().StartsWith("/admin")) {
+                    if (!context.Request.Path.Value.ToLower().StartsWith("/admin/home")
+                        && !context.Request.Path.Value.ToLower().StartsWith("/admin/account/login")) {
+
+                        var CurrentUserIDSession = context.Session.GetInt32("admin_id");
+                        if (CurrentUserIDSession == null) {
+                            var path = "/Admin/Home/Index";
+                            context.Response.Redirect(path);
+                            return;
+                        }
+                    }
+                }
+                await next();
+            });
 
             app.UseEndpoints(endpoints =>
             {

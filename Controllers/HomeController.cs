@@ -69,18 +69,13 @@ namespace Clothing_Store.Controllers
             }
             catch
             {
-                return Error();
+                return RedirectToAction("Error", "Exception");
             }
         }
 
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        public IActionResult NotFound()
-        {
-            return Ok("This is the message to announce you this page is not found, will adjust to the template not found later");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

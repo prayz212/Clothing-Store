@@ -63,7 +63,7 @@ namespace Clothing_Store.Controllers
 
             } catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -95,7 +95,7 @@ namespace Clothing_Store.Controllers
 
             } catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -157,7 +157,7 @@ namespace Clothing_Store.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest("Somethings went wrong ^^");
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -425,7 +425,7 @@ namespace Clothing_Store.Controllers
                         Color = c.Color,
                         Size = c.Size,
                         Quantity = c.Quantity,
-                        TotalPrice = c.product.promotion == null
+                        TotalPrice = c.product.promotion == null && c.product.promotion.From <= DateTime.Now && c.product.promotion.To >= DateTime.Now
                             ? c.product.Price * c.Quantity
                             : (int)Math.Round(c.product.Price - c.product.Price * (c.product.promotion.Discount/(float)100)) * c.Quantity
                     })
@@ -466,7 +466,7 @@ namespace Clothing_Store.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest("Opps!!! Somethings went wrongss ^^");
+                return RedirectToAction("Error", "Exception");
             }
         }
 

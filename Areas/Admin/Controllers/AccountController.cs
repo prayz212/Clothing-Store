@@ -13,9 +13,11 @@ using System.Threading.Tasks;
 namespace Clothing_Store.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly ApplicationDBContext _context;
+        private readonly string SESSION_ADMIN_ID = "admin_id";
+        private readonly string SESSION_USER_NAME = "user_name";
 
         public AccountController(ApplicationDBContext context)
         {
@@ -27,11 +29,11 @@ namespace Clothing_Store.Areas.Admin.Controllers
             try
             {
 
-                List<AdminAccountViewModel> accountsInfo = _context.accounts
+                List<AdminAccountModel> accountsInfo = _context.accounts
                     .Where(ac => ac.IsDelete == false)
                     .Include(ac => ac.customer)
                     .Include(ac => ac.receipts)
-                    .Select(ac => new AdminAccountViewModel() { 
+                    .Select(ac => new AdminAccountModel() { 
                         ID = ac.ID,
                         UserName = ac.Username,
                         Fullname = ac.customer.Fullname,
@@ -41,14 +43,61 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         ValiDate = ac.customer.ValidDate,
                         TotalPayment = ac.receipts.Sum(r => r.TotalPay),
                         TotalOrder = ac.receipts.Count()
-                    }).ToList();
+                    }).ToList();     
+                    
+                AdminAccountViewModel vm = new AdminAccountViewModel()
+                {
+                    accounts = accountsInfo,
+                    currentUsername = GetCurrentUserName()
+                };
 
-                return View(accountsInfo);
+                return View(vm);
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Login(LoginModel account)
+        {
+
+            try
+            {
+                var isAdmin = _context.admins
+                    .Include(ad => ad.account)
+                    .Where(ad => ad.account.IsDelete == false)
+                    .Where(ad => ad.account.Username == account.Username)
+                    .FirstOrDefault();
+
+                if (isAdmin != null)
+                {
+                    bool isMatch = BCrypt.Net.BCrypt.Verify(account.Password, isAdmin.account.Password);
+                    if (isMatch)
+                    {
+                        HttpContext.Session.SetInt32(SESSION_ADMIN_ID, isAdmin.ID);
+                        HttpContext.Session.SetString(SESSION_USER_NAME, account.Username);
+
+                        return RedirectToAction("Index", "Receipt");
+                    }
+
+                }
+
+                TempData["adminLoginErr"] = "Tên tài khoản hoặc mật khẩu không đúng";
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Error", "Exception");
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Details(int id)
@@ -72,6 +121,11 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         SecretNumber = ac.customer.SecretNumber
                     }).FirstOrDefault();
 
+                if (account == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                
                     var rc = _context.receipts
                         .Where(rc => rc.accountID == id)
                         .GroupBy(rc => rc.accountID)
@@ -92,9 +146,9 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         account.TotalPayment = 0;
                     }
 
-                    List<AdminReceiptHistoryViewModel> receipts = _context.receipts
+                    List<AdminReceiptHistoryModel> receipts = _context.receipts
                         .Where(r => r.accountID == id)
-                        .Select(r => new AdminReceiptHistoryViewModel
+                        .Select(r => new AdminReceiptHistoryModel
                         {
                             ID = r.ID,
                             Fullname = r.Fullname,
@@ -107,12 +161,13 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         }).ToList();
 
                 account.Recepits = receipts;
+                account.currentUsername = GetCurrentUserName();
 
                 return View(account);
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -121,11 +176,12 @@ namespace Clothing_Store.Areas.Admin.Controllers
             try
             {
                 ViewBag.acCreateSuccess = TempData["acCreateSuccess"];
-                return View();
+
+                return View(new CreateModel() { currentUsername = GetCurrentUserName() });
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -144,23 +200,28 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 {
                     ViewBag.acCreateError = "Tên tài khoản hoặc email đã được đăng ký bởi người dùng khác";
 
-                    return View();
+                    return View(new CreateModel() { currentUsername = GetCurrentUserName() });
                 }
 
-                BigInteger x1 = -1;
-                int x2 = -1;
-                if (!BigInteger.TryParse(account.CardNumber, out x1) || !Int32.TryParse(account.SecretNumber, out x2))
+                if (account.CardNumber != null
+                    || account.SecretNumber != null
+                    || account.ValidDate != null)
                 {
-                    ViewBag.acCreateError = "Thông tin thẻ tín dụng không hợp lệ";
+                    BigInteger x1 = -1;
+                    int x2 = -1;
+                    if (!BigInteger.TryParse(account.CardNumber, out x1) || !Int32.TryParse(account.SecretNumber, out x2))
+                    {
+                        ViewBag.acCreateError = "Thông tin thẻ tín dụng không hợp lệ";
 
-                    return View();
-                }
+                        return View(new CreateModel() { currentUsername = GetCurrentUserName() });
+                    }
 
-                if (account.ValidDate < DateTime.Now)
-                {
-                    ViewBag.acCreateError = "Không được nhập hạn thẻ đã hết";
+                    if (!account.ValidDate.HasValue || account.ValidDate < DateTime.Now)
+                    {
+                        ViewBag.acCreateError = "Thẻ đã hết hạn hoặc không tồn tại";
 
-                    return View();
+                        return View(new CreateModel() { currentUsername = GetCurrentUserName() });
+                    }
                 }
 
                 Account newAccount = new Account()
@@ -179,22 +240,24 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     Fullname = account.Fullname,
                     Phone = account.Phone,
                     Address = account.Address,
-                    CardNumber = account.CardNumber,
-                    ValidDate = (DateTime)account.ValidDate,
-                    SecretNumber = account.SecretNumber,
                     AccountID = accountID
                 };
+
+                if (account.CardNumber != null && account.SecretNumber != null && account.ValidDate != null)
+                {
+                    newCustomer.CardNumber = account.CardNumber;
+                    newCustomer.SecretNumber = account.SecretNumber;
+                    newCustomer.ValidDate = (DateTime)account.ValidDate;
+                }
+
                 _context.customers.Add(newCustomer);
-
                 _context.SaveChanges();
-                ViewBag.acCreateError = "";
 
-                TempData["acCreateSuccess"] = "Tạo mới tài khoản thành công";
-                return RedirectToAction("Create", "Account");
+                return RedirectToAction("Details", new { id = newAccount.ID });
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -243,6 +306,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
 
                 AdminUpdateAcccountViewModel accountDetails = new AdminUpdateAcccountViewModel();
                 accountDetails.details = account;
+                accountDetails.currentUsername = GetCurrentUserName();
 
                 ViewBag.acUpdateError = TempData["acUpdateError"];
                 ViewBag.acUpdateSuccess = TempData["acUpdateSuccess"];
@@ -251,7 +315,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -275,20 +339,23 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     return RedirectToAction("Update", "Account");
                 }
 
-                BigInteger x1 = -1;
-                int x2 = -1;
-                if (!BigInteger.TryParse(updateInfo.CardNumber, out x1) || !Int32.TryParse(updateInfo.SecretNumber, out x2))
+                if (updateInfo.CardNumber != null
+                    || updateInfo.SecretNumber != null
+                    || updateInfo.ValidDate != null)
                 {
-                    TempData["acUpdateError"] = "Thông tin thẻ tín dụng không hợp lệ";
+                    BigInteger x1 = -1;
+                    int x2 = -1;
+                    if (!BigInteger.TryParse(updateInfo.CardNumber, out x1) || !Int32.TryParse(updateInfo.SecretNumber, out x2))
+                    {
+                        TempData["acUpdateError"] = "Thông tin thẻ tín dụng không hợp lệ";
+                        return RedirectToAction("Update", "Account");
+                    }
 
-                    return RedirectToAction("Update", "Account");
-                }
-
-                if (updateInfo.ValidDate < DateTime.Now)
-                {
-                    TempData["acUpdateError"] = "Không được nhập hạn thẻ đã hết";
-
-                    return RedirectToAction("Update", "Account");
+                    if (!updateInfo.ValidDate.HasValue || updateInfo.ValidDate < DateTime.Now)
+                    {
+                        TempData["acUpdateError"] = "Thẻ đã hết hạn hoặc không tồn tại";
+                        return RedirectToAction("Update", "Account");
+                    }
                 }
 
                 var customer = _context.customers
@@ -300,9 +367,13 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     customer.Fullname = updateInfo.Fullname;
                     customer.Phone = updateInfo.Phone;
                     customer.Address = updateInfo.Address;
-                    customer.CardNumber = updateInfo.CardNumber;
-                    customer.ValidDate = (DateTime) updateInfo.ValidDate;
-                    customer.SecretNumber = updateInfo.SecretNumber;
+
+                    if (updateInfo.CardNumber != null && updateInfo.SecretNumber != null && updateInfo.ValidDate != null)
+                    {
+                        customer.CardNumber = updateInfo.CardNumber;
+                        customer.ValidDate = (DateTime)updateInfo.ValidDate;
+                        customer.SecretNumber = updateInfo.SecretNumber;
+                    }
 
                     _context.customers.Update(customer);
                 } else
@@ -312,22 +383,26 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         Fullname = updateInfo.Fullname,
                         Phone = updateInfo.Phone,
                         Address = updateInfo.Address,
-                        CardNumber = updateInfo.CardNumber,
-                        ValidDate = (DateTime)updateInfo.ValidDate,
-                        SecretNumber = updateInfo.SecretNumber,
+                        AccountID = id
                     };
 
+                    if (updateInfo.CardNumber != null && updateInfo.SecretNumber != null && updateInfo.ValidDate != null)
+                    {
+                        newCustomer.CardNumber = updateInfo.CardNumber;
+                        newCustomer.ValidDate = (DateTime)updateInfo.ValidDate;
+                        newCustomer.SecretNumber = updateInfo.SecretNumber;
+                    }
+
                     _context.customers.Add(newCustomer);
+                    _context.SaveChanges();
                 }
                 _context.SaveChanges();
-                TempData["acUpdateError"] = "";
 
-                TempData["acUpdateSuccess"] = "Cập nhật thông tin thành công";
-                return RedirectToAction("Update", "Account");
+                return RedirectToAction("Details", new { id });
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -346,7 +421,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             } 
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
     }

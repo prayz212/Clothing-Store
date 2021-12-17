@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Clothing_Store.Areas.Admin.Models
 {
-    public class AdminAccountViewModel
+    public class AdminAccountViewModel : BaseModel
+    {
+        public List<AdminAccountModel> accounts { get; set; }
+    }
+
+    public class AdminAccountModel
     {
         public int ID { get; set; }
         public string UserName { get; set; }
@@ -19,7 +24,7 @@ namespace Clothing_Store.Areas.Admin.Models
         public int TotalPayment { get; set; }
     }
 
-    public class AdminAccountDetailsViewModel
+    public class AdminAccountDetailsViewModel : BaseModel
     {
         public int ID { get; set; }
         public string UserName { get; set; }
@@ -33,10 +38,10 @@ namespace Clothing_Store.Areas.Admin.Models
         public string SecretNumber { get; set; }
         public int TotalOrder { get; set; }
         public int TotalPayment { get; set; }
-        public List<AdminReceiptHistoryViewModel> Recepits { get; set; }
+        public List<AdminReceiptHistoryModel> Recepits { get; set; }
     }
 
-    public class AdminUpdateAcccountViewModel
+    public class AdminUpdateAcccountViewModel : BaseModel
     {
         public AdminAccountDetailsViewModel details { get; set; }
         public UpdateModel updateModel { get; set; }
@@ -63,15 +68,14 @@ namespace Clothing_Store.Areas.Admin.Models
         [MaxLength(12, ErrorMessage = "Số thẻ phải có tối đa 12 số")]
         public string? CardNumber { get; set; }
 
-        [Required(ErrorMessage = "Yêu cầu nhập hạn sử dụng thẻ")]
-        public DateTime ValidDate { get; set; }
+        public DateTime? ValidDate { get; set; }
 
         [StringLength(12, MinimumLength = 7, ErrorMessage = "Mã số bí mật phải bao gồm 7 số")]
         [MaxLength(7, ErrorMessage = "Mã số bí mật có tối đa 7 số")]
         public string? SecretNumber { get; set; }
     }
 
-    public class CreateModel
+    public class CreateModel : BaseModel
     {
         [Required(ErrorMessage = "Yêu cầu nhập tên tài khoản")]
         [StringLength(100, MinimumLength = 4, ErrorMessage = "Tên tài khoản phải có tối thiểu 4 ký tự")]
@@ -97,13 +101,13 @@ namespace Clothing_Store.Areas.Admin.Models
 
         [StringLength(12, MinimumLength = 12, ErrorMessage = "Số thẻ phải bao gồm 12 số")]
         [MaxLength(12, ErrorMessage = "Số thẻ phải có tối đa 12 số")]
-        public string? CardNumber { get; set; }
 
-        [Required(ErrorMessage = "Yêu cầu nhập hạn sử dụng thẻ")]
-        public DateTime ValidDate { get; set; }
+        public string CardNumber { get; set; }
+
+        public DateTime? ValidDate { get; set; }
 
         [StringLength(12, MinimumLength = 7, ErrorMessage = "Mã số bí mật phải bao gồm 7 số")]
         [MaxLength(7, ErrorMessage = "Mã số bí mật có tối đa 7 số")]
-        public string? SecretNumber { get; set; }
+        public string SecretNumber { get; set; }
     }
 }

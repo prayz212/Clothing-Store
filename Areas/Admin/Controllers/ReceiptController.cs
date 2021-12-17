@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Clothing_Store.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ReceiptController : Controller
+    public class ReceiptController : BaseController
     {
         private readonly ApplicationDBContext _context;
 
@@ -24,8 +24,8 @@ namespace Clothing_Store.Areas.Admin.Controllers
         {
             try
             {
-                List<AdminReceiptHistoryViewModel> receipts = _context.receipts
-                    .Select(r => new AdminReceiptHistoryViewModel
+                List<AdminReceiptHistoryModel> receipts = _context.receipts
+                    .Select(r => new AdminReceiptHistoryModel
                     {
                         ID = r.ID,
                         Fullname = r.Fullname,
@@ -37,11 +37,11 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         Status = r.Status
                     }).ToList();
 
-                return View(receipts);
+                return View(new AdminReceiptHistoryViewModel() { history = receipts, currentUsername = GetCurrentUserName() });
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -49,9 +49,9 @@ namespace Clothing_Store.Areas.Admin.Controllers
         {
             try
             {
-                AdminReceiptHistoryModel receipt = _context.receipts
+                AdminReceiptDetailModel receipt = _context.receipts
                     .Where(r => r.ID == id)
-                    .Select(r => new AdminReceiptHistoryModel
+                    .Select(r => new AdminReceiptDetailModel
                     {
                         ID = r.ID,
                         Fullname = r.Fullname,
@@ -79,22 +79,28 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         TotalPrice = rd.TotalPrice
                     }).ToList();
 
+                if (receipt == null)
+                {
+                    return RedirectToAction("Index");
+                }
+
                 AdminReceiptDetailViewModel vm = new AdminReceiptDetailViewModel()
                 {
                     details = details,
-                    receipt = receipt
+                    receipt = receipt,
+                    currentUsername = GetCurrentUserName()
                 };
 
                 return View(vm);
             }
             catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
         [HttpPost]
-        public IActionResult Details(IFormCollection form, int id)
+        public IActionResult UpadteStatus(IFormCollection form, int id)
         {
             try
             {
@@ -119,7 +125,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
     }

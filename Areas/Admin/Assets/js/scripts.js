@@ -1,4 +1,4 @@
-/*!
+﻿/*!
     * Start Bootstrap - SB Admin v7.0.4 (https://startbootstrap.com/template/sb-admin)
     * Copyright 2013-2021 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
@@ -106,5 +106,32 @@ $(document).ready(function () {
         $('#ExistProduct-form').hide();
         $("#" + value + "-form").show();
     });
+
+    /*          Admin Login            */
+    $('#loginBtnAdmin').on('click', () => {
+        if ($('#Username').val().trim() == '') {
+            $('#errorMessAdmin').text("Tên tài khoản không được bỏ trống")
+        } else if ($('#pwd').val().trim() == '') {
+            $('#errorMessAdmin').text("Mật khẩu không được bỏ trống")
+        } else {
+            $('#adminLoginForm').submit()
+        }
+    })
+
+    $('#Username, #pwd').on('click', () => {
+        $('#errorMessAdmin').text("");
+    })
+
+    /*      Trigger enter event     */
+    $('.enter-event').keyup(function (e) {
+        if (e.keyCode == 13) {
+            $('#loginBtnAdmin').click();
+        }
+    });
+
+    /*          ACCOUNT CREATE            */
+    if ($('#ValidDate').val() == '0001-01-01') {
+        $('#ValidDate').val("");
+    }
 });
 

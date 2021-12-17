@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Clothing_Store.Areas.Admin.Models;
 using Clothing_Store.Models;
 using Clothing_Store.Utils;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Clothing_Store.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         private readonly ApplicationDBContext _context;
         private readonly IWebHostEnvironment _environment;
@@ -49,12 +47,12 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         Visible = p.Visible ? "Có" : "Không"
                     })
                     .ToList();
-
-                return View(new AdminProductViewModel() { products = products });
+                
+                return View(new AdminProductViewModel() { products = products, currentUsername = GetCurrentUserName() });
             }
             catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -95,12 +93,13 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-
+                
+                vm.currentUsername = GetCurrentUserName();
                 return View(vm);
             }
             catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -116,6 +115,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
 
                 vm.types = productTypes;
                 vm.tags = productTags;
+
 
                 return View(vm);
             }
@@ -203,7 +203,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
-        //GET: /Admin/Product/Add
+        //GET: /Admin/Product/Update
         public IActionResult Update(int id)
         {
             try
@@ -459,12 +459,12 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 }
                 else
                 {
-                    return Ok("loi roi");
+                    return RedirectToAction("Error", "Exception");
                 }
             }
             catch (Exception e)
             {
-                return Ok(e);
+                return RedirectToAction("Error", "Exception");
             }
             
         }
@@ -479,7 +479,8 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 AdminStockInViewModel stockInView = new AdminStockInViewModel
                 {
                     productID = id,
-                    warehouses = wareHouses
+                    warehouses = wareHouses,
+                    currentUsername = GetCurrentUserName()
                 };
 
                 ViewBag.stockInError = TempData["stockInError"];
@@ -487,7 +488,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -540,7 +541,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(e);
+                return RedirectToAction("Error", "Exception");
             }
         }
     }

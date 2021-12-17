@@ -91,7 +91,7 @@ namespace Clothing_Store.Controllers
                 return View(await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), page ?? 1, PAGE_SIZE));
             } catch (Exception e)
             {
-                return Error();
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -130,7 +130,7 @@ namespace Clothing_Store.Controllers
             }
             catch (Exception e)
             {
-                return Error();
+                return RedirectToAction("Error", "Exception");
             }
             
         }
@@ -166,7 +166,7 @@ namespace Clothing_Store.Controllers
             }
             catch (Exception e)
             {
-                return Error();
+                return RedirectToAction("Error", "Exception");
             }
 
         }
@@ -205,7 +205,7 @@ namespace Clothing_Store.Controllers
             }
             catch (Exception e)
             {
-                return Error();
+                return RedirectToAction("Error", "Exception");
             }
 
         }
@@ -273,72 +273,9 @@ namespace Clothing_Store.Controllers
             }
             catch
             {
-                return Error();
+                return RedirectToAction("Error", "Exception");
             }
             
-        }
-
-        // GET: Product/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Product/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Product/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Product/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Product/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Product/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         // POST: Product/Rating
@@ -391,12 +328,6 @@ namespace Clothing_Store.Controllers
             {
                 return Json(new { status = "fail" });
             }
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

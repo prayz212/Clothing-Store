@@ -1,7 +1,7 @@
 ﻿@{ 
     ViewData["Title"] = "Quản lý hóa đơn";
 }
-@model List<Clothing_Store.Areas.Admin.Models.AdminReceiptHistoryViewModel>
+@model Clothing_Store.Areas.Admin.Models.AdminReceiptHistoryViewModel
 
 <main>
     <div class="container-fluid px-4">
@@ -26,7 +26,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (AdminReceiptHistoryViewModel receipt in Model)
+
+                        @foreach (AdminReceiptHistoryModel receipt in Model.history)
                         {
                         <tr style="cursor: pointer" onclick="location.href = '@(Url.Action("Details", "Receipt", new { id = receipt.ID }))'">
                             <td>@receipt.ID</td>
