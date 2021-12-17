@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -325,8 +326,9 @@ namespace Clothing_Store.Controllers
             }
             else
             {
-                int x = -1;
-                if (!Int32.TryParse(account.CardNumber, out x) || !Int32.TryParse(account.SecretNumber, out x))
+                BigInteger x1 = -1;
+                int x2 = -1;
+                if (!BigInteger.TryParse(account.CardNumber, out x1) || !Int32.TryParse(account.SecretNumber, out x2))
                 {
                     AccountInfoModel accountInfo = new AccountInfoModel()
                     {

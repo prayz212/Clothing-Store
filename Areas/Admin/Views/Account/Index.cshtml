@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Quản lý tài khoản khách hàng";
+}
+@model Clothing_Store.Areas.Admin.Models.AdminAccountViewModel
+
+<main>
+    <div class="container-fluid px-4">
+        <div class="row my-4">
+            <div class="col-sm-10 col-12">
+                <div class="h1">Quản lý tài khoản khách hàng</div>
+            </div>
+            <div class="col-sm-2 col-12 align-items-center">
+                <a class="btn btn-primary w-100" role="button" asp-action="Create">Thêm mới</a>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Danh sách tài khoản
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Mã tài khoản</th>
+                            <th>Tên tài khoản</th>
+                            <th>Họ và tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Số thẻ</th>
+                            <th>Hạn sử dụng</th>
+                            <th>Tổng số hóa đơn</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (AdminAccountModel ac in Model.accounts)
+                        {
+                            <tr style="cursor: pointer" onclick="location.href = '@(Url.Action("Details", "Account", new { id = ac.ID }))'">
+                                <td>@ac.ID</td>
+                                <td>@ac.UserName</td>
+                                <td>@(ac.Fullname != null ? ac.Fullname : "Chưa cập nhật")</td>
+                                <td>@(ac.Email != null ? ac.Email : "Chưa cập nhật")</td>
+                                <td>@(ac.Phone != null ? ac.Phone : "Chưa cập nhật")</td>
+                                <td>@(ac.CardNumber != null ? ac.CardNumber: "Chưa cập nhật")</td>
+                                <td>@(ac.ValiDate.ToString("dd/MM/yyyy") != "01/01/0001" ? ac.ValiDate.ToString("dd/MM/yyyy") : "Chưa cập nhật")</td>
+                                <td>@ac.TotalOrder</td>
+                                <td>@(ac.TotalPayment != 0 ? ac.TotalPayment.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")) : "0") đ</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

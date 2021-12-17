@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewData["Title"] = "Nhập kho";
+}
+@model Clothing_Store.Areas.Admin.Models.AdminStockInViewModel
+
+<div class="h-100 __stock-in-page">
+    <div class="container pt-5 px-5">
+        <div class="main-body">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="__ac-page-card">
+                        <div class="card-body">
+                            <div class="row fw-bold fs-3 d-flex justify-content-center">Nhập kho</div>
+                            <div class="row m-3 px-3">
+                                <div class="form-check col-12 col-sm-6 d-flex">
+                                    <input class="form-check-input me-2 align-self-center" type="radio" name="stockInMethod" id="NewProduct" value="NewProduct" checked>
+                                    <label class="form-check-label fs-5" for="NewProduct">
+                                        Sản phẩm mới
+                                    </label>
+                                </div>
+                                <div class="form-check col-12 col-sm-6 d-flex">
+                                    <input class="form-check-input me-2 align-self-center" type="radio" name="stockInMethod" id="ExistProduct" value="ExistProduct">
+                                    <label class="form-check-label fs-5" for="ExistProduct">
+                                        Sản phẩm có sẵn
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <div id="NewProduct-form">
+            <div class="container px-5">
+                <div class="main-body">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="__ac-page-card">
+                                <form asp-action="StockIn" asp-route-id="@Model.productID">
+                                    <div class="card-body">
+                                        <div class="row m-3">
+                                            <div class="col-sm-3 align-self-center">
+                                                <h6>Size sản phẩm</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input asp-for="validate.Size" placeholder="Size sản phẩm" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row m-3">
+                                            <div class="col-sm-3 align-self-center">
+                                                <h6>Màu sản phẩm</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input asp-for="validate.Color" placeholder="Màu sản phẩm" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row m-3">
+                                            <div class="col-sm-3 align-self-center">
+                                                <h6>Số lượng sản phẩm</h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input asp-for="validate.Quantity" placeholder="Số lượng sản phẩm" type="number" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row m-3">
+                                            <div class="col-md-9 col-sm-12 d-flex">
+                                                <div class="align-self-center text-danger">@ViewBag.stockInError</div>
+                                                <div asp-validation-summary="All" class="text-danger"></div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 text-secondary">
+                                                <input type="submit" class="w-100 btn btn-primary px-4" value="Nhập kho">
+                                            </div>
+                                        </div>
+                                        <div class="row m-3">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="ExistProduct-form">
+            <div class="container px-5">
+                <div class="main-body">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="__ac-page-card">
+                                <form asp-action="StockIn" asp-route-id="@Model.productID">
+                                    <div class="card-body">
+                                        @if (Model.warehouses != null && Model.warehouses.Count > 0)
+                                        {
+                                            <div class="row m-3">
+                                                <div class="col-sm-3 align-self-center">
+                                                    <h6>Size sản phẩm</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <select asp-for="validate.Size" class="form-select" aria-label="Default select example">
+                                                        @foreach (string size in Model.warehouses.Select(wh => wh.Size).Distinct().ToList())
+                                                        {
+                                                            <option value="@size">@size</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row m-3">
+                                                <div class="col-sm-3 align-self-center">
+                                                    <h6>Màu sản phẩm</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <select asp-for="validate.Color" class="form-select" aria-label="Default select example">
+                                                        @foreach (string color in Model.warehouses.Select(wh => wh.Color).Distinct().ToList())
+                                                        {
+                                                            <option value="@color">@color</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row m-3">
+                                                <div class="col-sm-3 align-self-center">
+                                                    <h6>Số lượng sản phẩm</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <input asp-for="validate.Quantity" placeholder="Số lượng sản phẩm" type="number" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="row m-3">
+                                                <div class="col-md-9 col-sm-12 d-flex">
+                                                    <div class="align-self-center text-danger">@ViewBag.stockInError</div>
+                                                    <div asp-validation-summary="All" class="text-danger"></div>
+                                                </div>
+                                                <div class="col-md-3 col-sm-12 text-secondary">
+                                                    <input type="submit" class="w-100 btn btn-primary px-4" value="Nhập kho">
+                                                </div>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="fs-5 d-flex justify-content-center">Chưa có sản phẩm trong kho</div>
+                                        }
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

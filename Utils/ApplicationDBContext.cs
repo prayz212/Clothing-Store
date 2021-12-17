@@ -19,6 +19,7 @@ namespace Clothing_Store.Utils
         public DbSet<Customer> customers { get; set; }
         public DbSet<Receipt> receipts { get; set; }
         public DbSet<ReceiptDetail> receiptDetails { get; set; }
+        public DbSet<Admin> admins { get; set; }
 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base (options)
         {

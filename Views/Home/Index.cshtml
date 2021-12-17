@@ -57,62 +57,19 @@
     </section>
 
     <!-- Featured -->
-    <section class="__feature-section __featured">
-        <div class="__title">
-            <h1>Sản phẩm bán chạy</h1>
-            <div>
-                <a asp-controller="Product" asp-action="TopSales" class="__view-more">Xem thêm</a>
-            </div>
-        </div>
 
-        <div class="__product-center __container">
-            @foreach (ProductViewModel item in topSales)
-            {
-                <div class="__product">
-                    <div class="__product-header">
-                        <img src="@item.image.URL" alt="@item.image.Name">
-                        <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
-                            <ul class="icons">
-                                <span><i class='bx bxs-show show-icons'></i></span>
-                            </ul>
-                        </a>
-                    </div>
-                    <div class="__product-footer">
-                        <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
-                            <h3>@item.Name</h3>
-                        </a>
-                        <div class="__rating">
-                            @for (int i = 0; i < item.ratings; i++)
-                            {
-                                <i class="bx bxs-star"></i>
-                            }
 
-                            @for (int i = 0; i < 5 - item.ratings; i++)
-                            {
-                                <i class="bx bx-star"></i>
-                            }
-                        </div>
-                        <h4 class="__price">@(item.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</h4>
-                    </div>
-                </div>
-            }
-
-        </div>
-    </section>
-
-    <!--Latest -->
-    @if (newProducts.Count > 0)
+    @if (topSales.Count > 0)
     {
         <section class="__feature-section __featured">
             <div class="__title">
-                <h1>Sản phẩm mới</h1>
+                <h1>Sản phẩm bán chạy</h1>
                 <div>
-                    <a asp-controller="Product" asp-action="NewProducts" class="__view-more">Xem thêm</a>
+                    <a asp-controller="Product" asp-action="TopSales" class="__view-more">Xem thêm</a>
                 </div>
             </div>
-
             <div class="__product-center __container">
-                @foreach (ProductViewModel item in newProducts)
+                @foreach (ProductViewModel item in topSales)
                 {
                     <div class="__product">
                         <div class="__product-header">
@@ -142,87 +99,134 @@
                         </div>
                     </div>
                 }
+
             </div>
         </section>
     }
 
-    <!-- Product Banner -->
-    <section class="__section">
-        <div class="__product-banner">
-            <div class="__left">
-                <img src="~/images/test.jpg" alt="" />
-            </div>
-            <div class="__right">
-                <div class="__content">
-                    <h2>GIẢM GIÁ TỚI <span class="__discount">30% </span></h2>
-                    <h1>
-                        <span>Thỏa thích</span>
-                        <span>mua sắm</span>
-                    </h1>
-                    <a asp-controller="Product" asp-action="FlashSale" class="__btn">Mua ngay</a>
+        <!--Latest -->
+        @if (newProducts.Count > 0)
+        {
+            <section class="__feature-section __featured">
+                <div class="__title">
+                    <h1>Sản phẩm mới</h1>
+                    <div>
+                        <a asp-controller="Product" asp-action="NewProducts" class="__view-more">Xem thêm</a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section class="__section">
-        <div class="__testimonial-center __container">
-            <div class="__testimonial">
-                <span>&ldquo;</span>
-                <p>
-                    Sản phẩm có giá cả hợp lý.
-                    Dịch vụ chăm sóc khách hàng tốt.
-                    Sẽ tiếp tục ủng hộ CoolMate.
-                </p>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
+                <div class="__product-center __container">
+                    @foreach (ProductViewModel item in newProducts)
+                    {
+                        <div class="__product">
+                            <div class="__product-header">
+                                <img src="@item.image.URL" alt="@item.image.Name">
+                                <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
+                                    <ul class="icons">
+                                        <span><i class='bx bxs-show show-icons'></i></span>
+                                    </ul>
+                                </a>
+                            </div>
+                            <div class="__product-footer">
+                                <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
+                                    <h3>@item.Name</h3>
+                                </a>
+                                <div class="__rating">
+                                    @for (int i = 0; i < item.ratings; i++)
+                                    {
+                                        <i class="bx bxs-star"></i>
+                                    }
+
+                                    @for (int i = 0; i < 5 - item.ratings; i++)
+                                    {
+                                        <i class="bx bx-star"></i>
+                                    }
+                                </div>
+                                <h4 class="__price">@(item.Price.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")))đ</h4>
+                            </div>
+                        </div>
+                    }
                 </div>
-                <div class="__img-cover">
-                    <img src="~/images/profile1.jpg" alt="" />
+            </section>
+        }
+
+        <!-- Product Banner -->
+        <section class="__section">
+            <div class="__product-banner">
+                <div class="__left">
+                    <img src="~/images/test.jpg" alt="" />
                 </div>
-                <h4>Nhã Anh</h4>
+                <div class="__right">
+                    <div class="__content">
+                        <h2>GIẢM GIÁ TỚI <span class="__discount">30% </span></h2>
+                        <h1>
+                            <span>Thỏa thích</span>
+                            <span>mua sắm</span>
+                        </h1>
+                        <a asp-controller="Product" asp-action="FlashSale" class="__btn">Mua ngay</a>
+                    </div>
+                </div>
             </div>
-            <div class="__testimonial">
-                <span>&ldquo;</span>
-                <p>
-                    Giao hàng nhanh và sản phẩm chất lượng.
-                    CoolMate luôn là lựa chọn đầu tiên của tôi.
-                </p>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="__section">
+            <div class="__testimonial-center __container">
+                <div class="__testimonial">
+                    <span>&ldquo;</span>
+                    <p>
+                        Sản phẩm có giá cả hợp lý.
+                        Dịch vụ chăm sóc khách hàng tốt.
+                        Sẽ tiếp tục ủng hộ CoolMate.
+                    </p>
+                    <div class="__rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                    </div>
+                    <div class="__img-cover">
+                        <img src="~/images/profile1.jpg" alt="" />
+                    </div>
+                    <h4>Nhã Anh</h4>
                 </div>
-                <div class="__img-cover">
-                    <img src="~/images/profile2.jpg" alt="" />
+                <div class="__testimonial">
+                    <span>&ldquo;</span>
+                    <p>
+                        Giao hàng nhanh và sản phẩm chất lượng.
+                        CoolMate luôn là lựa chọn đầu tiên của tôi.
+                    </p>
+                    <div class="__rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bx-star"></i>
+                    </div>
+                    <div class="__img-cover">
+                        <img src="~/images/profile2.jpg" alt="" />
+                    </div>
+                    <h4>Anh Tùng</h4>
                 </div>
-                <h4>Anh Tùng</h4>
+                <div class="__testimonial">
+                    <span>&ldquo;</span>
+                    <p>
+                        Một trong những trải nghiệm mua hàng tốt nhất.
+                        Sẽ tiếp tục tin tưởng ở CoolMate.
+                    </p>
+                    <div class="__rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bx-star"></i>
+                    </div>
+                    <div class="__img-cover">
+                        <img src="~/images/profile3.jpg" alt="" />
+                    </div>
+                    <h4>Nhã Thanh</h4>
+                </div>
             </div>
-            <div class="__testimonial">
-                <span>&ldquo;</span>
-                <p>
-                    Một trong những trải nghiệm mua hàng tốt nhất.
-                    Sẽ tiếp tục tin tưởng ở CoolMate.
-                </p>
-                <div class="__rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                </div>
-                <div class="__img-cover">
-                    <img src="~/images/profile3.jpg" alt="" />
-                </div>
-                <h4>Nhã Thanh</h4>
-            </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>

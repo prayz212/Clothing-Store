@@ -120,7 +120,7 @@ namespace Clothing_Store.Models
 
     public class OrderStatus {
         public static readonly string SUCCESS = "Đã giao hàng";
-        public static readonly string CANCEL = "Đã huỷ";
+        public static readonly string DELIVERY = "Đang giao hàng";
         public static readonly string IN_PROCESS = "Đang xử lý";
     }
 }
