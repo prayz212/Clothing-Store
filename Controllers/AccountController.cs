@@ -436,7 +436,7 @@ namespace Clothing_Store.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest("Opps!!! Something went wrongss ^^");
+                return RedirectToAction("Error", "Exception");
             }
         }
 
@@ -490,7 +490,7 @@ namespace Clothing_Store.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest("Opps!!! Something went wrongss ^^");
+                return RedirectToAction("Error", "Exception");
             }
         }
 

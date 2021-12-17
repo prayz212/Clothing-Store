@@ -8,12 +8,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Clothing_Store.Controllers
 {
-    public class NotfoundController : Controller
+    public class ExceptionController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Notfound()
         {
-            return Ok("This is the message to announce you this page is not found, will adjust to the template not found later");
+            return View("Notfound");
+        }
+
+        public IActionResult Error()
+        {
+            return View();
         }
     }
 }

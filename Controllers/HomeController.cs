@@ -69,7 +69,7 @@ namespace Clothing_Store.Controllers
             }
             catch
             {
-                return Error();
+                return RedirectToAction("Error", "Exception");
             }
         }
 

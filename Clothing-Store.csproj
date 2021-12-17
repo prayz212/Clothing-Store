@@ -33,6 +33,8 @@
     <None Remove="Areas\Admin\Assets\js\" />
     <None Remove="Areas\Admin\Assets\image\" />
     <None Remove="Areas\Admin\Views\Product\" />
+    <None Remove="Views\Notfound\" />
+    <None Remove="Views\Exception\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Shared\" />
@@ -40,6 +42,7 @@
     <Folder Include="Areas\Admin\Assets\css\" />
     <Folder Include="Areas\Admin\Assets\js\" />
     <Folder Include="Areas\Admin\Assets\image\" />
+    <Folder Include="Views\Exception\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
