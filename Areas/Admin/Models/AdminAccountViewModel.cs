@@ -101,6 +101,7 @@ namespace Clothing_Store.Areas.Admin.Models
 
         [StringLength(12, MinimumLength = 12, ErrorMessage = "Số thẻ phải bao gồm 12 số")]
         [MaxLength(12, ErrorMessage = "Số thẻ phải có tối đa 12 số")]
+
         public string CardNumber { get; set; }
 
         public DateTime? ValidDate { get; set; }

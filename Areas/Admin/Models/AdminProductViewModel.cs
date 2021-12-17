@@ -37,6 +37,55 @@ namespace Clothing_Store.Areas.Admin.Models
         public List<Warehouse> warehouses { get; set; }
     }
 
+    public class AdminCreateProductModel
+    {
+        [Required(ErrorMessage = "Yêu cầu nhập tên sản phẩm")]
+        [MinLength(6, ErrorMessage = "Tên sản phẩm phải có tối thiểu 6 ký tự")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu chọn loại sản phẩm")]
+        public string ProductType { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập giá sản phẩm")]
+        public int Price { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu chọn tình trạng hiển thị")]
+        public string Visible { get; set; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập mô tả sản phẩm")]
+        [MinLength(50, ErrorMessage = "Mô tả sản phẩm phải có tối thiểu 50 ký tự")]
+        public string Description { get; set; }
+
+        public string image1 { get; set; }
+        public string image2 { get; set; }
+        public string image3 { get; set; }
+        public string image4 { get; set; }
+    }
+
+    public class AdminCreateProductViewModel
+    {
+        public AdminCreateProductModel model { get; set; }
+        public List<string> types { get; set; }
+        public List<Tag> tags { get; set; }
+    }
+
+    public class AdminEditProductViewModel
+    {
+        public AdminCreateProductModel model { get; set; }
+        public Product product { get; set; }
+        public List<string> types { get; set; }
+        public List<Tag> tags { get; set; }
+        public List<Tag> productTags { get; set; }
+        public PromotionViewModel promotion { get; set; }
+    }
+
+    public class PromotionViewModel
+    {
+        public int Discount { get; set; }
+        public DateTime From { get; set; }
+        public DateTime To{ get; set; }
+    }
+
     public class AdminStockInViewModel : BaseModel
     {
         public int productID { get; set; }

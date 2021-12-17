@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Assets\bootstrap\**" />
+    <Content Remove="Areas\Admin\Assets\bootstrap\**" />
+    <EmbeddedResource Remove="Areas\Admin\Assets\bootstrap\**" />
+    <None Remove="Areas\Admin\Assets\bootstrap\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20211207163423_AddIDToCartDetails.cs" />
     <Compile Remove="Migrations\20211207163423_AddIDToCartDetails.Designer.cs" />
     <Compile Remove="Migrations\20211207163803_AddIDToCartDetails.cs" />
@@ -42,10 +49,14 @@
     <Folder Include="Areas\Admin\Assets\css\" />
     <Folder Include="Areas\Admin\Assets\js\" />
     <Folder Include="Areas\Admin\Assets\image\" />
+    <Folder Include="wwwroot\uploads\" />
+    <Folder Include="wwwroot\uploads\product\" />
     <Folder Include="Views\Exception\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
+    <Content Remove="wwwroot\uploads\" />
+    <Content Remove="wwwroot\uploads\product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Assets\bootstrap\dist\css\bootstrap-grid.css" />

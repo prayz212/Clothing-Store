@@ -1,0 +1,348 @@
+﻿@{
+    ViewData["Title"] = "Thêm sản phẩm";
+}
+
+@model Clothing_Store.Areas.Admin.Models.AdminEditProductViewModel;
+
+<main class="__product-main">
+    <div class="container-fluid px-4">
+        <form asp-action="Update" enctype="multipart/form-data" method="post" onsubmit="return checkImage()">
+            <input id="removeImg" hidden name="removeImg"/>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="__imgae-section">
+                        <div class="__thumbnails">
+                            <div class="__thumbnail-input-pic rounded"
+                                 style="margin-top: 0; position: relative ">
+                                <div class="__remove-image" style="@(Model.model.image1 == null ? "display: none;" : "") cursor: pointer">&times;</div>
+                                <button type="button"
+                                        class="btn"
+                                        style="@(Model.model.image1 != null ? "display: none;" : "")"
+                                        onclick="document.getElementById('input1').click();">
+                                    Thêm ảnh
+                                </button>
+                                <input id="input1"
+                                       type="file"
+                                       asp-for="model.image1"
+                                       style="display: none"
+                                       onchange="readURL(this);"
+                                       accept="image/*" />
+                                @if (Model.model.image1 != null)
+                                {
+                                    var img1 = @Model.model.image1;
+
+                                    <img alt="project-image"
+                                         src="~/uploads/product/@img1" />
+                                }
+                                else
+                                {
+                                    <img alt="project-image"
+                                         style="display: none" />
+                                }
+                            </div>
+                            <div class="__thumbnail-input-pic rounded"
+                                 style="margin-top: 0; position: relative ">
+                                <div class="__remove-image" style="@(Model.model.image2 == null ? "display: none;" : "") cursor: pointer">&times;</div>
+                                <button type="button"
+                                        class="btn"
+                                        style="@(Model.model.image2 != null ? "display: none;" : "")"
+                                        onclick="document.getElementById('input2').click();">
+                                    Thêm ảnh
+                                </button>
+                                <input id="input2"
+                                       type="file"
+                                       asp-for="model.image2"
+                                       style="display: none"
+                                       onchange="readURL(this);"
+                                       accept="image/*" />
+                                @if (Model.model.image2 != null)
+                                {
+                                    var img2 = @Model.model.image2;
+
+                                    <img alt="project-image"
+                                         src="~/uploads/product/@img2" />
+                                }
+                                else
+                                {
+                                    <img alt="project-image"
+                                         style="display: none" />
+                                }
+                            </div>
+                            <div class="__thumbnail-input-pic rounded"
+                                 style="margin-top: 0; position: relative ">
+                                <div class="__remove-image" style="@(Model.model.image3 == null ? "display: none;" : "") cursor: pointer">&times;</div>
+                                <button type="button"
+                                        class="btn"
+                                        style="@(Model.model.image3 != null ? "display: none;" : "")"
+                                        onclick="document.getElementById('input3').click();">
+                                    Thêm ảnh
+                                </button>
+                                <input id="input3"
+                                       type="file"
+                                       asp-for="model.image3"
+                                       style="display: none"
+                                       onchange="readURL(this);"
+                                       accept="image/*" />
+                                @if (Model.model.image3 != null)
+                                {
+                                    var img3 = @Model.model.image3;
+
+                                    <img alt="project-image"
+                                         src="~/uploads/product/@img3" />
+                                }
+                                else
+                                {
+                                    <img alt="project-image"
+                                         style="display: none" />
+                                }
+                            </div>
+                            <div class="__thumbnail-input-pic rounded"
+                                 style="margin-top: 0; position: relative ">
+                                <div class="__remove-image" style="@(Model.model.image4 == null ? "display: none;" : "") cursor: pointer">&times;</div>
+                                <button type="button"
+                                        class="btn"
+                                        style="@(Model.model.image4 != null ? "display: none;" : "")"
+                                        onclick="document.getElementById('input4').click();">
+                                    Thêm ảnh
+                                </button>
+                                <input id="input4"
+                                       type="file"
+                                       asp-for="model.image4"
+                                       style="display: none"
+                                       onchange="readURL(this);"
+                                       accept="image/*" />
+                                @if (Model.model.image4 != null)
+                                {
+                                    var img4 = @Model.model.image4;
+
+                                    <img alt="project-image"
+                                         src="~/uploads/product/@img4" />
+                                }
+                                else
+                                {
+                                    <img alt="project-image"
+                                         style="display: none" />
+                                }
+                            </div>
+                        </div>
+                        <div class="
+                __product-image-box
+                __main-pic-section
+                __nonselection
+                w-100
+              ">
+                            <div class="__main-pic">
+                                <p class="d-flex justify-content-center align-items-center" style="@(Model.model.image1 != null ? "display: none !important" : "")">Chưa chọn ảnh nào</p>
+
+                                @if (Model.model.image1 != null)
+                                {
+                                    var img1 = @Model.model.image1;
+
+                                    <img src="~/uploads/product/@img1"
+                                         alt="project-image" />
+                                }
+                                else
+                                {
+                                    <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
+                                         alt="project-image"
+                                         style="display: none" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 mt-3 mt-sm-3 mt-md-0">
+                    <div class="__product-input-box mt-2 mt-sm-0">
+                        <div class="row m-3">
+                            <div class="col-sm-3 align-self-center">
+                                <div class="__input-label">Tên sản phẩm</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input asp-for="model.Name"
+                                       placeholder="Tên sản phẩm"
+                                       type="text"
+                                       class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3 align-self-center">
+                                <div class="__input-label">Loại sản phẩm</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <select class="form-control" asp-for="model.ProductType">
+                                    <option value="null" selected disabled hidden>Chọn loại sản phẩm</option>
+                                    @foreach (string op in @Model.types)
+                                    {
+                                        <option value="@op">@op</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3 align-self-center">
+                                <div class="__input-label">Giá sản phẩm</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input asp-for="model.Price"
+                                       placeholder="Giá sản phẩm"
+                                       type="number"
+                                       class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-sm-3 align-self-center">
+                                <div class="__input-label">Hiển thị</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <select class="form-control" asp-for="model.Visible">
+                                    <option value="null" selected disabled hidden>Chọn tình trạng hiển thị</option>
+                                    <option value="true">Hiện</option>
+                                    <option value="false">Ẩn</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row m-3 mt-sm-4">
+                            <div class="col-12 align-self-center">
+                                <div class="__input-label">Mô tả sản phẩm</div>
+                            </div>
+                            <div class="col-12 text-secondary mt-sm-2">
+                                <textarea class="form-control"
+                                          asp-for="model.Description"
+                                          rows="6"
+                                          cols="50"
+                                          placeholder="Mô tả chi tiết về sản phẩm"></textarea>
+                            </div>
+                        </div>
+                        <div class="row m-3 mt-sm-4">
+                            <div class="col-12 align-self-center">
+                                <div class="__input-label">Tags</div>
+                            </div>
+                            <div class="col-12 text-secondary mt-sm-2">
+                                <select asp-for="@Model.tags"
+                                        class="js-example-basic-multiple"
+                                        name="tags[]"
+                                        style="width: 100%"
+                                        multiple="multiple">
+                                    @foreach (Tag t in Model.tags)
+                                    {
+                                        <option value="@t.ID">@t.Name</option>
+                                    }
+                                    @foreach (Tag pt in Model.productTags)
+                                    {
+                                        <option selected value="@pt.ID">@pt.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="row m-3">
+                            <div id="errorMsg" class="AcCreateMess text-danger">@ViewBag.acCreateError</div>
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-sm-12 mt-3 mt-sm-3 mt-md-0">
+                    <div class="row __product-info-box mt-0 mt-sm-2 p-3">
+                        @{ var promotion = Model.promotion; }
+                        <div class="col-sm-4 my-2">
+                            <div >Chiết khấu </div>
+                            @if (promotion != null)
+                            {
+                                <input name="discount" placeholder="Chiết khấu" class="form-control" value="@promotion.Discount" />
+                            }
+                            else
+                            {
+                                <input name="discount" placeholder="Chiết khấu" class="form-control" />
+                            }
+                        </div>
+                        <div class="col-sm-4 my-2">
+                            <div>Từ ngày </div>
+                            @if (promotion != null)
+                            {
+                                <input name="discountFrom" type="date" class="form-control" value="@(promotion.From.ToString("yyyy-MM-dd") != "0001-01-01" ? promotion.From.ToString("yyyy-MM-dd") : "")" />
+                            }
+                            else
+                            {
+                                <input name="discountFrom" type="date" class="form-control" />
+                            }
+                        </div>
+                        <div class="col-sm-4 my-2">
+                            <div>Đến ngày </div>
+                            @if (promotion != null)
+                            {
+                                <input name="discountTo" type="date" class="form-control" value="@(promotion.To.ToString("yyyy-MM-dd") != "0001-01-01" ? promotion.To.ToString("yyyy-MM-dd") : "")" />
+                            }
+                            else
+                            {
+                                <input name="discountTo" type="date" class="form-control" />
+                            }
+                        </div>
+                        <div class="text-danger mt-3">@ViewBag.productEditError</div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="d-flex flex-row-reverse">
+                        <button type="submit" class="btn btn-primary">
+                            Lưu
+                        </button>
+                        <a class="btn btn-danger mx-3"
+                           asp-action="Index"
+                           role="button">
+                            Huỷ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            $(input).closest('.__thumbnail-input-pic').find('button').css('display', 'none')
+
+            const img = $(input).closest('.__thumbnail-input-pic').find('img')
+            @*console.log($(input).closest('.__thumbnail-input-pic').find('button'))*@
+            reader.onload = function (e) {
+                img.attr('src', e.target.result);
+                img.css('display', 'block');
+                $(input).closest('.__thumbnail-input-pic').find('.__remove-image').css('display', 'block')
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function checkImage() {
+        let srcs = [];
+        srcs.push($('.__thumbnails .__thumbnail-input-pic img').eq(0).attr('src'))
+        srcs.push($('.__thumbnails .__thumbnail-input-pic img').eq(1).attr('src'))
+        srcs.push($('.__thumbnails .__thumbnail-input-pic img').eq(2).attr('src'))
+        srcs.push($('.__thumbnails .__thumbnail-input-pic img').eq(3).attr('src'))
+
+        let count = srcs.filter(function (element) {
+            return element !== undefined;
+        }).length;
+
+        if (count == 0) {
+            $('#errorMsg').html('<ul style="margin-bottom: 0rem"><li>Sản phẩm phải có ít nhất 1 hình</li></ul>')
+        }
+        else {
+            $('#errorMsg').html('')
+        }
+
+        return count >= 1;
+    }
+</script>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

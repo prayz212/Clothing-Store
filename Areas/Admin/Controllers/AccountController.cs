@@ -32,6 +32,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 List<AdminAccountModel> accountsInfo = _context.accounts
                     .Where(ac => ac.IsDelete == false)
                     .Include(ac => ac.customer)
+                    .Include(ac => ac.receipts)
                     .Select(ac => new AdminAccountModel() { 
                         ID = ac.ID,
                         UserName = ac.Username,
@@ -39,31 +40,11 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         Email = ac.Email,
                         Phone = ac.customer.Phone,
                         CardNumber = ac.customer.CardNumber,
-                        ValiDate = ac.customer.ValidDate
-                    }).ToList();
-
-                foreach(AdminAccountModel a in accountsInfo)
-                {
-                    var rc = _context.receipts
-                        .Where(rc => rc.accountID == a.ID)
-                        .GroupBy(rc => rc.accountID)
-                        .Select(rc => new
-                        {
-                            TotalPay = rc.Sum(rc => rc.TotalPay),
-                            TotalOrder = rc.Count()
-                        }).FirstOrDefault();
-
-                    if (rc != null)
-                    {
-                        a.TotalOrder = rc.TotalOrder;
-                        a.TotalPayment = rc.TotalPay;
-                    } else
-                    {
-                        a.TotalOrder = 0;
-                        a.TotalPayment = 0;
-                    }
-                }
-
+                        ValiDate = ac.customer.ValidDate,
+                        TotalPayment = ac.receipts.Sum(r => r.TotalPay),
+                        TotalOrder = ac.receipts.Count()
+                    }).ToList();     
+                    
                 AdminAccountViewModel vm = new AdminAccountViewModel()
                 {
                     accounts = accountsInfo,
@@ -144,7 +125,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-
+                
                     var rc = _context.receipts
                         .Where(rc => rc.accountID == id)
                         .GroupBy(rc => rc.accountID)
@@ -195,6 +176,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             try
             {
                 ViewBag.acCreateSuccess = TempData["acCreateSuccess"];
+
                 return View(new CreateModel() { currentUsername = GetCurrentUserName() });
             }
             catch (Exception e)
