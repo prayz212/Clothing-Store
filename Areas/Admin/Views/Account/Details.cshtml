@@ -1,19 +1,19 @@
 ﻿@{
-    ViewData["Title"] = "Quản lý tài khooản khách hàng";
+    ViewData["Title"] = "Quản lý tài khoản khách hàng";
 }
 @model Clothing_Store.Areas.Admin.Models.AdminAccountDetailsViewModel
 @{ AdminAccountDetailsViewModel account = Model;
-    List<AdminReceiptHistoryViewModel> receipts = account.Recepits;
+    List<AdminReceiptHistoryModel> receipts = account.Recepits;
 }
 
-<div class="container pt-5 px-5">
-    <div class="main-body">
+<div class="container pt-sm-5 px-sm-3 px-md-5 pt-4">
+    <div class="main-body mx-3 mx-sm-0">
         <div class="row">
             <div class="col-lg-4">
                 <div class="__ac-page-card">
                     <div class="card-body px-4">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="~/images/profile1.jpg" alt="Admin" class="rounded-circle p-1" width="110">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" style="width: 90px; height: 90px; border-radius: 50%">
                             <div class="my-3">
                                 <h4>@account.UserName</h4>
                                 <div>
@@ -127,7 +127,7 @@
             </div>
         </div>
     </div>
-    <div>
+    <div class="mx-3 mx-sm-0">
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -148,7 +148,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (AdminReceiptHistoryViewModel receipt in receipts)
+                        @foreach (AdminReceiptHistoryModel receipt in receipts)
     {
                             <tr style="cursor: pointer" onclick="location.href = '@(Url.Action("Details", "Receipt", new { id = receipt.ID }))'">
                                 <td>@receipt.ID</td>

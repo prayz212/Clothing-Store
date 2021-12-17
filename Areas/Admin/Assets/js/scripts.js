@@ -80,5 +80,17 @@ $(document).ready(function () {
     $('#Username, #pwd').on('click', () => {
         $('#errorMessAdmin').text("");
     })
+
+    /*      Trigger enter event     */
+    $('.enter-event').keyup(function (e) {
+        if (e.keyCode == 13) {
+            $('#loginBtnAdmin').click();
+        }
+    });
+
+    /*          ACCOUNT CREATE            */
+    if ($('#ValidDate').val() == '0001-01-01') {
+        $('#ValidDate').val("");
+    }
 });
 

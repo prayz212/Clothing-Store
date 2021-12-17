@@ -4,7 +4,7 @@ using Clothing_Store.Models;
 
 namespace Clothing_Store.Areas.Admin.Models
 {
-    public class AdminProductViewModel
+    public class AdminProductViewModel : BaseModel
     {
         public List<AdminProductModel> products { get; set; }
     }
@@ -20,7 +20,7 @@ namespace Clothing_Store.Areas.Admin.Models
         public string Visible { get; set; }
     }
 
-    public class AdminProductDetailViewModel
+    public class AdminProductDetailViewModel : BaseModel
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -37,7 +37,7 @@ namespace Clothing_Store.Areas.Admin.Models
         public List<Warehouse> warehouses { get; set; }
     }
 
-    public class AdminStockInViewModel
+    public class AdminStockInViewModel : BaseModel
     {
         public int productID { get; set; }
         public List<Warehouse> warehouses { get; set; }
