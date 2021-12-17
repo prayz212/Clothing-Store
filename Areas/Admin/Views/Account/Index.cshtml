@@ -1,7 +1,7 @@
 ﻿@{
-    ViewData["Title"] = "Quản lý tài khooản khách hàng";
+    ViewData["Title"] = "Quản lý tài khoản khách hàng";
 }
-@model List<Clothing_Store.Areas.Admin.Models.AdminAccountViewModel>
+@model Clothing_Store.Areas.Admin.Models.AdminAccountViewModel
 
 <main>
     <div class="container-fluid px-4">
@@ -34,7 +34,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (AdminAccountViewModel ac in Model)
+                        @foreach (AdminAccountModel ac in Model.accounts)
                         {
                             <tr style="cursor: pointer" onclick="location.href = '@(Url.Action("Details", "Account", new { id = ac.ID }))'">
                                 <td>@ac.ID</td>

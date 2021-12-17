@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Clothing_Store.Areas.Admin.Models
 {
-    public class AdminReceiptHistoryViewModel
+    public class AdminReceiptHistoryViewModel : BaseModel
+    {
+        public List<AdminReceiptHistoryModel> history { get; set; }
+    }
+
+    public class AdminReceiptHistoryModel
     {
         public int ID { get; set; }
         public string Fullname { get; set; }
@@ -18,7 +23,7 @@ namespace Clothing_Store.Areas.Admin.Models
         public string Status { get; set; }
     }
 
-    public class AdminReceiptHistoryModel
+    public class AdminReceiptDetailModel
     {
         public int ID { get; set; }
         public string Fullname { get; set; }
@@ -35,9 +40,9 @@ namespace Clothing_Store.Areas.Admin.Models
         public DateTime DeliveryAt { get; set; }
     }
 
-    public class AdminReceiptDetailViewModel
+    public class AdminReceiptDetailViewModel : BaseModel
     {
-        public AdminReceiptHistoryModel receipt { get; set; }
+        public AdminReceiptDetailModel receipt { get; set; }
         public ICollection<ReceiptDetail> details { get; set; }
     }
 }

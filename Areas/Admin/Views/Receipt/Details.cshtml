@@ -4,7 +4,7 @@
 @model Clothing_Store.Areas.Admin.Models.AdminReceiptDetailViewModel;
 
 @{
-    AdminReceiptHistoryModel receipt = Model.receipt;
+    AdminReceiptDetailModel receipt = Model.receipt;
     ICollection<ReceiptDetail> details = Model.details;
     var deliveryDate = receipt.DeliveryAt.ToString("dd/MM/yyyy") != "01/01/0001" ? receipt.DeliveryAt.ToString("dd/MM/yyyy") : receipt.Status;
 }
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="mt-3 px-1">
-                                <form asp-action="Details" asp-route-id="@receipt.ID">
+                                <form asp-action="UpadteStatus" asp-route-id="@receipt.ID">
                                     <div class="d-flex">
                                         <div class="me-3">
                                             <select name="status" class="form-select" aria-label="Default select example">

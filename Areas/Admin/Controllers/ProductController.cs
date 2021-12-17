@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Clothing_Store.Areas.Admin.Models;
 using Clothing_Store.Models;
 using Clothing_Store.Utils;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Clothing_Store.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         private readonly ApplicationDBContext _context;
 
@@ -44,8 +45,8 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         Visible = p.Visible ? "Có" : "Không"
                     })
                     .ToList();
-
-                return View(new AdminProductViewModel() { products = products });
+                
+                return View(new AdminProductViewModel() { products = products, currentUsername = GetCurrentUserName() });
             }
             catch (Exception e)
             {
@@ -86,6 +87,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     })
                     .FirstOrDefault();
 
+                vm.currentUsername = GetCurrentUserName();
                 return View(vm);
             }
             catch (Exception e)
@@ -148,7 +150,8 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 AdminStockInViewModel stockInView = new AdminStockInViewModel
                 {
                     productID = id,
-                    warehouses = wareHouses
+                    warehouses = wareHouses,
+                    currentUsername = GetCurrentUserName()
                 };
 
                 ViewBag.stockInError = TempData["stockInError"];
