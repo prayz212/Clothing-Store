@@ -26,6 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @foreach (AdminReceiptHistoryModel receipt in Model.history)
                         {
                         <tr style="cursor: pointer" onclick="location.href = '@(Url.Action("Details", "Receipt", new { id = receipt.ID }))'">

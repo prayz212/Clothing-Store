@@ -31,7 +31,7 @@
                     <td class="col-md-4 col-7" onclick="location.href = '@(Url.Action("Details", "Product", new { id = p.ProductID }))'">
                         <div class="__cart-info row">
                             <div class="col-12 col-sm-3 px-4 px-sm-0">
-                                <img src="@p.image.URL" alt="@p.image.Name">
+                                <img src="~/uploads/product/@p.image.URL" alt="@p.image.Name">
                             </div>
                             <div class="d-sm-flex d-none align-items-center col-0 col-sm-9">
                                 <div class="d-flex align-items-center">

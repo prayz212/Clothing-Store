@@ -52,6 +52,7 @@
                                     <input disabled type="text" class="form-control" value="@account.ID">
                                 </div>
                             </div>
+
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div class="col-sm-3 align-self-center">
                                     <h6>Tên tài khoản</h6>
@@ -60,6 +61,7 @@
                                     <input disabled type="text" class="form-control" value="@account.UserName">
                                 </div>
                             </div>
+                          
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div class="col-sm-3 align-self-center">
                                     <h6>Họ và tên</h6>
@@ -68,6 +70,7 @@
                                     <input asp-for="updateModel.Fullname" placeholder="Họ và tên" type="text" class="form-control AcUpdateInput" value="@account.Fullname">
                                 </div>
                             </div>
+
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div class="col-sm-3 align-self-center">
                                     <h6>Email</h6>
@@ -76,6 +79,7 @@
                                     <input asp-for="updateModel.Email" placeholder="Email" type="text" class="form-control AcUpdateInput" value="@account.Email">
                                 </div>
                             </div>
+
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div class="col-sm-3 align-self-center">
                                     <h6>Số điện thoại</h6>
@@ -84,6 +88,7 @@
                                     <input asp-for="updateModel.Phone" placeholder="Số điện thoại" type="text" class="form-control AcUpdateInput" value="@account.Phone">
                                 </div>
                             </div>
+
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div class="col-sm-3 align-self-center">
                                     <h6>Địa chỉ</h6>
@@ -92,6 +97,7 @@
                                     <input asp-for="updateModel.Address" placeholder="Địa chỉ" type="text" class="form-control AcUpdateInput" value="@account.Address">
                                 </div>
                             </div>
+
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div class="col-sm-3 align-self-center">
                                     <h6>Số thẻ</h6>
@@ -100,6 +106,7 @@
                                     <input asp-for="updateModel.CardNumber" placeholder="Số thẻ" type="text" class="form-control AcUpdateInput" value="@account.CardNumber">
                                 </div>
                             </div>
+
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div class="col-sm-3 align-self-center">
                                     <h6>CVV/CVV2</h6>
@@ -108,6 +115,7 @@
                                     <input asp-for="updateModel.SecretNumber" placeholder="CVV/CVV2" type="text" class="form-control AcUpdateInput" value="@account.SecretNumber">
                                 </div>
                             </div>
+
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div class="col-sm-3 align-self-center">
                                     <h6>Hạn sử dụng</h6>
@@ -116,12 +124,14 @@
                                     <input asp-for="updateModel.ValidDate" placeholder="Hạn sử dụng" type="date" class="form-control AcUpdateInput" value="@(account.ValiDate.ToString("yyyy-MM-dd") != "0001-01-01" ? account.ValiDate.ToString("yyyy-MM-dd") : "")">
                                 </div>
                             </div>
+
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
                                     <input type="submit" class="btn btn-primary px-4 me-3 mt-3" value="Cập nhật thông tin">
                                 </div>
                             </div>
+
                             <div class="row m-1 mt-3 m-sm-3">
                                 <div asp-validation-summary="All" class="col-12 text-danger"></div>
                                 <div class="col-12 text-danger AcUpdateMess">@ViewBag.acUpdateError</div>

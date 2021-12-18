@@ -57,8 +57,6 @@
     </section>
 
     <!-- Featured -->
-
-
     @if (topSales.Count > 0)
     {
         <section class="__feature-section __featured">
@@ -73,7 +71,7 @@
                 {
                     <div class="__product">
                         <div class="__product-header">
-                            <img src="@item.image.URL" alt="@item.image.Name">
+                            <img src="~/uploads/product/@item.image.URL" alt="@item.image.Name">
                             <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
                                 <ul class="icons">
                                     <span><i class='bx bxs-show show-icons'></i></span>
