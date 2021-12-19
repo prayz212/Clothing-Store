@@ -6,36 +6,38 @@
 @model PaginatedList<Clothing_Store.Models.ProductViewModel>
 
 <!-- All Products -->
-<div class="container __section">
+<div class="container __section __product-container">
     <div class="row">
-        <div class="mb-3 col-12 col-sm-3 __category-block">
+        <div class="mb-3 col-lg-3 col-sm-5 col-12 __category-block">
             <div class="card bg-light mb-3">
                 <div class="card-header text-uppercase py-3 text-center __category-block-title">DANH MỤC SẢN PHẨM</div>
                 <ul class="list-group category_block">
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo thun nam" asp-route-sortBy="@ViewBag.sortBy">Áo thun nam</a></li>
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo khoác nam" asp-route-sortBy="@ViewBag.sortBy">Áo khoác nam</a></li>
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo thun nữ" asp-route-sortBy="@ViewBag.sortBy">Áo thun nữ</a></li>
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo khoác nữ" asp-route-sortBy="@ViewBag.sortBy">Áo khoác nữ</a></li>
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo sơ mi nam" asp-route-sortBy="@ViewBag.sortBy">Áo sơ mi nam</a></li>
-                    <li class="list-group-item px-5 py-3"><a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo sơ mi nữ" asp-route-sortBy="@ViewBag.sortBy">Áo sơ mi nữ</a></li>
+                    <a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo thun tay dài" asp-route-sortBy="@ViewBag.sortBy"><li class="list-group-item px-5 py-3">Áo thun tay dài</li></a>
+                    <a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo thun tay ngắn" asp-route-sortBy="@ViewBag.sortBy"><li class="list-group-item px-5 py-3">Áo thun tay ngắn</li></a>
+                    <a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo sơ mi tay dài" asp-route-sortBy="@ViewBag.sortBy"><li class="list-group-item px-5 py-3">Áo sơ mi tay dài</li></a>
+                    <a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Áo sơ mi tay ngắn" asp-route-sortBy="@ViewBag.sortBy"><li class="list-group-item px-5 py-3">Áo sơ mi tay ngắn</li></a>
+                    <a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Quần dài" asp-route-sortBy="@ViewBag.sortBy"><li class="list-group-item px-5 py-3">Quần dài</li></a>
+                    <a asp-action="Index" asp-route-searchByName="@ViewBag.searchByName" asp-route-filter="Quần ngắn" asp-route-sortBy="@ViewBag.sortBy">
+                        <li class="list-group-item px-5 py-3">Quần ngắn</li>
+                    </a>
                 </ul>
             </div>
 
             <div>
                 <form asp-action="Index" method="get">
                     <div class="form-actions no-color row">
-                        <div class="col-8">
+                        <div class="col-8 col-sm-12 col-md-8">
                             <input class="_form-input" type="text" name="searchByName" value="@ViewBag.currentSearch" placeholder="Tìm kiếm theo tên"/>
                         </div>
-                        <div class="col-4">
-                            <button  type="submit" class="_btn"> Tìm </button>
+                        <div class="col-4 col-sm-12 col-md-4">
+                            <button type="submit" class="_btn d-flex justify-content-center">Tìm</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
 
-        <div class="col">
+        <div class="col-lg-9 col-sm-7 col-12">
             <div class="row">
                 <section class="__all-products" id="products">
                     <div class="__top">
@@ -63,7 +65,7 @@
                         </select>
                     </div>
 
-                    <div class="__product-center">
+                    <div class="__product-center px-3">
 
                         @foreach (ProductViewModel item in Model)
                         {

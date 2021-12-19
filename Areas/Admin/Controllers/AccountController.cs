@@ -125,7 +125,6 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-                
                     var rc = _context.receipts
                         .Where(rc => rc.accountID == id)
                         .GroupBy(rc => rc.accountID)

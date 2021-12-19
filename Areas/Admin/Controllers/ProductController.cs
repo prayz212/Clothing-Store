@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Clothing_Store.Areas.Admin.Models;
 using Clothing_Store.Models;
 using Clothing_Store.Utils;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -93,8 +95,8 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-                
                 vm.currentUsername = GetCurrentUserName();
+
                 return View(vm);
             }
             catch (Exception e)
@@ -115,7 +117,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
 
                 vm.types = productTypes;
                 vm.tags = productTags;
-
+                vm.currentUsername = GetCurrentUserName();
 
                 return View(vm);
             }
@@ -267,6 +269,8 @@ namespace Clothing_Store.Areas.Admin.Controllers
 
                 vm.productTags = tags;
                 vm.tags = Tags;
+                vm.currentUsername = GetCurrentUserName();
+
                 ViewBag.productEditError = TempData["productEditError"];
 
                 return View(vm);

@@ -19,7 +19,7 @@
                             <h2>
                                 Áo thun
                             </h2>
-                            <h4>Worlds Best Brands</h4>
+                            <h4>"Made in VietNam"</h4>
                         </div>
                     </div>
                     <img src="~/images/advert1.png" alt="">
@@ -27,13 +27,13 @@
             </div>
 
             <div class="__advert-box">
-                <a asp-controller="Product" asp-action="Index" asp-route-filter="Áo khoác">
+                <a asp-controller="Product" asp-action="Index" asp-route-filter="Quần">
                     <div class="__dotted">
                         <div class="__content">
                             <h2>
-                                Áo khoác
+                                Quần
                             </h2>
-                            <h4>Worlds Best Brands</h4>
+                            <h4>"Made in VietNam"</h4>
                         </div>
                     </div>
                     <img src="~/images/advert2.png" alt="">
@@ -45,9 +45,9 @@
                     <div class="__dotted">
                         <div class="__content">
                             <h2>
-                                Sơ mi
+                                Áo sơ mi
                             </h2>
-                            <h4>Worlds Best Brands</h4>
+                            <h4>"Made in VietNam"</h4>
                         </div>
                     </div>
                     <img src="~/images/advert3.png" alt="">
@@ -118,7 +118,7 @@
                     {
                         <div class="__product">
                             <div class="__product-header">
-                                <img src="@item.image.URL" alt="@item.image.Name">
+                                <img src="~/uploads/product/@item.image.URL" alt="@item.image.Name">
                                 <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
                                     <ul class="icons">
                                         <span><i class='bx bxs-show show-icons'></i></span>

@@ -39,6 +39,7 @@ namespace Clothing_Store.Controllers
                     .ThenInclude(p => p.promotion)
                     .Include(w => w.product)
                     .ThenInclude(p => p.images)
+                    .Where(cd => cd.product.IsDelete == false && cd.product.Visible == true)
                     .Where(cd => cd.accountID == userID)
                     .Where(cd => cd.IsDelete == false)
                     .Where(cd => cd.Quantity > 0)
