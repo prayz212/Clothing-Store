@@ -19,6 +19,7 @@ namespace Clothing_Store.Models
         public string URL { get; set; }
 
         public Product product { get; set; }
+        public int ProductId { get; set; }
 
         public bool IsDelete { get; set; } = false;
     }
