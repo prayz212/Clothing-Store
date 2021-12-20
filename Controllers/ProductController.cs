@@ -179,13 +179,10 @@ namespace Clothing_Store.Controllers
                 ViewBag.Title = "Flash Sale";
                 ViewBag.Action = "FlashSale";
 
-                var discount = 30;
-
                 var products = _context.Products
                     .Where(p => p.IsDelete == false)
                     .Where(p => p.Visible == true)
-                    .Where(p => p.promotion.Discount >= discount)
-                    .Where(p => p.promotion.To > DateTime.Now)
+                    .Where(p => p.promotion.To >= DateTime.Now)
                     .Where(p => p.promotion.IsDelete == false)
                     .Where(p => p.promotion.Visible == true)
                     .Include(p => p.ratings)

@@ -7,7 +7,7 @@ namespace Clothing_Store.Utils
 {
     public static class ModelBuilderExtensions
     {
-        private static List<string> PRODUCT_TYPE = new List<string>() { "Áo thun tay dài", "Áo thun tay ngắn", "Áo sơ mi tay dài", "Áo sơ mi tay ngắn", "Quần dài", "Quần ngắn" };
+        private static List<string> PRODUCT_TYPE = new List<string>() { "Áo thun tay dài", "Áo thun tay ngắn ", "Áo sơ mi tay dài", "Áo sơ mi tay ngắn", "Quần dài", "Quần ngắn" };
         public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Tag>().HasData(
@@ -31,45 +31,45 @@ namespace Clothing_Store.Utils
 
             modelBuilder.Entity<Product>().HasData(
                 //Ao thun tay dai
-                new Product { ID = 1, Name = "Áo Thun Tay Dài D001", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 2, Name = "Áo Thun Tay Dài D002", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 3, Name = "Áo Thun Tay Dài D003", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 4, Name = "Áo Thun Tay Dài D004", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 5, Name = "Áo Thun Tay Dài D005", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 6, Name = "Áo Thun Tay Dài D006", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 7, Name = "Áo Thun Tay Dài D007", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 8, Name = "Áo Thun Tay Dài D008", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 9, Name = "Áo Thun Tay Dài D009", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 10, Name = "Áo Thun Tay Dài D010", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 11, Name = "Áo Thun Tay Dài D011", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 12, Name = "Áo Thun Tay Dài D012", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 13, Name = "Áo Thun Tay Dài D013", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 14, Name = "Áo Thun Tay Dài D014", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 15, Name = "Áo Thun Tay Dài D015", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 16, Name = "Áo Thun Tay Dài D016", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 17, Name = "Áo Thun Tay Dài D017", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 18, Name = "Áo Thun Tay Dài D018", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
-                new Product { ID = 19, Name = "Áo Thun Tay Dài D019", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 1, Name = "Áo Thun D001", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 2, Name = "Áo Thun D002", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 3, Name = "Áo Thun D003", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 4, Name = "Áo Thun D004", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 5, Name = "Áo Thun D005", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 6, Name = "Áo Thun D006", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 7, Name = "Áo Thun D007", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 8, Name = "Áo Thun D008", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 9, Name = "Áo Thun D009", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 10, Name = "Áo Thun D010", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 11, Name = "Áo Thun D011", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 12, Name = "Áo Thun D012", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 13, Name = "Áo Thun D013", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 14, Name = "Áo Thun D014", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 15, Name = "Áo Thun D015", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 16, Name = "Áo Thun D016", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 17, Name = "Áo Thun D017", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 18, Name = "Áo Thun D018", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
+                new Product { ID = 19, Name = "Áo Thun D019", Description = GetRandomDescription(PRODUCT_TYPE[0]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[0], Visible = true, IsDelete = false },
                 //Ao thun tay ngan
-                new Product { ID = 20, Name = "Áo Thun Tay Ngắn N001", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 21, Name = "Áo Thun Tay Ngắn N002", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 22, Name = "Áo Thun Tay Ngắn N003", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 23, Name = "Áo Thun Tay Ngắn N004", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 24, Name = "Áo Thun Tay Ngắn N005", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 25, Name = "Áo Thun Tay Ngắn N006", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 26, Name = "Áo Thun Tay Ngắn N007", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 27, Name = "Áo Thun Tay Ngắn N008", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 28, Name = "Áo Thun Tay Ngắn N009", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 29, Name = "Áo Thun Tay Ngắn N010", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 30, Name = "Áo Thun Tay Ngắn N011", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 31, Name = "Áo Thun Tay Ngắn N012", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 32, Name = "Áo Thun Tay Ngắn N013", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 33, Name = "Áo Thun Tay Ngắn N014", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 34, Name = "Áo Thun Tay Ngắn N015", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 35, Name = "Áo Thun Tay Ngắn N016", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 36, Name = "Áo Thun Tay Ngắn N017", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 37, Name = "Áo Thun Tay Ngắn N018", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
-                new Product { ID = 38, Name = "Áo Thun Tay Ngắn N019", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 20, Name = "Áo Thun N001", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 21, Name = "Áo Thun N002", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 22, Name = "Áo Thun N003", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 23, Name = "Áo Thun N004", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 24, Name = "Áo Thun N005", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 25, Name = "Áo Thun N006", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 26, Name = "Áo Thun N007", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 27, Name = "Áo Thun N008", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 28, Name = "Áo Thun N009", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 29, Name = "Áo Thun N010", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 30, Name = "Áo Thun N011", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 31, Name = "Áo Thun N012", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 32, Name = "Áo Thun N013", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 33, Name = "Áo Thun N014", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 34, Name = "Áo Thun N015", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 35, Name = "Áo Thun N016", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 36, Name = "Áo Thun N017", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 37, Name = "Áo Thun N018", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
+                new Product { ID = 38, Name = "Áo Thun N019", Description = GetRandomDescription(PRODUCT_TYPE[1]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[1], Visible = true, IsDelete = false },
                 //Ao so mi tay dai
                 new Product { ID = 39, Name = "Áo Sơ Mi D001", Description = GetRandomDescription(PRODUCT_TYPE[2]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[2], Visible = true, IsDelete = false },
                 new Product { ID = 40, Name = "Áo Sơ Mi D002", Description = GetRandomDescription(PRODUCT_TYPE[2]), Price = GetRandomPrice(), ProductType = PRODUCT_TYPE[2], Visible = true, IsDelete = false },
@@ -329,15 +329,293 @@ namespace Clothing_Store.Utils
             );
 
             modelBuilder.Entity<Warehouse>().HasData(
-                new Warehouse { ID = 1, Size = "M", Color = "Xanh", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
-                new Warehouse { ID = 2, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
-                new Warehouse { ID = 3, Size = "L", Color = "Xanh", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
-                new Warehouse { ID = 4, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
-                new Warehouse { ID = 5, Size = "XL", Color = "Xanh", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
-                new Warehouse { ID = 6, Size = "XL", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 }
+                new Warehouse { ID = 1, Size = "M", Color = "Xanh dương", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
+                new Warehouse { ID = 2, Size = "L", Color = "Xanh dương", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
+                new Warehouse { ID = 3, Size = "XL", Color = "Xanh dương", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
+                new Warehouse { ID = 4, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
+                new Warehouse { ID = 5, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
+                new Warehouse { ID = 6, Size = "XL", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 1 },
+
+                new Warehouse { ID = 7, Size = "M", Color = "Xanh lá", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 2 },
+                new Warehouse { ID = 8, Size = "L", Color = "Xanh lá", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 2 },
+                new Warehouse { ID = 9, Size = "M", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 2 },
+                new Warehouse { ID = 10, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 2 },
+
+                new Warehouse { ID = 11, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 3 },
+                new Warehouse { ID = 12, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 3 },
+                new Warehouse { ID = 13, Size = "M", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 3 },
+                new Warehouse { ID = 14, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 3 },
+
+                new Warehouse { ID = 15, Size = "M", Color = "Vàng cam", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 4 },
+                new Warehouse { ID = 16, Size = "L", Color = "Vàng cam", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 4 },
+                new Warehouse { ID = 17, Size = "M", Color = "Xanh dương", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 4 },
+                new Warehouse { ID = 18, Size = "L", Color = "Xanh dương", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 4 },
+
+                new Warehouse { ID = 19, Size = "M", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 5 },
+                new Warehouse { ID = 20, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 5 },
+                new Warehouse { ID = 21, Size = "M", Color = "Vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 5 },
+                new Warehouse { ID = 22, Size = "L", Color = "Vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 5 },
+
+                new Warehouse { ID = 23, Size = "M", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 6 },
+                new Warehouse { ID = 24, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 6 },
+                new Warehouse { ID = 25, Size = "M", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 6 },
+                new Warehouse { ID = 26, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 6 },
+                new Warehouse { ID = 27, Size = "M", Color = "Vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 6 },
+                new Warehouse { ID = 28, Size = "L", Color = "Vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 6 },
+
+                new Warehouse { ID = 29, Size = "M", Color = "Xanh lá", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 7 },
+                new Warehouse { ID = 30, Size = "L", Color = "Xanh lá", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 7 },
+                new Warehouse { ID = 31, Size = "M", Color = "Xanh mint", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 7 },
+                new Warehouse { ID = 32, Size = "L", Color = "Xanh mint", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 7 },
+
+                new Warehouse { ID = 33, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 8 },
+                new Warehouse { ID = 34, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 8 },
+                new Warehouse { ID = 35, Size = "M", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 8 },
+                new Warehouse { ID = 36, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 8 },
+                new Warehouse { ID = 37, Size = "M", Color = "Xanh nhạt", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 8 },
+                new Warehouse { ID = 38, Size = "L", Color = "Xanh nhạt", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 8 },
+
+                new Warehouse { ID = 39, Size = "M", Color = "Xanh đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 9 },
+                new Warehouse { ID = 40, Size = "L", Color = "Xanh đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 9 },
+                new Warehouse { ID = 41, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 9 },
+                new Warehouse { ID = 42, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 9 },
+
+                new Warehouse { ID = 43, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 10 },
+                new Warehouse { ID = 44, Size = "L", Color = "Xanh dương", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 11 },
+                new Warehouse { ID = 45, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 12 },
+                new Warehouse { ID = 46, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 13 },
+                new Warehouse { ID = 47, Size = "L", Color = "Xanh đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 14 },
+                new Warehouse { ID = 48, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 15 },
+                new Warehouse { ID = 49, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 16 },
+                new Warehouse { ID = 50, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 17 },
+                new Warehouse { ID = 51, Size = "L", Color = "Xanh đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 18 },
+                new Warehouse { ID = 52, Size = "L", Color = "Trắng vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 19 },
+                
+                new Warehouse { ID = 53, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 20 },
+                new Warehouse { ID = 54, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 20 },
+                new Warehouse { ID = 55, Size = "XL", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 20 },
+
+                new Warehouse { ID = 56, Size = "M", Color = "Vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 21 },
+                new Warehouse { ID = 57, Size = "L", Color = "Vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 21 },
+                new Warehouse { ID = 58, Size = "M", Color = "Nâu nhạt", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 21 },
+                new Warehouse { ID = 59, Size = "L", Color = "Nâu nhạt", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 21 },
+
+                new Warehouse { ID = 60, Size = "M", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 22 },
+                new Warehouse { ID = 61, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 22 },
+                new Warehouse { ID = 62, Size = "M", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 22 },
+                new Warehouse { ID = 63, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 22 },
+                new Warehouse { ID = 64, Size = "M", Color = "Vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 22 },
+                new Warehouse { ID = 65, Size = "L", Color = "Vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 22 },
+
+                new Warehouse { ID = 66, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 23 },
+                new Warehouse { ID = 67, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 23 },
+                new Warehouse { ID = 68, Size = "M", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 23 },
+                new Warehouse { ID = 69, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 23 },
+
+                new Warehouse { ID = 70, Size = "M", Color = "Xanh rêu", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 24 },
+                new Warehouse { ID = 71, Size = "L", Color = "Xanh rêu", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 24 },
+
+                new Warehouse { ID = 72, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 25 },
+                new Warehouse { ID = 73, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 25 },
+                
+                new Warehouse { ID = 74, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 26 },
+                new Warehouse { ID = 75, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 27 },
+                new Warehouse { ID = 76, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 28 },
+                new Warehouse { ID = 77, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 29 },
+                new Warehouse { ID = 78, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 30 },
+                new Warehouse { ID = 79, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 31 },
+                new Warehouse { ID = 80, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 32 },
+                new Warehouse { ID = 81, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 33 },
+                new Warehouse { ID = 82, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 34 },
+                new Warehouse { ID = 83, Size = "L", Color = "Xanh đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 35 },
+                new Warehouse { ID = 84, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 36 },
+                new Warehouse { ID = 85, Size = "L", Color = "Xanh", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 37 },
+                new Warehouse { ID = 86, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 38 },
+
+                new Warehouse { ID = 87, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 39 },
+                new Warehouse { ID = 88, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 39 },
+
+                new Warehouse { ID = 89, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 40 },
+                new Warehouse { ID = 90, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 40 },
+
+                new Warehouse { ID = 91, Size = "M", Color = "Caro xanh", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 41 },
+                new Warehouse { ID = 92, Size = "L", Color = "Caro xanh", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 41 },
+                new Warehouse { ID = 93, Size = "M", Color = "Caro đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 41 },
+                new Warehouse { ID = 94, Size = "L", Color = "Caro đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 41 },
+
+                new Warehouse { ID = 95, Size = "M", Color = "Caro xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 42 },
+                new Warehouse { ID = 96, Size = "L", Color = "Caro xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 42 },
+
+                new Warehouse { ID = 97, Size = "L", Color = "Caro đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 43 },
+                new Warehouse { ID = 98, Size = "L", Color = "Caro đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 44 },
+                new Warehouse { ID = 99, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 45 },
+                new Warehouse { ID = 100, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 46 },
+                new Warehouse { ID = 101, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 47 },
+                new Warehouse { ID = 102, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 47 },
+                new Warehouse { ID = 103, Size = "M", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 47 },
+                new Warehouse { ID = 104, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 47 },
+                new Warehouse { ID = 105, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 48 },
+                new Warehouse { ID = 106, Size = "L", Color = "Xanh biển", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 49 },
+
+                new Warehouse { ID = 107, Size = "M", Color = "Xanh biển", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 50 },
+                new Warehouse { ID = 108, Size = "L", Color = "Xanh biển", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 50 },
+                new Warehouse { ID = 109, Size = "XL", Color = "Xanh biển", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 50 },
+
+                new Warehouse { ID = 110, Size = "M", Color = "Caro cam", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 51 },
+                new Warehouse { ID = 111, Size = "L", Color = "Caro cam", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 51 },
+                new Warehouse { ID = 112, Size = "M", Color = "Caro xanh", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 51 },
+                new Warehouse { ID = 113, Size = "L", Color = "Caro xanh", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 51 },
+
+                new Warehouse { ID = 114, Size = "M", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 52 },
+                new Warehouse { ID = 115, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 52 },
+                new Warehouse { ID = 116, Size = "XL", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 52 },
+
+                new Warehouse { ID = 117, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 53 },
+                new Warehouse { ID = 118, Size = "L", Color = "Xanh biển", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 54 },
+                new Warehouse { ID = 119, Size = "L", Color = "Hoạ tiết 1", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 55 },
+                new Warehouse { ID = 120, Size = "L", Color = "Xanh biển", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 56 },
+                new Warehouse { ID = 121, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 57 },
+                new Warehouse { ID = 122, Size = "L", Color = "Xanh dương", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 58 },
+                new Warehouse { ID = 123, Size = "L", Color = "Xanh biển", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 59 },
+                new Warehouse { ID = 124, Size = "L", Color = "Nâu nhạt", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 60 },
+                new Warehouse { ID = 125, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 61 },
+                new Warehouse { ID = 126, Size = "L", Color = "Xanh biển", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 62 },
+
+                new Warehouse { ID = 127, Size = "M", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 63 },
+                new Warehouse { ID = 128, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 63 },
+                new Warehouse { ID = 129, Size = "M", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 63 },
+                new Warehouse { ID = 130, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 63 },
+
+                new Warehouse { ID = 131, Size = "M", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 64 },
+                new Warehouse { ID = 132, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 64 },
+
+                new Warehouse { ID = 133, Size = "M", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 65 },
+                new Warehouse { ID = 134, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 65 },
+                new Warehouse { ID = 135, Size = "M", Color = "Vàng kem", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 65 },
+                new Warehouse { ID = 136, Size = "L", Color = "Vàng kem", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 65 },
+
+                new Warehouse { ID = 137, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 66 },
+                new Warehouse { ID = 138, Size = "L", Color = "Vàng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 67 },
+                new Warehouse { ID = 139, Size = "L", Color = "Xanh rêu", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 68 },
+                new Warehouse { ID = 140, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 69 },
+                new Warehouse { ID = 141, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 70 },
+                new Warehouse { ID = 142, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 71 },
+                new Warehouse { ID = 143, Size = "L", Color = "Xanh rêu", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 72 },
+                new Warehouse { ID = 144, Size = "L", Color = "Vàng kem", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 73 },
+                new Warehouse { ID = 145, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 74 },
+                new Warehouse { ID = 146, Size = "L", Color = "Nâu", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 75 },
+                new Warehouse { ID = 147, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 76 },
+                new Warehouse { ID = 148, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 77 },
+                new Warehouse { ID = 149, Size = "L", Color = "Đỏ", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 78 },
+                new Warehouse { ID = 150, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 79 },
+                new Warehouse { ID = 151, Size = "L", Color = "Xanh rêu", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 80 },
+                new Warehouse { ID = 152, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 81 },
+                new Warehouse { ID = 153, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 82 },
+
+                new Warehouse { ID = 154, Size = "M", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 83 },
+                new Warehouse { ID = 155, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 83 },
+
+                new Warehouse { ID = 156, Size = "M", Color = "Xanh jean", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 84 },
+                new Warehouse { ID = 157, Size = "L", Color = "Xanh jean", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 84 },
+
+                new Warehouse { ID = 158, Size = "M", Color = "Xanh jean", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 85 },
+                new Warehouse { ID = 159, Size = "L", Color = "Xanh jean", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 85 },
+
+                new Warehouse { ID = 160, Size = "M", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 86 },
+                new Warehouse { ID = 161, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 86 },
+
+                new Warehouse { ID = 162, Size = "L", Color = "Xanh jean", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 87 },
+                new Warehouse { ID = 163, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 88 },
+                new Warehouse { ID = 164, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 89 },
+                new Warehouse { ID = 165, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 90 },
+                new Warehouse { ID = 166, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 91 },
+                new Warehouse { ID = 167, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 92 },
+                new Warehouse { ID = 168, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 93 },
+                new Warehouse { ID = 169, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 94 },
+                new Warehouse { ID = 170, Size = "L", Color = "Xanh rêu", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 95 },
+                new Warehouse { ID = 171, Size = "L", Color = "Xám", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 96 },
+                new Warehouse { ID = 172, Size = "L", Color = "Nâu nhạt", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 97 },
+                new Warehouse { ID = 173, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 98 },
+                new Warehouse { ID = 174, Size = "L", Color = "Xám jean", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 99 },
+                new Warehouse { ID = 175, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 100 },
+                new Warehouse { ID = 176, Size = "L", Color = "Trắng", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 101 },
+                new Warehouse { ID = 177, Size = "L", Color = "Đen", Quantity = 100, Sold = 0, LastUpdate = DateTime.Now, ProductID = 102 }
             );
 
-            
+            modelBuilder.Entity<Promotion>().HasData(
+                new Promotion { ID = 1, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 10, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 1, Visible = true, IsDelete = false },
+                new Promotion { ID = 2, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 20, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 2, Visible = true, IsDelete = false },
+                new Promotion { ID = 3, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 30, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 3, Visible = true, IsDelete = false },
+                new Promotion { ID = 4, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 20, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 4, Visible = true, IsDelete = false },
+                new Promotion { ID = 5, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 10, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 5, Visible = true, IsDelete = false },
+                new Promotion { ID = 6, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 10, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 6, Visible = true, IsDelete = false },
+                new Promotion { ID = 7, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 10, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 20, Visible = true, IsDelete = false },
+                new Promotion { ID = 8, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 50, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 21, Visible = true, IsDelete = false },
+                new Promotion { ID = 9, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 50, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 22, Visible = true, IsDelete = false },
+                new Promotion { ID = 10, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 10, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 40, Visible = true, IsDelete = false },
+                new Promotion { ID = 11, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 20, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 41, Visible = true, IsDelete = false },
+                new Promotion { ID = 12, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 20, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 42, Visible = true, IsDelete = false },
+                new Promotion { ID = 13, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 20, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 50, Visible = true, IsDelete = false },
+                new Promotion { ID = 14, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 50, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 51, Visible = true, IsDelete = false },
+                new Promotion { ID = 15, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 40, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 52, Visible = true, IsDelete = false },
+                new Promotion { ID = 16, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 40, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 63, Visible = true, IsDelete = false },
+                new Promotion { ID = 17, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 30, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 64, Visible = true, IsDelete = false },
+                new Promotion { ID = 18, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 30, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 65, Visible = true, IsDelete = false },
+                new Promotion { ID = 19, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 10, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 83, Visible = true, IsDelete = false },
+                new Promotion { ID = 20, Name = "Sale cuối năm", Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm", Discount = 10, From = DateTime.Now, To = DateTime.Now.AddDays(40), ProductID = 85, Visible = true, IsDelete = false }
+            );
+
+            modelBuilder.Entity<Account>().HasData(
+                new Account { ID = 1, Username = "vidiec", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "diecluchivi2701@gmail.com", IsDelete = false },
+                new Account { ID = 2, Username = "phutang", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "camphu480@gmail.com", IsDelete = false },
+                new Account { ID = 3, Username = "trannguyen", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "trannguyen@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 4, Username = "hongtran", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "hongtran@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 5, Username = "nhily", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "nhily@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 6, Username = "quynhha", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "quynhha@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 7, Username = "huyhuy", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "huyhuy@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 8, Username = "thanhthanh", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "thanhthanh@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 9, Username = "tungtran", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "tungtran@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 10, Username = "huytran", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "huytran@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 11, Username = "huyhua", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "huyhua@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 12, Username = "khoidang", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "khoidang@student.tdtu.edu.vn", IsDelete = false },
+                new Account { ID = 13, Username = "admin1", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "admin1@coolmate.edu.vn", IsDelete = false },
+                new Account { ID = 14, Username = "admin2", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "admin2@coolmate.edu.vn", IsDelete = false },
+                new Account { ID = 15, Username = "admin3", Password = "$2a$11$/VFMOT9NcFNk1NmgvPTL/OJ7gpBru8bSoT6XjDiAF2xIEMb6lsTbi", Email = "admin3@coolmate.edu.vn", IsDelete = false }
+            );
+
+            modelBuilder.Entity<Customer>().HasData(
+                new Customer { ID = 1, Fullname = "Diệc Lữ Chí Vĩ", Phone = "0909010003", Address = "12 Nguyễn Huệ P.Bến Nghé Q.1", CardNumber = "271119473238", ValidDate = DateTime.Now.AddYears(2), SecretNumber = "2986361", AccountID = 1},
+                new Customer { ID = 2, Fullname = "Tăng Cẩm Phú", Phone = "0909110203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.2", CardNumber = "274611273238", ValidDate = DateTime.Now.AddYears(1), SecretNumber = "2916361", AccountID = 2},
+                new Customer { ID = 3, Fullname = "Nguyễn Trân", Phone = "0909020203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.3", CardNumber = "274621133238", ValidDate = DateTime.Now.AddYears(2), SecretNumber = "2982360", AccountID = 3},
+                new Customer { ID = 4, Fullname = "Trần Hồng", Phone = "0909010303", Address = "12 Nguyễn Huệ P.Bến Nghé Q.4", CardNumber = "274629411438", ValidDate = DateTime.Now.AddYears(2), SecretNumber = "2986331", AccountID = 4},
+                new Customer { ID = 5, Fullname = "Nhi Lý", Phone = "0909610203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.5", CardNumber = "115629473238", ValidDate = DateTime.Now.AddYears(2), SecretNumber = "2986364", AccountID = 5},
+                new Customer { ID = 6, Fullname = "Hà Quỳnh", Phone = "0989010203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.6", CardNumber = "116629473238", ValidDate = DateTime.Now.AddYears(1), SecretNumber = "2986661", AccountID = 6},
+                new Customer { ID = 7, Fullname = "Huy Huy", Phone = "0909010203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.7", CardNumber = "211729473238", ValidDate = DateTime.Now.AddYears(1), SecretNumber = "2986371", AccountID = 7},
+                new Customer { ID = 8, Fullname = "Thanh Thanh", Phone = "0309010203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.8", CardNumber = "118629473238", ValidDate = DateTime.Now.AddYears(1), SecretNumber = "2886361", AccountID = 8},
+                new Customer { ID = 9, Fullname = "Tùng Trần", Phone = "0904010203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.9", CardNumber = "271199473238", ValidDate = DateTime.Now.AddYears(1), SecretNumber = "2989361", AccountID = 9},
+                new Customer { ID = 10, Fullname = "Trần Huy", Phone = "0908010203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.10", CardNumber = "212029473238", ValidDate = DateTime.Now.AddYears(1), SecretNumber = "2196361", AccountID = 10},
+                new Customer { ID = 11, Fullname = "Hứa Huy", Phone = "0900010203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.11", CardNumber = "271219473238", ValidDate = DateTime.Now.AddYears(2), SecretNumber = "2982361", AccountID = 11},
+                new Customer { ID = 12, Fullname = "Đặng Khôi", Phone = "0990210203", Address = "12 Nguyễn Huệ P.Bến Nghé Q.12", CardNumber = "274612273238", ValidDate = DateTime.Now.AddYears(2), SecretNumber = "2186361", AccountID = 12}
+            );
+
+            modelBuilder.Entity<Admin>().HasData(
+                new Admin { ID = 1, Fullname = "Doãn Xuân Thanh", Phone = "0902228888", AccountID = 13 },
+                new Admin { ID = 2, Fullname = "Nguyễn Thành Nhân", Phone = "0903338888", AccountID = 14 },
+                new Admin { ID = 3, Fullname = "Đặng Kim Thư", Phone = "0904448888", AccountID = 15 }
+            );
+
+            modelBuilder.Entity<CartDetails>().HasData(
+                new CartDetails { ID = 1, Size = "M", Color = "Đỏ", Quantity = 2, accountID = 1, productID = 5, IsSelected = true, IsDelete = false },
+                new CartDetails { ID = 2, Size = "L", Color = "Xanh mint", Quantity = 1, accountID = 1, productID = 7, IsSelected = true, IsDelete = false },
+                new CartDetails { ID = 3, Size = "L", Color = "Đen", Quantity = 3, accountID = 1, productID = 26, IsSelected = false, IsDelete = false },
+                new CartDetails { ID = 4, Size = "M", Color = "Trắng", Quantity = 2, accountID = 1, productID = 25, IsSelected = true, IsDelete = false },
+                new CartDetails { ID = 5, Size = "L", Color = "Trắng", Quantity = 1, accountID = 1, productID = 52, IsSelected = true, IsDelete = false },
+                new CartDetails { ID = 6, Size = "L", Color = "Vàng", Quantity = 1, accountID = 2, productID = 5, IsSelected = true, IsDelete = false },
+                new CartDetails { ID = 7, Size = "L", Color = "Xám", Quantity = 4, accountID = 2, productID = 74, IsSelected = false, IsDelete = false },
+                new CartDetails { ID = 8, Size = "L", Color = "Đen", Quantity = 2, accountID = 2, productID = 88, IsSelected = true, IsDelete = false },
+                new CartDetails { ID = 9, Size = "M", Color = "Đen", Quantity = 2, accountID = 2, productID = 83, IsSelected = true, IsDelete = false },
+                new CartDetails { ID = 10, Size = "M", Color = "Xanh jean", Quantity = 1, accountID = 2, productID = 85, IsSelected = true, IsDelete = false }
+            );
         }
 
         private static string GetRandomDescription(string type)
@@ -379,7 +657,7 @@ namespace Clothing_Store.Utils
             {
                 case "Áo thun tay dài":
                     return MO_TA_THUN_TAY_DAI[index];
-                case "Áo thun tay ngắn":
+                case "Áo Thun tay ngắn":
                     return MO_TA_THUN_TAY_NGAN[index];
                 case "Áo sơ mi tay dài":
                 case "Áo sơ mi tay ngắn":
