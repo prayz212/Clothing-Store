@@ -63,14 +63,14 @@ namespace Clothing_Store.Areas.Admin.Models
         public string image4 { get; set; }
     }
 
-    public class AdminCreateProductViewModel
+    public class AdminCreateProductViewModel : BaseModel
     {
         public AdminCreateProductModel model { get; set; }
         public List<string> types { get; set; }
         public List<Tag> tags { get; set; }
     }
 
-    public class AdminEditProductViewModel
+    public class AdminEditProductViewModel : BaseModel
     {
         public AdminCreateProductModel model { get; set; }
         public Product product { get; set; }

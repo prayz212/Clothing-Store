@@ -252,6 +252,7 @@ namespace Clothing_Store.Controllers
                     .ThenInclude(p => p.ratings)
                     .Include(pt => pt.product)
                     .ThenInclude(p => p.images)
+                    .Where(p => p.product.IsDelete == false && p.product.Visible == true)
                     .Where(pt => tags.Contains(pt.TagID))
                     .Where(pt => pt.ProductID != detail.ID)
                     .Select(pt => new ProductViewModel()

@@ -92,10 +92,23 @@ namespace Clothing_Store.Controllers
             try
             {
                 Account isExist = _context.accounts
-                    .Where(a => a.Username == account.login.Username).FirstOrDefault();
+                    .Where(a => a.Username == account.login.Username)
+                    .Where(a => a.IsDelete == false)
+                    .FirstOrDefault();
 
                 if (isExist != null)
                 {
+                    Admin isAdmin = _context.admins
+                        .Where(ad => ad.AccountID == isExist.ID)
+                        .FirstOrDefault();
+
+                    if (isAdmin != null)
+                    {
+                        ViewBag.LoginErrorMsg = "Tên tài khoản hoặc mật khẩu không đúng";
+                        account.isError = true;
+                        return View("Index", account);
+                    }
+
                     bool isMatch = BCrypt.Net.BCrypt.Verify(account.login.Password, isExist.Password);
                     if (isMatch)
                     {
