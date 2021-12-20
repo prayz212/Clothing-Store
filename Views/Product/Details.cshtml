@@ -11,6 +11,9 @@
     Product detail = vm.detail;
     ICollection<ProductViewModel> relative = vm.ralativeProducts;
 
+    //shuffle element randomly
+    Random random = new Random();
+    relative = relative.OrderBy(x => random.Next()).ToList();
     ICollection<int> relativeIds = relative.Select(r => r.ID).Distinct().Take(4).ToList();
 
     int totalRatings = 0;
