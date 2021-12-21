@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clothing_Store.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20211220091645_SeedingData")]
+    [Migration("20211221043132_SeedingData")]
     partial class SeedingData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -435,7 +435,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Diệc Lữ Chí Vĩ",
                             Phone = "0909010003",
                             SecretNumber = "2986361",
-                            ValidDate = new DateTime(2023, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(6460)
+                            ValidDate = new DateTime(2023, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(5550)
                         },
                         new
                         {
@@ -446,7 +446,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Tăng Cẩm Phú",
                             Phone = "0909110203",
                             SecretNumber = "2916361",
-                            ValidDate = new DateTime(2022, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8130)
+                            ValidDate = new DateTime(2022, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7550)
                         },
                         new
                         {
@@ -457,7 +457,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Nguyễn Trân",
                             Phone = "0909020203",
                             SecretNumber = "2982360",
-                            ValidDate = new DateTime(2023, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8190)
+                            ValidDate = new DateTime(2023, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7610)
                         },
                         new
                         {
@@ -468,7 +468,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Trần Hồng",
                             Phone = "0909010303",
                             SecretNumber = "2986331",
-                            ValidDate = new DateTime(2023, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8190)
+                            ValidDate = new DateTime(2023, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7610)
                         },
                         new
                         {
@@ -479,7 +479,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Nhi Lý",
                             Phone = "0909610203",
                             SecretNumber = "2986364",
-                            ValidDate = new DateTime(2023, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8200)
+                            ValidDate = new DateTime(2023, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7620)
                         },
                         new
                         {
@@ -490,7 +490,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Hà Quỳnh",
                             Phone = "0989010203",
                             SecretNumber = "2986661",
-                            ValidDate = new DateTime(2022, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8200)
+                            ValidDate = new DateTime(2022, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7620)
                         },
                         new
                         {
@@ -501,7 +501,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Huy Huy",
                             Phone = "0909010203",
                             SecretNumber = "2986371",
-                            ValidDate = new DateTime(2022, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8200)
+                            ValidDate = new DateTime(2022, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7620)
                         },
                         new
                         {
@@ -512,7 +512,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Thanh Thanh",
                             Phone = "0309010203",
                             SecretNumber = "2886361",
-                            ValidDate = new DateTime(2022, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8210)
+                            ValidDate = new DateTime(2022, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7630)
                         },
                         new
                         {
@@ -523,7 +523,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Tùng Trần",
                             Phone = "0904010203",
                             SecretNumber = "2989361",
-                            ValidDate = new DateTime(2022, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8210)
+                            ValidDate = new DateTime(2022, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7630)
                         },
                         new
                         {
@@ -534,7 +534,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Trần Huy",
                             Phone = "0908010203",
                             SecretNumber = "2196361",
-                            ValidDate = new DateTime(2022, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8220)
+                            ValidDate = new DateTime(2022, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7640)
                         },
                         new
                         {
@@ -545,7 +545,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Hứa Huy",
                             Phone = "0900010203",
                             SecretNumber = "2982361",
-                            ValidDate = new DateTime(2023, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8220)
+                            ValidDate = new DateTime(2023, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7640)
                         },
                         new
                         {
@@ -556,7 +556,7 @@ namespace Clothing_Store.Migrations
                             Fullname = "Đặng Khôi",
                             Phone = "0990210203",
                             SecretNumber = "2186361",
-                            ValidDate = new DateTime(2023, 12, 20, 16, 16, 44, 397, DateTimeKind.Local).AddTicks(8220)
+                            ValidDate = new DateTime(2023, 12, 21, 11, 31, 31, 639, DateTimeKind.Local).AddTicks(7650)
                         });
                 });
 
@@ -1823,7 +1823,7 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 2,
-                            Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
+                            Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
                             IsDelete = false,
                             Name = "Áo Thun D002",
                             Price = 230000,
@@ -1843,10 +1843,10 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 4,
-                            Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
+                            Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
                             IsDelete = false,
                             Name = "Áo Thun D004",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo thun tay dài",
                             Visible = true
                         },
@@ -1866,7 +1866,7 @@ namespace Clothing_Store.Migrations
                             Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
                             IsDelete = false,
                             Name = "Áo Thun D006",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo thun tay dài",
                             Visible = true
                         },
@@ -1886,44 +1886,44 @@ namespace Clothing_Store.Migrations
                             Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
                             IsDelete = false,
                             Name = "Áo Thun D008",
-                            Price = 230000,
-                            ProductType = "Áo thun tay dài",
-                            Visible = true
-                        },
-                        new
-                        {
-                            ID = 9,
-                            Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
-                            IsDelete = false,
-                            Name = "Áo Thun D009",
-                            Price = 230000,
-                            ProductType = "Áo thun tay dài",
-                            Visible = true
-                        },
-                        new
-                        {
-                            ID = 10,
-                            Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
-                            IsDelete = false,
-                            Name = "Áo Thun D010",
                             Price = 199000,
                             ProductType = "Áo thun tay dài",
                             Visible = true
                         },
                         new
                         {
-                            ID = 11,
-                            Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
+                            ID = 9,
+                            Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
                             IsDelete = false,
-                            Name = "Áo Thun D011",
+                            Name = "Áo Thun D009",
+                            Price = 199000,
+                            ProductType = "Áo thun tay dài",
+                            Visible = true
+                        },
+                        new
+                        {
+                            ID = 10,
+                            Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
+                            IsDelete = false,
+                            Name = "Áo Thun D010",
                             Price = 230000,
                             ProductType = "Áo thun tay dài",
                             Visible = true
                         },
                         new
                         {
+                            ID = 11,
+                            Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
+                            IsDelete = false,
+                            Name = "Áo Thun D011",
+                            Price = 199000,
+                            ProductType = "Áo thun tay dài",
+                            Visible = true
+                        },
+                        new
+                        {
                             ID = 12,
-                            Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
+                            Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
                             IsDelete = false,
                             Name = "Áo Thun D012",
                             Price = 199000,
@@ -1946,7 +1946,7 @@ namespace Clothing_Store.Migrations
                             Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
                             IsDelete = false,
                             Name = "Áo Thun D014",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo thun tay dài",
                             Visible = true
                         },
@@ -1956,7 +1956,7 @@ namespace Clothing_Store.Migrations
                             Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
                             IsDelete = false,
                             Name = "Áo Thun D015",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo thun tay dài",
                             Visible = true
                         },
@@ -1966,7 +1966,7 @@ namespace Clothing_Store.Migrations
                             Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
                             IsDelete = false,
                             Name = "Áo Thun D016",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo thun tay dài",
                             Visible = true
                         },
@@ -1976,14 +1976,14 @@ namespace Clothing_Store.Migrations
                             Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
                             IsDelete = false,
                             Name = "Áo Thun D017",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo thun tay dài",
                             Visible = true
                         },
                         new
                         {
                             ID = 18,
-                            Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
+                            Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
                             IsDelete = false,
                             Name = "Áo Thun D018",
                             Price = 199000,
@@ -1993,7 +1993,7 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 19,
-                            Description = "Bạn có đang tìm kiếm cho mình một một chiếc áo dài tay ấm áp. Coolmate hiểu được điều đó và đã nghiên cứu để gửi đến bạn một chiếc áo Sweatshirt với thiết kế vừa vặn, vô cùng thoải mái với chất liệu đặc biệt mềm mại. Và đó chính là áo nam Casual Sweatshirt - hoàn hảo cho những ngày thoải mái ở nhà, nhưng đủ tự tin để dạo phố cùng bạn bè.",
+                            Description = "Rất nhiều thời gian và công sức để nghiên cứu và phát triển một sản phẩm, thay vì những vải lót bông bình thường dễ bị xù hoặc rụng bông nhỏ trong quá trình giặt và sử dụng, Coolmate lựa chọn chất liệu là 90% Cotton giúp chiếc áo của bạn vẫn thoát mồ hôi mà không hề gây bí, khó chịu; kết hợp với 10% Polyester giúp áo không nhăn và luôn bền dù có giặt, sấy bằng máy.",
                             IsDelete = false,
                             Name = "Áo Thun D019",
                             Price = 199000,
@@ -2026,7 +2026,7 @@ namespace Clothing_Store.Migrations
                             Description = "",
                             IsDelete = false,
                             Name = "Áo Thun N003",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo thun tay ngắn ",
                             Visible = true
                         },
@@ -2036,7 +2036,7 @@ namespace Clothing_Store.Migrations
                             Description = "",
                             IsDelete = false,
                             Name = "Áo Thun N004",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo thun tay ngắn ",
                             Visible = true
                         },
@@ -2096,7 +2096,7 @@ namespace Clothing_Store.Migrations
                             Description = "",
                             IsDelete = false,
                             Name = "Áo Thun N010",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo thun tay ngắn ",
                             Visible = true
                         },
@@ -2136,7 +2136,7 @@ namespace Clothing_Store.Migrations
                             Description = "",
                             IsDelete = false,
                             Name = "Áo Thun N014",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo thun tay ngắn ",
                             Visible = true
                         },
@@ -2156,7 +2156,7 @@ namespace Clothing_Store.Migrations
                             Description = "",
                             IsDelete = false,
                             Name = "Áo Thun N016",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo thun tay ngắn ",
                             Visible = true
                         },
@@ -2176,7 +2176,7 @@ namespace Clothing_Store.Migrations
                             Description = "",
                             IsDelete = false,
                             Name = "Áo Thun N018",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo thun tay ngắn ",
                             Visible = true
                         },
@@ -2196,7 +2196,7 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D001",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo sơ mi tay dài",
                             Visible = true
                         },
@@ -2206,7 +2206,7 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D002",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo sơ mi tay dài",
                             Visible = true
                         },
@@ -2216,14 +2216,14 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D003",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo sơ mi tay dài",
                             Visible = true
                         },
                         new
                         {
                             ID = 42,
-                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
+                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D004",
                             Price = 230000,
@@ -2233,7 +2233,7 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 43,
-                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
+                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D005",
                             Price = 199000,
@@ -2256,14 +2256,14 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D007",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo sơ mi tay dài",
                             Visible = true
                         },
                         new
                         {
                             ID = 46,
-                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
+                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D008",
                             Price = 199000,
@@ -2273,7 +2273,7 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 47,
-                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
+                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D009",
                             Price = 199000,
@@ -2286,14 +2286,14 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D010",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo sơ mi tay dài",
                             Visible = true
                         },
                         new
                         {
                             ID = 49,
-                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
+                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi D011",
                             Price = 230000,
@@ -2306,7 +2306,7 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi N001",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo sơ mi tay ngắn",
                             Visible = true
                         },
@@ -2316,7 +2316,7 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi N002",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo sơ mi tay ngắn",
                             Visible = true
                         },
@@ -2326,7 +2326,7 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi N003",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Áo sơ mi tay ngắn",
                             Visible = true
                         },
@@ -2386,7 +2386,7 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi N009",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo sơ mi tay ngắn",
                             Visible = true
                         },
@@ -2396,24 +2396,24 @@ namespace Clothing_Store.Migrations
                             Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi N010",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo sơ mi tay ngắn",
                             Visible = true
                         },
                         new
                         {
                             ID = 60,
-                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
+                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi N011",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Áo sơ mi tay ngắn",
                             Visible = true
                         },
                         new
                         {
                             ID = 61,
-                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
+                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi N012",
                             Price = 230000,
@@ -2423,7 +2423,7 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 62,
-                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu modal (gỗ sồi), sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo sơ mi Modal này có gì đặc biệt nhé!",
+                            Description = "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
                             IsDelete = false,
                             Name = "Áo Sơ Mi N013",
                             Price = 230000,
@@ -2453,17 +2453,17 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 65,
-                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
+                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
                             IsDelete = false,
                             Name = "Quần Dài QD003",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần dài",
                             Visible = true
                         },
                         new
                         {
                             ID = 66,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Dài QD004",
                             Price = 199000,
@@ -2473,7 +2473,7 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 67,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Dài QD005",
                             Price = 230000,
@@ -2483,10 +2483,10 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 68,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Dài QD006",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Quần dài",
                             Visible = true
                         },
@@ -2503,10 +2503,10 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 70,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Dài QD008",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần dài",
                             Visible = true
                         },
@@ -2533,7 +2533,7 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 73,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Dài QD011",
                             Price = 199000,
@@ -2546,7 +2546,7 @@ namespace Clothing_Store.Migrations
                             Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
                             IsDelete = false,
                             Name = "Quần Dài QD012",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần dài",
                             Visible = true
                         },
@@ -2566,17 +2566,17 @@ namespace Clothing_Store.Migrations
                             Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
                             IsDelete = false,
                             Name = "Quần Dài QD014",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần dài",
                             Visible = true
                         },
                         new
                         {
                             ID = 77,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Dài QD015",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Quần dài",
                             Visible = true
                         },
@@ -2596,17 +2596,17 @@ namespace Clothing_Store.Migrations
                             Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
                             IsDelete = false,
                             Name = "Quần Dài QD017",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Quần dài",
                             Visible = true
                         },
                         new
                         {
                             ID = 80,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Dài QD018",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần dài",
                             Visible = true
                         },
@@ -2623,27 +2623,27 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 82,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Dài QD020",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Quần dài",
                             Visible = true
                         },
                         new
                         {
                             ID = 83,
-                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
+                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN001",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         },
                         new
                         {
                             ID = 84,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN002",
                             Price = 199000,
@@ -2653,17 +2653,17 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 85,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN003",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         },
                         new
                         {
                             ID = 86,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN004",
                             Price = 199000,
@@ -2683,30 +2683,30 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 88,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN006",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         },
                         new
                         {
                             ID = 89,
-                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
+                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN007",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         },
                         new
                         {
                             ID = 90,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN008",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         },
@@ -2716,7 +2716,7 @@ namespace Clothing_Store.Migrations
                             Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN009",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         },
@@ -2733,10 +2733,10 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 93,
-                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
+                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN011",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         },
@@ -2756,14 +2756,14 @@ namespace Clothing_Store.Migrations
                             Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN013",
-                            Price = 230000,
+                            Price = 199000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         },
                         new
                         {
                             ID = 96,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN014",
                             Price = 199000,
@@ -2783,27 +2783,27 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 98,
-                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
-                            IsDelete = false,
-                            Name = "Quần Ngắn QN016",
-                            Price = 199000,
-                            ProductType = "Quần ngắn",
-                            Visible = true
-                        },
-                        new
-                        {
-                            ID = 99,
                             Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
-                            Name = "Quần Ngắn QN017",
+                            Name = "Quần Ngắn QN016",
                             Price = 230000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         },
                         new
                         {
-                            ID = 100,
+                            ID = 99,
                             Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
+                            IsDelete = false,
+                            Name = "Quần Ngắn QN017",
+                            Price = 199000,
+                            ProductType = "Quần ngắn",
+                            Visible = true
+                        },
+                        new
+                        {
+                            ID = 100,
+                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN018",
                             Price = 199000,
@@ -2813,7 +2813,7 @@ namespace Clothing_Store.Migrations
                         new
                         {
                             ID = 101,
-                            Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
+                            Description = "Ô! Nếu bạn đang tìm kiếm một chiếc quần vừa vặn, thoải mái, trẻ trung cùng mức giá hợp lý, thì đây là lựa chọn rất đáng để thử. Hơn 1 năm phát triển sản phẩm, Coolmate tự hào giới thiệu đến bạn chiếc quần đầu tiên của Coolmate với dáng Slim Fit với 3 màu dễ mặc dễ phối với những món đồ có sẵn trong tủ đồ nhà bạn.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN019",
                             Price = 230000,
@@ -2826,7 +2826,7 @@ namespace Clothing_Store.Migrations
                             Description = "Lắng nghe khách hàng của mình và hiểu được mỗi chàng trai đều cần có trong tủ đồ mình 1 chiếc quần đặc biệt thoải mái trong mọi vận động. Và Coolmate đặc biệt cho ra mắt sản phẩm Quần phiên bản mới với chất liệu vải 100% Polyester PTT đặc biệt CO GIÃN TUYỆT VỜI đem đến sự thoải mái tối đa.",
                             IsDelete = false,
                             Name = "Quần Ngắn QN020",
-                            Price = 199000,
+                            Price = 230000,
                             ProductType = "Quần ngắn",
                             Visible = true
                         });
@@ -2893,11 +2893,11 @@ namespace Clothing_Store.Migrations
                             ID = 1,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 10,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(6690),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(2070),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 1,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(7250),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(3250),
                             Visible = true
                         },
                         new
@@ -2905,11 +2905,11 @@ namespace Clothing_Store.Migrations
                             ID = 2,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 20,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9210),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6510),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 2,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9230),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6540),
                             Visible = true
                         },
                         new
@@ -2917,11 +2917,11 @@ namespace Clothing_Store.Migrations
                             ID = 3,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 30,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9300),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6620),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 3,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9300),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6620),
                             Visible = true
                         },
                         new
@@ -2929,11 +2929,11 @@ namespace Clothing_Store.Migrations
                             ID = 4,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 20,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9300),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6620),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 4,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9300),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6630),
                             Visible = true
                         },
                         new
@@ -2941,11 +2941,11 @@ namespace Clothing_Store.Migrations
                             ID = 5,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 10,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9310),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6630),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 5,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9310),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6630),
                             Visible = true
                         },
                         new
@@ -2953,11 +2953,11 @@ namespace Clothing_Store.Migrations
                             ID = 6,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 10,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9310),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6630),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 6,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9310),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6640),
                             Visible = true
                         },
                         new
@@ -2965,11 +2965,11 @@ namespace Clothing_Store.Migrations
                             ID = 7,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 10,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9320),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6640),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 20,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9320),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6640),
                             Visible = true
                         },
                         new
@@ -2977,11 +2977,11 @@ namespace Clothing_Store.Migrations
                             ID = 8,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 50,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9320),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6640),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 21,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9320),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6650),
                             Visible = true
                         },
                         new
@@ -2989,11 +2989,11 @@ namespace Clothing_Store.Migrations
                             ID = 9,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 50,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9330),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6650),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 22,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9330),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6650),
                             Visible = true
                         },
                         new
@@ -3001,11 +3001,11 @@ namespace Clothing_Store.Migrations
                             ID = 10,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 10,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9330),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6650),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 40,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9330),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6660),
                             Visible = true
                         },
                         new
@@ -3013,11 +3013,11 @@ namespace Clothing_Store.Migrations
                             ID = 11,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 20,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9340),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6660),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 41,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9340),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6660),
                             Visible = true
                         },
                         new
@@ -3025,11 +3025,11 @@ namespace Clothing_Store.Migrations
                             ID = 12,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 20,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9340),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6660),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 42,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9340),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6670),
                             Visible = true
                         },
                         new
@@ -3037,11 +3037,11 @@ namespace Clothing_Store.Migrations
                             ID = 13,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 20,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9340),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6670),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 50,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9350),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6670),
                             Visible = true
                         },
                         new
@@ -3049,11 +3049,11 @@ namespace Clothing_Store.Migrations
                             ID = 14,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 50,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9350),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6680),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 51,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9360),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6680),
                             Visible = true
                         },
                         new
@@ -3061,11 +3061,11 @@ namespace Clothing_Store.Migrations
                             ID = 15,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 40,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9360),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6680),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 52,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9360),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6680),
                             Visible = true
                         },
                         new
@@ -3073,11 +3073,11 @@ namespace Clothing_Store.Migrations
                             ID = 16,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 40,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9360),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6690),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 63,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9360),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6690),
                             Visible = true
                         },
                         new
@@ -3085,11 +3085,11 @@ namespace Clothing_Store.Migrations
                             ID = 17,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 30,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9370),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6690),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 64,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9370),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6690),
                             Visible = true
                         },
                         new
@@ -3097,11 +3097,11 @@ namespace Clothing_Store.Migrations
                             ID = 18,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 30,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9370),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6700),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 65,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9370),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6700),
                             Visible = true
                         },
                         new
@@ -3109,11 +3109,11 @@ namespace Clothing_Store.Migrations
                             ID = 19,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 10,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9380),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6700),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 83,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9380),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6700),
                             Visible = true
                         },
                         new
@@ -3121,11 +3121,11 @@ namespace Clothing_Store.Migrations
                             ID = 20,
                             Description = "Giảm giá cực sốc từ 10% đến 50% nhân dịp cuối năm",
                             Discount = 10,
-                            From = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9380),
+                            From = new DateTime(2021, 12, 21, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6700),
                             IsDelete = false,
                             Name = "Sale cuối năm",
                             ProductID = 85,
-                            To = new DateTime(2022, 1, 29, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(9380),
+                            To = new DateTime(2022, 1, 30, 11, 31, 31, 638, DateTimeKind.Local).AddTicks(6710),
                             Visible = true
                         });
                 });
@@ -3140,22 +3140,1088 @@ namespace Clothing_Store.Migrations
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReceiptID")
+                        .HasColumnType("int");
+
                     b.Property<int>("Star")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("productID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("receiptID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("productID");
+                    b.HasIndex("ProductID");
 
-                    b.HasIndex("receiptID");
+                    b.HasIndex("ReceiptID");
 
                     b.ToTable("Rating");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            IsDelete = false,
+                            ProductID = 1,
+                            ReceiptID = 1,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 2,
+                            IsDelete = false,
+                            ProductID = 2,
+                            ReceiptID = 1,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 3,
+                            IsDelete = false,
+                            ProductID = 3,
+                            ReceiptID = 1,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 4,
+                            IsDelete = false,
+                            ProductID = 20,
+                            ReceiptID = 2,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 5,
+                            IsDelete = false,
+                            ProductID = 21,
+                            ReceiptID = 2,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 6,
+                            IsDelete = false,
+                            ProductID = 22,
+                            ReceiptID = 2,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 7,
+                            IsDelete = false,
+                            ProductID = 39,
+                            ReceiptID = 3,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 8,
+                            IsDelete = false,
+                            ProductID = 40,
+                            ReceiptID = 3,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 9,
+                            IsDelete = false,
+                            ProductID = 41,
+                            ReceiptID = 3,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 10,
+                            IsDelete = false,
+                            ProductID = 50,
+                            ReceiptID = 4,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 11,
+                            IsDelete = false,
+                            ProductID = 51,
+                            ReceiptID = 4,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 12,
+                            IsDelete = false,
+                            ProductID = 63,
+                            ReceiptID = 5,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 13,
+                            IsDelete = false,
+                            ProductID = 64,
+                            ReceiptID = 5,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 14,
+                            IsDelete = false,
+                            ProductID = 65,
+                            ReceiptID = 5,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 15,
+                            IsDelete = false,
+                            ProductID = 83,
+                            ReceiptID = 6,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 16,
+                            IsDelete = false,
+                            ProductID = 84,
+                            ReceiptID = 6,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 17,
+                            IsDelete = false,
+                            ProductID = 1,
+                            ReceiptID = 7,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 18,
+                            IsDelete = false,
+                            ProductID = 52,
+                            ReceiptID = 7,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 19,
+                            IsDelete = false,
+                            ProductID = 39,
+                            ReceiptID = 8,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 20,
+                            IsDelete = false,
+                            ProductID = 40,
+                            ReceiptID = 8,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 21,
+                            IsDelete = false,
+                            ProductID = 41,
+                            ReceiptID = 8,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 22,
+                            IsDelete = false,
+                            ProductID = 20,
+                            ReceiptID = 9,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 23,
+                            IsDelete = false,
+                            ProductID = 42,
+                            ReceiptID = 10,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 24,
+                            IsDelete = false,
+                            ProductID = 43,
+                            ReceiptID = 10,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 25,
+                            IsDelete = false,
+                            ProductID = 44,
+                            ReceiptID = 10,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 26,
+                            IsDelete = false,
+                            ProductID = 4,
+                            ReceiptID = 11,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 27,
+                            IsDelete = false,
+                            ProductID = 5,
+                            ReceiptID = 11,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 28,
+                            IsDelete = false,
+                            ProductID = 6,
+                            ReceiptID = 11,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 29,
+                            IsDelete = false,
+                            ProductID = 23,
+                            ReceiptID = 12,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 30,
+                            IsDelete = false,
+                            ProductID = 24,
+                            ReceiptID = 12,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 31,
+                            IsDelete = false,
+                            ProductID = 25,
+                            ReceiptID = 12,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 32,
+                            IsDelete = false,
+                            ProductID = 53,
+                            ReceiptID = 13,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 33,
+                            IsDelete = false,
+                            ProductID = 54,
+                            ReceiptID = 13,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 34,
+                            IsDelete = false,
+                            ProductID = 55,
+                            ReceiptID = 13,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 35,
+                            IsDelete = false,
+                            ProductID = 66,
+                            ReceiptID = 13,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 36,
+                            IsDelete = false,
+                            ProductID = 67,
+                            ReceiptID = 13,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 37,
+                            IsDelete = false,
+                            ProductID = 68,
+                            ReceiptID = 14,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 38,
+                            IsDelete = false,
+                            ProductID = 83,
+                            ReceiptID = 14,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 39,
+                            IsDelete = false,
+                            ProductID = 84,
+                            ReceiptID = 14,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 40,
+                            IsDelete = false,
+                            ProductID = 85,
+                            ReceiptID = 14,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 41,
+                            IsDelete = false,
+                            ProductID = 86,
+                            ReceiptID = 14,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 42,
+                            IsDelete = false,
+                            ProductID = 87,
+                            ReceiptID = 14,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 43,
+                            IsDelete = false,
+                            ProductID = 88,
+                            ReceiptID = 14,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 44,
+                            IsDelete = false,
+                            ProductID = 45,
+                            ReceiptID = 15,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 45,
+                            IsDelete = false,
+                            ProductID = 46,
+                            ReceiptID = 15,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 46,
+                            IsDelete = false,
+                            ProductID = 47,
+                            ReceiptID = 15,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 47,
+                            IsDelete = false,
+                            ProductID = 48,
+                            ReceiptID = 15,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 48,
+                            IsDelete = false,
+                            ProductID = 49,
+                            ReceiptID = 15,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 49,
+                            IsDelete = false,
+                            ProductID = 50,
+                            ReceiptID = 15,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 50,
+                            IsDelete = false,
+                            ProductID = 26,
+                            ReceiptID = 15,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 51,
+                            IsDelete = false,
+                            ProductID = 27,
+                            ReceiptID = 15,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 52,
+                            IsDelete = false,
+                            ProductID = 28,
+                            ReceiptID = 15,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 53,
+                            IsDelete = false,
+                            ProductID = 7,
+                            ReceiptID = 16,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 54,
+                            IsDelete = false,
+                            ProductID = 8,
+                            ReceiptID = 16,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 55,
+                            IsDelete = false,
+                            ProductID = 9,
+                            ReceiptID = 16,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 56,
+                            IsDelete = false,
+                            ProductID = 10,
+                            ReceiptID = 16,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 57,
+                            IsDelete = false,
+                            ProductID = 11,
+                            ReceiptID = 16,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 58,
+                            IsDelete = false,
+                            ProductID = 12,
+                            ReceiptID = 16,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 59,
+                            IsDelete = false,
+                            ProductID = 56,
+                            ReceiptID = 16,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 60,
+                            IsDelete = false,
+                            ProductID = 57,
+                            ReceiptID = 16,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 61,
+                            IsDelete = false,
+                            ProductID = 55,
+                            ReceiptID = 16,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 62,
+                            IsDelete = false,
+                            ProductID = 69,
+                            ReceiptID = 17,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 63,
+                            IsDelete = false,
+                            ProductID = 70,
+                            ReceiptID = 17,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 64,
+                            IsDelete = false,
+                            ProductID = 71,
+                            ReceiptID = 17,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 65,
+                            IsDelete = false,
+                            ProductID = 72,
+                            ReceiptID = 17,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 66,
+                            IsDelete = false,
+                            ProductID = 73,
+                            ReceiptID = 17,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 67,
+                            IsDelete = false,
+                            ProductID = 74,
+                            ReceiptID = 17,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 68,
+                            IsDelete = false,
+                            ProductID = 89,
+                            ReceiptID = 18,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 69,
+                            IsDelete = false,
+                            ProductID = 90,
+                            ReceiptID = 18,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 70,
+                            IsDelete = false,
+                            ProductID = 91,
+                            ReceiptID = 18,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 71,
+                            IsDelete = false,
+                            ProductID = 86,
+                            ReceiptID = 18,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 72,
+                            IsDelete = false,
+                            ProductID = 87,
+                            ReceiptID = 18,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 73,
+                            IsDelete = false,
+                            ProductID = 88,
+                            ReceiptID = 18,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 74,
+                            IsDelete = false,
+                            ProductID = 13,
+                            ReceiptID = 19,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 75,
+                            IsDelete = false,
+                            ProductID = 14,
+                            ReceiptID = 19,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 76,
+                            IsDelete = false,
+                            ProductID = 15,
+                            ReceiptID = 19,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 77,
+                            IsDelete = false,
+                            ProductID = 16,
+                            ReceiptID = 19,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 78,
+                            IsDelete = false,
+                            ProductID = 17,
+                            ReceiptID = 19,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 79,
+                            IsDelete = false,
+                            ProductID = 18,
+                            ReceiptID = 19,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 80,
+                            IsDelete = false,
+                            ProductID = 19,
+                            ReceiptID = 19,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 81,
+                            IsDelete = false,
+                            ProductID = 32,
+                            ReceiptID = 20,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 82,
+                            IsDelete = false,
+                            ProductID = 33,
+                            ReceiptID = 20,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 83,
+                            IsDelete = false,
+                            ProductID = 34,
+                            ReceiptID = 20,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 84,
+                            IsDelete = false,
+                            ProductID = 35,
+                            ReceiptID = 20,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 85,
+                            IsDelete = false,
+                            ProductID = 36,
+                            ReceiptID = 20,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 86,
+                            IsDelete = false,
+                            ProductID = 37,
+                            ReceiptID = 20,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 87,
+                            IsDelete = false,
+                            ProductID = 38,
+                            ReceiptID = 20,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 88,
+                            IsDelete = false,
+                            ProductID = 45,
+                            ReceiptID = 21,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 89,
+                            IsDelete = false,
+                            ProductID = 46,
+                            ReceiptID = 21,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 90,
+                            IsDelete = false,
+                            ProductID = 47,
+                            ReceiptID = 21,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 91,
+                            IsDelete = false,
+                            ProductID = 49,
+                            ReceiptID = 21,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 92,
+                            IsDelete = false,
+                            ProductID = 48,
+                            ReceiptID = 21,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 93,
+                            IsDelete = false,
+                            ProductID = 62,
+                            ReceiptID = 21,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 94,
+                            IsDelete = false,
+                            ProductID = 50,
+                            ReceiptID = 21,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 95,
+                            IsDelete = false,
+                            ProductID = 54,
+                            ReceiptID = 21,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 96,
+                            IsDelete = false,
+                            ProductID = 75,
+                            ReceiptID = 22,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 97,
+                            IsDelete = false,
+                            ProductID = 76,
+                            ReceiptID = 22,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 98,
+                            IsDelete = false,
+                            ProductID = 77,
+                            ReceiptID = 22,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 99,
+                            IsDelete = false,
+                            ProductID = 78,
+                            ReceiptID = 22,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 100,
+                            IsDelete = false,
+                            ProductID = 79,
+                            ReceiptID = 22,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 101,
+                            IsDelete = false,
+                            ProductID = 80,
+                            ReceiptID = 22,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 102,
+                            IsDelete = false,
+                            ProductID = 81,
+                            ReceiptID = 23,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 103,
+                            IsDelete = false,
+                            ProductID = 82,
+                            ReceiptID = 23,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 104,
+                            IsDelete = false,
+                            ProductID = 95,
+                            ReceiptID = 23,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 105,
+                            IsDelete = false,
+                            ProductID = 96,
+                            ReceiptID = 23,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 106,
+                            IsDelete = false,
+                            ProductID = 97,
+                            ReceiptID = 23,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 107,
+                            IsDelete = false,
+                            ProductID = 98,
+                            ReceiptID = 24,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 108,
+                            IsDelete = false,
+                            ProductID = 99,
+                            ReceiptID = 24,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 109,
+                            IsDelete = false,
+                            ProductID = 100,
+                            ReceiptID = 24,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 110,
+                            IsDelete = false,
+                            ProductID = 101,
+                            ReceiptID = 24,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 111,
+                            IsDelete = false,
+                            ProductID = 102,
+                            ReceiptID = 24,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 112,
+                            IsDelete = false,
+                            ProductID = 20,
+                            ReceiptID = 25,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 113,
+                            IsDelete = false,
+                            ProductID = 21,
+                            ReceiptID = 25,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 114,
+                            IsDelete = false,
+                            ProductID = 50,
+                            ReceiptID = 25,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 115,
+                            IsDelete = false,
+                            ProductID = 54,
+                            ReceiptID = 25,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 116,
+                            IsDelete = false,
+                            ProductID = 58,
+                            ReceiptID = 25,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 117,
+                            IsDelete = false,
+                            ProductID = 39,
+                            ReceiptID = 26,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 118,
+                            IsDelete = false,
+                            ProductID = 39,
+                            ReceiptID = 26,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 119,
+                            IsDelete = false,
+                            ProductID = 40,
+                            ReceiptID = 27,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 120,
+                            IsDelete = false,
+                            ProductID = 41,
+                            ReceiptID = 27,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 121,
+                            IsDelete = false,
+                            ProductID = 42,
+                            ReceiptID = 27,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 122,
+                            IsDelete = false,
+                            ProductID = 20,
+                            ReceiptID = 27,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 123,
+                            IsDelete = false,
+                            ProductID = 21,
+                            ReceiptID = 27,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 124,
+                            IsDelete = false,
+                            ProductID = 22,
+                            ReceiptID = 27,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 125,
+                            IsDelete = false,
+                            ProductID = 20,
+                            ReceiptID = 28,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 126,
+                            IsDelete = false,
+                            ProductID = 39,
+                            ReceiptID = 29,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 127,
+                            IsDelete = false,
+                            ProductID = 40,
+                            ReceiptID = 29,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 128,
+                            IsDelete = false,
+                            ProductID = 41,
+                            ReceiptID = 29,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 129,
+                            IsDelete = false,
+                            ProductID = 63,
+                            ReceiptID = 29,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 130,
+                            IsDelete = false,
+                            ProductID = 64,
+                            ReceiptID = 29,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 131,
+                            IsDelete = false,
+                            ProductID = 83,
+                            ReceiptID = 30,
+                            Star = 3
+                        },
+                        new
+                        {
+                            ID = 132,
+                            IsDelete = false,
+                            ProductID = 84,
+                            ReceiptID = 30,
+                            Star = 4
+                        },
+                        new
+                        {
+                            ID = 133,
+                            IsDelete = false,
+                            ProductID = 84,
+                            ReceiptID = 30,
+                            Star = 4
+                        });
                 });
 
             modelBuilder.Entity("Clothing_Store.Models.Receipt", b =>
@@ -3451,27 +4517,27 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 1,
                             Color = "Xanh dương",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 381, DateTimeKind.Local).AddTicks(4070),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 615, DateTimeKind.Local).AddTicks(9340),
                             ProductID = 1,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 2,
                             Color = "Xanh dương",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1520),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6010),
                             ProductID = 1,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 3,
                             Color = "Xanh dương",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1570),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6060),
                             ProductID = 1,
                             Quantity = 100,
                             Size = "XL",
@@ -3481,7 +4547,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 4,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1580),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6060),
                             ProductID = 1,
                             Quantity = 100,
                             Size = "M",
@@ -3491,17 +4557,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 5,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1580),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6070),
                             ProductID = 1,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 6,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1590),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6070),
                             ProductID = 1,
                             Quantity = 100,
                             Size = "XL",
@@ -3511,27 +4577,27 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 7,
                             Color = "Xanh lá",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1590),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6070),
                             ProductID = 2,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 8,
                             Color = "Xanh lá",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1590),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6080),
                             ProductID = 2,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 9,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1590),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6080),
                             ProductID = 2,
                             Quantity = 100,
                             Size = "M",
@@ -3541,7 +4607,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 10,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1600),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6090),
                             ProductID = 2,
                             Quantity = 100,
                             Size = "L",
@@ -3551,27 +4617,27 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 11,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1600),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6090),
                             ProductID = 3,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 12,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1600),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6090),
                             ProductID = 3,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 13,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1610),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6090),
                             ProductID = 3,
                             Quantity = 100,
                             Size = "M",
@@ -3581,7 +4647,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 14,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1610),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6100),
                             ProductID = 3,
                             Quantity = 100,
                             Size = "L",
@@ -3591,17 +4657,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 15,
                             Color = "Vàng cam",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1610),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6100),
                             ProductID = 4,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 16,
                             Color = "Vàng cam",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1610),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6100),
                             ProductID = 4,
                             Quantity = 100,
                             Size = "L",
@@ -3611,7 +4677,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 17,
                             Color = "Xanh dương",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1620),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6100),
                             ProductID = 4,
                             Quantity = 100,
                             Size = "M",
@@ -3621,7 +4687,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 18,
                             Color = "Xanh dương",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1620),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6110),
                             ProductID = 4,
                             Quantity = 100,
                             Size = "L",
@@ -3631,7 +4697,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 19,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1620),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6110),
                             ProductID = 5,
                             Quantity = 100,
                             Size = "M",
@@ -3641,7 +4707,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 20,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1620),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6110),
                             ProductID = 5,
                             Quantity = 100,
                             Size = "L",
@@ -3651,17 +4717,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 21,
                             Color = "Vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1630),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6120),
                             ProductID = 5,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 22,
                             Color = "Vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1630),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6120),
                             ProductID = 5,
                             Quantity = 100,
                             Size = "L",
@@ -3671,7 +4737,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 23,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1640),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6120),
                             ProductID = 6,
                             Quantity = 100,
                             Size = "M",
@@ -3681,7 +4747,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 24,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1640),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6120),
                             ProductID = 6,
                             Quantity = 100,
                             Size = "L",
@@ -3691,7 +4757,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 25,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1640),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6130),
                             ProductID = 6,
                             Quantity = 100,
                             Size = "M",
@@ -3701,17 +4767,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 26,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1640),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6130),
                             ProductID = 6,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 27,
                             Color = "Vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1650),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6130),
                             ProductID = 6,
                             Quantity = 100,
                             Size = "M",
@@ -3721,7 +4787,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 28,
                             Color = "Vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1650),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6140),
                             ProductID = 6,
                             Quantity = 100,
                             Size = "L",
@@ -3731,17 +4797,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 29,
                             Color = "Xanh lá",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1650),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6140),
                             ProductID = 7,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 30,
                             Color = "Xanh lá",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1650),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6140),
                             ProductID = 7,
                             Quantity = 100,
                             Size = "L",
@@ -3751,7 +4817,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 31,
                             Color = "Xanh mint",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1660),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6140),
                             ProductID = 7,
                             Quantity = 100,
                             Size = "M",
@@ -3761,7 +4827,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 32,
                             Color = "Xanh mint",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1660),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6150),
                             ProductID = 7,
                             Quantity = 100,
                             Size = "L",
@@ -3771,17 +4837,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 33,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1660),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6150),
                             ProductID = 8,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 34,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1660),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6150),
                             ProductID = 8,
                             Quantity = 100,
                             Size = "L",
@@ -3791,7 +4857,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 35,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1670),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6150),
                             ProductID = 8,
                             Quantity = 100,
                             Size = "M",
@@ -3801,7 +4867,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 36,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1670),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6160),
                             ProductID = 8,
                             Quantity = 100,
                             Size = "L",
@@ -3811,7 +4877,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 37,
                             Color = "Xanh nhạt",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1670),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6160),
                             ProductID = 8,
                             Quantity = 100,
                             Size = "M",
@@ -3821,7 +4887,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 38,
                             Color = "Xanh nhạt",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1680),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6160),
                             ProductID = 8,
                             Quantity = 100,
                             Size = "L",
@@ -3831,7 +4897,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 39,
                             Color = "Xanh đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1680),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6160),
                             ProductID = 9,
                             Quantity = 100,
                             Size = "M",
@@ -3841,7 +4907,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 40,
                             Color = "Xanh đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1690),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6170),
                             ProductID = 9,
                             Quantity = 100,
                             Size = "L",
@@ -3851,17 +4917,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 41,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1690),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6170),
                             ProductID = 9,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 42,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1690),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6180),
                             ProductID = 9,
                             Quantity = 100,
                             Size = "L",
@@ -3871,127 +4937,127 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 43,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1690),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6180),
                             ProductID = 10,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 44,
                             Color = "Xanh dương",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1700),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6180),
                             ProductID = 11,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 45,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1700),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6180),
                             ProductID = 12,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 46,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1700),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6190),
                             ProductID = 13,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 47,
                             Color = "Xanh đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1700),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6190),
                             ProductID = 14,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 48,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1710),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6190),
                             ProductID = 15,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 8
                         },
                         new
                         {
                             ID = 49,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1710),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6190),
                             ProductID = 16,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 50,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1710),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6200),
                             ProductID = 17,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 51,
                             Color = "Xanh đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1710),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6200),
                             ProductID = 18,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 52,
                             Color = "Trắng vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1720),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6200),
                             ProductID = 19,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 9
                         },
                         new
                         {
                             ID = 53,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1720),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6200),
                             ProductID = 20,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 54,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1830),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6210),
                             ProductID = 20,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 55,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1830),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6210),
                             ProductID = 20,
                             Quantity = 100,
                             Size = "XL",
@@ -4001,17 +5067,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 56,
                             Color = "Vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1830),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6210),
                             ProductID = 21,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 57,
                             Color = "Vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1840),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6210),
                             ProductID = 21,
                             Quantity = 100,
                             Size = "L",
@@ -4021,7 +5087,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 58,
                             Color = "Nâu nhạt",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1840),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6220),
                             ProductID = 21,
                             Quantity = 100,
                             Size = "M",
@@ -4031,27 +5097,27 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 59,
                             Color = "Nâu nhạt",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1850),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6220),
                             ProductID = 21,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 60,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1850),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6230),
                             ProductID = 22,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 61,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1850),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6230),
                             ProductID = 22,
                             Quantity = 100,
                             Size = "L",
@@ -4061,27 +5127,27 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 62,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1850),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6230),
                             ProductID = 22,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 63,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1860),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6230),
                             ProductID = 22,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 64,
                             Color = "Vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1860),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6240),
                             ProductID = 22,
                             Quantity = 100,
                             Size = "M",
@@ -4091,7 +5157,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 65,
                             Color = "Vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1860),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6240),
                             ProductID = 22,
                             Quantity = 100,
                             Size = "L",
@@ -4101,17 +5167,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 66,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1860),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6240),
                             ProductID = 23,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 67,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1870),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6240),
                             ProductID = 23,
                             Quantity = 100,
                             Size = "L",
@@ -4121,7 +5187,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 68,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1870),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6250),
                             ProductID = 23,
                             Quantity = 100,
                             Size = "M",
@@ -4131,7 +5197,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 69,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1870),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6250),
                             ProductID = 23,
                             Quantity = 100,
                             Size = "L",
@@ -4141,17 +5207,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 70,
                             Color = "Xanh rêu",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1880),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6250),
                             ProductID = 24,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 71,
                             Color = "Xanh rêu",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1880),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6250),
                             ProductID = 24,
                             Quantity = 100,
                             Size = "L",
@@ -4161,17 +5227,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 72,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1880),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6260),
                             ProductID = 25,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 73,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1880),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6260),
                             ProductID = 25,
                             Quantity = 100,
                             Size = "L",
@@ -4181,57 +5247,57 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 74,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1890),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6260),
                             ProductID = 26,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 7
                         },
                         new
                         {
                             ID = 75,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1890),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6260),
                             ProductID = 27,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 76,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1890),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6270),
                             ProductID = 28,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 77,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1900),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6270),
                             ProductID = 29,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 78,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1900),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6280),
                             ProductID = 30,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 79,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1900),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6280),
                             ProductID = 31,
                             Quantity = 100,
                             Size = "L",
@@ -4241,147 +5307,147 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 80,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1910),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6280),
                             ProductID = 32,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 81,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1910),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6280),
                             ProductID = 33,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 9
                         },
                         new
                         {
                             ID = 82,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1910),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6290),
                             ProductID = 34,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 83,
                             Color = "Xanh đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1910),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6290),
                             ProductID = 35,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 10
                         },
                         new
                         {
                             ID = 84,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1920),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6290),
                             ProductID = 36,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 85,
                             Color = "Xanh",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1920),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6290),
                             ProductID = 37,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 86,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1920),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6300),
                             ProductID = 38,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 14
                         },
                         new
                         {
                             ID = 87,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1920),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6300),
                             ProductID = 39,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 7
                         },
                         new
                         {
                             ID = 88,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1930),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6300),
                             ProductID = 39,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 89,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1930),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6300),
                             ProductID = 40,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 90,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1930),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6300),
                             ProductID = 40,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 91,
                             Color = "Caro xanh",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1930),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6410),
                             ProductID = 41,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 92,
                             Color = "Caro xanh",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1940),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6420),
                             ProductID = 41,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 93,
                             Color = "Caro đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1940),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6420),
                             ProductID = 41,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 94,
                             Color = "Caro đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1940),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6420),
                             ProductID = 41,
                             Quantity = 100,
                             Size = "L",
@@ -4391,17 +5457,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 95,
                             Color = "Caro xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1950),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6430),
                             ProductID = 42,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 96,
                             Color = "Caro xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1950),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6430),
                             ProductID = 42,
                             Quantity = 100,
                             Size = "L",
@@ -4411,47 +5477,47 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 97,
                             Color = "Caro đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1950),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6430),
                             ProductID = 43,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 98,
                             Color = "Caro đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1960),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6430),
                             ProductID = 44,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 99,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1960),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6440),
                             ProductID = 45,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 100,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1960),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6440),
                             ProductID = 46,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 101,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1960),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6440),
                             ProductID = 47,
                             Quantity = 100,
                             Size = "M",
@@ -4461,77 +5527,77 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 102,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1970),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6450),
                             ProductID = 47,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 103,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1970),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6450),
                             ProductID = 47,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 104,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1970),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6450),
                             ProductID = 47,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 105,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1970),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6450),
                             ProductID = 48,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 106,
                             Color = "Xanh biển",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1980),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6460),
                             ProductID = 49,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 10
                         },
                         new
                         {
                             ID = 107,
                             Color = "Xanh biển",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1980),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6460),
                             ProductID = 50,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 108,
                             Color = "Xanh biển",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1980),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6460),
                             ProductID = 50,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 109,
                             Color = "Xanh biển",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1990),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6460),
                             ProductID = 50,
                             Quantity = 100,
                             Size = "XL",
@@ -4541,17 +5607,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 110,
                             Color = "Caro cam",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1990),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6470),
                             ProductID = 51,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 111,
                             Color = "Caro cam",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(1990),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6470),
                             ProductID = 51,
                             Quantity = 100,
                             Size = "L",
@@ -4561,7 +5627,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 112,
                             Color = "Caro xanh",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2000),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6470),
                             ProductID = 51,
                             Quantity = 100,
                             Size = "M",
@@ -4571,7 +5637,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 113,
                             Color = "Caro xanh",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2000),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6480),
                             ProductID = 51,
                             Quantity = 100,
                             Size = "L",
@@ -4581,17 +5647,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 114,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2000),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6480),
                             ProductID = 52,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 115,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2000),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6480),
                             ProductID = 52,
                             Quantity = 100,
                             Size = "L",
@@ -4601,7 +5667,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 116,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2010),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6480),
                             ProductID = 52,
                             Quantity = 100,
                             Size = "XL",
@@ -4611,67 +5677,67 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 117,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2010),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6490),
                             ProductID = 53,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 118,
                             Color = "Xanh biển",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2010),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6490),
                             ProductID = 54,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 119,
                             Color = "Hoạ tiết 1",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2010),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6490),
                             ProductID = 55,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 120,
                             Color = "Xanh biển",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2020),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6490),
                             ProductID = 56,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 121,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2020),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6500),
                             ProductID = 57,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 122,
                             Color = "Xanh dương",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2020),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6500),
                             ProductID = 58,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 123,
                             Color = "Xanh biển",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2020),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6500),
                             ProductID = 59,
                             Quantity = 100,
                             Size = "L",
@@ -4681,7 +5747,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 124,
                             Color = "Nâu nhạt",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2030),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6500),
                             ProductID = 60,
                             Quantity = 100,
                             Size = "L",
@@ -4691,7 +5757,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 125,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2030),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6510),
                             ProductID = 61,
                             Quantity = 100,
                             Size = "L",
@@ -4701,27 +5767,27 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 126,
                             Color = "Xanh biển",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2030),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6510),
                             ProductID = 62,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 127,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2040),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6510),
                             ProductID = 63,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 128,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2040),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6520),
                             ProductID = 63,
                             Quantity = 100,
                             Size = "L",
@@ -4731,37 +5797,37 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 129,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2040),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6520),
                             ProductID = 63,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 130,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2040),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6520),
                             ProductID = 63,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 131,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2050),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6530),
                             ProductID = 64,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 132,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2050),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6530),
                             ProductID = 64,
                             Quantity = 100,
                             Size = "L",
@@ -4771,17 +5837,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 133,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2050),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6530),
                             ProductID = 65,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 134,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2050),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6530),
                             ProductID = 65,
                             Quantity = 100,
                             Size = "L",
@@ -4791,17 +5857,17 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 135,
                             Color = "Vàng kem",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2060),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6540),
                             ProductID = 65,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 136,
                             Color = "Vàng kem",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2060),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6540),
                             ProductID = 65,
                             Quantity = 100,
                             Size = "L",
@@ -4811,307 +5877,307 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 137,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2060),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6540),
                             ProductID = 66,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 138,
                             Color = "Vàng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2060),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6540),
                             ProductID = 67,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 139,
                             Color = "Xanh rêu",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2070),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6550),
                             ProductID = 68,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 140,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2070),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6550),
                             ProductID = 69,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 141,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2070),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6550),
                             ProductID = 70,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 142,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2080),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6550),
                             ProductID = 71,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 143,
                             Color = "Xanh rêu",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2080),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6560),
                             ProductID = 72,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 144,
                             Color = "Vàng kem",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2080),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6560),
                             ProductID = 73,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 145,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2090),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6560),
                             ProductID = 74,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 146,
                             Color = "Nâu",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2090),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6570),
                             ProductID = 75,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 147,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2090),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6570),
                             ProductID = 76,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 148,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2090),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6570),
                             ProductID = 77,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 149,
                             Color = "Đỏ",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2100),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6580),
                             ProductID = 78,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 150,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2100),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6580),
                             ProductID = 79,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 151,
                             Color = "Xanh rêu",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2100),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6580),
                             ProductID = 80,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 152,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2110),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6580),
                             ProductID = 81,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 5
                         },
                         new
                         {
                             ID = 153,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2110),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6590),
                             ProductID = 82,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 154,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2110),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6590),
                             ProductID = 83,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 8
                         },
                         new
                         {
                             ID = 155,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2110),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6590),
                             ProductID = 83,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 156,
                             Color = "Xanh jean",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2120),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6590),
                             ProductID = 84,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 13
                         },
                         new
                         {
                             ID = 157,
                             Color = "Xanh jean",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2120),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6600),
                             ProductID = 84,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 158,
                             Color = "Xanh jean",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2120),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6600),
                             ProductID = 85,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 159,
                             Color = "Xanh jean",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2120),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6600),
                             ProductID = 85,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 160,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2130),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6600),
                             ProductID = 86,
                             Quantity = 100,
                             Size = "M",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 161,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2130),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6610),
                             ProductID = 86,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 3
                         },
                         new
                         {
                             ID = 162,
                             Color = "Xanh jean",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2130),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6610),
                             ProductID = 87,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 163,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2140),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6610),
                             ProductID = 88,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 2
                         },
                         new
                         {
                             ID = 164,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2140),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6620),
                             ProductID = 89,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 4
                         },
                         new
                         {
                             ID = 165,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2140),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6620),
                             ProductID = 90,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 166,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2140),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6620),
                             ProductID = 91,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 167,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2150),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6620),
                             ProductID = 92,
                             Quantity = 100,
                             Size = "L",
@@ -5121,7 +6187,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 168,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2150),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6630),
                             ProductID = 93,
                             Quantity = 100,
                             Size = "L",
@@ -5131,7 +6197,7 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 169,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2150),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6630),
                             ProductID = 94,
                             Quantity = 100,
                             Size = "L",
@@ -5141,81 +6207,81 @@ namespace Clothing_Store.Migrations
                         {
                             ID = 170,
                             Color = "Xanh rêu",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2160),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6630),
                             ProductID = 95,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 171,
                             Color = "Xám",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2160),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6640),
                             ProductID = 96,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 172,
                             Color = "Nâu nhạt",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2160),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6640),
                             ProductID = 97,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 173,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2160),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6640),
                             ProductID = 98,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 174,
                             Color = "Xám jean",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2170),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6640),
                             ProductID = 99,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 175,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2170),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6650),
                             ProductID = 100,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 6
                         },
                         new
                         {
                             ID = 176,
                             Color = "Trắng",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2170),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6650),
                             ProductID = 101,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         },
                         new
                         {
                             ID = 177,
                             Color = "Đen",
-                            LastUpdate = new DateTime(2021, 12, 20, 16, 16, 44, 396, DateTimeKind.Local).AddTicks(2170),
+                            LastUpdate = new DateTime(2021, 12, 21, 11, 31, 31, 637, DateTimeKind.Local).AddTicks(6650),
                             ProductID = 102,
                             Quantity = 100,
                             Size = "L",
-                            Sold = 0
+                            Sold = 1
                         });
                 });
 
@@ -5289,11 +6355,15 @@ namespace Clothing_Store.Migrations
                 {
                     b.HasOne("Clothing_Store.Models.Product", "product")
                         .WithMany("ratings")
-                        .HasForeignKey("productID");
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Clothing_Store.Models.Receipt", "receipt")
                         .WithMany()
-                        .HasForeignKey("receiptID");
+                        .HasForeignKey("ReceiptID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Clothing_Store.Models.Receipt", b =>
