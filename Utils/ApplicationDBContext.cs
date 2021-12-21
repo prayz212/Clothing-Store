@@ -53,6 +53,8 @@ namespace Clothing_Store.Utils
             modelBuilder.Entity<Account>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            modelBuilder.Seed();
         }
     }
 }

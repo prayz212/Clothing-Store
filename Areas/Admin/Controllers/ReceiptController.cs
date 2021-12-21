@@ -41,7 +41,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
 
@@ -95,7 +95,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
 
@@ -125,7 +125,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
     }
