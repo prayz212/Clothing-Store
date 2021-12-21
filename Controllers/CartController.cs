@@ -293,18 +293,30 @@ namespace Clothing_Store.Controllers
                 Int32.TryParse(Quantity, out quantity);
                 int productID = 0;
                 Int32.TryParse(ProductID, out productID);
-            
-                
-                CartDetails new_cd = new CartDetails()
-                {
-                    accountID = userID,
-                    productID = productID,
-                    Color = color,
-                    Size = size,
-                    Quantity = quantity
-                };
 
-                _context.cartDetails.Add(new_cd);
+                var isProducuInCart = _context.cartDetails
+                    .Where(cd => cd.accountID == userID)
+                    .Where(cd => cd.IsDelete == false)
+                    .Where(cd => cd.productID == productID && cd.Color == color && cd.Size == size)
+                    .FirstOrDefault();
+
+                if (isProducuInCart == null)
+                {
+                    CartDetails new_cd = new CartDetails()
+                    {
+                        accountID = userID,
+                        productID = productID,
+                        Color = color,
+                        Size = size,
+                        Quantity = quantity
+                    };
+
+                    _context.cartDetails.Add(new_cd);
+                } else
+                {
+                    isProducuInCart.Quantity = isProducuInCart.Quantity + quantity;
+                }
+
                 _context.SaveChanges();
 
                 return Json(new { status = "success" });
@@ -426,7 +438,7 @@ namespace Clothing_Store.Controllers
                         Color = c.Color,
                         Size = c.Size,
                         Quantity = c.Quantity,
-                        TotalPrice = c.product.promotion == null && c.product.promotion.From <= DateTime.Now && c.product.promotion.To >= DateTime.Now
+                        TotalPrice = c.product.promotion == null || c.product.promotion.From > DateTime.Now || c.product.promotion.To < DateTime.Now
                             ? c.product.Price * c.Quantity
                             : (int)Math.Round(c.product.Price - c.product.Price * (c.product.promotion.Discount/(float)100)) * c.Quantity
                     })

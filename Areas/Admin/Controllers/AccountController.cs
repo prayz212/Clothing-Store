@@ -28,23 +28,23 @@ namespace Clothing_Store.Areas.Admin.Controllers
         {
             try
             {
+                List<AdminAccountModel> accountsInfo = _context.customers
+                    .Include(c => c.account)
+                    .ThenInclude(ac => ac.receipts)
+                    .Where(ac => ac.account.IsDelete == false)
+                    .Select(c => new AdminAccountModel()
+                    {
+                        ID = c.AccountID,
+                        UserName = c.account.Username,
+                        Fullname = c.Fullname,
+                        Email = c.account.Email,
+                        Phone = c.Phone,
+                        CardNumber = c.CardNumber,
+                        ValiDate = c.ValidDate,
+                        TotalPayment = c.account.receipts.Sum(r => r.TotalPay),
+                        TotalOrder = c.account.receipts.Count()
+                    }).ToList();
 
-                List<AdminAccountModel> accountsInfo = _context.accounts
-                    .Where(ac => ac.IsDelete == false)
-                    .Include(ac => ac.customer)
-                    .Include(ac => ac.receipts)
-                    .Select(ac => new AdminAccountModel() { 
-                        ID = ac.ID,
-                        UserName = ac.Username,
-                        Fullname = ac.customer.Fullname,
-                        Email = ac.Email,
-                        Phone = ac.customer.Phone,
-                        CardNumber = ac.customer.CardNumber,
-                        ValiDate = ac.customer.ValidDate,
-                        TotalPayment = ac.receipts.Sum(r => r.TotalPay),
-                        TotalOrder = ac.receipts.Count()
-                    }).ToList();     
-                    
                 AdminAccountViewModel vm = new AdminAccountViewModel()
                 {
                     accounts = accountsInfo,
@@ -55,7 +55,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
 
@@ -90,7 +90,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
 
@@ -166,7 +166,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
 
@@ -180,7 +180,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
 
@@ -256,7 +256,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
 
@@ -314,7 +314,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
 
@@ -401,7 +401,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
 
@@ -420,7 +420,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             } 
             catch (Exception e)
             {
-                return RedirectToAction("Error", "Exception");
+                return RedirectToAction("Error", "Exception", new { area = "" });
             }
         }
     }
