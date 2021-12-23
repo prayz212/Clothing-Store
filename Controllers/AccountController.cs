@@ -19,7 +19,7 @@ namespace Clothing_Store.Controllers
         private IEmailServices _emailServices;
         private readonly string SESSION_USER_ID = "user_id";
         private readonly string SESSION_USER_NAME = "user_name";
-        private readonly int EMAIL_EXPIRED_TIME = 30;
+        private readonly int EMAIL_EXPIRED_TIME = 10;
 
         public AccountController(ApplicationDBContext context, EmailConfiguration config)
         {
@@ -66,6 +66,8 @@ namespace Clothing_Store.Controllers
 
                     _context.Add(newAccount);
                     _context.SaveChanges();
+                    
+                    _emailServices.SendEmail(SendEmailType.REGISTER_SUCCESS, newAccount.Email);
 
                     return redirectAfterLogin(newAccount);
                 }
@@ -208,7 +210,7 @@ namespace Clothing_Store.Controllers
                 }
                 else
                 {
-                    return Ok("This link is expired");
+                    return RedirectToAction("Notfound", "Exception");
                 }
             }
             catch (Exception e)
