@@ -24,22 +24,22 @@ html {
 }
 
 .__page {
-    position: relative;
-    min-height: 100vh;
+  position: relative;
+  min-height: 100vh;
 }
 
 .__content-wrap {
-    min-height: 94px;
+  min-height: 94px;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    font-size: 1.6rem !important;
-    font-weight: 400 !important;
-    background-color: #fff;
-    color: #243a6f !important;
-    position: relative;
-    z-index: 1;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem !important;
+  font-weight: 400 !important;
+  background-color: #fff;
+  color: #243a6f !important;
+  position: relative;
+  z-index: 1;
 }
 
 h1,
@@ -98,13 +98,13 @@ li {
 }
 
 .__nav-shadow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #243a6f;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #243a6f;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 
 .__nav.__fix-nav {
@@ -392,9 +392,8 @@ li {
 .__advert-box img {
   position: absolute;
   bottom: 0%;
-  left: -20%;
+  left: 6%;
   height: 100%;
-  width: 35rem;
   z-index: -1;
 }
 
@@ -496,7 +495,7 @@ li {
   border-radius: 1rem;
   text-align: center;
   transition: all 300ms ease-in-out;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .__product:hover {
@@ -578,13 +577,13 @@ li {
 }
 
 .show-icons {
-    font-size: 55px;
-    color: gainsboro;
+  font-size: 55px;
+  color: gainsboro;
 }
 
 .__product:hover .icons {
-    opacity: 1;
-    transform: translate(0, -50%) scale(1);
+  opacity: 1;
+  transform: translate(0, -50%) scale(1);
 }
 
 .__product-header .icons a {
@@ -592,37 +591,34 @@ li {
   margin-bottom: 1rem;
 }
 
-
 @media only screen and (min-width: 567px) {
-    .__product-container {
-        max-width: 615px !important;
-    }
+  .__product-container {
+    max-width: 615px !important;
+  }
 }
-
 
 @media only screen and (min-width: 768px) {
-    .__product-container {
-        max-width: 750px !important;
-    }
+  .__product-container {
+    max-width: 750px !important;
+  }
 }
 
-
 @media only screen and (min-width: 992px) {
-    .__product-container {
-        max-width: 1010px !important;
-    }
+  .__product-container {
+    max-width: 1010px !important;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
-    .__product-container {
-        max-width: 1190px !important;
-    }
+  .__product-container {
+    max-width: 1190px !important;
+  }
 }
 
 @media only screen and (min-width: 1400px) {
-    .__product-container {
-        max-width: 1285px !important;
-    }
+  .__product-container {
+    max-width: 1285px !important;
+  }
 }
 
 /* Exclusive Product */
@@ -773,15 +769,15 @@ li {
     row-gap: 2rem;
   }
 
-    .__footer-center {
-        font-size: small;
-    }
+  .__footer-center {
+    font-size: small;
+  }
 
-    .__footer {
-        padding: 0.6rem 0.5rem;
-        line-height: 1.8rem;
-        height: 7vh;
-    }
+  .__footer {
+    padding: 0.6rem 0.5rem;
+    line-height: 1.8rem;
+    height: 7vh;
+  }
 }
 
 /* All Products */
@@ -1046,8 +1042,8 @@ form span {
 }
 
 .__rating-stars ul {
-    list-style-type: none;
-    padding-left: 0rem;
+  list-style-type: none;
+  padding-left: 0rem;
 }
 
 .__rating-stars ul > li.__star {
@@ -1337,7 +1333,8 @@ th:last-child {
   font-size: 15px;
 }
 
-._btn, ._update-btn {
+._btn,
+._update-btn {
   display: inline-block;
   background: #243a6f;
   color: #fff;
@@ -1349,8 +1346,9 @@ th:last-child {
   border: none;
 }
 
-._btn:hover, ._update-btn:hover {
-    background: #3556a6;
+._btn:hover,
+._update-btn:hover {
+  background: #3556a6;
 }
 
 form ._btn {
@@ -1362,28 +1360,28 @@ form ._btn {
 
 ._form-container li,
 .__error-msg {
-    font-size: small;
-    font-weight: 200;
-    color: red;
-    text-align: start;
-    list-style: inside !important;
+  font-size: small;
+  font-weight: 200;
+  color: red;
+  text-align: start;
+  list-style: inside !important;
 }
 
 .__notify-msg {
-    font-size: small;
-    font-weight: 200;
-    color: green;
-    text-align: start;
-    list-style: inside !important;
+  font-size: small;
+  font-weight: 200;
+  color: green;
+  text-align: start;
+  list-style: inside !important;
 }
 
 ._form-container ._form-btn ._form-title,
 ._form-container ._form-btn _form-title-indicator {
-    width: fit-content;
+  width: fit-content;
 }
 
 ._form-explain {
-    color: var(--grey2);
+  color: var(--grey2);
 }
 
 @media only screen and (max-width: 600px) {
@@ -1411,280 +1409,279 @@ form ._btn {
 
 /*          ACCOUNT INFO            */
 .account-settings .user-profile {
-    margin: 0 0 1rem 0;
-    padding-bottom: 1rem;
-    text-align: center;
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  text-align: center;
 }
 
-    .account-settings .user-profile .user-avatar {
-        margin: 0 0 1rem 0;
-    }
+.account-settings .user-profile .user-avatar {
+  margin: 0 0 1rem 0;
+}
 
-        .account-settings .user-profile .user-avatar img {
-            width: 90px;
-            height: 90px;
-            -webkit-border-radius: 100px;
-            -moz-border-radius: 100px;
-            border-radius: 100px;
-        }
+.account-settings .user-profile .user-avatar img {
+  width: 90px;
+  height: 90px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
 
-    .account-settings .user-profile h5.user-name {
-        margin: 0 0 0.5rem 0;
-    }
+.account-settings .user-profile h5.user-name {
+  margin: 0 0 0.5rem 0;
+}
 
-    .account-settings .user-profile h6.user-email {
-        margin: 0;
-        font-size: 0.8rem;
-        font-weight: 400;
-        color: #9fa8b9;
-    }
+.account-settings .user-profile h6.user-email {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #9fa8b9;
+}
 
 .account-settings .about {
-    margin: 2rem 0 0 0;
-    text-align: center;
+  margin: 2rem 0 0 0;
+  text-align: center;
 }
 
-    .account-settings .about h5 {
-        margin: 0 0 15px 0;
-        color: #007ae1;
-    }
+.account-settings .about h5 {
+  margin: 0 0 15px 0;
+  color: #007ae1;
+}
 
-    .account-settings .about p {
-        font-size: 0.825rem;
-    }
+.account-settings .about p {
+  font-size: 0.825rem;
+}
 
 ._form-text-area {
-    width: 100%;
-    margin: 10px 0;
-    padding: 18px 15px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 15px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 18px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 15px;
 }
 .account-settings .user-profile {
-    margin: 0 0 1rem 0;
-    padding-bottom: 1rem;
-    text-align: center;
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  text-align: center;
 }
 
-    .account-settings .user-profile .user-avatar {
-        margin: 0 0 1rem 0;
-    }
+.account-settings .user-profile .user-avatar {
+  margin: 0 0 1rem 0;
+}
 
-        .account-settings .user-profile .user-avatar img {
-            width: 90px;
-            height: 90px;
-            -webkit-border-radius: 100px;
-            -moz-border-radius: 100px;
-            border-radius: 100px;
-        }
+.account-settings .user-profile .user-avatar img {
+  width: 90px;
+  height: 90px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
 
-    .account-settings .user-profile h5.user-name {
-        margin: 0 0 0.5rem 0;
-    }
+.account-settings .user-profile h5.user-name {
+  margin: 0 0 0.5rem 0;
+}
 
-    .account-settings .user-profile h6.user-email {
-        margin: 0;
-        font-size: 0.8rem;
-        font-weight: 400;
-        color: #9fa8b9;
-    }
+.account-settings .user-profile h6.user-email {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #9fa8b9;
+}
 
 .account-settings .about {
-    margin: 2rem 0 0 0;
-    text-align: center;
+  margin: 2rem 0 0 0;
+  text-align: center;
 }
 
-    .account-settings .about h5 {
-        margin: 0 0 15px 0;
-        color: #007ae1;
-    }
+.account-settings .about h5 {
+  margin: 0 0 15px 0;
+  color: #007ae1;
+}
 
-    .account-settings .about p {
-        font-size: 0.825rem;
-    }
+.account-settings .about p {
+  font-size: 0.825rem;
+}
 
 ._form-text-area {
-    width: 100%;
-    margin: 10px 0;
-    padding: 18px 15px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 15px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 18px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 15px;
 }
 
 .__form-validation li {
-    font-size: medium;
-    font-weight: 300;
-    color: red;
-    text-align: start;
-    list-style: inside !important;
+  font-size: medium;
+  font-weight: 300;
+  color: red;
+  text-align: start;
+  list-style: inside !important;
 }
 
-.__break-word-dots
-{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+.__break-word-dots {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /*          TOAST            */
 .__wrapper {
-    width: 340px;
-    position: absolute;
-    padding: 10px;
-    top: 85px;
-    right: 10px;
-    overflow: hidden;
-    border-radius: 7px;
-    z-index: 5;
+  width: 340px;
+  position: absolute;
+  padding: 10px;
+  top: 85px;
+  right: 10px;
+  overflow: hidden;
+  border-radius: 7px;
+  z-index: 5;
 }
 
 #show-toast {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    background-color: #101020;
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: #101020;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #toast {
-    width: 320px;
-    height: auto;
-    padding-left: 10px;
-    background-color: #ffffff;
-    border-radius: 7px;
-    display: grid;
-    grid-template-columns: 1.2fr 6fr 0.5fr;
-    transform: translate(400px);
-    transition: 1s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 320px;
+  height: auto;
+  padding-left: 10px;
+  background-color: #ffffff;
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: 1.2fr 6fr 0.5fr;
+  transform: translate(400px);
+  transition: 1s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .__wrapper .success {
-    border-left: 5px solid #8bc34a;
+  border-left: 5px solid #8bc34a;
 }
 
 .__wrapper .fail {
-    border-left: 5px solid #ff5722;
+  border-left: 5px solid #ff5722;
 }
 
 .container-1,
 .container-2 {
-    align-self: center;
+  align-self: center;
 }
 
 .container-1 i {
-    font-size: 40px;
-    color: #243a6f;
+  font-size: 40px;
+  color: #243a6f;
 }
 
 .container-2 p:first-child {
-    color: #101020;
-    font-weight: 600;
-    font-size: 16px;
+  color: #101020;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .container-2 p:last-child {
-    font-size: 12px;
-    color: #656565;
-    font-weight: 400;
+  font-size: 12px;
+  color: #656565;
+  font-weight: 400;
 }
 
 #toast button {
-    align-self: flex-start;
-    background-color: transparent;
-    font-size: 25px;
-    line-height: 0;
-    color: #656565;
-    cursor: pointer;
-    border: 0;
-    padding: 5px;
+  align-self: flex-start;
+  background-color: transparent;
+  font-size: 25px;
+  line-height: 0;
+  color: #656565;
+  cursor: pointer;
+  border: 0;
+  padding: 5px;
 }
 
-.toast-sta , .toast-msg {
-    margin: 0rem!important;
+.toast-sta,
+.toast-msg {
+  margin: 0rem !important;
 }
 
 /*hidden input type number arrow*/
-input[type='number'] {
-    -moz-appearance: textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 /*Rating star*/
 .__popup-rating {
-    background: #0000008c;
-    display: none;
-    height: 100%;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    width: 100%;
-    z-index: 10000;
+  background: #0000008c;
+  display: none;
+  height: 100%;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
 }
 
 .__popup-rating .helper {
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 
 .__popup-rating > div {
-    background-color: #fff;
-    box-shadow: 10px 10px 60px #555;
-    display: inline-block;
-    height: auto;
-    max-width: 551px;
-    min-height: 100px;
-    vertical-align: middle;
-    width: 60%;
-    position: relative;
-    border-radius: 8px;
-    padding: 15px 5%;
+  background-color: #fff;
+  box-shadow: 10px 10px 60px #555;
+  display: inline-block;
+  height: auto;
+  max-width: 551px;
+  min-height: 100px;
+  vertical-align: middle;
+  width: 60%;
+  position: relative;
+  border-radius: 8px;
+  padding: 15px 5%;
 }
 
 .popupCloseButton {
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: 50px;
-    cursor: pointer;
-    display: inline-block;
-    font-family: arial;
-    font-weight: bold;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    font-size: 25px;
-    line-height: 30px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: arial;
+  font-weight: bold;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 25px;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
 }
 
 .popupCloseButton:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 ._submit-rating {
-    margin: 0px;
+  margin: 0px;
 }
 
-
 @media only screen and (max-width: 420px) {
-    ._submit-rating {
-        padding: 6px 18px;
-    }
+  ._submit-rating {
+    padding: 6px 18px;
+  }
 
-    .__popup-rating > div {
-        width: 80%;
-    }
+  .__popup-rating > div {
+    width: 80%;
+  }
 }
