@@ -13,8 +13,10 @@ namespace Clothing_Store.Models
         [Range(1, 5, ErrorMessage = "Số sao phải nằm trong khoảng từ 1 đến 5")]
         public int Star { get; set; }
 
+        public int ProductID { get; set; }
         public Product product { get; set; }
 
+        public int ReceiptID { get; set; }
         public Receipt receipt { get; set; }
 
         public bool IsDelete { get; set; } = false;

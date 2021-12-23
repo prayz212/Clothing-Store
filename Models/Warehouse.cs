@@ -30,5 +30,6 @@ namespace Clothing_Store.Models
         public DateTime LastUpdate { get; set; }
 
         public Product product { get; set; }
+        public int ProductID { get; set; }
     }
 }

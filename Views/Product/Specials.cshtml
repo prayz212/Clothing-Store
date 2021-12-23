@@ -18,9 +18,11 @@
                         <div class="__product">
                             <div class="__product-header">
                                 <img src="~/uploads/product/@item.image.URL" alt="@item.image.Name">
-                                <ul class="icons">
-                                    <span><i class='bx bxs-show show-icons'></i></span>
-                                </ul>
+                                <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
+                                    <ul class="icons">
+                                        <span><i class='bx bxs-show show-icons'></i></span>
+                                    </ul>
+                                </a>
                             </div>
                             <div class="__product-footer">
                                 <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
