@@ -129,6 +129,7 @@ $(document).ready(function () {
             $('.toast-sta').text("Thất bại")
             $('.toast-msg').text(toastMess)
         }
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     $("#close").on('click', () => {
