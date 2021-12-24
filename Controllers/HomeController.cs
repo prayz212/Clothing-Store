@@ -39,7 +39,10 @@ namespace Clothing_Store.Controllers
                             ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
                             : pt.product.Price,
                         ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
-                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault()
+                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
+                        discount = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
+                            ? pt.product.promotion.Discount
+                            : 0,
                     }).Take(8);
 
                 var newProducts = _context.productTags
@@ -58,7 +61,10 @@ namespace Clothing_Store.Controllers
                             ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
                             : pt.product.Price,
                         ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
-                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault()
+                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
+                        discount = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
+                            ? pt.product.promotion.Discount
+                            : 0,
                     }).Take(8);
 
                 HomeViewModel hvM = new HomeViewModel();
