@@ -24,10 +24,12 @@ namespace Clothing_Store.Areas.Admin.Controllers
             _context = context;
         }
 
+        //GET: /Admin/Account
         public IActionResult Index()
         {
             try
             {
+                // Get all customer account and totalpayment, totalorder of account
                 List<AdminAccountModel> accountsInfo = _context.customers
                     .Include(c => c.account)
                     .ThenInclude(ac => ac.receipts)
@@ -59,6 +61,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
+        //POST: /Admin/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Login(LoginModel account)
@@ -72,6 +75,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     .Where(ad => ad.account.Username == account.Username)
                     .FirstOrDefault();
 
+                // check if admin account exist and password
                 if (isAdmin != null)
                 {
                     bool isMatch = BCrypt.Net.BCrypt.Verify(account.Password, isAdmin.account.Password);
@@ -100,10 +104,12 @@ namespace Clothing_Store.Areas.Admin.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //GET: /Admin/Account/Details/:id
         public IActionResult Details(int id)
         {
             try
             {
+                // get customer account details
                 AdminAccountDetailsViewModel account = _context.accounts
                     .Where(ac => ac.ID == id)
                     .Include(ac => ac.customer)
@@ -134,6 +140,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                             TotalOrder = rc.Count()
                         }).FirstOrDefault();
 
+                    // check if account have receipt
                     if (rc != null)
                     {
                         account.TotalOrder = rc.TotalOrder;
@@ -145,6 +152,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         account.TotalPayment = 0;
                     }
 
+                    // Get all receipt of the account
                     List<AdminReceiptHistoryModel> receipts = _context.receipts
                         .Where(r => r.accountID == id)
                         .Select(r => new AdminReceiptHistoryModel
@@ -170,6 +178,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
+        //GET: /Admin/Account/Create
         public IActionResult Create()
         {
             try
@@ -184,7 +193,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
-
+        //POST: /Admin/Account/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("Username, Password, Fullname, Email, Phone, Address, CardNumber, ValidDate, SecretNumber")] CreateModel account)
@@ -195,6 +204,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     .Where(ac => ac.Email == account.Email || ac.Username == account.Username)
                     .FirstOrDefault();
 
+                // check if email, username exist
                 if (isAccountExist != null)
                 {
                     ViewBag.acCreateError = "Tên tài khoản hoặc email đã được đăng ký bởi người dùng khác";
@@ -202,6 +212,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     return View(new CreateModel() { currentUsername = GetCurrentUserName() });
                 }
 
+                // validate the cart info
                 if (account.CardNumber != null
                     || account.SecretNumber != null
                     || account.ValidDate != null)
@@ -223,6 +234,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     }
                 }
 
+                // Add new account
                 Account newAccount = new Account()
                 {
                     Username = account.Username,
@@ -234,6 +246,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
 
                 int accountID = newAccount.ID;
 
+                // Add new customer info
                 Customer newCustomer = new Customer()
                 {
                     Fullname = account.Fullname,
@@ -260,12 +273,14 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
-
+        //GET: /Admin/Account/Update/:id
         public IActionResult Update(int id)
         {
             try
             {
                 int _id = id;
+
+                // Find account by id
                 AdminAccountDetailsViewModel account = _context.accounts
                     .Where(ac => ac.ID == id)
                     .Include(ac => ac.customer)
@@ -283,6 +298,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         SecretNumber = ac.customer.SecretNumber
                     }).FirstOrDefault();
 
+                // Get totalpay, totalorder by account
                 var rc = _context.receipts
                     .Where(rc => rc.accountID == id)
                     .GroupBy(rc => rc.accountID)
@@ -318,6 +334,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
+        //POST: /Admin/Account/Update/:id
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Update(AdminUpdateAcccountViewModel account, int id)
@@ -331,6 +348,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     .Where(ac => ac.ID != id)
                     .FirstOrDefault();
 
+                // check if new email exist
                 if (isEmailExist != null)
                 {
                     TempData["acUpdateError"] = "Email đã được đăng ký bởi người dùng khác";
@@ -338,6 +356,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     return RedirectToAction("Update", "Account");
                 }
 
+                //validate cart info
                 if (updateInfo.CardNumber != null
                     || updateInfo.SecretNumber != null
                     || updateInfo.ValidDate != null)
@@ -361,6 +380,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     .Where(c => c.AccountID == id)
                     .FirstOrDefault();
 
+                // if null then add, esle then update customer info
                 if (customer != null)
                 {
                     customer.Fullname = updateInfo.Fullname;
@@ -412,7 +432,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 var account = _context.accounts
                     .Where(ac => ac.ID == id)
                     .FirstOrDefault();
-
+                
                 account.IsDelete = true;
                 _context.SaveChanges();
 

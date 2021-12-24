@@ -21,11 +21,13 @@ namespace Clothing_Store.Controllers
             _context = context;
         }
 
+        // Get cart by account
         // GET: Cart
         public ActionResult Index()
         {
             try
             {
+                // check logged in
                 var isLoggedIn = HttpContext.Session.GetInt32(SESSION_USER_ID) != null;
                 if (!isLoggedIn)
                 {
@@ -34,6 +36,7 @@ namespace Clothing_Store.Controllers
 
                 int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
 
+                // Get all products in cart by account  
                 var cartDetails = _context.cartDetails
                     .Include(w => w.product)
                     .ThenInclude(p => p.promotion)
@@ -68,6 +71,7 @@ namespace Clothing_Store.Controllers
             }
         }
 
+        // Remove a product from cart
         // GET: Cart/Remove/5
         public ActionResult Remove(int cartDetailsID)
         {
@@ -81,11 +85,13 @@ namespace Clothing_Store.Controllers
 
                 int userID = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
 
+                // Find the product in cart
                 var cartD = _context.cartDetails
                     .Where(cd => cd.ID == cartDetailsID)
                     .Where(cd => cd.accountID == userID)
                     .FirstOrDefault();
 
+                // update the IsDelete and IsSelected value
                 if (cartD != null)
                 {
                     cartD.IsDelete = true;
@@ -120,6 +126,7 @@ namespace Clothing_Store.Controllers
                     .Where(a => a.ID == accId)
                     .FirstOrDefault();
 
+                // Get customer info
                 PaymentInfoModel customerInfo = new PaymentInfoModel();
                 if (isExits != null)
                 {
@@ -134,6 +141,7 @@ namespace Clothing_Store.Controllers
                     customerInfo.SecretNumber = isExits.SecretNumber == null ? "" : isExits.SecretNumber;
                 }
 
+                // Get the selected product in cart by account
                 List<CartPaymentModel> selectedProducts = _context.cartDetails
                     .Where(cd => cd.accountID == accId)
                     .Where(cd => cd.IsSelected == true)
@@ -170,6 +178,7 @@ namespace Clothing_Store.Controllers
             {
                 var data = form["items_select[]"];
 
+                // check if user choose at lease 1 product
                 if (data.Count == 0)
                 {
                     return Json(new { status = "fail", mess = "Cần chọn ít nhất 1 sản phẩm để thanh toán" });
@@ -195,6 +204,7 @@ namespace Clothing_Store.Controllers
                 int cartDetailsID = 0;
                 int quantity = 0;
                 
+                // Check quantity of product with size, color in warehouse
                 string[] cartDetailsID_quantity;
                 for (int i = 0; i < data.Count; i++)
                 {
@@ -294,12 +304,14 @@ namespace Clothing_Store.Controllers
                 int productID = 0;
                 Int32.TryParse(ProductID, out productID);
 
+                // Check if product in cart
                 var isProducuInCart = _context.cartDetails
                     .Where(cd => cd.accountID == userID)
                     .Where(cd => cd.IsDelete == false)
                     .Where(cd => cd.productID == productID && cd.Color == color && cd.Size == size)
                     .FirstOrDefault();
 
+                // if null then add, else then update the quantity
                 if (isProducuInCart == null)
                 {
                     CartDetails new_cd = new CartDetails()

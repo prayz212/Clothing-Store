@@ -20,10 +20,12 @@ namespace Clothing_Store.Areas.Admin.Controllers
             _context = context;
         }
 
+        // GET: /Admin/Receipt
         public IActionResult Index()
         {
             try
             {
+                // Get all receipts
                 List<AdminReceiptHistoryModel> receipts = _context.receipts
                     .Select(r => new AdminReceiptHistoryModel
                     {
@@ -45,10 +47,12 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
+        // GET: /Admin/Receipt/Details/:id
         public IActionResult Details (int id)
         {
             try
             {
+                // Get receipt info
                 AdminReceiptDetailModel receipt = _context.receipts
                     .Where(r => r.ID == id)
                     .Select(r => new AdminReceiptDetailModel
@@ -68,6 +72,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                         TotalPay = r.TotalPay
                     }).FirstOrDefault();
 
+                // Get receipt details (products)
                 List<ReceiptDetail> details = _context.receiptDetails
                     .Where(rd => rd.ReceiptID == id)
                     .Select(rd => new ReceiptDetail
@@ -99,6 +104,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
+        // POST: /Admin/Receipt/UpadteStatus/:id
         [HttpPost]
         public IActionResult UpadteStatus(IFormCollection form, int id)
         {
@@ -110,6 +116,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     .Where(rc => rc.ID == id)
                     .FirstOrDefault();
 
+                // if oreder status = success then Delivery = Datetime Now
                 if (status == OrderStatus.SUCCESS)
                 {
                     receipt.Status = status;
