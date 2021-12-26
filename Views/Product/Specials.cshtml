@@ -18,6 +18,10 @@
                         <div class="__product">
                             <div class="__product-header">
                                 <img src="~/uploads/product/@item.image.URL" alt="@item.image.Name">
+                                @if (item.discount != 0) {
+                                    <img style="width: 7rem; height: 5rem; position: absolute; top: 1%; right: 2%" src="~/images/sales.png" alt="discount">
+                                    <span style="position: absolute; top: 6.5%; right: 9%; color: red; font-size: 1.4rem;">-@item.discount%</span>
+                                }
                                 <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">
                                     <ul class="icons">
                                         <span><i class='bx bxs-show show-icons'></i></span>

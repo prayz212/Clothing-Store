@@ -62,7 +62,10 @@ namespace Clothing_Store.Controllers
                                 ? (int)Math.Round((p.Price - (p.Price * (double)p.promotion.Discount / 100)) / 1000) * 1000
                                 : p.Price,
                     ratings = (int)Math.Round(p.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
-                    image = p.images.Where(i => i.IsDelete == false).FirstOrDefault()
+                    image = p.images.Where(i => i.IsDelete == false).FirstOrDefault(),
+                    discount = (p.promotion != null || !p.promotion.IsDelete) && (p.promotion.To > DateTime.Now)
+                                ? p.promotion.Discount
+                                : 0,
                 });
 
                 switch (sortBy)
@@ -123,7 +126,10 @@ namespace Clothing_Store.Controllers
                             ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
                             : pt.product.Price,
                         ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
-                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault()
+                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
+                        discount = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
+                            ? pt.product.promotion.Discount
+                            : 0,
                     });
 
                 return View("Specials", await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), page ?? 1, PAGE_SIZE));
@@ -159,7 +165,10 @@ namespace Clothing_Store.Controllers
                             ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
                             : pt.product.Price,
                         ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
-                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault()
+                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
+                        discount = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
+                            ? pt.product.promotion.Discount
+                            : 0,
                     });
 
                 return View("Specials", await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), page ?? 1, PAGE_SIZE));
@@ -195,7 +204,10 @@ namespace Clothing_Store.Controllers
                             ? (int)Math.Round((p.Price - (p.Price * (double)p.promotion.Discount / 100)) / 1000) * 1000
                             : p.Price,
                         ratings = (int)Math.Round(p.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
-                        image = p.images.Where(i => i.IsDelete == false).FirstOrDefault()
+                        image = p.images.Where(i => i.IsDelete == false).FirstOrDefault(),
+                        discount = (p.promotion != null || !p.promotion.IsDelete)
+                            ? p.promotion.Discount
+                            : 0,
                     });
 
                 return View("Specials", await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), page ?? 1, PAGE_SIZE));
@@ -260,7 +272,10 @@ namespace Clothing_Store.Controllers
                             ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
                             : pt.product.Price,
                         ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
-                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault()
+                        image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
+                        discount = (pt.product.promotion != null || !pt.product.promotion.IsDelete)
+                            ? pt.product.promotion.Discount
+                            : 0,
                     }).ToList();
 
                 ProductDetailViewModel vm = new ProductDetailViewModel();

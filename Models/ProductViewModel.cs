@@ -10,5 +10,6 @@ namespace Clothing_Store.Models
         public int Price { get; set; }
         public int ratings { get; set; }
         public Image image { get; set; }
+        public int discount { get; set; }
     }
 }
