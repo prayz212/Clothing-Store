@@ -13543,7 +13543,32 @@ input::-webkit-inner-spin-button {
     margin-right: .5rem !important;
 }
 
-/*Stock input page*/
+/*   Stock input page   */
 .__stock-in-page {
     background-color: #f5f5f5;
+}
+
+
+/*   print    */
+@media print {
+    .none-print {
+        display: none;
+    }
+
+    .print-col-6 {
+        width: 50%;
+    }
+
+    .table-responsive {
+        overflow: hidden;
+    }
+
+    table, th, td {
+        border: 1px solid black !important;
+        border-collapse: collapse !important;
+    }
+
+    .invoice-container .invoice-details {
+        padding: 0;
+    }
 }
