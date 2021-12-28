@@ -137,6 +137,7 @@ $(document).ready(function () {
     })
 
     // add product to cart
+    let timeout;
     $('#addToCartForm').submit(function(e) {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -146,29 +147,39 @@ $(document).ready(function () {
         } else if ($('#product_size').find(":selected").val() == "selectSize") {
             $('#errorMess').text("Quý khách cần chọn kích cỡ cho sản phẩm")
         } else {
-            var form = $(this);
-            var url = window.location.protocol + "//" + window.location.host + form.attr('action');
-            var data = $(this).find(':input').serialize()
-            
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: data,
-                success: function (data) {
+            $('#addToCartBtn').html(`<div class="me-3 spinner-border spinner-border-sm align-self-center"></div>
+                                    Thêm vào giỏ hàng..`)
+            $('#addToCartBtn').attr('disabled', true)
 
-                    if (data.status == 'success') {
-                        showToast("success", "Sản phẩm đã được thêm vào giỏ hàng")
-                    } else {
-                        if (data.url != "" && data.mess == "need to login") {
-                            var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
 
-                            window.location.replace(loginUrl)
+            timeout = setTimeout(() => {
+                $('#addToCartBtn').html('Thêm vào giỏ hàng')
+                $('#addToCartBtn').attr('disabled', false)
+
+                var form = $(this);
+                var url = window.location.protocol + "//" + window.location.host + form.attr('action');
+                var data = $(this).find(':input').serialize()
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: data,
+                    success: function (data) {
+
+                        if (data.status == 'success') {
+                            showToast("success", "Sản phẩm đã được thêm vào giỏ hàng")
                         } else {
-                            showToast("fail", "Rất tiếc đã xảy ra lỗi. Xin vui lòng thử lại sau.")
+                            if (data.url != "" && data.mess == "need to login") {
+                                var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
+
+                                window.location.replace(loginUrl)
+                            } else {
+                                showToast("fail", "Rất tiếc đã xảy ra lỗi. Xin vui lòng thử lại sau.")
+                            }
                         }
                     }
-                }
-            });
+                });
+            }, 2000)
         }
     })
 
@@ -183,39 +194,51 @@ $(document).ready(function () {
 
     // page Cart -> Cart/Payment
     $('#payment_btn').on('click', (e) => {
-        var form = $('#paymentForm');
-        var url = window.location.protocol + "//" + window.location.host + form.attr('action');
-        var data = form.find(':input[type=checkbox]:checked').serialize()
- 
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: data,
-            success: function (data) {
+        $('#payment_btn').html(`<div class="me-3 spinner-border spinner-border-sm align-self-center"></div>
+                                    Mua hàng..`)
+        $('#payment_btn').css("padding", "10px 20px")
+        $('#payment_btn').attr('disabled', true)
 
-                if (data.status == 'success') {
-                    if (data.url != "" && data.mess == null) {
-                        var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
 
-                        window.location.replace(loginUrl)
-                    } 
-                } else {
-                    if (data.url != "" && data.mess == "need to login") {
-                        var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
+        timeout = setTimeout(() => {
+            $('#payment_btn').html('Mua hàng')
+            $('#payment_btn').css("padding", "10px 30px")
+            $('#payment_btn').attr('disabled', false)
 
-                        window.location.replace(loginUrl)
+            var form = $('#paymentForm');
+            var url = window.location.protocol + "//" + window.location.host + form.attr('action');
+            var data = form.find(':input[type=checkbox]:checked').serialize()
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                success: function (data) {
+
+                    if (data.status == 'success') {
+                        if (data.url != "" && data.mess == null) {
+                            var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
+
+                            window.location.replace(loginUrl)
+                        }
                     } else {
-                        if (data.mess != null) {
-                            showToast("fail", data.mess)
+                        if (data.url != "" && data.mess == "need to login") {
+                            var loginUrl = window.location.protocol + "//" + window.location.host + data.url;
+
+                            window.location.replace(loginUrl)
                         } else {
-                            console.log(data)
-                            showToast("fail", "Đã xảy ra lỗi xin quý khách vui lòng tử lại sau")
+                            if (data.mess != null) {
+                                showToast("fail", data.mess)
+                            } else {
+                                console.log(data)
+                                showToast("fail", "Đã xảy ra lỗi xin quý khách vui lòng tử lại sau")
+                            }
                         }
                     }
                 }
-            }
-        });
+            });
 
+        }, 2000)
     })
 
     /*          ACCOUNT INFO            */
