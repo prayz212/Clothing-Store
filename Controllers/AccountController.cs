@@ -55,7 +55,7 @@ namespace Clothing_Store.Controllers
                     .Where(a => a.Username == account.register.Username)
                     .FirstOrDefault();
 
-
+                // Check if email and username are exists
                 if (isExistEmail == null && isExistUsername == null)
                 {
                     Account newAccount = new Account();
@@ -98,6 +98,7 @@ namespace Clothing_Store.Controllers
                     .Where(a => a.IsDelete == false)
                     .FirstOrDefault();
 
+                // Check if account exist 
                 if (isExist != null)
                 {
                     Admin isAdmin = _context.admins
@@ -262,6 +263,7 @@ namespace Clothing_Store.Controllers
                     .Where(c => c.AccountID == accId)
                     .FirstOrDefault();
 
+                // check if customer info exist
                 AccountInfoModel info;
                 if (customer != null)
                 {
@@ -432,6 +434,7 @@ namespace Clothing_Store.Controllers
 
             try
             {
+                // Get all receipt by account
                 int id = (int)HttpContext.Session.GetInt32(SESSION_USER_ID);
                 List<ReceiptHistoryModel> receipts = _context.receipts
                     .Where(r => r.account.ID == id)
@@ -465,6 +468,7 @@ namespace Clothing_Store.Controllers
 
             try
             {
+                // Get the reciept
                 ReceiptHistoryModel receipt = _context.receipts
                     .Where(r => r.ID == id)
                     .Select(r => new ReceiptHistoryModel
@@ -482,6 +486,7 @@ namespace Clothing_Store.Controllers
                         TotalPay = r.TotalPay
                     }).FirstOrDefault();
 
+                //Get all product in receipt
                 List<ReceiptDetail> details = _context.receiptDetails
                     .Where(rd => rd.ReceiptID == receipt.ID)
                     .Include(rd => rd.product)

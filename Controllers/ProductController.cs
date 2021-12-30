@@ -21,6 +21,7 @@ namespace Clothing_Store.Controllers
             _context = context;
         }
 
+        // Get all products (can using sort, search, filter and paginated)
         // GET: Product
         public async Task<IActionResult> Index(string sortBy, string searchByName, string currentSearch, string filter, int? page)
         {
@@ -45,6 +46,7 @@ namespace Clothing_Store.Controllers
 
                 ViewBag.currentSearch = searchByName;
 
+                // Select the product from DB
                 searchByName = searchByName.ToUpper();
                 filter = filter.ToUpper();
                 var products = _context.Products
@@ -68,6 +70,7 @@ namespace Clothing_Store.Controllers
                                 : 0,
                 });
 
+                // Sort the product list order
                 switch (sortBy)
                 {
                     case "name_desc":
@@ -90,7 +93,7 @@ namespace Clothing_Store.Controllers
                         break;
                 }
 
-                
+                // paginated the product list
                 return View(await PaginatedList<ProductViewModel>.CreateAsync(products.AsNoTracking(), page ?? 1, PAGE_SIZE));
             } catch (Exception e)
             {
@@ -98,6 +101,7 @@ namespace Clothing_Store.Controllers
             }
         }
 
+        // Get all topsales products
         // GET: Product/TopSales
         public async Task<IActionResult> TopSales(int? page)
         {
@@ -110,6 +114,7 @@ namespace Clothing_Store.Controllers
                     .Where(t => t.Name == "San Pham Ban Chay")
                     .FirstOrDefault();
 
+                // Get all product have tag TopSales
                 var products = _context.productTags
                     .Where(pt => pt.tag.Name == "San Pham Ban Chay")
                     .Where(pt => pt.product.IsDelete == false)
@@ -141,6 +146,7 @@ namespace Clothing_Store.Controllers
             
         }
 
+        // Get all new products
         // GET: Product/NewProducts
         public async Task<IActionResult> NewProducts(int? page)
         {
@@ -149,6 +155,7 @@ namespace Clothing_Store.Controllers
                 ViewBag.Title = "Sản phẩm mới";
                 ViewBag.Action = "NewProducts";
 
+                // Get all product have tag NewProduct
                 var products = _context.productTags
                     .Where(pt => pt.tag.Name == "San Pham Moi")
                     .Where(pt => pt.product.IsDelete == false)
@@ -180,7 +187,8 @@ namespace Clothing_Store.Controllers
 
         }
 
-        // GET: Product/Promotion
+        // Get all flashsale products
+        // GET: Product/Flashsale
         public async Task<IActionResult> FlashSale(int? page)
         {
             try
@@ -188,6 +196,7 @@ namespace Clothing_Store.Controllers
                 ViewBag.Title = "Flash Sale";
                 ViewBag.Action = "FlashSale";
 
+                // Get all product have promotion
                 var products = _context.Products
                     .Where(p => p.IsDelete == false)
                     .Where(p => p.Visible == true)
@@ -219,11 +228,13 @@ namespace Clothing_Store.Controllers
 
         }
 
+        // Get product details by ID
         // GET: Product/Details/5
         public IActionResult Details(int id)
         {
             try
             {
+                // Find the product have the same ID
                 Product detail = _context.Products
                     .Where(p => p.ID == id)
                     .Where(p => p.IsDelete == false)
@@ -256,6 +267,7 @@ namespace Clothing_Store.Controllers
                     .Select(pt => pt.TagID)
                     .ToList();
 
+                // Find relative products
                 var relative = _context.productTags
                     .Include(pt => pt.product)
                     .ThenInclude(p => p.ratings)
@@ -291,6 +303,7 @@ namespace Clothing_Store.Controllers
             
         }
 
+        // Rating to a product
         // POST: Product/Rating
         [HttpPost]
         public JsonResult Rating(IFormCollection form)

@@ -10,12 +10,13 @@ namespace Clothing_Store.Controllers
 {
     public class ExceptionController : Controller
     {
-        // GET: /<controller>/
+        // 404 Not found
         public IActionResult Notfound()
         {
             return View("Notfound");
         }
 
+        // 500 Error
         public IActionResult Error()
         {
             return View();

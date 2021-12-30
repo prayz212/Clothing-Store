@@ -19,10 +19,13 @@ namespace Clothing_Store.Controllers
             _context = context;
         }
 
+        // Home index
+        // GET: /Home
         public IActionResult Index()
         {
             try
             {
+                // Get top 8 first topsales product
                 var topSale = _context.productTags
                     .Where(pt => pt.tag.Name == "San Pham Ban Chay")
                     .Where(pt => pt.product.IsDelete == false)
@@ -45,6 +48,7 @@ namespace Clothing_Store.Controllers
                             : 0,
                     }).Take(8);
 
+                // Get top 8 first newproduct product
                 var newProducts = _context.productTags
                     .Where(pt => pt.tag.Name == "San Pham Moi")
                     .Where(pt => pt.product.IsDelete == false)

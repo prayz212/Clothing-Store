@@ -20,6 +20,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            // if loggedin redirect to receipt
             if (HttpContext.Session.GetInt32(SESSION_ADMIN_ID) != null)
             {
                 return RedirectToAction("Index", "Receipt");

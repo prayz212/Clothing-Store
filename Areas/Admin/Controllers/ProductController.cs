@@ -27,7 +27,8 @@ namespace Clothing_Store.Areas.Admin.Controllers
             _environment = environment;
         }
 
-        // GET: /<controller>/
+        // Get all products
+        // GET: /Admin/Product
         public IActionResult Index()
         {
             try
@@ -58,11 +59,13 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
+        // Get product details by ID
         //GET: /Admin/Product/Details/5
         public IActionResult Details(int id) 
         {
             try
             {
+                // Get product by id
                 AdminProductDetailViewModel vm = _context.Products
                     .Where(p => p.ID == id)
                     .Where(p => p.IsDelete == false)
@@ -137,6 +140,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 int price = 0;
                 Int32.TryParse(vm["model.Price"], out price);
 
+                // Add new product
                 Product product = new Product()
                 {
                     Name = vm["model.Name"],
@@ -149,6 +153,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 _context.Products.Add(product);
                 _context.SaveChanges();
 
+                // Add product tag
                 int _id = product.ID;
                 ProductTag productTag = new ProductTag();
                 int intTagID = 1;
@@ -167,6 +172,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 string baseName = product.Name;
                 List<Image> images = new List<Image>();
 
+                // Add images to DB
                 var files = HttpContext.Request.Form.Files;
                 var count = 0;
                 foreach (var image in files)
@@ -217,6 +223,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     .Where(p => p.ID == id)
                     .FirstOrDefault();
 
+                // Get promotion
                 PromotionViewModel promotion = _context.promotions
                     .Where(p => p.ProductID == id)
                     .Where(p => p.Visible == true && p.IsDelete == false)
@@ -238,6 +245,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 vm.model.Description = product.Description;
                 vm.model.Visible = product.Visible.ToString();
 
+                // Get images
                 List<Image> image = _context.images
                     .Where(i => i.product.ID == id)
                     .Where(i => i.IsDelete == false)
@@ -307,6 +315,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     }
                 }
 
+                // validate promotion info
                 if (vm["discountFrom"] != "" && vm["discountTo"] != "" && vm["discount"] != "")
                 {
                     DateTime from = DateTime.Parse(vm["discountFrom"]);
@@ -352,6 +361,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 int price = 0;
                 Int32.TryParse(vm["model.Price"], out price);
 
+                // Remove old images
                 string imgRemove = vm["removeImg"];
                 string[] imgs = imgRemove.Split("|");
                 Image deleteIMG = null;
@@ -373,6 +383,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                     }
                 }
 
+                // Remove old product tags
                 var oldProductTag = _context.productTags
                                     .Where(pt => pt.ProductID == id)
                                     .ToList();
@@ -392,6 +403,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
 
                 _context.SaveChanges();
 
+                // Update new product tags
                 ProductTag productTag = new ProductTag();
                 int intTagID = 1;
                 foreach (string tagID in vm["tags[]"])
@@ -409,6 +421,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
                 string baseName = product.Name;
                 List<Image> images = new List<Image>();
 
+                // Update new images
                 var files = HttpContext.Request.Form.Files;
                 var count = 0;
                 foreach (var image in files)
@@ -473,10 +486,12 @@ namespace Clothing_Store.Areas.Admin.Controllers
             
         }
 
+        //GET: /Admin/Product/StockIn/:id
         public IActionResult StockIn(int id)
         {
             try
             {
+                // Get all warehoust by product id
                 List<Warehouse> wareHouses = _context.warehouses
                     .Where(wh => wh.product.ID == id).ToList();
 
@@ -496,6 +511,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             }
         }
 
+        //POST: /Admin/Product/StockIn/:id
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult StockIn(AdminStockInViewModel productInfo, int id)
@@ -504,6 +520,7 @@ namespace Clothing_Store.Areas.Admin.Controllers
             {
                 var stockIn = productInfo.validate;
 
+                // Check quantity
                 if (stockIn.Quantity <= 0)
                 {
                     TempData["stockInError"] = "Số lượng sản phẩm phải lớn hơn 0";
@@ -511,12 +528,14 @@ namespace Clothing_Store.Areas.Admin.Controllers
 
                 }
 
+                // Find product in warehouse
                 var warehouse = _context.warehouses
                     .Where(wh => wh.product.ID == id)
                     .Where(wh => wh.Color == stockIn.Color)
                     .Where(wh => wh.Size == stockIn.Size)
                     .FirstOrDefault();
 
+                // if null then new warehouse, else then update the quantity
                 if (warehouse == null)
                 {
                     Product _product = _context.Products
