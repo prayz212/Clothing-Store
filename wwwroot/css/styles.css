@@ -1407,10 +1407,16 @@ th:last-child {
   border: none;
 }
 
-._btn:hover,
-._update-btn:hover {
-  background: #3556a6;
-}
+    ._btn:disabled,
+    ._btn[disabled] {
+        background: #6785ce;
+    }
+
+    ._btn:hover,
+    ._update-btn:hover {
+        background: #3556a6;
+    }
+
 
 form ._btn {
   width: 100%;

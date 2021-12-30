@@ -84,11 +84,11 @@
                 </div>
             </td>
             <td class="col-md-2 text-start"><div class="d-none d-sm-block"> Chọn tất cả (@Model.Count) </div></td>
-            <td class="col-md-7 text-end">Tổng thành tiền (<span id="num_selected_product">@numSelectedItem</span>): 
+            <td class="col-6 col-md-6 col-lg-7 text-end">Tổng thành tiền (<span id="num_selected_product">@numSelectedItem</span>): 
                 <div class="d-none" id="total_price">@selectedItemsPrice</div>
                 <b class="fs-1 text-primary" id="disp_total_price">@(selectedItemsPrice != 0 ? selectedItemsPrice.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")) : "0")đ</b>
             </td>
-            <td class="col-md-5 text-center"><button id="payment_btn" class="checkout _btn text-light w-75 d-flex justify-content-center">Mua hàng</button></td>
+            <td class="col-6 col-md-6 col-lg-5 text-center"><button id="payment_btn" class="checkout _btn text-light w-75 d-flex justify-content-center">Mua hàng</button></td>
         </tr>
     </table>
 
