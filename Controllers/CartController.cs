@@ -54,7 +54,7 @@ namespace Clothing_Store.Controllers
                         Type = cd.product.ProductType,
                         Price = cd.product.Price,
                         image = cd.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
-                        Promotion = (cd.product.promotion == null || cd.product.promotion.IsDelete || cd.product.promotion.To < DateTime.Now)
+                        Promotion = (cd.product.promotion == null || cd.product.promotion.IsDelete || cd.product.promotion.To < DateTime.Now || cd.product.promotion.From > DateTime.Now)
                                 ? 0
                                 : cd.product.promotion.Discount,
                         Size = cd.Size,
@@ -352,26 +352,33 @@ namespace Clothing_Store.Controllers
                 //Check valid info if payment method is credit card
                 if (info.Method == "CreditCard")
                 {
+                    List<CartPaymentModel> selectedProducts = _context.cartDetails
+                        .Where(cd => cd.accountID == accId)
+                        .Where(cd => cd.IsSelected == true)
+                        .Where(cd => cd.IsDelete == false)
+                        .Include(cd => cd.product)
+                        .ThenInclude(p => p.promotion)
+                        .Select(cd => new CartPaymentModel
+                        {
+                            product = cd.product,
+                            quantity = cd.Quantity,
+                            promotion = cd.product.promotion == null || cd.product.promotion.IsDelete || cd.product.promotion.To < DateTime.Now || cd.product.promotion.From > DateTime.Now
+                            ? null
+                            : cd.product.promotion
+                        })
+                        .ToList();
+
+                    payment.carts = selectedProducts;
+
                     if (info.CardNumber == null || info.ValidDate == null || info.SecretNumber == null)
                     {
-                        List<CartPaymentModel> selectedProducts = _context.cartDetails
-                            .Where(cd => cd.accountID == accId)
-                            .Where(cd => cd.IsSelected == true)
-                            .Where(cd => cd.IsDelete == false)
-                            .Include(cd => cd.product)
-                            .ThenInclude(p => p.promotion)
-                            .Select(cd => new CartPaymentModel
-                            {
-                                product = cd.product,
-                                quantity = cd.Quantity,
-                                promotion = cd.product.promotion == null || cd.product.promotion.IsDelete || cd.product.promotion.To < DateTime.Now || cd.product.promotion.From > DateTime.Now
-                                ? null
-                                : cd.product.promotion
-                            })
-                            .ToList();
-
-                        payment.carts = selectedProducts;
                         ViewBag.PaymentInfoErrorMsg = "Vui lòng nhập đầy đủ thông tin về thẻ tín dụng";
+                        return View(nameof(Payment), payment);
+                    }
+
+                    if (info.ValidDate < DateTime.Now)
+                    {
+                        ViewBag.PaymentInfoErrorMsg = "Thời gian hết hạn phải lớn hơn thời gian hiện tại";
                         return View(nameof(Payment), payment);
                     }
                 }

@@ -60,12 +60,12 @@ namespace Clothing_Store.Controllers
                 {
                     ID = p.ID,
                     Name = p.Name,
-                    Price = (p.promotion != null || !p.promotion.IsDelete) && (p.promotion.To > DateTime.Now)
+                    Price = (p.promotion != null || !p.promotion.IsDelete) && (p.promotion.To >= DateTime.Now) && (p.promotion.From <= DateTime.Now)
                                 ? (int)Math.Round((p.Price - (p.Price * (double)p.promotion.Discount / 100)) / 1000) * 1000
                                 : p.Price,
                     ratings = (int)Math.Round(p.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
                     image = p.images.Where(i => i.IsDelete == false).FirstOrDefault(),
-                    discount = (p.promotion != null || !p.promotion.IsDelete) && (p.promotion.To > DateTime.Now)
+                    discount = (p.promotion != null || !p.promotion.IsDelete) && (p.promotion.To >= DateTime.Now) && (p.promotion.From <= DateTime.Now)
                                 ? p.promotion.Discount
                                 : 0,
                 });
@@ -127,12 +127,12 @@ namespace Clothing_Store.Controllers
                     {
                         ID = pt.product.ID,
                         Name = pt.product.Name,
-                        Price = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
+                        Price = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To >= DateTime.Now) && (pt.product.promotion.From <= DateTime.Now)
                             ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
                             : pt.product.Price,
                         ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
                         image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
-                        discount = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
+                        discount = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To >= DateTime.Now) && (pt.product.promotion.From <= DateTime.Now)
                             ? pt.product.promotion.Discount
                             : 0,
                     });
@@ -168,12 +168,12 @@ namespace Clothing_Store.Controllers
                     {
                         ID = pt.product.ID,
                         Name = pt.product.Name,
-                        Price = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
+                        Price = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To >= DateTime.Now) && (pt.product.promotion.From <= DateTime.Now)
                             ? (int)Math.Round((pt.product.Price - (pt.product.Price * (double)pt.product.promotion.Discount / 100)) / 1000) * 1000
                             : pt.product.Price,
                         ratings = (int)Math.Round(pt.product.ratings.Where(r => r.IsDelete == false).Average(r => r.Star)),
                         image = pt.product.images.Where(i => i.IsDelete == false).FirstOrDefault(),
-                        discount = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To > DateTime.Now)
+                        discount = (pt.product.promotion != null || !pt.product.promotion.IsDelete) && (pt.product.promotion.To >= DateTime.Now) && (pt.product.promotion.From <= DateTime.Now)
                             ? pt.product.promotion.Discount
                             : 0,
                     });
@@ -200,6 +200,7 @@ namespace Clothing_Store.Controllers
                 var products = _context.Products
                     .Where(p => p.IsDelete == false)
                     .Where(p => p.Visible == true)
+                    .Where(p => p.promotion.From <= DateTime.Now)
                     .Where(p => p.promotion.To >= DateTime.Now)
                     .Where(p => p.promotion.IsDelete == false)
                     .Where(p => p.promotion.Visible == true)

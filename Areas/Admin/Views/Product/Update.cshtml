@@ -32,12 +32,13 @@
                                     var img1 = @Model.model.image1;
 
                                     <img alt="project-image"
-                                         src="~/uploads/product/@img1" />
+                                         src="~/uploads/product/@img1"
+                                         style="width: 100%"/>
                                 }
                                 else
                                 {
                                     <img alt="project-image"
-                                         style="display: none" />
+                                         style="display: none; width: 100%" />
                                 }
                             </div>
                             <div class="__thumbnail-input-pic rounded"
@@ -60,12 +61,13 @@
                                     var img2 = @Model.model.image2;
 
                                     <img alt="project-image"
-                                         src="~/uploads/product/@img2" />
+                                         src="~/uploads/product/@img2"
+                                         style="width: 100%"/>
                                 }
                                 else
                                 {
                                     <img alt="project-image"
-                                         style="display: none" />
+                                         style="display: none; width: 100%" />
                                 }
                             </div>
                             <div class="__thumbnail-input-pic rounded"
@@ -88,12 +90,13 @@
                                     var img3 = @Model.model.image3;
 
                                     <img alt="project-image"
-                                         src="~/uploads/product/@img3" />
+                                         src="~/uploads/product/@img3"
+                                         style="width: 100%"/>
                                 }
                                 else
                                 {
                                     <img alt="project-image"
-                                         style="display: none" />
+                                         style="display: none; width: 100%" />
                                 }
                             </div>
                             <div class="__thumbnail-input-pic rounded"
@@ -116,12 +119,13 @@
                                     var img4 = @Model.model.image4;
 
                                     <img alt="project-image"
-                                         src="~/uploads/product/@img4" />
+                                         src="~/uploads/product/@img4"
+                                         style="width: 100%"/>
                                 }
                                 else
                                 {
                                     <img alt="project-image"
-                                         style="display: none" />
+                                         style="display: none; width: 100%" />
                                 }
                             </div>
                         </div>
@@ -139,13 +143,14 @@
                                     var img1 = @Model.model.image1;
 
                                     <img src="~/uploads/product/@img1"
-                                         alt="project-image" />
+                                         alt="project-image"
+                                         style="width: 100%"/>
                                 }
                                 else
                                 {
                                     <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
                                          alt="project-image"
-                                         style="display: none" />
+                                         style="display: none; width: 100%" />
                                 }
                             </div>
                         </div>
@@ -290,7 +295,8 @@
                             Lưu
                         </button>
                         <a class="btn btn-danger mx-3"
-                           asp-action="Index"
+                           asp-action="Details"
+                           asp-route-id="@Model.product.ID"
                            role="button">
                             Huỷ
                         </a>

@@ -48,6 +48,7 @@ namespace Clothing_Store.Areas.Admin.Models
         public string ProductType { get; set; }
 
         [Required(ErrorMessage = "Yêu cầu nhập giá sản phẩm")]
+        [Range(1000, Int32.MaxValue, ErrorMessage = "Giá sản phẩm phải lớn hơn 1000 đồng")]
         public int Price { get; set; }
 
         [Required(ErrorMessage = "Yêu cầu chọn tình trạng hiển thị")]

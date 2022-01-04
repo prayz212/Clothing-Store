@@ -64,11 +64,12 @@ $(document).ready(function () {
     const selectedImage = $(this).attr('src');
     $('.__main img').attr('src', selectedImage)
     });
-  
 
     const registerErrMsg = $("#error-msg-reg").html();
     if (registerErrMsg != "") {
-        $('#signup_span').click();
+        $("#_RegForm").css("transform", "translateX(-300px)");
+        $("#_LoginForm").css("transform", "translateX(-300px)");
+        $("#_Indicator").css("transform", "translateX(110px)");
     }
 
     $('#signin_span').click(() => {
